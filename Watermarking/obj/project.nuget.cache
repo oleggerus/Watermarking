@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "oYsPXeFmM9yccFMUZE0gYCdaeTqPhXM8womd9AR/ilQy1LZzkwH8lBkg1SEZ2+nDI4FhOAlGtPXbA/Z23RXpEg==",
+  "success": true,
+  "projectFilePath": "D:\\Магістерська\\Watermarking\\Watermarking\\Watermarking.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gerus\\.nuget\\packages\\accord\\3.8.0\\accord.3.8.0.nupkg.sha512",
+    "C:\\Users\\gerus\\.nuget\\packages\\accord.math\\3.8.0\\accord.math.3.8.0.nupkg.sha512",
+    "C:\\Users\\gerus\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\gerus\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\gerus\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
