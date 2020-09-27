@@ -4,165 +4,196 @@ using Accord.Statistics;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Text;
+using System.Threading.Tasks;
+using Watermarking;
+using Constants = Watermarking.Constants;
 
 namespace watermarking
 {
-    public static class SVD
-    {
-        private static Bitmap container_Reconstructed;
-        private static Bitmap watermark_Reconstructed;
-        private static double[,] key1;
-        private static double[] key2;
-        private static string input;
-        private static string input1;
 
-        public static void Encrypt(Bitmap container, Bitmap watermark)
+    public static class Svd
+    {
+     
+        private static Bitmap _containerReconstructed;
+        private static double[,] _key1;
+        private static double[] _key2;
+        private static string _input;
+        private static string _input1;
+
+        public static async Task<EncryptionResult> Encrypt(Bitmap container, Bitmap watermark, string fileName)
         {
 
-            int frame_dimension = 4;
+            var frameDimension = 4;
 
             // зчитування пікселів лени та бабуїна
-            StringBuilder String_With_Lena_Pixels_Colourful = new StringBuilder();
-            for (int x = 0; x < container.Width; x++)
+            var stringWithLenaPixelsColourful = new StringBuilder();
+            for (var x = 0; x < container.Width; x++)
             {
-                for (int y = 0; y < container.Height; y++)
+                for (var y = 0; y < container.Height; y++)
                 {
-                    String_With_Lena_Pixels_Colourful.Append(Convert.ToChar(container.GetPixel(x, y).R));
-                    String_With_Lena_Pixels_Colourful.Append(Convert.ToChar(container.GetPixel(x, y).G));
-                    String_With_Lena_Pixels_Colourful.Append(Convert.ToChar(container.GetPixel(x, y).B));
+                    stringWithLenaPixelsColourful.Append(Convert.ToChar(container.GetPixel(x, y).R));
+                    stringWithLenaPixelsColourful.Append(Convert.ToChar(container.GetPixel(x, y).G));
+                    stringWithLenaPixelsColourful.Append(Convert.ToChar(container.GetPixel(x, y).B));
                 }
             }
 
-            StringBuilder String_With_watermark_Pixels_Colourful = new StringBuilder();
-            for (int i = 0; i < watermark.Height; i++)
-                for (int j = 0; j < watermark.Width; j++)
+            var stringWithWatermarkPixelsColourful = new StringBuilder();
+            for (var i = 0; i < watermark.Height; i++)
+                for (var j = 0; j < watermark.Width; j++)
                 {
-                    String_With_watermark_Pixels_Colourful.Append(Convert.ToChar(watermark.GetPixel(i, j).R));
-                    String_With_watermark_Pixels_Colourful.Append(Convert.ToChar(watermark.GetPixel(i, j).G));
-                    String_With_watermark_Pixels_Colourful.Append(Convert.ToChar(watermark.GetPixel(i, j).B));
+                    stringWithWatermarkPixelsColourful.Append(Convert.ToChar(watermark.GetPixel(i, j).R));
+                    stringWithWatermarkPixelsColourful.Append(Convert.ToChar(watermark.GetPixel(i, j).G));
+                    stringWithWatermarkPixelsColourful.Append(Convert.ToChar(watermark.GetPixel(i, j).B));
                 }
 
-            var Matrix_Main = new double[container.Height * 3, container.Width];
+            var matrixMain = new double[container.Height * 3, container.Width];
 
             int tmpR = 0, tmpG = 1, tmpB = 2;
-            for (int i = 0; i < container.Width * 3; i += 3)
-                for (int j = 0; j < container.Height; j++)
+            for (var i = 0; i < container.Width * 3; i += 3)
+                for (var j = 0; j < container.Height; j++)
                 {
-                    Matrix_Main[i, j] = String_With_Lena_Pixels_Colourful[tmpR];
-                    Matrix_Main[i + 1, j] = String_With_Lena_Pixels_Colourful[tmpG];
-                    Matrix_Main[i + 2, j] = String_With_Lena_Pixels_Colourful[tmpB];
+                    matrixMain[i, j] = stringWithLenaPixelsColourful[tmpR];
+                    matrixMain[i + 1, j] = stringWithLenaPixelsColourful[tmpG];
+                    matrixMain[i + 2, j] = stringWithLenaPixelsColourful[tmpB];
                     tmpR += 3;
                     tmpG += 3;
                     tmpB += 3;
                 }
 
             // конвертація основної матриці 1536х512 в 16-ти стовпцеву
-            int columns = frame_dimension * frame_dimension;
-            int rows = ((container.Width / frame_dimension) * (container.Height / frame_dimension)) * 3;
-            var Matrix_Main_Converted = new double[rows, columns];
+            var columns = frameDimension * frameDimension;
+            var rows = ((container.Width / frameDimension) * (container.Height / frameDimension)) * 3;
+            var matrixMainConverted = new double[rows, columns];
 
-            int k1 = 0, l1 = 0, k_max = container.Height, l_max = container.Width;
-            int number_of_squares = k_max / frame_dimension;
+            int kMax = container.Height;
+            var numberOfSquares = kMax / frameDimension;
 
-            for (int i = 0; i < rows; i++)
-                for (int j = 0; j < columns; j++)
+            for (var i = 0; i < rows; i++)
+                for (var j = 0; j < columns; j++)
                 {
                     //Matrix_Main[i, j] = (double)((byte)container.GetPixel(((i * frame) / (int)(Math.Sqrt(rows * col))) * frame + j / frame, (i % ((int)(Math.Sqrt(rows * col)) / frame)) * frame + j % frame).ToArgb() & 0x000000ff);
-                    k1 = j / frame_dimension + (i / number_of_squares) * frame_dimension;
-                    l1 = j % frame_dimension + (i % number_of_squares) * frame_dimension;
-                    Matrix_Main_Converted[i, j] = Matrix_Main[k1, l1];
+                    var k1 = j / frameDimension + (i / numberOfSquares) * frameDimension;
+                    var l1 = j % frameDimension + (i % numberOfSquares) * frameDimension;
+                    matrixMainConverted[i, j] = matrixMain[k1, l1];
                 }
 
             // центрування конвертованої матриці
-            double[] Column_Mean = Matrix_Main_Converted.Mean(0);
-            var Matrix_Main_Converted_Centered = Matrix_Main_Converted.Subtract(Column_Mean, 0);
+            var columnMean = matrixMainConverted.Mean(0);
+            var matrixMainConvertedCentered = matrixMainConverted.Subtract(columnMean, 0);
 
             //SVD
-            SingularValueDecomposition svd = new SingularValueDecomposition(Matrix_Main_Converted_Centered);
-            var eigenvectors = svd.RightSingularVectors;
-            var Singularvalues = svd.Diagonal;
-            key1 = eigenvectors;
-            key2 = Singularvalues;
+            var svd = new SingularValueDecomposition(matrixMainConvertedCentered);
+            var eigenVectors = svd.RightSingularVectors;
+            var singularValues = svd.Diagonal;
+            _key1 = eigenVectors;
+            _key2 = singularValues;
 
-            double[] eigenvalues = Singularvalues.Pow(2);
-            eigenvalues = eigenvalues.Divide(Matrix_Main_Converted.GetLength(0) - 1);
+            var eigenvalues = singularValues.Pow(2);
+            eigenvalues = eigenvalues.Divide(matrixMainConverted.GetLength(0) - 1);
 
             // пошук середнього для пікселів бабуїна
-            int tmp_sum = 0, tmp_avg = 0;
-            for (int i = 0; i < String_With_watermark_Pixels_Colourful.Length; i++)
-                tmp_sum += (int)String_With_watermark_Pixels_Colourful[i];
-            tmp_avg = tmp_sum / String_With_watermark_Pixels_Colourful.Length;
+            int tmpSum = 0;
+            for (var i = 0; i < stringWithWatermarkPixelsColourful.Length; i++)
+                tmpSum += (int)stringWithWatermarkPixelsColourful[i];
+            var tmpAvg = tmpSum / stringWithWatermarkPixelsColourful.Length;
 
             // заміна 16-ої компоненти на центровані значення(пікселів) бабуїна
-            var Matrix_Main_Components = Matrix_Main_Converted_Centered.MultiplyByTranspose(eigenvectors.Transpose());
+            var matrixMainComponents = matrixMainConvertedCentered.DotWithTransposed(eigenVectors.Transpose());
 
-            for (int i = 0; i < Matrix_Main_Components.GetLength(0); i++)
+            for (var i = 0; i < matrixMainComponents.GetLength(0); i++)
             {
-                //Matrix_Main_Components[i, 15] = String_With_watermark_Pixels_Colourful_Centered[i];
-                Matrix_Main_Components[i, 0] = String_With_watermark_Pixels_Colourful[i] - tmp_avg;
+                matrixMainComponents[i, 15] = stringWithWatermarkPixelsColourful[i] - tmpAvg;
+                // Matrix_Main_Components[i, 0] = String_With_watermark_Pixels_Colourful[i] - tmp_avg;
                 //Matrix_Main_Components[i, 0] = 0;
             }
 
             // реконструкція конвертованої матриці
-            var Back_To_Matrix_Main_Converted_Centered = Matrix_Main_Components.DotWithTransposed(eigenvectors);
-            double[,] Matrix_Reconstructed = Back_To_Matrix_Main_Converted_Centered.Add(Column_Mean, 0);
+            var backToMatrixMainConvertedCentered = matrixMainComponents.DotWithTransposed(eigenVectors);
+            var matrixReconstructed = backToMatrixMainConvertedCentered.Add(columnMean, 0);
+
 
             // повна реконструкція матриці
-            var Matrix_Main_Reconstructed_Fully = new double[container.Height * 3, container.Width];
-            int k2 = 0, l2 = 0;
-            for (int i = 0; i < Matrix_Reconstructed.GetLength(0); i++)
+            var matrixMainReconstructedFully = new double[container.Height * 3, container.Width];
+            for (var i = 0; i < matrixReconstructed.GetLength(0); i++)
             {
-                for (int j = 0; j < Matrix_Reconstructed.GetLength(1); j++)
+                for (var j = 0; j < matrixReconstructed.GetLength(1); j++)
                 {
-                    k2 = j / frame_dimension + (i / number_of_squares) * frame_dimension;
-                    l2 = j % frame_dimension + (i % number_of_squares) * frame_dimension;
-                    Matrix_Main_Reconstructed_Fully[k2, l2] = Matrix_Reconstructed[i, j];
+                    var k2 = j / frameDimension + (i / numberOfSquares) * frameDimension;
+                    var l2 = j % frameDimension + (i % numberOfSquares) * frameDimension;
+                    matrixMainReconstructedFully[k2, l2] = matrixReconstructed[i, j];
                 }
             }
 
             // вивід кольорового зображення після певних перетворень
             int tmpR1 = 0, tmpG1 = 1, tmpB1 = 2;
-            for (int i = 0; i < container.Width * 3; i += 3)
-                for (int j = 0; j < container.Height; j++)
+            for (var i = 0; i < container.Width * 3; i += 3)
+                for (var j = 0; j < container.Height; j++)
                 {
-                    String_With_Lena_Pixels_Colourful[tmpR1] = (char)Matrix_Main_Reconstructed_Fully[i, j];
-                    String_With_Lena_Pixels_Colourful[tmpG1] = (char)Matrix_Main_Reconstructed_Fully[i + 1, j];
-                    String_With_Lena_Pixels_Colourful[tmpB1] = (char)Matrix_Main_Reconstructed_Fully[i + 2, j];
+                    stringWithLenaPixelsColourful[tmpR1] = (char)matrixMainReconstructedFully[i, j];
+                    stringWithLenaPixelsColourful[tmpG1] = (char)matrixMainReconstructedFully[i + 1, j];
+                    stringWithLenaPixelsColourful[tmpB1] = (char)matrixMainReconstructedFully[i + 2, j];
                     tmpR1 += 3;
                     tmpG1 += 3;
                     tmpB1 += 3;
                 }
 
-            int p = 0;
-            container_Reconstructed = new Bitmap(container.Height, container.Width);
-            int processedPixelR;
-            int processedPixelG;
-            int processedPixelB;
-            for (int i = 0; i < container.Width; i++)
-                for (int j = 0; j < container.Height; j++)
+            var p = 0;
+            _containerReconstructed = new Bitmap(container.Height, container.Width);
+            for (var i = 0; i < container.Width; i++)
+                for (var j = 0; j < container.Height; j++)
                 {
-                    processedPixelR = Convert.ToInt32(String_With_Lena_Pixels_Colourful[p]);
+                    var processedPixelR = Convert.ToInt32(stringWithLenaPixelsColourful[p]);
                     if (processedPixelR < 0) processedPixelR = 0;
                     if (processedPixelR > 255) processedPixelR = 255;
                     p++;
-                    processedPixelG = Convert.ToInt32(String_With_Lena_Pixels_Colourful[p]);
+                    var processedPixelG = Convert.ToInt32(stringWithLenaPixelsColourful[p]);
                     if (processedPixelG < 0) processedPixelG = 255;
                     if (processedPixelG > 255) processedPixelG = 0;
                     p++;
-                    processedPixelB = Convert.ToInt32(String_With_Lena_Pixels_Colourful[p]);
+                    var processedPixelB = Convert.ToInt32(stringWithLenaPixelsColourful[p]);
                     if (processedPixelB < 0) processedPixelB = 0;
                     if (processedPixelB > 255) processedPixelB = 255;
                     p++;
-                    container_Reconstructed.SetPixel(i, j, Color.FromArgb(Convert.ToByte(processedPixelR), Convert.ToByte(processedPixelG), Convert.ToByte(processedPixelB)));
+                    _containerReconstructed.SetPixel(i, j, Color.FromArgb(Convert.ToByte(processedPixelR), Convert.ToByte(processedPixelG), Convert.ToByte(processedPixelB)));
                 }
-            container_Reconstructed.Save("..\\..\\..\\Lena_Reconstructed_Colourful.bmp");
+
+
+            await SaveAllDataToFiles(_containerReconstructed, fileName, _key1, _key2);
+
+            return PrepareEncryptionResult(container, watermark, _containerReconstructed);
         }
 
-        public static Bitmap Decrypt(Bitmap encryptedContainer)
+        private static async Task SaveAllDataToFiles(Image containerProcessed, string fileName, double[,] outputKey1, IEnumerable<double> outputKey2)
         {
-            input = @"..\\..\\..\\eigenvectors.txt";
-            input1 = @"..\\..\\..\\Singularvalues.txt";
+            var newFileName = $"{fileName}_Container"; 
+            containerProcessed.Save(Path.Combine(Constants.ContainersProcessedPath, $"{newFileName}.bmp"));
+
+            await using (var key1Writer = new StreamWriter(Path.Combine(Constants.DecryptKeysPath, $"{newFileName}_EigenVectors.txt")))
+            {
+                for (var i = 0; i < outputKey1.GetLength(0); i++)
+                {
+                    for (var j = 0; j < outputKey1.GetLength(1); j++)
+                    {
+                        await key1Writer.WriteAsync($"{outputKey1[i, j]} ");
+                    }
+                    await key1Writer.WriteLineAsync();
+                }
+            }
+
+
+            await using var key2Writer = new StreamWriter(Path.Combine(Constants.DecryptKeysPath, $"{newFileName}_SingularValues.txt"));
+            foreach (var key in outputKey2)
+            {
+                await key2Writer.WriteAsync($"{key} ");
+            }
+        }
+
+        public static async Task<Bitmap> Decrypt(Bitmap encryptedContainer, string fileName)
+        {
+            _input = Path.Combine(Constants.DecryptKeysPath, $"{fileName}_EigenVectors.txt");
+            _input1 = Path.Combine(Constants.DecryptKeysPath, $"{fileName}_SingularValues.txt");
 
             #region grey
             //cmode = radioButtonGrayscale.Checked;
@@ -329,184 +360,194 @@ namespace watermarking
 
             #endregion
 
-            int frame_dimension = 4;
+            const int frameDimension = 4;
 
             // зчитування пікселів лени та бабуїна
-            StringBuilder String_With_Lena_Pixels_Colourful = new StringBuilder();
-            for (int x = 0; x < encryptedContainer.Width; x++)
-                for (int y = 0; y < encryptedContainer.Height; y++)
+            var stringWithLenaPixelsColorful = new StringBuilder();
+            for (var x = 0; x < encryptedContainer.Width; x++)
+                for (var y = 0; y < encryptedContainer.Height; y++)
                 {
-                    String_With_Lena_Pixels_Colourful.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).R));
-                    String_With_Lena_Pixels_Colourful.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).G));
-                    String_With_Lena_Pixels_Colourful.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).B));
+                    stringWithLenaPixelsColorful.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).R));
+                    stringWithLenaPixelsColorful.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).G));
+                    stringWithLenaPixelsColorful.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).B));
                 }
 
-            double[] Array_With_watermark_Pixels_Colourful = new double[49152];
+            var arrayWithWatermarkPixelsColorful = new double[49152];
 
-            var Matrix_Main = new double[encryptedContainer.Height * 3, encryptedContainer.Width];
+            var matrixMain = new double[encryptedContainer.Height * 3, encryptedContainer.Width];
 
             int tmpR = 0, tmpG = 1, tmpB = 2;
-            for (int i = 0; i < encryptedContainer.Width * 3; i += 3)
-                for (int j = 0; j < encryptedContainer.Height; j++)
+            for (var i = 0; i < encryptedContainer.Width * 3; i += 3)
+                for (var j = 0; j < encryptedContainer.Height; j++)
                 {
-                    Matrix_Main[i, j] = String_With_Lena_Pixels_Colourful[tmpR];
-                    Matrix_Main[i + 1, j] = String_With_Lena_Pixels_Colourful[tmpG];
-                    Matrix_Main[i + 2, j] = String_With_Lena_Pixels_Colourful[tmpB];
+                    matrixMain[i, j] = stringWithLenaPixelsColorful[tmpR];
+                    matrixMain[i + 1, j] = stringWithLenaPixelsColorful[tmpG];
+                    matrixMain[i + 2, j] = stringWithLenaPixelsColorful[tmpB];
                     tmpR += 3;
                     tmpG += 3;
                     tmpB += 3;
                 }
 
             // конвертація основної матриці 1536х512 в 16-ти стовпцеву
-            int columns = frame_dimension * frame_dimension;
-            int rows = ((encryptedContainer.Width / frame_dimension) * (encryptedContainer.Height / frame_dimension)) * 3;
-            var Matrix_Main_Converted = new double[rows, columns];
+            const int columns = frameDimension * frameDimension;
+            var rows = ((encryptedContainer.Width / frameDimension) * (encryptedContainer.Height / frameDimension)) * 3;
+            var matrixMainConverted = new double[rows, columns];
 
-            int k1 = 0, l1 = 0, k_max = encryptedContainer.Height, l_max = encryptedContainer.Width;
-            int number_of_squares = k_max / frame_dimension;
+            var kMax = encryptedContainer.Height;
+            var numberOfSquares = kMax / frameDimension;
 
-            for (int i = 0; i < rows; i++)
-                for (int j = 0; j < columns; j++)
+            for (var i = 0; i < rows; i++)
+                for (var j = 0; j < columns; j++)
                 {
                     //Matrix_Main[i, j] = (double)((byte)encryptedContainer.GetPixel(((i * frame) / (int)(Math.Sqrt(rows * col))) * frame + j / frame, (i % ((int)(Math.Sqrt(rows * col)) / frame)) * frame + j % frame).ToArgb() & 0x000000ff);
-                    k1 = j / frame_dimension + (i / number_of_squares) * frame_dimension;
-                    l1 = j % frame_dimension + (i % number_of_squares) * frame_dimension;
-                    Matrix_Main_Converted[i, j] = Matrix_Main[k1, l1];
+                    var k1 = j / frameDimension + (i / numberOfSquares) * frameDimension;
+                    var l1 = j % frameDimension + (i % numberOfSquares) * frameDimension;
+                    matrixMainConverted[i, j] = matrixMain[k1, l1];
                 }
 
             // центрування конвертованої матриці
-            double[] Column_Mean = Matrix_Main_Converted.Mean(0);
-            var Matrix_Main_Converted_Centered = Matrix_Main_Converted.Subtract(Column_Mean, 0);
+            var columnMean = matrixMainConverted.Mean(0);
+            var matrixMainConvertedCentered = matrixMainConverted.Subtract(columnMean, 0);
 
             // дешифрування
             // зчитування ключів
-            // перше eigen vectors
-            //string input = @"..\\..\\..\\eigenvectorsC.txt";
 
-            double[,] eigenvectors = new double[16, 16];
-            String[,] array2D;
+            var eigenVectors = new double[16, 16];
             int numberOfLines = 0, numberOfColumns = 0;
             string line;
-            System.IO.StreamReader sr = new System.IO.StreamReader(input);
-
-            while ((line = sr.ReadLine()) != null)
+            using (var reader = new StreamReader(_input))
             {
-                numberOfColumns = line.Split(' ').Length;
-                numberOfLines++;
+                while ((line = await reader.ReadLineAsync()) != null)
+                {
+                    numberOfColumns = line.Split(' ').Length;
+                    numberOfLines++;
+                }
             }
-            sr.Close();
 
-            array2D = new String[numberOfLines, numberOfColumns];
+            var array2D = new string[numberOfLines, numberOfColumns];
             numberOfLines = 0;
 
-            sr = new System.IO.StreamReader(input);
-            while ((line = sr.ReadLine()) != null)
+            using (var reader = new StreamReader(_input))
             {
-                String[] tempArray = line.Split(' ');
-                for (int i = 0; i < tempArray.Length; ++i)
+                while ((line = await reader.ReadLineAsync()) != null)
                 {
-                    array2D[numberOfLines, i] = tempArray[i];
+                    var tempArray = line.Split(' ');
+                    for (var i = 0; i < tempArray.Length; ++i)
+                    {
+                        array2D[numberOfLines, i] = tempArray[i];
+                    }
+                    numberOfLines++;
                 }
-                numberOfLines++;
             }
 
-            for (int i = 0; i < 16; i++)
-                for (int j = 0; j < 16; j++)
-                    eigenvectors[i, j] = Convert.ToDouble(array2D[i, j]);
+            for (var i = 0; i < 16; i++)
+                for (var j = 0; j < 16; j++)
+                    eigenVectors[i, j] = Convert.ToDouble(array2D[i, j]);
 
-            // потім Singularvalues
-            //string input1 = @"..\\..\\..\\SingularvaluesC.txt";
 
-            double[,] Singularvalues1 = new double[1, 16];
+            var singularValues1 = new double[1, 16];
 
-            String[,] array2D1;
             int numberOfLines1 = 0, numberOfColumns1 = 0;
             string line1;
-            System.IO.StreamReader sr1 = new System.IO.StreamReader(input1);
-
-            while ((line1 = sr1.ReadLine()) != null)
+            using (var reader = new StreamReader(_input1))
             {
-                numberOfColumns1 = line1.Split(' ').Length;
-                numberOfLines1++;
+                while ((line1 = await reader.ReadLineAsync()) != null)
+                {
+                    numberOfColumns1 = line1.Split(' ').Length;
+                    numberOfLines1++;
+                }
             }
-            sr1.Close();
 
-            array2D1 = new String[numberOfLines1, numberOfColumns1];
+            var array2D1 = new string[numberOfLines1, numberOfColumns1];
             numberOfLines1 = 0;
 
-            sr1 = new System.IO.StreamReader(input1);
-            while ((line1 = sr1.ReadLine()) != null)
+            using (var reader = new StreamReader(_input1))
             {
-                String[] tempArray1 = line1.Split(' ');
-                for (int i = 0; i < tempArray1.Length; ++i)
+                while ((line1 = await reader.ReadLineAsync()) != null)
                 {
-                    array2D1[numberOfLines1, i] = tempArray1[i];
+                    var tempArray1 = line1.Split(' ');
+                    for (var i = 0; i < tempArray1.Length; ++i)
+                    {
+                        array2D1[numberOfLines1, i] = tempArray1[i];
+                    }
+                    numberOfLines1++;
                 }
-                numberOfLines1++;
             }
 
-            for (int i = 0; i < 1; i++)
-                for (int j = 0; j < 16; j++)
-                    Singularvalues1[i, j] = Convert.ToDouble(array2D1[i, j]);
 
-            double[] Singularvalues = new double[16];
-            for (int i = 0; i < 16; i++)
-                Singularvalues[i] = Singularvalues1[0, i];
+            for (var i = 0; i < 1; i++)
+                for (var j = 0; j < 16; j++)
+                    singularValues1[i, j] = Convert.ToDouble(array2D1[i, j]);
 
-            double[] eigenvalues = Singularvalues.Pow(2);
-            eigenvalues = eigenvalues.Divide(Matrix_Main_Converted.GetLength(0) - 1);
+            var singularValues = new double[16];
+            for (var i = 0; i < 16; i++)
+                singularValues[i] = singularValues1[0, i];
+
+            var eigenvalues = singularValues.Pow(2);
+            eigenvalues.Divide(matrixMainConverted.GetLength(0) - 1);
 
             // заміна 16-ої компоненти на центровані значення(пікселів) бабуїна
-            var Matrix_Main_Components = Matrix_Main_Converted_Centered.MultiplyByTranspose(eigenvectors.Transpose());
-            for (int i = 0; i < Matrix_Main_Components.GetLength(0); i++)
+            var matrixMainComponents = matrixMainConvertedCentered.MultiplyByTranspose(eigenVectors.Transpose());
+            for (var i = 0; i < matrixMainComponents.GetLength(0); i++)
             {
-                Array_With_watermark_Pixels_Colourful[i] = Matrix_Main_Components[i, 15];
+                arrayWithWatermarkPixelsColorful[i] = matrixMainComponents[i, 15];
                 //Matrix_Main_Components[i, 15] = 0;
             }
 
             // пошук середнього для пікселів бабуїна
-            for (int i = 0; i < 49152; i++)
-                Array_With_watermark_Pixels_Colourful[i] = Array_With_watermark_Pixels_Colourful[i] + 126;
+            for (var i = 0; i < 49152; i++)
+                arrayWithWatermarkPixelsColorful[i] = arrayWithWatermarkPixelsColorful[i] + 126;
 
             // збереження кольорового зображення після певних перетворень
             int tmpR1 = 0, tmpG1 = 1, tmpB1 = 2;
-            for (int i = 0; i < 49152; i += 3)
+            for (var i = 0; i < 49152; i += 3)
             {
-                String_With_Lena_Pixels_Colourful[tmpR1] = (char)Array_With_watermark_Pixels_Colourful[i];
-                String_With_Lena_Pixels_Colourful[tmpG1] = (char)Array_With_watermark_Pixels_Colourful[i + 1];
-                String_With_Lena_Pixels_Colourful[tmpB1] = (char)Array_With_watermark_Pixels_Colourful[i + 2];
+                stringWithLenaPixelsColorful[tmpR1] = (char)arrayWithWatermarkPixelsColorful[i];
+                stringWithLenaPixelsColorful[tmpG1] = (char)arrayWithWatermarkPixelsColorful[i + 1];
+                stringWithLenaPixelsColorful[tmpB1] = (char)arrayWithWatermarkPixelsColorful[i + 2];
                 tmpR1 += 3;
                 tmpG1 += 3;
                 tmpB1 += 3;
             }
 
-            int p = 0;
+            var p = 0;
             var decryptedWatermark = new Bitmap(128, 128);
-            int processedPixelR;
-            int processedPixelG;
-            int processedPixelB;
-            for (int i = 0; i < 128; i++)
-                for (int j = 0; j < 128; j++)
+            for (var i = 0; i < 128; i++)
+                for (var j = 0; j < 128; j++)
                 {
-                    processedPixelR = Convert.ToInt32(String_With_Lena_Pixels_Colourful[p]);
+                    var processedPixelR = Convert.ToInt32(stringWithLenaPixelsColorful[p]);
                     if (processedPixelR < 0) processedPixelR = 0;
                     if (processedPixelR > 255) processedPixelR = 255;
                     p++;
-                    processedPixelG = Convert.ToInt32(String_With_Lena_Pixels_Colourful[p]);
+                    var processedPixelG = Convert.ToInt32(stringWithLenaPixelsColorful[p]);
                     if (processedPixelG < 0) processedPixelG = 0;
                     if (processedPixelG > 255) processedPixelG = 255;
                     p++;
-                    processedPixelB = Convert.ToInt32(String_With_Lena_Pixels_Colourful[p]);
+                    var processedPixelB = Convert.ToInt32(stringWithLenaPixelsColorful[p]);
                     if (processedPixelB < 0) processedPixelB = 0;
                     if (processedPixelB > 255) processedPixelB = 255;
                     p++;
                     decryptedWatermark.SetPixel(i, j, Color.FromArgb(Convert.ToByte(processedPixelR), Convert.ToByte(processedPixelG), Convert.ToByte(processedPixelB)));
                 }
 
-            decryptedWatermark.Save("..\\..\\..\\decryptedWatermark.bmp");
-
+            decryptedWatermark.Save(Path.Combine(Constants.DecryptedWatermarksPath, $"{fileName}_decrypted.bmp"));
+            
             return decryptedWatermark;
         }
 
+        private static EncryptionResult PrepareEncryptionResult(
+            Bitmap inputContainer,
+            Bitmap inputKey,
+            Bitmap outputContainer
+            //Bitmap outputKey
+            )
+        {
+            return new EncryptionResult
+            {
+                InputContainer = inputContainer,
+                InputKey = inputKey,
+                OutputContainer = outputContainer,
+            };
+        }
     }
 }

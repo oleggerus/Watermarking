@@ -12,9 +12,9 @@ namespace Watermarking
 
             var contrast = Math.Pow((100.0 + threshold) / 100.0, 2);
 
-            for (int y = 0; y < bmp.Height; y++)
+            for (var y = 0; y < bmp.Height; y++)
             {
-                for (int x = 0; x < bmp.Width; x++)
+                for (var x = 0; x < bmp.Width; x++)
                 {
                     var oldColor = bmp.GetPixel(x, y);
                     var red = ((((oldColor.R / 255.0) - 0.5) * contrast) + 0.5) * 255.0;
@@ -34,41 +34,41 @@ namespace Watermarking
 
         }
 
-        public static Bitmap SetBrightness(Bitmap Image, int Value)
+        public static Bitmap SetBrightness(Bitmap image, int value)
         {
-            Bitmap TempBitmap = Image;
-            float FinalValue = (float)Value / 255.0f;
-            Bitmap NewBitmap = new System.Drawing.Bitmap(TempBitmap.Width, TempBitmap.Height);
-            System.Drawing.Graphics NewGraphics = Graphics.FromImage(NewBitmap);
-            float[][] FloatColorMatrix ={
+            var tempBitmap = image;
+            var finalValue = (float)value / 255.0f;
+            var newBitmap = new System.Drawing.Bitmap(tempBitmap.Width, tempBitmap.Height);
+            var newGraphics = Graphics.FromImage(newBitmap);
+            float[][] floatColorMatrix ={
                     new float[] {1, 0, 0, 0, 0},
                     new float[] {0, 1, 0, 0, 0},
                     new float[] {0, 0, 1, 0, 0},
                     new float[] {0, 0, 0, 1, 0},
-                    new float[] {FinalValue, FinalValue, FinalValue, 1, 1}
+                    new[] {finalValue, finalValue, finalValue, 1, 1}
                 };
 
-            System.Drawing.Imaging.ColorMatrix NewColorMatrix = new System.Drawing.Imaging.ColorMatrix(FloatColorMatrix);
-            System.Drawing.Imaging.ImageAttributes Attributes = new System.Drawing.Imaging.ImageAttributes();
-            Attributes.SetColorMatrix(NewColorMatrix);
-            NewGraphics.DrawImage(TempBitmap, new System.Drawing.Rectangle(0, 0, TempBitmap.Width, TempBitmap.Height), 0, 0, TempBitmap.Width, TempBitmap.Height, System.Drawing.GraphicsUnit.Pixel, Attributes);
-            Attributes.Dispose();
-            NewGraphics.Dispose();
-            return NewBitmap;
+            var newColorMatrix = new System.Drawing.Imaging.ColorMatrix(floatColorMatrix);
+            var attributes = new System.Drawing.Imaging.ImageAttributes();
+            attributes.SetColorMatrix(newColorMatrix);
+            newGraphics.DrawImage(tempBitmap, new System.Drawing.Rectangle(0, 0, tempBitmap.Width, tempBitmap.Height), 0, 0, tempBitmap.Width, tempBitmap.Height, System.Drawing.GraphicsUnit.Pixel, attributes);
+            attributes.Dispose();
+            newGraphics.Dispose();
+            return newBitmap;
         }
 
-        public static double CalculatePSNR(Bitmap originalBitmap, Bitmap processedBitmap)
+        public static double CalculatePsnr(Bitmap originalBitmap, Bitmap processedBitmap)
         {
 
             //cmode = radioButtonGrayscale.Checked;
-            int col2 = originalBitmap.Width;
+            var col2 = originalBitmap.Width;
             //ComparePSNR(Container, Container_Reconstructed);
             //if (cmode == true)
             //    rows2 = originalBitmap.Height;
             //else
-            int rows2 = originalBitmap.Height * 3;
+            var rows2 = originalBitmap.Height * 3;
 
-            double MSE = 0;
+            double mse = 0;
 
             //grey mode
             //if (cmode == true)
@@ -85,25 +85,25 @@ namespace Watermarking
             //}
             //else
             //{
-            for (int i = 0; i < rows2 / 3; i++)
-                for (int j = 0; j < col2; j++)
+            for (var i = 0; i < rows2 / 3; i++)
+                for (var j = 0; j < col2; j++)
                 {
-                    byte processedPixelR = processedBitmap.GetPixel(i, j).R;
-                    byte processedPixelG = processedBitmap.GetPixel(i, j).G;
-                    byte processedPixelB = processedBitmap.GetPixel(i, j).B;
+                    var processedPixelR = processedBitmap.GetPixel(i, j).R;
+                    var processedPixelG = processedBitmap.GetPixel(i, j).G;
+                    var processedPixelB = processedBitmap.GetPixel(i, j).B;
 
-                    byte originalPixelR = originalBitmap.GetPixel(i, j).R;
-                    byte originalPixelG = originalBitmap.GetPixel(i, j).G;
-                    byte originalPixelB = originalBitmap.GetPixel(i, j).B;
+                    var originalPixelR = originalBitmap.GetPixel(i, j).R;
+                    var originalPixelG = originalBitmap.GetPixel(i, j).G;
+                    var originalPixelB = originalBitmap.GetPixel(i, j).B;
 
-                    MSE += Math.Pow((Math.Abs(processedPixelR - originalPixelR)), 2);
-                    MSE += Math.Pow((Math.Abs(processedPixelG - originalPixelG)), 2);
-                    MSE += Math.Pow((Math.Abs(processedPixelB - originalPixelB)), 2);
+                    mse += Math.Pow((Math.Abs(processedPixelR - originalPixelR)), 2);
+                    mse += Math.Pow((Math.Abs(processedPixelG - originalPixelG)), 2);
+                    mse += Math.Pow((Math.Abs(processedPixelB - originalPixelB)), 2);
                 }
-            MSE = MSE / (rows2 * col2);
-            double PSNR = 10 * Math.Log10(256 * 256 / MSE);
+            mse /= (rows2 * col2);
+            var psnr = 10 * Math.Log10(256 * 256 / mse);
             //}
-            return PSNR;
+            return psnr;
         }
     }
 }
