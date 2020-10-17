@@ -36,6 +36,7 @@ namespace Watermarking
         {
 
             var pathKey = Path.Combine(Constants.KeysFolderPath, "BabooOriginal128color.bmp");
+            var keyOriginalBitmap = new Bitmap(pathKey);
 
             var containerPaths = Directory.GetFiles(Constants.ContainerFolderPath, "*.bmp",
                 SearchOption.TopDirectoryOnly);
@@ -43,7 +44,8 @@ namespace Watermarking
             foreach (var filePath in containerPaths)
             {
                 var fileName = Path.GetFileNameWithoutExtension(filePath);
-                var result = await Svd.Encrypt(new Bitmap(filePath), new Bitmap(pathKey), fileName);
+                var result = await Svd.Encrypt(new Bitmap(filePath), keyOriginalBitmap, fileName);
+                var psnr = Helpers.CalculatePsnr(result.InputContainer, result.OutputContainer);
             }
 
 
@@ -53,6 +55,8 @@ namespace Watermarking
             {
                 var fileName = Path.GetFileNameWithoutExtension(filePath);
                 var result = await Svd.Decrypt(new Bitmap(filePath), fileName);
+                var psnr = Helpers.CalculatePsnr(keyOriginalBitmap, result);
+
             }
 
         }

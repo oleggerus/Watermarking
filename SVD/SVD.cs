@@ -190,6 +190,12 @@ namespace watermarking
             }
         }
 
+        /// <summary>
+        /// Returns decrypted watermark
+        /// </summary>
+        /// <param name="encryptedContainer">container with watermark</param>
+        /// <param name="fileName">container file name</param>
+        /// <returns></returns>
         public static async Task<Bitmap> Decrypt(Bitmap encryptedContainer, string fileName)
         {
             _input = Path.Combine(Constants.DecryptKeysPath, $"{fileName}_EigenVectors.txt");
