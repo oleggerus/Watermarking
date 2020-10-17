@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using DAL.DAL;
+using DAL.Services;
 using watermarking;
 
 namespace Watermarking
@@ -34,55 +39,85 @@ namespace Watermarking
 
         private static async Task RunOneKeyForAllContainers()
         {
-
-            var pathKey = Path.Combine(Constants.KeysFolderPath, "BabooOriginal128color.bmp");
-            var keyOriginalBitmap = new Bitmap(pathKey);
-
-            var containerPaths = Directory.GetFiles(Constants.ContainerFolderPath, "*.bmp",
+            const string originalKeyFileName = "BabooOriginal128color.bmp";
+            
+            var originalContainerPaths = Directory.GetFiles(Constants.ContainerFolderPath, "*.bmp",
                 SearchOption.TopDirectoryOnly);
 
-            foreach (var filePath in containerPaths)
+            var results = new List<WatermarkingResults>();
+            foreach (var originalFilePath in originalContainerPaths)
             {
-                var fileName = Path.GetFileNameWithoutExtension(filePath);
-                var result = await Svd.Encrypt(new Bitmap(filePath), keyOriginalBitmap, fileName);
-                var psnr = Helpers.CalculatePsnr(result.InputContainer, result.OutputContainer);
+                var model = await ProcessData(originalFilePath, originalKeyFileName,
+                    Path.GetFileNameWithoutExtension(originalFilePath));
+                results.Add(model);
             }
 
-
-            var containerDecryptedPaths = Directory.GetFiles(Constants.ContainersProcessedPath, "*.bmp",
-                SearchOption.TopDirectoryOnly);
-            foreach (var filePath in containerDecryptedPaths)
-            {
-                var fileName = Path.GetFileNameWithoutExtension(filePath);
-                var result = await Svd.Decrypt(new Bitmap(filePath), fileName);
-                var psnr = Helpers.CalculatePsnr(keyOriginalBitmap, result);
-
-            }
-
+            await DalService.InsertResults(results);
         }
 
         private static async Task RunOneContainerForAllKeys()
         {
 
-            var pathContainer = Path.Combine(Constants.ContainerFolderPath, "LenaOriginal512color.bmp");
-            var keysPaths = Directory.GetFiles(Constants.KeysFolderPath, "*.bmp",
+            var originalFilePath = Path.Combine(Constants.ContainerFolderPath, "LenaOriginal512color.bmp");
+            var originalKeysPaths = Directory.GetFiles(Constants.KeysFolderPath, "*.bmp",
                 SearchOption.TopDirectoryOnly);
 
-            foreach (var keyPath in keysPaths)
+            var results = new List<WatermarkingResults>();
+            foreach (var originalKeyPath in originalKeysPaths)
             {
-                var fileName = Path.GetFileNameWithoutExtension(keyPath);
-                var result = await Svd.Encrypt(new Bitmap(pathContainer), new Bitmap(keyPath), fileName);
+                var originalKeyName = Path.GetFileName(originalKeyPath);
+
+                var model = await ProcessData(originalFilePath, originalKeyName,
+                    Path.GetFileNameWithoutExtension(originalKeyPath));
+                results.Add(model);
             }
+            await DalService.InsertResults(results);
+        }
 
 
-            var containerDecryptedPaths = Directory.GetFiles(Constants.ContainersProcessedPath, "*.bmp",
-                SearchOption.TopDirectoryOnly);
-            foreach (var filePath in containerDecryptedPaths)
+        private static async Task<WatermarkingResults> ProcessData(string originalFilePath, string originalKeyFileName, string fileNameToCreate)
+        {
+            var originalPathKey = Path.Combine(Constants.KeysFolderPath, originalKeyFileName);
+
+            var originalKeyBitmap = new Bitmap(originalPathKey);
+
+            var encryptionResult = await Encrypt(originalFilePath, fileNameToCreate, originalKeyBitmap);
+            var decryptionResult = await Decrypt(fileNameToCreate, originalKeyBitmap);
+
+            var insertModel = Factory.PrepareResultModel(fileNameToCreate, originalKeyFileName, encryptionResult.Time,
+                decryptionResult.Time, encryptionResult.Psnr, decryptionResult.Psnr);
+
+            return insertModel;
+        }
+
+        private static async Task<ProcessingResult> Encrypt(string originalFilePath, string originalFileName, Bitmap originalKeyBitmap)
+        {
+            var encryptionStopwatch = Stopwatch.StartNew();
+            var result = await Svd.Encrypt(new Bitmap(originalFilePath), originalKeyBitmap, originalFileName);
+            encryptionStopwatch.Stop();
+            var encryptionPsnr = Helpers.CalculatePsnr(result.InputContainer, result.OutputContainer);
+
+            return new ProcessingResult
             {
-                var fileName = Path.GetFileNameWithoutExtension(filePath);
-                var result = await Svd.Decrypt(new Bitmap(filePath), fileName);
-            }
+                Psnr = encryptionPsnr,
+                Time = encryptionStopwatch.Elapsed
+            };
+        }
+        private static async Task<ProcessingResult> Decrypt(string originalFileName, Bitmap originalKeyBitmap)
+        {
+            var decryptionFileName = $"{originalFileName}_Container";
+            var decryptionFilePath = Path.Combine(Constants.ContainersProcessedPath, $"{decryptionFileName}.bmp");
 
+            var decryptionStopwatch = Stopwatch.StartNew();
+            var decryptionResult = await Svd.Decrypt(new Bitmap(decryptionFilePath), decryptionFileName); 
+            decryptionStopwatch.Stop();
+            var decryptionPsnr = Helpers.CalculatePsnr(originalKeyBitmap, decryptionResult);
+
+            return new ProcessingResult
+            {
+                Psnr = decryptionPsnr,
+                Time = decryptionStopwatch.Elapsed
+            };
         }
     }
 }
