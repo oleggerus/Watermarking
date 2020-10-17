@@ -16,11 +16,10 @@ namespace watermarking
     public static class Svd
     {
      
-        private static Bitmap _containerReconstructed;
-        private static double[,] _key1;
-        private static double[] _key2;
-        private static string _input;
-        private static string _input1;
+        //private static double[,] _key1;
+        //private static double[] _key2;
+        //private static string _input;
+        //private static string _input1;
 
         public static async Task<EncryptionResult> Encrypt(Bitmap container, Bitmap watermark, string fileName)
         {
@@ -64,7 +63,7 @@ namespace watermarking
 
             // конвертація основної матриці 1536х512 в 16-ти стовпцеву
             var columns = frameDimension * frameDimension;
-            var rows = ((container.Width / frameDimension) * (container.Height / frameDimension)) * 3;
+            var rows = container.Width / frameDimension * (container.Height / frameDimension) * 3;
             var matrixMainConverted = new double[rows, columns];
 
             var kMax = container.Height;
@@ -74,8 +73,8 @@ namespace watermarking
                 for (var j = 0; j < columns; j++)
                 {
                     //Matrix_Main[i, j] = (double)((byte)container.GetPixel(((i * frame) / (int)(Math.Sqrt(rows * col))) * frame + j / frame, (i % ((int)(Math.Sqrt(rows * col)) / frame)) * frame + j % frame).ToArgb() & 0x000000ff);
-                    var k1 = j / frameDimension + (i / numberOfSquares) * frameDimension;
-                    var l1 = j % frameDimension + (i % numberOfSquares) * frameDimension;
+                    var k1 = j / frameDimension + i / numberOfSquares * frameDimension;
+                    var l1 = j % frameDimension + i % numberOfSquares * frameDimension;
                     matrixMainConverted[i, j] = matrixMain[k1, l1];
                 }
 
@@ -87,8 +86,8 @@ namespace watermarking
             var svd = new SingularValueDecomposition(matrixMainConvertedCentered);
             var eigenVectors = svd.RightSingularVectors;
             var singularValues = svd.Diagonal;
-            _key1 = eigenVectors;
-            _key2 = singularValues;
+            var _key1 = eigenVectors;
+            var _key2 = singularValues;
 
             var eigenvalues = singularValues.Pow(2);
             eigenvalues = eigenvalues.Divide(matrixMainConverted.GetLength(0) - 1);
@@ -120,8 +119,8 @@ namespace watermarking
             {
                 for (var j = 0; j < matrixReconstructed.GetLength(1); j++)
                 {
-                    var k2 = j / frameDimension + (i / numberOfSquares) * frameDimension;
-                    var l2 = j % frameDimension + (i % numberOfSquares) * frameDimension;
+                    var k2 = j / frameDimension + i / numberOfSquares * frameDimension;
+                    var l2 = j % frameDimension + i % numberOfSquares * frameDimension;
                     matrixMainReconstructedFully[k2, l2] = matrixReconstructed[i, j];
                 }
             }
@@ -140,7 +139,7 @@ namespace watermarking
                 }
 
             var p = 0;
-            _containerReconstructed = new Bitmap(container.Height, container.Width);
+            var  _containerReconstructed1 = new Bitmap(container.Height, container.Width);
             for (var i = 0; i < container.Width; i++)
                 for (var j = 0; j < container.Height; j++)
                 {
@@ -156,13 +155,13 @@ namespace watermarking
                     if (processedPixelB < 0) processedPixelB = 0;
                     if (processedPixelB > 255) processedPixelB = 255;
                     p++;
-                    _containerReconstructed.SetPixel(i, j, Color.FromArgb(Convert.ToByte(processedPixelR), Convert.ToByte(processedPixelG), Convert.ToByte(processedPixelB)));
+                    _containerReconstructed1.SetPixel(i, j, Color.FromArgb(Convert.ToByte(processedPixelR), Convert.ToByte(processedPixelG), Convert.ToByte(processedPixelB)));
                 }
 
 
-            await SaveAllDataToFiles(_containerReconstructed, fileName, _key1, _key2);
+            await SaveAllDataToFiles(_containerReconstructed1, fileName, _key1, _key2);
 
-            return PrepareEncryptionResult(container, watermark, _containerReconstructed);
+            return PrepareEncryptionResult(container, watermark, _containerReconstructed1);
         }
 
         private static async Task SaveAllDataToFiles(Image containerProcessed, string fileName, double[,] outputKey1, IEnumerable<double> outputKey2)
@@ -198,8 +197,8 @@ namespace watermarking
         /// <returns></returns>
         public static async Task<Bitmap> Decrypt(Bitmap encryptedContainer, string fileName)
         {
-            _input = Path.Combine(Constants.DecryptKeysPath, $"{fileName}_EigenVectors.txt");
-            _input1 = Path.Combine(Constants.DecryptKeysPath, $"{fileName}_SingularValues.txt");
+            var _input = Path.Combine(Constants.DecryptKeysPath, $"{fileName}_EigenVectors.txt");
+            var _input1 = Path.Combine(Constants.DecryptKeysPath, $"{fileName}_SingularValues.txt");
 
             #region grey
             //cmode = radioButtonGrayscale.Checked;
@@ -396,7 +395,7 @@ namespace watermarking
 
             // конвертація основної матриці 1536х512 в 16-ти стовпцеву
             const int columns = frameDimension * frameDimension;
-            var rows = ((encryptedContainer.Width / frameDimension) * (encryptedContainer.Height / frameDimension)) * 3;
+            var rows = encryptedContainer.Width / frameDimension * (encryptedContainer.Height / frameDimension) * 3;
             var matrixMainConverted = new double[rows, columns];
 
             var kMax = encryptedContainer.Height;
@@ -406,8 +405,8 @@ namespace watermarking
                 for (var j = 0; j < columns; j++)
                 {
                     //Matrix_Main[i, j] = (double)((byte)encryptedContainer.GetPixel(((i * frame) / (int)(Math.Sqrt(rows * col))) * frame + j / frame, (i % ((int)(Math.Sqrt(rows * col)) / frame)) * frame + j % frame).ToArgb() & 0x000000ff);
-                    var k1 = j / frameDimension + (i / numberOfSquares) * frameDimension;
-                    var l1 = j % frameDimension + (i % numberOfSquares) * frameDimension;
+                    var k1 = j / frameDimension + i / numberOfSquares * frameDimension;
+                    var l1 = j % frameDimension + i % numberOfSquares * frameDimension;
                     matrixMainConverted[i, j] = matrixMain[k1, l1];
                 }
 

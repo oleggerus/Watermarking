@@ -13,5 +13,7 @@ namespace DAL.DAL
         public double EncryptionPsnr { get; set; }
         public double DecryptionPsnr { get; set; }
         public DateTime CreatedOn { get; set; }
+        public int? Brightness { get; set; }
+        public int? Contrast { get; set; }
     }
 }

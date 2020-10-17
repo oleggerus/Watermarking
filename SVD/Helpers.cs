@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Watermarking
 {
     public static class Helpers
     {
-        private static void SetContrast(Bitmap bmp, int threshold)
+        public static Bitmap SetContrast(Bitmap bmp, int threshold)
         {
 
             var contrast = Math.Pow((100.0 + threshold) / 100.0, 2);
@@ -17,9 +19,9 @@ namespace Watermarking
                 for (var x = 0; x < bmp.Width; x++)
                 {
                     var oldColor = bmp.GetPixel(x, y);
-                    var red = ((((oldColor.R / 255.0) - 0.5) * contrast) + 0.5) * 255.0;
-                    var green = ((((oldColor.G / 255.0) - 0.5) * contrast) + 0.5) * 255.0;
-                    var blue = ((((oldColor.B / 255.0) - 0.5) * contrast) + 0.5) * 255.0;
+                    var red = ((oldColor.R / 255.0 - 0.5) * contrast + 0.5) * 255.0;
+                    var green = ((oldColor.G / 255.0 - 0.5) * contrast + 0.5) * 255.0;
+                    var blue = ((oldColor.B / 255.0 - 0.5) * contrast + 0.5) * 255.0;
                     if (red > 255) red = 255;
                     if (red < 0) red = 0;
                     if (green > 255) green = 255;
@@ -32,8 +34,16 @@ namespace Watermarking
                 }
             }
 
+            return bmp;
+
         }
 
+        /// <summary>
+        /// Set brightness for the image
+        /// </summary>
+        /// <param name="image">input bitmap</param>
+        /// <param name="value">value from -255 to 255</param>
+        /// <returns></returns>
         public static Bitmap SetBrightness(Bitmap image, int value)
         {
             var tempBitmap = image;
@@ -96,14 +106,29 @@ namespace Watermarking
                     var originalPixelG = originalBitmap.GetPixel(i, j).G;
                     var originalPixelB = originalBitmap.GetPixel(i, j).B;
 
-                    mse += Math.Pow((Math.Abs(processedPixelR - originalPixelR)), 2);
-                    mse += Math.Pow((Math.Abs(processedPixelG - originalPixelG)), 2);
-                    mse += Math.Pow((Math.Abs(processedPixelB - originalPixelB)), 2);
+                    mse += Math.Pow(Math.Abs(processedPixelR - originalPixelR), 2);
+                    mse += Math.Pow(Math.Abs(processedPixelG - originalPixelG), 2);
+                    mse += Math.Pow(Math.Abs(processedPixelB - originalPixelB), 2);
                 }
-            mse /= (rows2 * col2);
+            mse /= rows2 * col2;
             var psnr = 10 * Math.Log10(256 * 256 / mse);
             //}
             return psnr;
+        }
+    }
+
+    public static class Extensions
+    {
+        public static Task ForEachAsync<T>(this IEnumerable<T> source, int dop, Func<T, Task> body)
+        {
+            return Task.WhenAll(
+                from partition in Partitioner.Create(source).GetPartitions(dop)
+                select Task.Run(async delegate
+                {
+                    using (partition)
+                        while (partition.MoveNext())
+                            await body(partition.Current);
+                }));
         }
     }
 }

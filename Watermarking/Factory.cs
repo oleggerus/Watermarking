@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using DAL.DAL;
+﻿using DAL.DAL;
+using System;
 
 namespace Watermarking
 {
@@ -13,7 +11,9 @@ namespace Watermarking
             TimeSpan encryptionTime,
             TimeSpan decryptionTime,
             double encryptionPsnr,
-            double decryptionPsnr
+            double decryptionPsnr,
+            int brightness,
+            int contrast
         )
         {
             return new WatermarkingResults
@@ -25,6 +25,8 @@ namespace Watermarking
                 EncryptionTime = encryptionTime,
                 DecryptionTime = decryptionTime,
                 CreatedOn = DateTime.Now,
+                Brightness = brightness,
+                Contrast = contrast
             };
         }
     }

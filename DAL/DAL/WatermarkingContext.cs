@@ -30,10 +30,14 @@ namespace DAL.DAL
         {
             modelBuilder.Entity<WatermarkingResults>(entity =>
             {
+                entity.Property(e => e.Brightness).HasDefaultValueSql("((0))");
+
                 entity.Property(e => e.ContainerFileName)
                     .IsRequired()
                     .HasMaxLength(500)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Contrast).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.CreatedOn).HasColumnType("datetime");
 
