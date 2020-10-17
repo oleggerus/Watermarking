@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Watermarking
+﻿namespace Watermarking
 {
     public static class Constants
     {

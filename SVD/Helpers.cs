@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Watermarking
 {
@@ -47,8 +43,8 @@ namespace Watermarking
         public static Bitmap SetBrightness(Bitmap image, int value)
         {
             var tempBitmap = image;
-            var finalValue = (float)value / 255.0f;
-            var newBitmap = new System.Drawing.Bitmap(tempBitmap.Width, tempBitmap.Height);
+            var finalValue = value / 255.0f;
+            var newBitmap = new Bitmap(tempBitmap.Width, tempBitmap.Height);
             var newGraphics = Graphics.FromImage(newBitmap);
             float[][] floatColorMatrix ={
                     new float[] {1, 0, 0, 0, 0},
@@ -114,21 +110,6 @@ namespace Watermarking
             var psnr = 10 * Math.Log10(256 * 256 / mse);
             //}
             return psnr;
-        }
-    }
-
-    public static class Extensions
-    {
-        public static Task ForEachAsync<T>(this IEnumerable<T> source, int dop, Func<T, Task> body)
-        {
-            return Task.WhenAll(
-                from partition in Partitioner.Create(source).GetPartitions(dop)
-                select Task.Run(async delegate
-                {
-                    using (partition)
-                        while (partition.MoveNext())
-                            await body(partition.Current);
-                }));
         }
     }
 }

@@ -15,12 +15,6 @@ namespace watermarking
 
     public static class Svd
     {
-     
-        //private static double[,] _key1;
-        //private static double[] _key2;
-        //private static string _input;
-        //private static string _input1;
-
         public static async Task<EncryptionResult> Encrypt(Bitmap container, Bitmap watermark, string fileName)
         {
 
@@ -86,8 +80,8 @@ namespace watermarking
             var svd = new SingularValueDecomposition(matrixMainConvertedCentered);
             var eigenVectors = svd.RightSingularVectors;
             var singularValues = svd.Diagonal;
-            var _key1 = eigenVectors;
-            var _key2 = singularValues;
+            var _eigenVectors = eigenVectors;
+            var _singularValues= singularValues;
 
             var eigenvalues = singularValues.Pow(2);
             eigenvalues = eigenvalues.Divide(matrixMainConverted.GetLength(0) - 1);
@@ -139,7 +133,7 @@ namespace watermarking
                 }
 
             var p = 0;
-            var  _containerReconstructed1 = new Bitmap(container.Height, container.Width);
+            var  _containerReconstructed = new Bitmap(container.Height, container.Width);
             for (var i = 0; i < container.Width; i++)
                 for (var j = 0; j < container.Height; j++)
                 {
@@ -155,13 +149,13 @@ namespace watermarking
                     if (processedPixelB < 0) processedPixelB = 0;
                     if (processedPixelB > 255) processedPixelB = 255;
                     p++;
-                    _containerReconstructed1.SetPixel(i, j, Color.FromArgb(Convert.ToByte(processedPixelR), Convert.ToByte(processedPixelG), Convert.ToByte(processedPixelB)));
+                    _containerReconstructed.SetPixel(i, j, Color.FromArgb(Convert.ToByte(processedPixelR), Convert.ToByte(processedPixelG), Convert.ToByte(processedPixelB)));
                 }
 
 
-            await SaveAllDataToFiles(_containerReconstructed1, fileName, _key1, _key2);
+            await SaveAllDataToFiles(_containerReconstructed, fileName, _eigenVectors, _singularValues);
 
-            return PrepareEncryptionResult(container, watermark, _containerReconstructed1);
+            return PrepareEncryptionResult(container, watermark, _containerReconstructed);
         }
 
         private static async Task SaveAllDataToFiles(Image containerProcessed, string fileName, double[,] outputKey1, IEnumerable<double> outputKey2)
@@ -197,8 +191,8 @@ namespace watermarking
         /// <returns></returns>
         public static async Task<Bitmap> Decrypt(Bitmap encryptedContainer, string fileName)
         {
-            var _input = Path.Combine(Constants.DecryptKeysPath, $"{fileName}_EigenVectors.txt");
-            var _input1 = Path.Combine(Constants.DecryptKeysPath, $"{fileName}_SingularValues.txt");
+            var _eigenVectors= Path.Combine(Constants.DecryptKeysPath, $"{fileName}_EigenVectors.txt");
+            var _singularValues = Path.Combine(Constants.DecryptKeysPath, $"{fileName}_SingularValues.txt");
 
             #region grey
             //cmode = radioButtonGrayscale.Checked;
@@ -420,7 +414,7 @@ namespace watermarking
             var eigenVectors = new double[16, 16];
             int numberOfLines = 0, numberOfColumns = 0;
             string line;
-            using (var reader = new StreamReader(_input))
+            using (var reader = new StreamReader(_eigenVectors))
             {
                 while ((line = await reader.ReadLineAsync()) != null)
                 {
@@ -432,7 +426,7 @@ namespace watermarking
             var array2D = new string[numberOfLines, numberOfColumns];
             numberOfLines = 0;
 
-            using (var reader = new StreamReader(_input))
+            using (var reader = new StreamReader(_eigenVectors))
             {
                 while ((line = await reader.ReadLineAsync()) != null)
                 {
@@ -454,7 +448,7 @@ namespace watermarking
 
             int numberOfLines1 = 0, numberOfColumns1 = 0;
             string line1;
-            using (var reader = new StreamReader(_input1))
+            using (var reader = new StreamReader(_singularValues))
             {
                 while ((line1 = await reader.ReadLineAsync()) != null)
                 {
@@ -466,7 +460,7 @@ namespace watermarking
             var array2D1 = new string[numberOfLines1, numberOfColumns1];
             numberOfLines1 = 0;
 
-            using (var reader = new StreamReader(_input1))
+            using (var reader = new StreamReader(_singularValues))
             {
                 while ((line1 = await reader.ReadLineAsync()) != null)
                 {

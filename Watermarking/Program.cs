@@ -153,7 +153,6 @@ namespace Watermarking
             {
                 Psnr = encryptionPsnr,
                 Time = encryptionStopwatch.Elapsed,
-
             };
         }
         private static async Task<ProcessingResult> Decrypt(string originalFileName, Bitmap originalKeyBitmap)

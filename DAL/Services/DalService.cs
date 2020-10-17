@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DAL.DAL;
+﻿using DAL.DAL;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DAL.Services
 {
     public static class DalService
     {
-      
-
         public static async Task InsertResult(WatermarkingResults result)
         {
             await using var context= new WatermarkingContext();
