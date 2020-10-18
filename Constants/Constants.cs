@@ -1,4 +1,6 @@
-﻿namespace Watermarking
+﻿using System;
+
+namespace Constants
 {
     public static class Constants
     {

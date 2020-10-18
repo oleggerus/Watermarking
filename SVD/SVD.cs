@@ -8,7 +8,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Watermarking;
-using Constants = Watermarking.Constants;
+using MainConstants = Constants.Constants;
 
 namespace watermarking
 {
@@ -21,24 +21,24 @@ namespace watermarking
             var frameDimension = 4;
 
             // зчитування пікселів лени та бабуїна
-            var stringWithLenaPixelsColorful = new StringBuilder();
+            var stringWithOriginalContainerPixels = new StringBuilder();
             for (var x = 0; x < container.Width; x++)
             {
                 for (var y = 0; y < container.Height; y++)
                 {
-                    stringWithLenaPixelsColorful.Append(Convert.ToChar(container.GetPixel(x, y).R));
-                    stringWithLenaPixelsColorful.Append(Convert.ToChar(container.GetPixel(x, y).G));
-                    stringWithLenaPixelsColorful.Append(Convert.ToChar(container.GetPixel(x, y).B));
+                    stringWithOriginalContainerPixels.Append(Convert.ToChar(container.GetPixel(x, y).R));
+                    stringWithOriginalContainerPixels.Append(Convert.ToChar(container.GetPixel(x, y).G));
+                    stringWithOriginalContainerPixels.Append(Convert.ToChar(container.GetPixel(x, y).B));
                 }
             }
 
-            var stringWithWatermarkPixelsColorful = new StringBuilder();
+            var stringWithOriginalWatermarkPixels = new StringBuilder();
             for (var i = 0; i < watermark.Height; i++)
                 for (var j = 0; j < watermark.Width; j++)
                 {
-                    stringWithWatermarkPixelsColorful.Append(Convert.ToChar(watermark.GetPixel(i, j).R));
-                    stringWithWatermarkPixelsColorful.Append(Convert.ToChar(watermark.GetPixel(i, j).G));
-                    stringWithWatermarkPixelsColorful.Append(Convert.ToChar(watermark.GetPixel(i, j).B));
+                    stringWithOriginalWatermarkPixels.Append(Convert.ToChar(watermark.GetPixel(i, j).R));
+                    stringWithOriginalWatermarkPixels.Append(Convert.ToChar(watermark.GetPixel(i, j).G));
+                    stringWithOriginalWatermarkPixels.Append(Convert.ToChar(watermark.GetPixel(i, j).B));
                 }
 
             var matrixMain = new double[container.Height * 3, container.Width];
@@ -47,9 +47,9 @@ namespace watermarking
             for (var i = 0; i < container.Width * 3; i += 3)
                 for (var j = 0; j < container.Height; j++)
                 {
-                    matrixMain[i, j] = stringWithLenaPixelsColorful[tmpR];
-                    matrixMain[i + 1, j] = stringWithLenaPixelsColorful[tmpG];
-                    matrixMain[i + 2, j] = stringWithLenaPixelsColorful[tmpB];
+                    matrixMain[i, j] = stringWithOriginalContainerPixels[tmpR];
+                    matrixMain[i + 1, j] = stringWithOriginalContainerPixels[tmpG];
+                    matrixMain[i + 2, j] = stringWithOriginalContainerPixels[tmpB];
                     tmpR += 3;
                     tmpG += 3;
                     tmpB += 3;
@@ -88,16 +88,16 @@ namespace watermarking
 
             // пошук середнього для пікселів бабуїна
             int tmpSum = 0;
-            for (var i = 0; i < stringWithWatermarkPixelsColorful.Length; i++)
-                tmpSum += (int)stringWithWatermarkPixelsColorful[i];
-            var tmpAvg = tmpSum / stringWithWatermarkPixelsColorful.Length;
+            for (var i = 0; i < stringWithOriginalWatermarkPixels.Length; i++)
+                tmpSum += (int)stringWithOriginalWatermarkPixels[i];
+            var tmpAvg = tmpSum / stringWithOriginalWatermarkPixels.Length;
 
             // заміна 16-ої компоненти на центровані значення(пікселів) бабуїна
             var matrixMainComponents = matrixMainConvertedCentered.DotWithTransposed(eigenVectors.Transpose());
 
             for (var i = 0; i < matrixMainComponents.GetLength(0); i++)
             {
-                matrixMainComponents[i, 15] = stringWithWatermarkPixelsColorful[i] - tmpAvg;
+                matrixMainComponents[i, 15] = stringWithOriginalWatermarkPixels[i] - tmpAvg;
                 // Matrix_Main_Components[i, 0] = String_With_watermark_Pixels_Colourful[i] - tmp_avg;
                 //Matrix_Main_Components[i, 0] = 0;
             }
@@ -124,9 +124,9 @@ namespace watermarking
             for (var i = 0; i < container.Width * 3; i += 3)
                 for (var j = 0; j < container.Height; j++)
                 {
-                    stringWithLenaPixelsColorful[tmpR1] = (char)matrixMainReconstructedFully[i, j];
-                    stringWithLenaPixelsColorful[tmpG1] = (char)matrixMainReconstructedFully[i + 1, j];
-                    stringWithLenaPixelsColorful[tmpB1] = (char)matrixMainReconstructedFully[i + 2, j];
+                    stringWithOriginalContainerPixels[tmpR1] = (char)matrixMainReconstructedFully[i, j];
+                    stringWithOriginalContainerPixels[tmpG1] = (char)matrixMainReconstructedFully[i + 1, j];
+                    stringWithOriginalContainerPixels[tmpB1] = (char)matrixMainReconstructedFully[i + 2, j];
                     tmpR1 += 3;
                     tmpG1 += 3;
                     tmpB1 += 3;
@@ -137,15 +137,15 @@ namespace watermarking
             for (var i = 0; i < container.Width; i++)
                 for (var j = 0; j < container.Height; j++)
                 {
-                    var processedPixelR = Convert.ToInt32(stringWithLenaPixelsColorful[p]);
+                    var processedPixelR = Convert.ToInt32(stringWithOriginalContainerPixels[p]);
                     if (processedPixelR < 0) processedPixelR = 0;
                     if (processedPixelR > 255) processedPixelR = 255;
                     p++;
-                    var processedPixelG = Convert.ToInt32(stringWithLenaPixelsColorful[p]);
+                    var processedPixelG = Convert.ToInt32(stringWithOriginalContainerPixels[p]);
                     if (processedPixelG < 0) processedPixelG = 255;
                     if (processedPixelG > 255) processedPixelG = 0;
                     p++;
-                    var processedPixelB = Convert.ToInt32(stringWithLenaPixelsColorful[p]);
+                    var processedPixelB = Convert.ToInt32(stringWithOriginalContainerPixels[p]);
                     if (processedPixelB < 0) processedPixelB = 0;
                     if (processedPixelB > 255) processedPixelB = 255;
                     p++;
@@ -161,9 +161,9 @@ namespace watermarking
         private static async Task SaveAllDataToFiles(Image containerProcessed, string fileName, double[,] outputKey1, IEnumerable<double> outputKey2)
         {
             var newFileName = $"{fileName}_Container"; 
-            containerProcessed.Save(Path.Combine(Constants.ContainersProcessedPath, $"{newFileName}.bmp"));
+            containerProcessed.Save(Path.Combine(global::Constants.Constants.ContainersProcessedPath, $"{newFileName}.bmp"));
 
-            await using (var key1Writer = new StreamWriter(Path.Combine(Constants.DecryptKeysPath, $"{newFileName}_EigenVectors.txt")))
+            await using (var key1Writer = new StreamWriter(Path.Combine(MainConstants.DecryptKeysPath, $"{newFileName}_EigenVectors.txt")))
             {
                 for (var i = 0; i < outputKey1.GetLength(0); i++)
                 {
@@ -176,7 +176,7 @@ namespace watermarking
             }
 
 
-            await using var key2Writer = new StreamWriter(Path.Combine(Constants.DecryptKeysPath, $"{newFileName}_SingularValues.txt"));
+            await using var key2Writer = new StreamWriter(Path.Combine(MainConstants.DecryptKeysPath, $"{newFileName}_SingularValues.txt"));
             foreach (var key in outputKey2)
             {
                 await key2Writer.WriteAsync($"{key} ");
@@ -191,8 +191,8 @@ namespace watermarking
         /// <returns></returns>
         public static async Task<Bitmap> Decrypt(Bitmap encryptedContainer, string fileName)
         {
-            var _eigenVectors= Path.Combine(Constants.DecryptKeysPath, $"{fileName}_EigenVectors.txt");
-            var _singularValues = Path.Combine(Constants.DecryptKeysPath, $"{fileName}_SingularValues.txt");
+            var _eigenVectors= Path.Combine(MainConstants.DecryptKeysPath, $"{fileName}_EigenVectors.txt");
+            var _singularValues = Path.Combine(MainConstants.DecryptKeysPath, $"{fileName}_SingularValues.txt");
 
             #region grey
             //cmode = radioButtonGrayscale.Checked;
@@ -362,13 +362,13 @@ namespace watermarking
             const int frameDimension = 4;
 
             // зчитування пікселів лени та бабуїна
-            var stringWithLenaPixelsColorful = new StringBuilder();
+            var stringWithOriginalContainerPixels = new StringBuilder();
             for (var x = 0; x < encryptedContainer.Width; x++)
                 for (var y = 0; y < encryptedContainer.Height; y++)
                 {
-                    stringWithLenaPixelsColorful.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).R));
-                    stringWithLenaPixelsColorful.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).G));
-                    stringWithLenaPixelsColorful.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).B));
+                    stringWithOriginalContainerPixels.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).R));
+                    stringWithOriginalContainerPixels.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).G));
+                    stringWithOriginalContainerPixels.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).B));
                 }
 
             var arrayWithWatermarkPixelsColorful = new double[49152];
@@ -379,9 +379,9 @@ namespace watermarking
             for (var i = 0; i < encryptedContainer.Width * 3; i += 3)
                 for (var j = 0; j < encryptedContainer.Height; j++)
                 {
-                    matrixMain[i, j] = stringWithLenaPixelsColorful[tmpR];
-                    matrixMain[i + 1, j] = stringWithLenaPixelsColorful[tmpG];
-                    matrixMain[i + 2, j] = stringWithLenaPixelsColorful[tmpB];
+                    matrixMain[i, j] = stringWithOriginalContainerPixels[tmpR];
+                    matrixMain[i + 1, j] = stringWithOriginalContainerPixels[tmpG];
+                    matrixMain[i + 2, j] = stringWithOriginalContainerPixels[tmpB];
                     tmpR += 3;
                     tmpG += 3;
                     tmpB += 3;
@@ -501,9 +501,9 @@ namespace watermarking
             int tmpR1 = 0, tmpG1 = 1, tmpB1 = 2;
             for (var i = 0; i < 49152; i += 3)
             {
-                stringWithLenaPixelsColorful[tmpR1] = (char)arrayWithWatermarkPixelsColorful[i];
-                stringWithLenaPixelsColorful[tmpG1] = (char)arrayWithWatermarkPixelsColorful[i + 1];
-                stringWithLenaPixelsColorful[tmpB1] = (char)arrayWithWatermarkPixelsColorful[i + 2];
+                stringWithOriginalContainerPixels[tmpR1] = (char)arrayWithWatermarkPixelsColorful[i];
+                stringWithOriginalContainerPixels[tmpG1] = (char)arrayWithWatermarkPixelsColorful[i + 1];
+                stringWithOriginalContainerPixels[tmpB1] = (char)arrayWithWatermarkPixelsColorful[i + 2];
                 tmpR1 += 3;
                 tmpG1 += 3;
                 tmpB1 += 3;
@@ -514,22 +514,22 @@ namespace watermarking
             for (var i = 0; i < 128; i++)
                 for (var j = 0; j < 128; j++)
                 {
-                    var processedPixelR = Convert.ToInt32(stringWithLenaPixelsColorful[p]);
+                    var processedPixelR = Convert.ToInt32(stringWithOriginalContainerPixels[p]);
                     if (processedPixelR < 0) processedPixelR = 0;
                     if (processedPixelR > 255) processedPixelR = 255;
                     p++;
-                    var processedPixelG = Convert.ToInt32(stringWithLenaPixelsColorful[p]);
+                    var processedPixelG = Convert.ToInt32(stringWithOriginalContainerPixels[p]);
                     if (processedPixelG < 0) processedPixelG = 0;
                     if (processedPixelG > 255) processedPixelG = 255;
                     p++;
-                    var processedPixelB = Convert.ToInt32(stringWithLenaPixelsColorful[p]);
+                    var processedPixelB = Convert.ToInt32(stringWithOriginalContainerPixels[p]);
                     if (processedPixelB < 0) processedPixelB = 0;
                     if (processedPixelB > 255) processedPixelB = 255;
                     p++;
                     decryptedWatermark.SetPixel(i, j, Color.FromArgb(Convert.ToByte(processedPixelR), Convert.ToByte(processedPixelG), Convert.ToByte(processedPixelB)));
                 }
 
-            decryptedWatermark.Save(Path.Combine(Constants.DecryptedWatermarksPath, $"{fileName}_decrypted.bmp"));
+            decryptedWatermark.Save(Path.Combine(MainConstants.DecryptedWatermarksPath, $"{fileName}_decrypted.bmp"));
             
             return decryptedWatermark;
         }

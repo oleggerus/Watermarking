@@ -1,9 +1,9 @@
-﻿using DAL.DAL;
-using System;
+﻿using System;
+using DAL.DAL;
 
-namespace Watermarking
+namespace Algorithm
 {
-    internal static class Factory
+    public static class Factory
     {
         public static WatermarkingResults PrepareResultModel(
             string containerFileName,
