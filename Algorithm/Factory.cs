@@ -13,7 +13,10 @@ namespace Algorithm
             double encryptionPsnr,
             double decryptionPsnr,
             int brightness,
-            int contrast
+            int contrast,
+            int r,
+            int g,
+            int b
         )
         {
             return new WatermarkingResults
@@ -26,7 +29,10 @@ namespace Algorithm
                 DecryptionTime = decryptionTime,
                 CreatedOn = DateTime.Now,
                 Brightness = brightness,
-                Contrast = contrast
+                Contrast = contrast,
+                AverageRedColor = r,
+                AverageGreenColor = g,
+                AverageBlueColor = b
             };
         }
     }

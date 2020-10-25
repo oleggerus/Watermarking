@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DAL.DAL
+namespace Watermarking.DAL
 {
     public partial class WatermarkingResults
     {
@@ -19,6 +19,5 @@ namespace DAL.DAL
         public int? AverageGreenColor { get; set; }
         public int? AverageBlueColor { get; set; }
         public int? Mode { get; set; }
-
     }
 }

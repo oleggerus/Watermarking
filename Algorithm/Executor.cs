@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
-using watermarking;
+using SVD;
 using Watermarking;
 using MainConstants = Constants.Constants;
 
@@ -22,7 +22,9 @@ namespace Algorithm
             var decryptionResult = await Decrypt(fileNameToCreate, originalKeyBitmap);
 
             var insertModel = Factory.PrepareResultModel(fileNameToCreate, originalKeyFileName, encryptionResult.Time,
-                decryptionResult.Time, encryptionResult.Psnr, decryptionResult.Psnr, brightness, contrast);
+                decryptionResult.Time, encryptionResult.Psnr, decryptionResult.Psnr, brightness, contrast,
+                encryptionResult.AverageRedColor, encryptionResult.AverageGreenColor,
+                encryptionResult.AverageBlueColor);
 
             return insertModel;
         }
@@ -57,6 +59,9 @@ namespace Algorithm
             {
                 Psnr = encryptionPsnr,
                 Time = encryptionStopwatch.Elapsed,
+                AverageBlueColor = result.AverageBlueColor,
+                AverageGreenColor = result.AverageGreenColor,
+                AverageRedColor = result.AverageRedColor
             };
         }
         public static async Task<ProcessingResult> Decrypt(string originalFileName, Bitmap originalKeyBitmap)
