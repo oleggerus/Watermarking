@@ -355,9 +355,6 @@ _ReSharper.*
 bin
 obj
 packages
-DecryptKeys
-DecryptedWatermarks
-ContainersProcessed
 *.swp
 *.*~
 project.lock.json
@@ -390,3 +387,7 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+
+DecryptKeys
+DecryptedWatermarks
+ContainersProcessed
