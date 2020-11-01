@@ -18,15 +18,16 @@ namespace SVD
     public static class Svd
     {
 
-        
+
         public static async Task<EncryptionResult> Encrypt(Bitmap container, Bitmap watermark, string fileName)
         {
-            const int principalComponentsNumber = 16;
-            var frameDimension =(int) Math.Sqrt(principalComponentsNumber);
+            var frameDimension = container.Width / watermark.Width;
+            var principalComponentsNumber = frameDimension * frameDimension;
+
 
             // зчитування пікселів лени та бабуїна
             var stringWithOriginalContainerPixels = new StringBuilder();
-             
+
             for (var x = 0; x < container.Width; x++)
             {
                 for (var y = 0; y < container.Height; y++)
@@ -86,7 +87,7 @@ namespace SVD
             var eigenVectors = svd.RightSingularVectors;
             var singularValues = svd.Diagonal;
             var _eigenVectors = eigenVectors;
-            var _singularValues= singularValues;
+            var _singularValues = singularValues;
 
             var eigenvalues = singularValues.Pow(2);
             eigenvalues.Divide(matrixMainConverted.GetLength(0) - 1);
@@ -99,12 +100,9 @@ namespace SVD
 
             // заміна principalComponentsNumber-ої компоненти на центровані значення(пікселів) бабуїна
             var matrixMainComponents = matrixMainConvertedCentered.DotWithTransposed(eigenVectors.Transpose());
-
             for (var i = 0; i < matrixMainComponents.GetLength(0); i++)
             {
-                matrixMainComponents[i, 15] = stringWithOriginalWatermarkPixels[i] - tmpAvg;
-                // Matrix_Main_Components[i, 0] = String_With_watermark_Pixels_Colourful[i] - tmp_avg;
-                //Matrix_Main_Components[i, 0] = 0;
+                matrixMainComponents[i, principalComponentsNumber - 1] = stringWithOriginalWatermarkPixels[i] - tmpAvg;
             }
 
             // реконструкція конвертованої матриці
@@ -138,7 +136,7 @@ namespace SVD
                 }
 
             var p = 0;
-            var  _containerReconstructed = new Bitmap(container.Height, container.Width);
+            var containerReconstructed = new Bitmap(container.Height, container.Width);
             for (var i = 0; i < container.Width; i++)
                 for (var j = 0; j < container.Height; j++)
                 {
@@ -154,18 +152,18 @@ namespace SVD
                     if (processedPixelB < 0) processedPixelB = 0;
                     if (processedPixelB > 255) processedPixelB = 255;
                     p++;
-                    _containerReconstructed.SetPixel(i, j, Color.FromArgb(Convert.ToByte(processedPixelR), Convert.ToByte(processedPixelG), Convert.ToByte(processedPixelB)));
+                    containerReconstructed.SetPixel(i, j, Color.FromArgb(Convert.ToByte(processedPixelR), Convert.ToByte(processedPixelG), Convert.ToByte(processedPixelB)));
                 }
 
 
-            await SaveAllDataToFiles(_containerReconstructed, fileName, _eigenVectors, _singularValues);
+            await SaveAllDataToFiles(containerReconstructed, fileName, _eigenVectors, _singularValues);
 
-            return PrepareEncryptionResult(container, watermark, _containerReconstructed);
+            return PrepareEncryptionResult(container, watermark, containerReconstructed);
         }
 
         private static async Task SaveAllDataToFiles(Image containerProcessed, string fileName, double[,] outputKey1, IEnumerable<double> outputKey2)
         {
-            var newFileName = $"{fileName}_Container"; 
+            var newFileName = $"{fileName}_Container";
             containerProcessed.Save(Path.Combine(global::Constants.Constants.ContainersProcessedPath, $"{newFileName}.bmp"));
 
             await using (var key1Writer = new StreamWriter(Path.Combine(MainConstants.DecryptKeysPath, $"{newFileName}_EigenVectors.txt")))
@@ -194,180 +192,19 @@ namespace SVD
         /// <param name="encryptedContainer">container with watermark</param>
         /// <param name="fileName">container file name</param>
         /// <returns></returns>
-        public static async Task<Bitmap> Decrypt(Bitmap encryptedContainer, string fileName)
+        public static async Task<Bitmap> Decrypt(Bitmap encryptedContainer, string fileName, int watermarkWidth, int watermarkHeight)
         {
-            const int principalComponentsNumber = 16;
-            var frameDimension = (int)Math.Sqrt(principalComponentsNumber);
+            var frameDimension = encryptedContainer.Width / watermarkWidth;
+            var principalComponentsNumber = frameDimension * frameDimension;
+            var watermarkPixelsColoredArraySize = watermarkWidth * watermarkHeight * 3;
+
+
+
 
             var _eigenVectors = Path.Combine(MainConstants.DecryptKeysPath, $"{fileName}_EigenVectors.txt");
             var _singularValues = Path.Combine(MainConstants.DecryptKeysPath, $"{fileName}_SingularValues.txt");
 
-            #region grey
-            //cmode = radioButtonGrayscale.Checked;
 
-            //if (false)
-            //{
-
-            //    int frame_dimension = 4;
-
-            //    // зчитування пікселів лени та бабуїна
-            //    StringBuilder String_With_Lena_Pixels = new StringBuilder();
-            //    for (int x = 0; x < encryptedContainer.Width; x++)
-            //        for (int y = 0; y < encryptedContainer.Height; y++)
-            //            String_With_Lena_Pixels.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).ToArgb() & 0x000000ff));
-
-            //    double[] Array_With_watermark_Pixels = new double[principalComponentsNumber384];
-
-            //    var Matrix_Main = new double[encryptedContainer.Height, encryptedContainer.Width];
-            //    int counter = 0;
-            //    for (int i = 0; i < encryptedContainer.Height; i++)
-            //        for (int j = 0; j < encryptedContainer.Width; j++)
-            //        {
-            //            Matrix_Main[i, j] = String_With_Lena_Pixels[counter];
-            //            counter++;
-            //        }
-
-            //    // конвертація основної матриці 512х512 в principalComponentsNumber-ти стовпцеву
-            //    int columns = frame_dimension * frame_dimension;
-            //    int rows = (encryptedContainer.Width / frame_dimension) * (encryptedContainer.Height / frame_dimension);
-            //    var Matrix_Main_Converted = new double[rows, columns];
-
-            //    int k1 = 0, l1 = 0, k_max = encryptedContainer.Height, l_max = encryptedContainer.Width;
-
-            //    int number_of_squares = k_max / frame_dimension;
-            //    for (int i = 0; i < rows; i++)
-            //        for (int j = 0; j < columns; j++)
-            //        {
-            //            //Matrix_Main[i, j] = (double)((byte)encryptedContainer.GetPixel(((i * frame) / (int)(Math.Sqrt(rows * col))) * frame + j / frame, (i % ((int)(Math.Sqrt(rows * col)) / frame)) * frame + j % frame).ToArgb() & 0x000000ff);
-            //            k1 = j / frame_dimension + (i / number_of_squares) * frame_dimension;
-            //            l1 = j % frame_dimension + (i % number_of_squares) * frame_dimension;
-            //            Matrix_Main_Converted[i, j] = Matrix_Main[k1, l1];
-            //        }
-
-            //    // центрування конвертованої матриці
-            //    double[] Column_Mean = Matrix_Main_Converted.Mean(0);
-            //    var Matrix_Main_Converted_Centered = Matrix_Main_Converted.Subtract(Column_Mean, 0);
-
-            //    // дешифрування
-            //    // зчитування ключів
-            //    // перше eigen vectors
-            //    //string input = @"..\\..\\..\\eigenvectors.txt";
-
-            //    double[,] eigenvectors = new double[principalComponentsNumber, principalComponentsNumber];
-            //    String[,] array2D;
-            //    int numberOfLines = 0, numberOfColumns = 0;
-            //    string line;
-            //    System.IO.StreamReader sr = new System.IO.StreamReader(input);
-
-            //    while ((line = sr.ReadLine()) != null)
-            //    {
-            //        numberOfColumns = line.Split(' ').Length;
-            //        numberOfLines++;
-            //    }
-            //    sr.Close();
-
-            //    array2D = new String[numberOfLines, numberOfColumns];
-            //    numberOfLines = 0;
-
-            //    sr = new System.IO.StreamReader(input);
-            //    while ((line = sr.ReadLine()) != null)
-            //    {
-            //        String[] tempArray = line.Split(' ');
-            //        for (int i = 0; i < tempArray.Length; ++i)
-            //        {
-            //            array2D[numberOfLines, i] = tempArray[i];
-            //        }
-            //        numberOfLines++;
-            //    }
-
-            //    for (int i = 0; i < principalComponentsNumber; i++)
-            //        for (int j = 0; j < principalComponentsNumber; j++)
-            //            eigenvectors[i, j] = Convert.ToDouble(array2D[i, j]);
-
-            //    // потім Singularvalues
-            //    //string input1 = @"..\\..\\..\\Singularvalues.txt";
-
-            //    double[,] Singularvalues1 = new double[1, principalComponentsNumber];
-
-            //    String[,] array2D1;
-            //    int numberOfLines1 = 0, numberOfColumns1 = 0;
-            //    string line1;
-            //    System.IO.StreamReader sr1 = new System.IO.StreamReader(input1);
-
-            //    while ((line1 = sr1.ReadLine()) != null)
-            //    {
-            //        numberOfColumns1 = line1.Split(' ').Length;
-            //        numberOfLines1++;
-            //    }
-            //    sr1.Close();
-
-            //    array2D1 = new String[numberOfLines1, numberOfColumns1];
-            //    numberOfLines1 = 0;
-
-            //    sr1 = new System.IO.StreamReader(input1);
-            //    while ((line1 = sr1.ReadLine()) != null)
-            //    {
-            //        String[] tempArray1 = line1.Split(' ');
-            //        for (int i = 0; i < tempArray1.Length; ++i)
-            //        {
-            //            array2D1[numberOfLines1, i] = tempArray1[i];
-            //        }
-            //        numberOfLines1++;
-            //    }
-
-            //    for (int i = 0; i < 1; i++)
-            //        for (int j = 0; j < principalComponentsNumber; j++)
-            //            Singularvalues1[i, j] = Convert.ToDouble(array2D1[i, j]);
-
-            //    double[] Singularvalues = new double[principalComponentsNumber];
-            //    for (int i = 0; i < principalComponentsNumber; i++)
-            //        Singularvalues[i] = Singularvalues1[0, i];
-
-
-            //    // заміна principalComponentsNumber-ої компоненти на центровані значення(пікселів) бабуїна
-            //    var Matrix_Main_Components = Matrix_Main_Converted_Centered.MultiplyByTranspose(eigenvectors.Transpose());
-            //    for (int i = 0; i < Matrix_Main_Components.GetLength(0); i++)
-            //    {
-            //        Array_With_watermark_Pixels[i] = Matrix_Main_Components[i, 15];
-            //        //Matrix_Main_Components[i, 15] = 0;
-            //    }
-
-            //    // пошук середнього для пікселів бабуїна
-            //    for (int i = 0; i < principalComponentsNumber384; i++)
-            //        Array_With_watermark_Pixels[i] = Array_With_watermark_Pixels[i] + 113;
-
-            //    // збереження чорнобілого зображення після певних перетворень
-            //    int tmp = 0;
-            //    for (int i = 0; i < principalComponentsNumber384; i++)
-            //    {
-            //        String_With_Lena_Pixels[tmp] = (char)Array_With_watermark_Pixels[i];
-            //        tmp++;
-            //    }
-
-            //    int p = 0;
-            //    decryptedWatermark = new Bitmap(BaboonOriginal128.Height, BaboonOriginal128.Width);
-            //    int processedPixel;
-            //    for (int i = 0; i < BaboonOriginal128.Width; i++)
-            //        for (int j = 0; j < BaboonOriginal128.Height; j++)
-            //        {
-            //            processedPixel = Convert.ToInt32(String_With_Lena_Pixels[p]);
-            //            if (processedPixel < 0) processedPixel = 0;
-            //            if (processedPixel > 255) processedPixel = 0;
-            //            decryptedWatermark.SetPixel(i, j, Color.FromArgb(Convert.ToByte(processedPixel), Convert.ToByte(processedPixel), Convert.ToByte(processedPixel)));
-            //            p++;
-            //        }
-
-
-            //    decryptedWatermark.Save("..\\..\\..\\decryptedWatermark.bmp");
-
-            //    StringBuilder psnr = new StringBuilder();
-            //    psnr.Append(Convert.ToString(ComparePSNR(BaboonOriginal128, decryptedWatermark)));
-            //    buttonShowDecryptResult.Show();
-            //}
-
-            #endregion
-
-            
 
             // зчитування пікселів лени та бабуїна
             var stringWithOriginalContainerPixels = new StringBuilder();
@@ -379,7 +216,7 @@ namespace SVD
                     stringWithOriginalContainerPixels.Append(Convert.ToChar(encryptedContainer.GetPixel(x, y).B));
                 }
 
-            var arrayWithWatermarkPixelsColorful = new double[49152];
+            var arrayWithWatermarkPixelsColorful = new double[watermarkPixelsColoredArraySize];
 
             var matrixMain = new double[encryptedContainer.Height * 3, encryptedContainer.Width];
 
@@ -395,18 +232,22 @@ namespace SVD
                     tmpB += 3;
                 }
 
-            // конвертація основної матриці 1536х512 в principalComponentsNumber-ти стовпцеву
+            // конвертація основної матриці 1536х512 16-ти стовпцеву
+
             var columns = frameDimension * frameDimension;
+
             var rows = encryptedContainer.Width / frameDimension * (encryptedContainer.Height / frameDimension) * 3;
             var matrixMainConverted = new double[rows, columns];
 
             var kMax = encryptedContainer.Height;
             var numberOfSquares = kMax / frameDimension;
 
+
             for (var i = 0; i < rows; i++)
                 for (var j = 0; j < columns; j++)
                 {
                     //Matrix_Main[i, j] = (double)((byte)encryptedContainer.GetPixel(((i * frame) / (int)(Math.Sqrt(rows * col))) * frame + j / frame, (i % ((int)(Math.Sqrt(rows * col)) / frame)) * frame + j % frame).ToArgb() & 0x000000ff);
+
                     var k1 = j / frameDimension + i / numberOfSquares * frameDimension;
                     var l1 = j % frameDimension + i % numberOfSquares * frameDimension;
                     matrixMainConverted[i, j] = matrixMain[k1, l1];
@@ -497,17 +338,17 @@ namespace SVD
             var matrixMainComponents = matrixMainConvertedCentered.MultiplyByTranspose(eigenVectors.Transpose());
             for (var i = 0; i < matrixMainComponents.GetLength(0); i++)
             {
-                arrayWithWatermarkPixelsColorful[i] = matrixMainComponents[i, 15];
+                arrayWithWatermarkPixelsColorful[i] = matrixMainComponents[i, principalComponentsNumber-1];
                 //Matrix_Main_Components[i, 15] = 0;
             }
 
             // пошук середнього для пікселів бабуїна
-            for (var i = 0; i < 49152; i++)
+            for (var i = 0; i < watermarkPixelsColoredArraySize; i++)
                 arrayWithWatermarkPixelsColorful[i] = arrayWithWatermarkPixelsColorful[i] + 126;
 
             // збереження кольорового зображення після певних перетворень
             int tmpR1 = 0, tmpG1 = 1, tmpB1 = 2;
-            for (var i = 0; i < 49152; i += 3)
+            for (var i = 0; i < watermarkPixelsColoredArraySize; i += 3)
             {
                 stringWithOriginalContainerPixels[tmpR1] = (char)arrayWithWatermarkPixelsColorful[i];
                 stringWithOriginalContainerPixels[tmpG1] = (char)arrayWithWatermarkPixelsColorful[i + 1];
@@ -518,9 +359,9 @@ namespace SVD
             }
 
             var p = 0;
-            var decryptedWatermark = new Bitmap(128, 128);
-            for (var i = 0; i < 128; i++)
-                for (var j = 0; j < 128; j++)
+            var decryptedWatermark = new Bitmap(watermarkWidth, watermarkHeight);
+            for (var i = 0; i < watermarkHeight; i++)
+                for (var j = 0; j < watermarkWidth; j++)
                 {
                     var processedPixelR = Convert.ToInt32(stringWithOriginalContainerPixels[p]);
                     if (processedPixelR < 0) processedPixelR = 0;
@@ -538,7 +379,7 @@ namespace SVD
                 }
 
             decryptedWatermark.Save(Path.Combine(MainConstants.DecryptedWatermarksPath, $"{fileName}_decrypted.bmp"));
-            
+
             return decryptedWatermark;
         }
 

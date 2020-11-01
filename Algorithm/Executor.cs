@@ -70,7 +70,7 @@ namespace Algorithm
             var decryptionFilePath = Path.Combine(MainConstants.ContainersProcessedPath, $"{decryptionFileName}.bmp");
 
             var decryptionStopwatch = Stopwatch.StartNew();
-            var decryptionResult = await Svd.Decrypt(new Bitmap(decryptionFilePath), decryptionFileName);
+            var decryptionResult = await Svd.Decrypt(new Bitmap(decryptionFilePath), decryptionFileName, originalKeyBitmap.Width, originalKeyBitmap.Height);
             decryptionStopwatch.Stop();
             var decryptionPsnr = Helpers.CalculatePsnr(originalKeyBitmap, decryptionResult);
 

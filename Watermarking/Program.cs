@@ -14,12 +14,10 @@ namespace Watermarking
     internal class Program
     {
         public static int Mode;
-        public static int[] ValuesForBrightness = new[]
-        {
+        public static int[] ValuesForBrightness = {
             -200, -175, -150, -125, -100, -75, -50, -25, 0, 25, 50, 75, 100, 125, 150, 175, 200
         };
-        public static int[] ValuesForContrast = new[]
-        {
+        public static int[] ValuesForContrast = {
             -200, -175, -150, -125, -100, -75, -50, -25, 25, 50, 75, 100, 125, 150, 175, 200
         };
 
@@ -33,6 +31,7 @@ namespace Watermarking
                 Console.WriteLine("Press 3 to run one container for one key");
                 Console.WriteLine("Press 4 to run one key for all containers");
 
+                Console.WriteLine();
                 Console.WriteLine("Press 8 to see results");
                 Console.WriteLine("Press 9 to see results (for different contrasts and brightness)");
 
@@ -122,7 +121,9 @@ namespace Watermarking
         private static async Task RunOneContainerForOneKey()
         {
             const string originalContainerFileName = "LenaOriginal512color";
-            const string originalKeyFileName = "kisspng-bmp";
+            const string originalKeyFileName = "BabooOriginal128color";
+
+
 
             var originalFilePath = Path.Combine(MainConstants.ContainerFolderPath, $"{originalContainerFileName}.bmp");
 
