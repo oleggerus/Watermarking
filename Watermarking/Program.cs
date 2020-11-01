@@ -73,7 +73,7 @@ namespace Watermarking
 
         private static async Task RunOneKeyForAllContainers()
         {
-            const string originalKeyFileName = "BabooOriginal128color.bmp";
+            const string originalKeyFileName = "Baboo128color.bmp";
 
             var originalContainerPaths = Directory.GetFiles(MainConstants.ContainerFolderPath, "*.bmp",
                 SearchOption.TopDirectoryOnly);
@@ -121,9 +121,7 @@ namespace Watermarking
         private static async Task RunOneContainerForOneKey()
         {
             const string originalContainerFileName = "LenaOriginal512color";
-            const string originalKeyFileName = "BabooOriginal128color";
-
-
+            const string originalKeyFileName = "Baboo128color";
 
             var originalFilePath = Path.Combine(MainConstants.ContainerFolderPath, $"{originalContainerFileName}.bmp");
 
@@ -217,7 +215,7 @@ namespace Watermarking
 
         private static async Task RunOneKeyForAllContainersNoContrastAndBrightness()
         {
-            const string originalKeyFileName = "BabooOriginal128color.bmp";
+            const string originalKeyFileName = "Baboo128color.bmp";
 
             var originalContainerPaths = Directory.GetFiles(MainConstants.ContainerDiffFolderPath, "*.bmp",
                 SearchOption.TopDirectoryOnly);

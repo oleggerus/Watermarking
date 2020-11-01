@@ -16,7 +16,11 @@ namespace Algorithm
             int contrast,
             int r,
             int g,
-            int b
+            int b,
+            int cWidth,
+            int cHeight,
+            int wWidth,
+            int wHeight
         )
         {
             return new WatermarkingResults
@@ -32,7 +36,11 @@ namespace Algorithm
                 Contrast = contrast,
                 AverageRedColor = r,
                 AverageGreenColor = g,
-                AverageBlueColor = b
+                AverageBlueColor = b,
+                ContainerHeight = cHeight,
+                ContainerWidth = cWidth,
+                WatermarkWidth = wWidth,
+                WatermarkHeight = wHeight
             };
         }
     }

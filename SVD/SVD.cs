@@ -398,7 +398,11 @@ namespace SVD
                 OutputContainer = outputContainer,
                 AverageRedColor = colors.Item1,
                 AverageGreenColor = colors.Item2,
-                AverageBlueColor = colors.Item3
+                AverageBlueColor = colors.Item3,
+                ContainerWidth = inputContainer.Width,
+                ContainerHeight= inputContainer.Height,
+                WatermarkHeight = inputKey.Height,
+                WatermarkWidth = inputKey.Width
             };
         }
 
