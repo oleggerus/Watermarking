@@ -1,14 +1,13 @@
-﻿using System;
+﻿using Accord.Math;
+using Accord.Math.Decompositions;
+using Accord.Statistics;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Accord.Math;
-using Accord.Math.Decompositions;
-using Accord.Statistics;
 using MainConstants = Constants.Constants;
 
 namespace SVD
