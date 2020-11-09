@@ -22,8 +22,9 @@ namespace Algorithm
 
             var insertModel = Factory.PrepareResultModel(fileNameToCreate, originalKeyFileName, encryptionResult.Time,
                 decryptionResult.Time, encryptionResult.Psnr, decryptionResult.Psnr, brightness, contrast,
-                encryptionResult.AverageRedColor, encryptionResult.AverageGreenColor,
-                encryptionResult.AverageBlueColor, encryptionResult.ContainerWidth, encryptionResult.ContainerHeight,
+                encryptionResult.AverageRedColor, encryptionResult.AverageGreenColor, encryptionResult.AverageBlueColor,
+                encryptionResult.AverageRedColorWatermark, encryptionResult.AverageGreenColorWatermark, encryptionResult.AverageBlueColorWatermark,
+                encryptionResult.ContainerWidth, encryptionResult.ContainerHeight,
                 encryptionResult.WatermarkWidth, encryptionResult.WatermarkHeight);
 
             return insertModel;
@@ -66,6 +67,9 @@ namespace Algorithm
                 AverageBlueColor = result.AverageBlueColor,
                 AverageGreenColor = result.AverageGreenColor,
                 AverageRedColor = result.AverageRedColor,
+                AverageBlueColorWatermark = result.AverageBlueColorWatermark,
+                AverageGreenColorWatermark = result.AverageGreenColorWatermark,
+                AverageRedColorWatermark = result.AverageRedColorWatermark,
                 ContainerHeight = result.ContainerHeight,
                 ContainerWidth = result.ContainerWidth,
                 WatermarkHeight = result.WatermarkHeight,

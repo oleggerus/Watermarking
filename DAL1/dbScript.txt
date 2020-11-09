@@ -1,0 +1,47 @@
+﻿USE [Watermarking]
+GO
+
+/****** Object:  Table [dbo].[WatermarkingResults]    Script Date: 09.11.2020 23:46:27 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[WatermarkingResults](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ContainerFileName] [varchar](500) NOT NULL,
+	[KeyFileName] [varchar](500) NOT NULL,
+	[EncryptionTime] [time](7) NOT NULL,
+	[DecryptionTime] [time](7) NOT NULL,
+	[EncryptionPsnr] [float] NOT NULL,
+	[DecryptionPsnr] [float] NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[Brightness] [int] NULL,
+	[Contrast] [int] NULL,
+	[AverageRedColor] [int] NULL,
+	[AverageGreenColor] [int] NULL,
+	[AverageBlueColor] [int] NULL,
+	[AverageRedColorWatermark] [int] NULL,
+	[AverageGreenColorWatermark] [int] NULL,
+	[AverageBlueColorWatermark] [int] NULL,
+	[Mode] [int] NULL,
+	[ContainerWidth] [int] NULL,
+	[ContainerHeight] [int] NULL,
+	[WatermarkWidth] [int] NULL,
+	[WatermarkHeight] [int] NULL,
+	
+ CONSTRAINT [PK_WatermarkingResults] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[WatermarkingResults] ADD  CONSTRAINT [DF_WatermarkingResults_Brightness]  DEFAULT ((0)) FOR [Brightness]
+GO
+
+ALTER TABLE [dbo].[WatermarkingResults] ADD  CONSTRAINT [DF_WatermarkingResults_Contrast]  DEFAULT ((0)) FOR [Contrast]
+GO
+
+

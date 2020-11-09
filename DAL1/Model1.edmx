@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WatermarkingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WatermarkingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="WatermarkingResults">
           <Key>
             <PropertyRef Name="Id" />
@@ -22,6 +22,9 @@
           <Property Name="AverageRedColor" Type="int" />
           <Property Name="AverageGreenColor" Type="int" />
           <Property Name="AverageBlueColor" Type="int" />
+          <Property Name="AverageRedColorWatermark" Type="int" />
+          <Property Name="AverageGreenColorWatermark" Type="int" />
+          <Property Name="AverageBlueColorWatermark" Type="int" />
           <Property Name="Mode" Type="int" />
           <Property Name="ContainerWidth" Type="int" />
           <Property Name="ContainerHeight" Type="int" />
@@ -31,8 +34,7 @@
         <EntityContainer Name="WatermarkingModelStoreContainer">
           <EntitySet Name="WatermarkingResults" EntityType="Self.WatermarkingResults" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WatermarkingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -58,6 +60,9 @@
           <Property Name="ContainerHeight" Type="Int32" />
           <Property Name="WatermarkWidth" Type="Int32" />
           <Property Name="WatermarkHeight" Type="Int32" />
+          <Property Name="AverageRedColorWatermark" Type="Int32" />
+          <Property Name="AverageGreenColorWatermark" Type="Int32" />
+          <Property Name="AverageBlueColorWatermark" Type="Int32" />
         </EntityType>
         <EntityContainer Name="WatermarkingEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="WatermarkingResults" EntityType="Self.WatermarkingResults" />
@@ -71,6 +76,9 @@
           <EntitySetMapping Name="WatermarkingResults">
             <EntityTypeMapping TypeName="WatermarkingModel.WatermarkingResults">
               <MappingFragment StoreEntitySet="WatermarkingResults">
+                <ScalarProperty Name="AverageBlueColorWatermark" ColumnName="AverageBlueColorWatermark" />
+                <ScalarProperty Name="AverageGreenColorWatermark" ColumnName="AverageGreenColorWatermark" />
+                <ScalarProperty Name="AverageRedColorWatermark" ColumnName="AverageRedColorWatermark" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ContainerFileName" ColumnName="ContainerFileName" />
                 <ScalarProperty Name="KeyFileName" ColumnName="KeyFileName" />

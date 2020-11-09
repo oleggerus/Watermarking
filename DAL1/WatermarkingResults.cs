@@ -32,5 +32,8 @@ namespace DAL
         public Nullable<int> ContainerHeight { get; set; }
         public Nullable<int> WatermarkWidth { get; set; }
         public Nullable<int> WatermarkHeight { get; set; }
+        public Nullable<int> AverageRedColorWatermark { get; set; }
+        public Nullable<int> AverageGreenColorWatermark { get; set; }
+        public Nullable<int> AverageBlueColorWatermark { get; set; }
     }
 }

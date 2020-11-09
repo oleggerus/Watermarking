@@ -156,7 +156,7 @@ namespace SVD
 
             await SaveAllDataToFiles(containerReconstructed, fileName, _eigenVectors, _singularValues);
 
-            return PrepareEncryptionResult(container, watermark, containerReconstructed);
+            return PrepareEncryptionResult(container,  watermark, containerReconstructed);
         }
 
         private static async Task SaveAllDataToFiles(Image containerProcessed, string fileName, double[,] outputKey1, IEnumerable<double> outputKey2)
@@ -385,10 +385,11 @@ namespace SVD
             Bitmap inputContainer,
             Bitmap inputKey,
             Bitmap outputContainer
-            //Bitmap outputKey
             )
         {
             var colors = CalculateColors(inputContainer);
+            var colorsForKey = CalculateColors(inputKey);
+
             return new EncryptionResult
             {
                 InputContainer = inputContainer,
@@ -397,6 +398,9 @@ namespace SVD
                 AverageRedColor = colors.Item1,
                 AverageGreenColor = colors.Item2,
                 AverageBlueColor = colors.Item3,
+                AverageRedColorWatermark = colorsForKey.Item1,
+                AverageGreenColorWatermark = colorsForKey.Item2,
+                AverageBlueColorWatermark = colorsForKey.Item3,
                 ContainerWidth = inputContainer.Width,
                 ContainerHeight= inputContainer.Height,
                 WatermarkHeight = inputKey.Height,
