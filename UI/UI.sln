@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApp", "ClientApp\Clie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm", "..\Algorithm1\Algorithm.csproj", "{A5E46CE4-73B5-487F-B935-7B20E0B360ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "..\DAL1\DAL.csproj", "{82B29359-C5DE-471F-A0F4-D89A1233F2EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A5E46CE4-73B5-487F-B935-7B20E0B360ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5E46CE4-73B5-487F-B935-7B20E0B360ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5E46CE4-73B5-487F-B935-7B20E0B360ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82B29359-C5DE-471F-A0F4-D89A1233F2EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82B29359-C5DE-471F-A0F4-D89A1233F2EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82B29359-C5DE-471F-A0F4-D89A1233F2EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82B29359-C5DE-471F-A0F4-D89A1233F2EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
