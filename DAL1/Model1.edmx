@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WatermarkingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="WatermarkingResults">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContainerFileName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="KeyFileName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="EncryptionTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="DecryptionTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="EncryptionPsnr" Type="float" Nullable="false" />
+          <Property Name="DecryptionPsnr" Type="float" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="Brightness" Type="int" />
+          <Property Name="Contrast" Type="int" />
+          <Property Name="AverageRedColor" Type="int" />
+          <Property Name="AverageGreenColor" Type="int" />
+          <Property Name="AverageBlueColor" Type="int" />
+          <Property Name="Mode" Type="int" />
+          <Property Name="ContainerWidth" Type="int" />
+          <Property Name="ContainerHeight" Type="int" />
+          <Property Name="WatermarkWidth" Type="int" />
+          <Property Name="WatermarkHeight" Type="int" />
+        </EntityType>
+        <EntityContainer Name="WatermarkingModelStoreContainer">
+          <EntitySet Name="WatermarkingResults" EntityType="Self.WatermarkingResults" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WatermarkingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="WatermarkingResults">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContainerFileName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KeyFileName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EncryptionTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="DecryptionTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="EncryptionPsnr" Type="Double" Nullable="false" />
+          <Property Name="DecryptionPsnr" Type="Double" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Brightness" Type="Int32" />
+          <Property Name="Contrast" Type="Int32" />
+          <Property Name="AverageRedColor" Type="Int32" />
+          <Property Name="AverageGreenColor" Type="Int32" />
+          <Property Name="AverageBlueColor" Type="Int32" />
+          <Property Name="Mode" Type="Int32" />
+          <Property Name="ContainerWidth" Type="Int32" />
+          <Property Name="ContainerHeight" Type="Int32" />
+          <Property Name="WatermarkWidth" Type="Int32" />
+          <Property Name="WatermarkHeight" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="WatermarkingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="WatermarkingResults" EntityType="Self.WatermarkingResults" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WatermarkingModelStoreContainer" CdmEntityContainer="WatermarkingEntities">
+          <EntitySetMapping Name="WatermarkingResults">
+            <EntityTypeMapping TypeName="WatermarkingModel.WatermarkingResults">
+              <MappingFragment StoreEntitySet="WatermarkingResults">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ContainerFileName" ColumnName="ContainerFileName" />
+                <ScalarProperty Name="KeyFileName" ColumnName="KeyFileName" />
+                <ScalarProperty Name="EncryptionTime" ColumnName="EncryptionTime" />
+                <ScalarProperty Name="DecryptionTime" ColumnName="DecryptionTime" />
+                <ScalarProperty Name="EncryptionPsnr" ColumnName="EncryptionPsnr" />
+                <ScalarProperty Name="DecryptionPsnr" ColumnName="DecryptionPsnr" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Brightness" ColumnName="Brightness" />
+                <ScalarProperty Name="Contrast" ColumnName="Contrast" />
+                <ScalarProperty Name="AverageRedColor" ColumnName="AverageRedColor" />
+                <ScalarProperty Name="AverageGreenColor" ColumnName="AverageGreenColor" />
+                <ScalarProperty Name="AverageBlueColor" ColumnName="AverageBlueColor" />
+                <ScalarProperty Name="Mode" ColumnName="Mode" />
+                <ScalarProperty Name="ContainerWidth" ColumnName="ContainerWidth" />
+                <ScalarProperty Name="ContainerHeight" ColumnName="ContainerHeight" />
+                <ScalarProperty Name="WatermarkWidth" ColumnName="WatermarkWidth" />
+                <ScalarProperty Name="WatermarkHeight" ColumnName="WatermarkHeight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
