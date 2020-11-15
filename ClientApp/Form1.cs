@@ -205,16 +205,15 @@ namespace ClientApp
 
         }
 
-        private void displayContrastWatermarkRadionBtn_CheckedChanged(object sender, EventArgs e)
+        private async void displayContrastWatermarkRadionBtn_CheckedChanged(object sender, EventArgs e)
         {
             await PopulateGridWithFullData();
 
         }
 
-        private void displayBrightnessWatermarkRadionBtn_CheckedChanged(object sender, EventArgs e)
+        private async void displayBrightnessWatermarkRadionBtn_CheckedChanged(object sender, EventArgs e)
         {
             await PopulateGridWithFullData();
-
         }
     }
 }
