@@ -48,7 +48,7 @@ namespace Watermarking
                 {
                     case 0:
                         Mode = 0;
-                        await RunAllNoContrastAndBrightness();
+                        RunAllNoContrastAndBrightness();
                         break;
                     case 1:
                         Mode = 1;
@@ -97,19 +97,55 @@ namespace Watermarking
                 SearchOption.TopDirectoryOnly);
 
 
-            var results = new List<WatermarkingResults>();
-            await ForEachAsync(originalKeysPaths, 20, async originalKeyPath =>
+            var i = 1;
+            //Parallel.ForEach(originalKeysPaths, originalKeyPath =>
+            //{
+            //    Parallel.ForEach(originalContainerPaths, async originalFilePath =>
+            //     {
+            //         var newFileName = $"{Path.GetFileNameWithoutExtension(originalFilePath)}_{Path.GetFileNameWithoutExtension(originalKeyPath)}";
+            //         var model = await Executor.ProcessData(originalFilePath, Path.GetFileName(originalKeyPath),
+            //                               newFileName,
+            //                               0, 0, Mode);
+            //         model.Mode = Mode;
+            //         Console.WriteLine($"Processing case #{i++} for {newFileName}");
+            //         await DalService.InsertResult(model);
+            //     });
+            //});
+
+            foreach (var originalKeyPath in originalKeysPaths)
             {
-                await ForEachAsync(originalContainerPaths, 30, async originalFilePath =>
+                foreach (var originalFilePath in originalContainerPaths)
                 {
+                    var newFileName = $"{Path.GetFileNameWithoutExtension(originalFilePath)}_{Path.GetFileNameWithoutExtension(originalKeyPath)}";
                     var model = await Executor.ProcessData(originalFilePath, Path.GetFileName(originalKeyPath),
-                        $"{Path.GetFileNameWithoutExtension(originalFilePath)}_{Path.GetFileNameWithoutExtension(originalKeyPath)}",
-                        0, 0, Mode);
+                                          newFileName,
+                                          0, 0, Mode);
                     model.Mode = Mode;
-                    AddToResultSet(results, model);
-                });
-            });
-        }
+                    Console.WriteLine($"Processing case #{i++} for {newFileName}");
+                    await DalService.InsertResult(model);
+                }
+            }
+                //}
+                //Parallel.ForEach(originalKeysPaths, originalKeyPath =>
+                //{
+                //    Parallel.ForEach(originalContainerPaths, async originalFilePath =>
+                //    {
+
+                //    });
+                //});
+
+                //await ForEachAsync(originalKeysPaths, 20, async originalKeyPath =>
+                //{
+                //    await ForEachAsync(originalContainerPaths, 30, async originalFilePath =>
+                //    {
+                //        var model = await Executor.ProcessData(originalFilePath, Path.GetFileName(originalKeyPath),
+                //            $"{Path.GetFileNameWithoutExtension(originalFilePath)}_{Path.GetFileNameWithoutExtension(originalKeyPath)}",
+                //            0, 0, Mode);
+                //        model.Mode = Mode;
+                //        AddToResultSet(results, model);
+                //    });
+                //});
+            }
 
         private static async Task RunOneKeyForAllContainers()
         {
@@ -167,7 +203,8 @@ namespace Watermarking
 
             var originalFilePath = Path.Combine(MainConstants.ContainerFolderPath, $"{originalContainerFileName}.bmp");
 
-            var model = await Executor.ProcessData(originalFilePath, $"{originalKeyFileName}.bmp", $"{originalContainerFileName}_{originalKeyFileName}", 0, 0, Mode);
+            var model = await Executor.ProcessData(originalFilePath, $"{originalKeyFileName}.bmp",
+                $"{originalContainerFileName}_{originalKeyFileName}", 0, 0, Mode);
             model.Mode = Mode;
 
             await DalService.InsertResult(model);

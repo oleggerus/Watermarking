@@ -101,12 +101,11 @@ namespace ClientApp
 
         private async Task PopulateGridWithFullData()
         {
-            var allItems = await DalService.GetAllResults();
-            List<WatermarkingResults> toDisplay;
             if (displayOriginalRadionBtn.Checked)
             {
                 GridViewTab3.Rows.Clear();
-                toDisplay = allItems.Where(x => x.Contrast.GetValueOrDefault() == 0 && x.Brightness.GetValueOrDefault() == 0).ToList();
+                var toDisplay = await DalService.GetAllResultByMode(new List<int> {0, 3, 4, 5});
+
                 foreach (var item in toDisplay)
                 {
                     GridViewTab3.Rows.Add(item.ContainerFileName, item.KeyFileName, "-", "-",
@@ -118,10 +117,11 @@ namespace ClientApp
                         item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
                 }
             }
-            else if (displayContrastRadionBtn.Checked)
+            else if (displayContrastContainerRadionBtn.Checked)
             {
                 GridViewTab3.Rows.Clear();
-                toDisplay = allItems.Where(x => x.Brightness.GetValueOrDefault() == 0).ToList();
+                var toDisplay = (await DalService.GetAllResultByMode(1))
+                    .Where(x => x.Brightness.GetValueOrDefault() == 0).ToList();
                 foreach (var item in toDisplay)
                 {
                     GridViewTab3.Rows.Add(item.ContainerFileName, item.KeyFileName, item.Contrast, "-",
@@ -133,10 +133,44 @@ namespace ClientApp
                         item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
                 }
             }
-            else if (displayBrightnessRadionBtn.Checked)
+            else if (displayBrightnessContainerRadionBtn.Checked)
             {
                 GridViewTab3.Rows.Clear();
-                toDisplay = allItems.Where(x => x.Contrast.GetValueOrDefault() == 0).ToList();
+                var toDisplay = (await DalService.GetAllResultByMode(1))
+                    .Where(x => x.Contrast.GetValueOrDefault() == 0).ToList();
+                foreach (var item in toDisplay)
+                {
+                    GridViewTab3.Rows.Add(item.ContainerFileName, item.KeyFileName, "-", item.Brightness,
+                        $"{item.ContainerHeight}x{item.ContainerWidth}",
+                        $"{item.WatermarkHeight}x{item.WatermarkHeight}",
+                        $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
+                        $"{item.AverageRedColorWatermark} - {item.AverageGreenColorWatermark} - {item.AverageBlueColorWatermark}",
+                        Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
+                        item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
+                }
+                GridViewTab3.Refresh();
+            }
+            else if (displayContrastWatermarkRadionBtn.Checked)
+            {
+                GridViewTab3.Rows.Clear();
+                var toDisplay = (await DalService.GetAllResultByMode(2))
+                    .Where(x => x.Brightness.GetValueOrDefault() == 0).ToList();
+                foreach (var item in toDisplay)
+                {
+                    GridViewTab3.Rows.Add(item.ContainerFileName, item.KeyFileName, item.Contrast, "-",
+                        $"{item.ContainerHeight}x{item.ContainerWidth}",
+                        $"{item.WatermarkHeight}x{item.WatermarkHeight}",
+                        $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
+                        $"{item.AverageRedColorWatermark} - {item.AverageGreenColorWatermark} - {item.AverageBlueColorWatermark}",
+                        Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
+                        item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
+                }
+            }
+            else if (displayBrightnessWatermarkRadionBtn.Checked)
+            {
+                GridViewTab3.Rows.Clear();
+                var toDisplay = (await DalService.GetAllResultByMode(2))
+                    .Where(x => x.Contrast.GetValueOrDefault() == 0).ToList();
                 foreach (var item in toDisplay)
                 {
                     GridViewTab3.Rows.Add(item.ContainerFileName, item.KeyFileName, "-", item.Brightness,
@@ -150,7 +184,7 @@ namespace ClientApp
                 GridViewTab3.Refresh();
             }
 
-           
+
         }
 
         private async void displayContrastRadionBtn_CheckedChanged(object sender, EventArgs e)
@@ -166,6 +200,18 @@ namespace ClientApp
         }
 
         private async void displayBrightnessRadionBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            await PopulateGridWithFullData();
+
+        }
+
+        private void displayContrastWatermarkRadionBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            await PopulateGridWithFullData();
+
+        }
+
+        private void displayBrightnessWatermarkRadionBtn_CheckedChanged(object sender, EventArgs e)
         {
             await PopulateGridWithFullData();
 

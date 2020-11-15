@@ -12,7 +12,7 @@ namespace Algorithm
     {
         public static async Task<WatermarkingResults> ProcessData(string originalFilePath, string originalKeyFileName, string fileNameToCreate, int brightness, int contrast, int mode)
         {
-            fileNameToCreate = $"{fileNameToCreate}_{contrast}_{brightness}";
+            fileNameToCreate = $"{fileNameToCreate}_{contrast}_{brightness}_{mode}";
 
             var originalPathKey =
                 Path.Combine(mode == 5 || mode == 0 ? MainConstants.KeysDiffFolderPath : MainConstants.KeysFolderPath,
@@ -30,6 +30,7 @@ namespace Algorithm
                 encryptionResult.ContainerWidth, encryptionResult.ContainerHeight,
                 encryptionResult.WatermarkWidth, encryptionResult.WatermarkHeight);
 
+            originalKeyBitmap.Dispose();
             return insertModel;
         }
 
@@ -91,7 +92,8 @@ namespace Algorithm
                 originalKeyBitmap.Width, originalKeyBitmap.Height);
             decryptionStopwatch.Stop();
             var decryptionPsnr = Helpers.CalculatePsnr(originalKeyBitmap, decryptionResult);
-
+            originalKeyBitmap.Dispose();
+            decryptionResult.Dispose();
             return new ProcessingResult
             {
                 Psnr = decryptionPsnr,
