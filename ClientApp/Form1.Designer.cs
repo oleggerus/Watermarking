@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label16 = new System.Windows.Forms.Label();
@@ -61,9 +61,9 @@
             this.EditedContainerPictureBox = new System.Windows.Forms.PictureBox();
             this.ContainerPictureBox = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.watermarkingResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.watermarkingDataSet = new ClientApp.WatermarkingDataSet();
             this.watermarkingResultsTableAdapter = new ClientApp.WatermarkingDataSetTableAdapters.WatermarkingResultsTableAdapter();
@@ -78,10 +78,32 @@
             this.averageRedColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.averageGreenColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.averageBlueColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageRedColorWatermark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageGreenColorWatermark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageBlueColorWatermark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.containerWidthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.containerHeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.watermarkWidthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.watermarkHeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.GridViewTab3 = new System.Windows.Forms.DataGridView();
+            this.displayOriginalRadionBtn = new System.Windows.Forms.RadioButton();
+            this.displayContrastRadionBtn = new System.Windows.Forms.RadioButton();
+            this.displayBrightnessRadionBtn = new System.Windows.Forms.RadioButton();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EditedWatermarkPictureBox)).BeginInit();
@@ -92,17 +114,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.watermarkingResultsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.watermarkingDataSet)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewTab3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(1, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1557, 846);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -415,16 +443,8 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1549, 820);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Statistic";
+            this.tabPage2.Text = "Results";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // openFileDialog2
-            // 
-            this.openFileDialog2.FileName = "openFileDialog2";
             // 
             // dataGridView1
             // 
@@ -442,16 +462,27 @@
             this.averageRedColorDataGridViewTextBoxColumn,
             this.averageGreenColorDataGridViewTextBoxColumn,
             this.averageBlueColorDataGridViewTextBoxColumn,
+            this.AverageRedColorWatermark,
+            this.AverageGreenColorWatermark,
+            this.AverageBlueColorWatermark,
             this.containerWidthDataGridViewTextBoxColumn,
             this.containerHeightDataGridViewTextBoxColumn,
             this.watermarkWidthDataGridViewTextBoxColumn,
             this.watermarkHeightDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.watermarkingResultsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 6);
+            this.dataGridView1.Location = new System.Drawing.Point(-41, 9);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1549, 808);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.FileName = "openFileDialog2";
             // 
             // watermarkingResultsBindingSource
             // 
@@ -484,9 +515,9 @@
             // encryptionTimeDataGridViewTextBoxColumn
             // 
             this.encryptionTimeDataGridViewTextBoxColumn.DataPropertyName = "EncryptionTime";
-            dataGridViewCellStyle1.Format = "ss\\.fff";
-            dataGridViewCellStyle1.NullValue = null;
-            this.encryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.Format = "ss\\.fff";
+            dataGridViewCellStyle25.NullValue = null;
+            this.encryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle25;
             this.encryptionTimeDataGridViewTextBoxColumn.HeaderText = "EncryptionTime";
             this.encryptionTimeDataGridViewTextBoxColumn.Name = "encryptionTimeDataGridViewTextBoxColumn";
             this.encryptionTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -494,8 +525,8 @@
             // decryptionTimeDataGridViewTextBoxColumn
             // 
             this.decryptionTimeDataGridViewTextBoxColumn.DataPropertyName = "DecryptionTime";
-            dataGridViewCellStyle2.Format = "ss\\.fff";
-            this.decryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Format = "ss\\.fff";
+            this.decryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle26;
             this.decryptionTimeDataGridViewTextBoxColumn.HeaderText = "DecryptionTime";
             this.decryptionTimeDataGridViewTextBoxColumn.Name = "decryptionTimeDataGridViewTextBoxColumn";
             this.decryptionTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -503,9 +534,9 @@
             // encryptionPsnrDataGridViewTextBoxColumn
             // 
             this.encryptionPsnrDataGridViewTextBoxColumn.DataPropertyName = "EncryptionPsnr";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.encryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle27.Format = "N2";
+            dataGridViewCellStyle27.NullValue = null;
+            this.encryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle27;
             this.encryptionPsnrDataGridViewTextBoxColumn.HeaderText = "EncryptionPsnr";
             this.encryptionPsnrDataGridViewTextBoxColumn.Name = "encryptionPsnrDataGridViewTextBoxColumn";
             this.encryptionPsnrDataGridViewTextBoxColumn.ReadOnly = true;
@@ -513,9 +544,9 @@
             // decryptionPsnrDataGridViewTextBoxColumn
             // 
             this.decryptionPsnrDataGridViewTextBoxColumn.DataPropertyName = "DecryptionPsnr";
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.decryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle28.Format = "N2";
+            dataGridViewCellStyle28.NullValue = null;
+            this.decryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle28;
             this.decryptionPsnrDataGridViewTextBoxColumn.HeaderText = "DecryptionPsnr";
             this.decryptionPsnrDataGridViewTextBoxColumn.Name = "decryptionPsnrDataGridViewTextBoxColumn";
             this.decryptionPsnrDataGridViewTextBoxColumn.ReadOnly = true;
@@ -555,6 +586,27 @@
             this.averageBlueColorDataGridViewTextBoxColumn.Name = "averageBlueColorDataGridViewTextBoxColumn";
             this.averageBlueColorDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // AverageRedColorWatermark
+            // 
+            this.AverageRedColorWatermark.DataPropertyName = "AverageRedColorWatermark";
+            this.AverageRedColorWatermark.HeaderText = "AverageRedColorWatermark";
+            this.AverageRedColorWatermark.Name = "AverageRedColorWatermark";
+            this.AverageRedColorWatermark.ReadOnly = true;
+            // 
+            // AverageGreenColorWatermark
+            // 
+            this.AverageGreenColorWatermark.DataPropertyName = "AverageGreenColorWatermark";
+            this.AverageGreenColorWatermark.HeaderText = "AverageGreenColorWatermark";
+            this.AverageGreenColorWatermark.Name = "AverageGreenColorWatermark";
+            this.AverageGreenColorWatermark.ReadOnly = true;
+            // 
+            // AverageBlueColorWatermark
+            // 
+            this.AverageBlueColorWatermark.DataPropertyName = "AverageBlueColorWatermark";
+            this.AverageBlueColorWatermark.HeaderText = "AverageBlueColorWatermark";
+            this.AverageBlueColorWatermark.Name = "AverageBlueColorWatermark";
+            this.AverageBlueColorWatermark.ReadOnly = true;
+            // 
             // containerWidthDataGridViewTextBoxColumn
             // 
             this.containerWidthDataGridViewTextBoxColumn.DataPropertyName = "ContainerWidth";
@@ -583,6 +635,157 @@
             this.watermarkHeightDataGridViewTextBoxColumn.Name = "watermarkHeightDataGridViewTextBoxColumn";
             this.watermarkHeightDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.displayBrightnessRadionBtn);
+            this.tabPage3.Controls.Add(this.displayContrastRadionBtn);
+            this.tabPage3.Controls.Add(this.displayOriginalRadionBtn);
+            this.tabPage3.Controls.Add(this.GridViewTab3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1549, 820);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Filtered results";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1549, 820);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1549, 820);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // GridViewTab3
+            // 
+            this.GridViewTab3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridViewTab3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column11,
+            this.Column12,
+            this.Column9,
+            this.Column10});
+            this.GridViewTab3.Location = new System.Drawing.Point(-41, 124);
+            this.GridViewTab3.Name = "GridViewTab3";
+            this.GridViewTab3.Size = new System.Drawing.Size(1242, 547);
+            this.GridViewTab3.TabIndex = 0;
+            // 
+            // displayOriginalRadionBtn
+            // 
+            this.displayOriginalRadionBtn.AutoSize = true;
+            this.displayOriginalRadionBtn.Location = new System.Drawing.Point(29, 55);
+            this.displayOriginalRadionBtn.Name = "displayOriginalRadionBtn";
+            this.displayOriginalRadionBtn.Size = new System.Drawing.Size(179, 17);
+            this.displayOriginalRadionBtn.TabIndex = 1;
+            this.displayOriginalRadionBtn.TabStop = true;
+            this.displayOriginalRadionBtn.Text = "Display results for original images";
+            this.displayOriginalRadionBtn.UseVisualStyleBackColor = true;
+            this.displayOriginalRadionBtn.CheckedChanged += new System.EventHandler(this.displayOriginalRadionBtn_CheckedChanged);
+            // 
+            // displayContrastRadionBtn
+            // 
+            this.displayContrastRadionBtn.AutoSize = true;
+            this.displayContrastRadionBtn.Location = new System.Drawing.Point(29, 78);
+            this.displayContrastRadionBtn.Name = "displayContrastRadionBtn";
+            this.displayContrastRadionBtn.Size = new System.Drawing.Size(247, 17);
+            this.displayContrastRadionBtn.TabIndex = 2;
+            this.displayContrastRadionBtn.TabStop = true;
+            this.displayContrastRadionBtn.Text = "Display results for images with different contrast";
+            this.displayContrastRadionBtn.UseVisualStyleBackColor = true;
+            this.displayContrastRadionBtn.CheckedChanged += new System.EventHandler(this.displayContrastRadionBtn_CheckedChanged);
+            // 
+            // displayBrightnessRadionBtn
+            // 
+            this.displayBrightnessRadionBtn.AutoSize = true;
+            this.displayBrightnessRadionBtn.Location = new System.Drawing.Point(29, 101);
+            this.displayBrightnessRadionBtn.Name = "displayBrightnessRadionBtn";
+            this.displayBrightnessRadionBtn.Size = new System.Drawing.Size(257, 17);
+            this.displayBrightnessRadionBtn.TabIndex = 3;
+            this.displayBrightnessRadionBtn.TabStop = true;
+            this.displayBrightnessRadionBtn.Text = "Display results for images with different brightness";
+            this.displayBrightnessRadionBtn.UseVisualStyleBackColor = true;
+            this.displayBrightnessRadionBtn.CheckedChanged += new System.EventHandler(this.displayBrightnessRadionBtn_CheckedChanged);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Container";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Watermark";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Contrast";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Brightness";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Container size";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Watermark size";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Container colors amount (RGB)";
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Watermark colors amount (RGB)";
+            this.Column8.Name = "Column8";
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Encryption PSNR";
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Decryption PSNR";
+            this.Column12.Name = "Column12";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Encryption time";
+            this.Column9.Name = "Column9";
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Decryption time";
+            this.Column10.Name = "Column10";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -603,6 +806,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.watermarkingResultsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.watermarkingDataSet)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewTab3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -654,10 +860,32 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn averageRedColorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn averageGreenColorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn averageBlueColorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageRedColorWatermark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageGreenColorWatermark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageBlueColorWatermark;
         private System.Windows.Forms.DataGridViewTextBoxColumn containerWidthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn containerHeightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn watermarkWidthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn watermarkHeightDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.DataGridView GridViewTab3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.RadioButton displayBrightnessRadionBtn;
+        private System.Windows.Forms.RadioButton displayContrastRadionBtn;
+        private System.Windows.Forms.RadioButton displayOriginalRadionBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
     }
 }
 

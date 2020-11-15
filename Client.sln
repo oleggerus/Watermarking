@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApp", "ClientApp\ClientApp.csproj", "{4002B96C-00AF-476A-A4D7-554654B8F3D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm", "..\Algorithm1\Algorithm.csproj", "{A5E46CE4-73B5-487F-B935-7B20E0B360ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm", "Algorithm1\Algorithm.csproj", "{A5E46CE4-73B5-487F-B935-7B20E0B360ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "..\DAL1\DAL.csproj", "{82B29359-C5DE-471F-A0F4-D89A1233F2EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL1\DAL.csproj", "{82B29359-C5DE-471F-A0F4-D89A1233F2EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

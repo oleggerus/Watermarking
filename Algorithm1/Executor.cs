@@ -13,7 +13,10 @@ namespace Algorithm
         public static async Task<WatermarkingResults> ProcessData(string originalFilePath, string originalKeyFileName, string fileNameToCreate, int brightness, int contrast, int mode)
         {
             fileNameToCreate = $"{fileNameToCreate}_{contrast}_{brightness}";
-            var originalPathKey = Path.Combine(MainConstants.KeysFolderPath, originalKeyFileName);
+
+            var originalPathKey =
+                Path.Combine(mode == 5 || mode == 0 ? MainConstants.KeysDiffFolderPath : MainConstants.KeysFolderPath,
+                    originalKeyFileName);
 
             var originalKeyBitmap = new Bitmap(originalPathKey);
 
@@ -84,7 +87,8 @@ namespace Algorithm
             var decryptionFilePath = Path.Combine(MainConstants.ContainersProcessedPath, $"{decryptionFileName}.bmp");
 
             var decryptionStopwatch = Stopwatch.StartNew();
-            var decryptionResult = await Svd.Decrypt(new Bitmap(decryptionFilePath), decryptionFileName, originalKeyBitmap.Width, originalKeyBitmap.Height);
+            var decryptionResult = await Svd.Decrypt(new Bitmap(decryptionFilePath), decryptionFileName,
+                originalKeyBitmap.Width, originalKeyBitmap.Height);
             decryptionStopwatch.Stop();
             var decryptionPsnr = Helpers.CalculatePsnr(originalKeyBitmap, decryptionResult);
 

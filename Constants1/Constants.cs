@@ -8,6 +8,7 @@ namespace Constants
         public const string ContainerDiffFolderPath = @"..\..\..\Containers_diff\";
 
         public const string KeysFolderPath = @"..\..\..\Keys\";
+        public const string KeysDiffFolderPath = @"..\..\..\Keys_diff\";
         public static string ContainersProcessedPath = @"..\..\..\ContainersProcessed\";
         public static string DecryptKeysPath = @"..\..\..\DecryptKeys\";
         public static string DecryptedWatermarksPath = @"..\..\..\DecryptedWatermarks\";

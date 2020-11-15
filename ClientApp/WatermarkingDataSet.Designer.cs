@@ -315,6 +315,12 @@ namespace ClientApp {
             
             private global::System.Data.DataColumn columnWatermarkHeight;
             
+            private global::System.Data.DataColumn columnAverageRedColorWatermark;
+            
+            private global::System.Data.DataColumn columnAverageGreenColorWatermark;
+            
+            private global::System.Data.DataColumn columnAverageBlueColorWatermark;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public WatermarkingResultsDataTable() {
@@ -494,6 +500,30 @@ namespace ClientApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AverageRedColorWatermarkColumn {
+                get {
+                    return this.columnAverageRedColorWatermark;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AverageGreenColorWatermarkColumn {
+                get {
+                    return this.columnAverageGreenColorWatermark;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AverageBlueColorWatermarkColumn {
+                get {
+                    return this.columnAverageBlueColorWatermark;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -546,7 +576,10 @@ namespace ClientApp {
                         int ContainerWidth, 
                         int ContainerHeight, 
                         int WatermarkWidth, 
-                        int WatermarkHeight) {
+                        int WatermarkHeight, 
+                        int AverageRedColorWatermark, 
+                        int AverageGreenColorWatermark, 
+                        int AverageBlueColorWatermark) {
                 WatermarkingResultsRow rowWatermarkingResultsRow = ((WatermarkingResultsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -566,7 +599,10 @@ namespace ClientApp {
                         ContainerWidth,
                         ContainerHeight,
                         WatermarkWidth,
-                        WatermarkHeight};
+                        WatermarkHeight,
+                        AverageRedColorWatermark,
+                        AverageGreenColorWatermark,
+                        AverageBlueColorWatermark};
                 rowWatermarkingResultsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowWatermarkingResultsRow);
                 return rowWatermarkingResultsRow;
@@ -614,6 +650,9 @@ namespace ClientApp {
                 this.columnContainerHeight = base.Columns["ContainerHeight"];
                 this.columnWatermarkWidth = base.Columns["WatermarkWidth"];
                 this.columnWatermarkHeight = base.Columns["WatermarkHeight"];
+                this.columnAverageRedColorWatermark = base.Columns["AverageRedColorWatermark"];
+                this.columnAverageGreenColorWatermark = base.Columns["AverageGreenColorWatermark"];
+                this.columnAverageBlueColorWatermark = base.Columns["AverageBlueColorWatermark"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -655,6 +694,12 @@ namespace ClientApp {
                 base.Columns.Add(this.columnWatermarkWidth);
                 this.columnWatermarkHeight = new global::System.Data.DataColumn("WatermarkHeight", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWatermarkHeight);
+                this.columnAverageRedColorWatermark = new global::System.Data.DataColumn("AverageRedColorWatermark", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAverageRedColorWatermark);
+                this.columnAverageGreenColorWatermark = new global::System.Data.DataColumn("AverageGreenColorWatermark", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAverageGreenColorWatermark);
+                this.columnAverageBlueColorWatermark = new global::System.Data.DataColumn("AverageBlueColorWatermark", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAverageBlueColorWatermark);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -847,9 +892,9 @@ namespace ClientApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string EncryptionTime {
+            public System.TimeSpan EncryptionTime {
                 get {
-                    return ((global::System.TimeSpan)(this[this.tableWatermarkingResults.EncryptionTimeColumn])).TotalMilliseconds.ToString();
+                    return ((global::System.TimeSpan)(this[this.tableWatermarkingResults.EncryptionTimeColumn]));
                 }
                 set {
                     this[this.tableWatermarkingResults.EncryptionTimeColumn] = value;
@@ -1064,6 +1109,57 @@ namespace ClientApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int AverageRedColorWatermark {
+                get {
+                    try {
+                        return ((int)(this[this.tableWatermarkingResults.AverageRedColorWatermarkColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AverageRedColorWatermark\' in table \'WatermarkingResults\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWatermarkingResults.AverageRedColorWatermarkColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int AverageGreenColorWatermark {
+                get {
+                    try {
+                        return ((int)(this[this.tableWatermarkingResults.AverageGreenColorWatermarkColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AverageGreenColorWatermark\' in table \'WatermarkingResults\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWatermarkingResults.AverageGreenColorWatermarkColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int AverageBlueColorWatermark {
+                get {
+                    try {
+                        return ((int)(this[this.tableWatermarkingResults.AverageBlueColorWatermarkColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AverageBlueColorWatermark\' in table \'WatermarkingResults\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWatermarkingResults.AverageBlueColorWatermarkColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsBrightnessNull() {
                 return this.IsNull(this.tableWatermarkingResults.BrightnessColumn);
             }
@@ -1180,6 +1276,42 @@ namespace ClientApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetWatermarkHeightNull() {
                 this[this.tableWatermarkingResults.WatermarkHeightColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAverageRedColorWatermarkNull() {
+                return this.IsNull(this.tableWatermarkingResults.AverageRedColorWatermarkColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAverageRedColorWatermarkNull() {
+                this[this.tableWatermarkingResults.AverageRedColorWatermarkColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAverageGreenColorWatermarkNull() {
+                return this.IsNull(this.tableWatermarkingResults.AverageGreenColorWatermarkColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAverageGreenColorWatermarkNull() {
+                this[this.tableWatermarkingResults.AverageGreenColorWatermarkColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAverageBlueColorWatermarkNull() {
+                return this.IsNull(this.tableWatermarkingResults.AverageBlueColorWatermarkColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAverageBlueColorWatermarkNull() {
+                this[this.tableWatermarkingResults.AverageBlueColorWatermarkColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1360,10 +1492,37 @@ namespace ClientApp.WatermarkingDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("ContainerHeight", "ContainerHeight");
             tableMapping.ColumnMappings.Add("WatermarkWidth", "WatermarkWidth");
             tableMapping.ColumnMappings.Add("WatermarkHeight", "WatermarkHeight");
+            tableMapping.ColumnMappings.Add("AverageRedColorWatermark", "AverageRedColorWatermark");
+            tableMapping.ColumnMappings.Add("AverageGreenColorWatermark", "AverageGreenColorWatermark");
+            tableMapping.ColumnMappings.Add("AverageBlueColorWatermark", "AverageBlueColorWatermark");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[WatermarkingResults] WHERE (([Id] = @Original_Id) AND ([ContainerFileName] = @Original_ContainerFileName) AND ([KeyFileName] = @Original_KeyFileName) AND ([EncryptionTime] = @Original_EncryptionTime) AND ([DecryptionTime] = @Original_DecryptionTime) AND ([EncryptionPsnr] = @Original_EncryptionPsnr) AND ([DecryptionPsnr] = @Original_DecryptionPsnr) AND ([CreatedOn] = @Original_CreatedOn) AND ((@IsNull_Brightness = 1 AND [Brightness] IS NULL) OR ([Brightness] = @Original_Brightness)) AND ((@IsNull_Contrast = 1 AND [Contrast] IS NULL) OR ([Contrast] = @Original_Contrast)) AND ((@IsNull_AverageRedColor = 1 AND [AverageRedColor] IS NULL) OR ([AverageRedColor] = @Original_AverageRedColor)) AND ((@IsNull_AverageGreenColor = 1 AND [AverageGreenColor] IS NULL) OR ([AverageGreenColor] = @Original_AverageGreenColor)) AND ((@IsNull_AverageBlueColor = 1 AND [AverageBlueColor] IS NULL) OR ([AverageBlueColor] = @Original_AverageBlueColor)) AND ((@IsNull_Mode = 1 AND [Mode] IS NULL) OR ([Mode] = @Original_Mode)) AND ((@IsNull_ContainerWidth = 1 AND [ContainerWidth] IS NULL) OR ([ContainerWidth] = @Original_ContainerWidth)) AND ((@IsNull_ContainerHeight = 1 AND [ContainerHeight] IS NULL) OR ([ContainerHeight] = @Original_ContainerHeight)) AND ((@IsNull_WatermarkWidth = 1 AND [WatermarkWidth] IS NULL) OR ([WatermarkWidth] = @Original_WatermarkWidth)) AND ((@IsNull_WatermarkHeight = 1 AND [WatermarkHeight] IS NULL) OR ([WatermarkHeight] = @Original_WatermarkHeight)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [WatermarkingResults] WHERE (([Id] = @Original_Id) AND ([ContainerFil" +
+                "eName] = @Original_ContainerFileName) AND ([KeyFileName] = @Original_KeyFileName" +
+                ") AND ([EncryptionTime] = @Original_EncryptionTime) AND ([DecryptionTime] = @Ori" +
+                "ginal_DecryptionTime) AND ([EncryptionPsnr] = @Original_EncryptionPsnr) AND ([De" +
+                "cryptionPsnr] = @Original_DecryptionPsnr) AND ([CreatedOn] = @Original_CreatedOn" +
+                ") AND ((@IsNull_Brightness = 1 AND [Brightness] IS NULL) OR ([Brightness] = @Ori" +
+                "ginal_Brightness)) AND ((@IsNull_Contrast = 1 AND [Contrast] IS NULL) OR ([Contr" +
+                "ast] = @Original_Contrast)) AND ((@IsNull_AverageRedColor = 1 AND [AverageRedCol" +
+                "or] IS NULL) OR ([AverageRedColor] = @Original_AverageRedColor)) AND ((@IsNull_A" +
+                "verageGreenColor = 1 AND [AverageGreenColor] IS NULL) OR ([AverageGreenColor] = " +
+                "@Original_AverageGreenColor)) AND ((@IsNull_AverageBlueColor = 1 AND [AverageBlu" +
+                "eColor] IS NULL) OR ([AverageBlueColor] = @Original_AverageBlueColor)) AND ((@Is" +
+                "Null_Mode = 1 AND [Mode] IS NULL) OR ([Mode] = @Original_Mode)) AND ((@IsNull_Co" +
+                "ntainerWidth = 1 AND [ContainerWidth] IS NULL) OR ([ContainerWidth] = @Original_" +
+                "ContainerWidth)) AND ((@IsNull_ContainerHeight = 1 AND [ContainerHeight] IS NULL" +
+                ") OR ([ContainerHeight] = @Original_ContainerHeight)) AND ((@IsNull_WatermarkWid" +
+                "th = 1 AND [WatermarkWidth] IS NULL) OR ([WatermarkWidth] = @Original_WatermarkW" +
+                "idth)) AND ((@IsNull_WatermarkHeight = 1 AND [WatermarkHeight] IS NULL) OR ([Wat" +
+                "ermarkHeight] = @Original_WatermarkHeight)) AND ((@IsNull_AverageRedColorWaterma" +
+                "rk = 1 AND [AverageRedColorWatermark] IS NULL) OR ([AverageRedColorWatermark] = " +
+                "@Original_AverageRedColorWatermark)) AND ((@IsNull_AverageGreenColorWatermark = " +
+                "1 AND [AverageGreenColorWatermark] IS NULL) OR ([AverageGreenColorWatermark] = @" +
+                "Original_AverageGreenColorWatermark)) AND ((@IsNull_AverageBlueColorWatermark = " +
+                "1 AND [AverageBlueColorWatermark] IS NULL) OR ([AverageBlueColorWatermark] = @Or" +
+                "iginal_AverageBlueColorWatermark)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContainerFileName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContainerFileName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1393,10 +1552,16 @@ namespace ClientApp.WatermarkingDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WatermarkWidth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WatermarkWidth", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WatermarkHeight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WatermarkHeight", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WatermarkHeight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WatermarkHeight", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AverageRedColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageRedColorWatermark", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AverageRedColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageRedColorWatermark", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AverageGreenColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageGreenColorWatermark", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AverageGreenColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageGreenColorWatermark", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AverageBlueColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageBlueColorWatermark", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AverageBlueColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageBlueColorWatermark", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[WatermarkingResults] ([ContainerFileName], [KeyFileName], [EncryptionTime], [DecryptionTime], [EncryptionPsnr], [DecryptionPsnr], [CreatedOn], [Brightness], [Contrast], [AverageRedColor], [AverageGreenColor], [AverageBlueColor], [Mode], [ContainerWidth], [ContainerHeight], [WatermarkWidth], [WatermarkHeight]) VALUES (@ContainerFileName, @KeyFileName, @EncryptionTime, @DecryptionTime, @EncryptionPsnr, @DecryptionPsnr, @CreatedOn, @Brightness, @Contrast, @AverageRedColor, @AverageGreenColor, @AverageBlueColor, @Mode, @ContainerWidth, @ContainerHeight, @WatermarkWidth, @WatermarkHeight);
-SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, EncryptionPsnr, DecryptionPsnr, CreatedOn, Brightness, Contrast, AverageRedColor, AverageGreenColor, AverageBlueColor, Mode, ContainerWidth, ContainerHeight, WatermarkWidth, WatermarkHeight FROM WatermarkingResults WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [WatermarkingResults] ([ContainerFileName], [KeyFileName], [EncryptionTime], [DecryptionTime], [EncryptionPsnr], [DecryptionPsnr], [CreatedOn], [Brightness], [Contrast], [AverageRedColor], [AverageGreenColor], [AverageBlueColor], [Mode], [ContainerWidth], [ContainerHeight], [WatermarkWidth], [WatermarkHeight], [AverageRedColorWatermark], [AverageGreenColorWatermark], [AverageBlueColorWatermark]) VALUES (@ContainerFileName, @KeyFileName, @EncryptionTime, @DecryptionTime, @EncryptionPsnr, @DecryptionPsnr, @CreatedOn, @Brightness, @Contrast, @AverageRedColor, @AverageGreenColor, @AverageBlueColor, @Mode, @ContainerWidth, @ContainerHeight, @WatermarkWidth, @WatermarkHeight, @AverageRedColorWatermark, @AverageGreenColorWatermark, @AverageBlueColorWatermark);
+SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, EncryptionPsnr, DecryptionPsnr, CreatedOn, Brightness, Contrast, AverageRedColor, AverageGreenColor, AverageBlueColor, Mode, ContainerWidth, ContainerHeight, WatermarkWidth, WatermarkHeight, AverageRedColorWatermark, AverageGreenColorWatermark, AverageBlueColorWatermark FROM WatermarkingResults WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContainerFileName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContainerFileName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KeyFileName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KeyFileName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1415,38 +1580,50 @@ SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, Encry
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContainerHeight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContainerHeight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WatermarkWidth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WatermarkWidth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WatermarkHeight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WatermarkHeight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AverageRedColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageRedColorWatermark", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AverageGreenColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageGreenColorWatermark", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AverageBlueColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageBlueColorWatermark", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[WatermarkingResults] SET [ContainerFileName] = @ContainerFileName, " +
-                "[KeyFileName] = @KeyFileName, [EncryptionTime] = @EncryptionTime, [DecryptionTim" +
-                "e] = @DecryptionTime, [EncryptionPsnr] = @EncryptionPsnr, [DecryptionPsnr] = @De" +
-                "cryptionPsnr, [CreatedOn] = @CreatedOn, [Brightness] = @Brightness, [Contrast] =" +
-                " @Contrast, [AverageRedColor] = @AverageRedColor, [AverageGreenColor] = @Average" +
-                "GreenColor, [AverageBlueColor] = @AverageBlueColor, [Mode] = @Mode, [ContainerWi" +
-                "dth] = @ContainerWidth, [ContainerHeight] = @ContainerHeight, [WatermarkWidth] =" +
-                " @WatermarkWidth, [WatermarkHeight] = @WatermarkHeight WHERE (([Id] = @Original_" +
-                "Id) AND ([ContainerFileName] = @Original_ContainerFileName) AND ([KeyFileName] =" +
-                " @Original_KeyFileName) AND ([EncryptionTime] = @Original_EncryptionTime) AND ([" +
-                "DecryptionTime] = @Original_DecryptionTime) AND ([EncryptionPsnr] = @Original_En" +
-                "cryptionPsnr) AND ([DecryptionPsnr] = @Original_DecryptionPsnr) AND ([CreatedOn]" +
-                " = @Original_CreatedOn) AND ((@IsNull_Brightness = 1 AND [Brightness] IS NULL) O" +
-                "R ([Brightness] = @Original_Brightness)) AND ((@IsNull_Contrast = 1 AND [Contras" +
-                "t] IS NULL) OR ([Contrast] = @Original_Contrast)) AND ((@IsNull_AverageRedColor " +
-                "= 1 AND [AverageRedColor] IS NULL) OR ([AverageRedColor] = @Original_AverageRedC" +
-                "olor)) AND ((@IsNull_AverageGreenColor = 1 AND [AverageGreenColor] IS NULL) OR (" +
-                "[AverageGreenColor] = @Original_AverageGreenColor)) AND ((@IsNull_AverageBlueCol" +
-                "or = 1 AND [AverageBlueColor] IS NULL) OR ([AverageBlueColor] = @Original_Averag" +
-                "eBlueColor)) AND ((@IsNull_Mode = 1 AND [Mode] IS NULL) OR ([Mode] = @Original_M" +
-                "ode)) AND ((@IsNull_ContainerWidth = 1 AND [ContainerWidth] IS NULL) OR ([Contai" +
-                "nerWidth] = @Original_ContainerWidth)) AND ((@IsNull_ContainerHeight = 1 AND [Co" +
-                "ntainerHeight] IS NULL) OR ([ContainerHeight] = @Original_ContainerHeight)) AND " +
-                "((@IsNull_WatermarkWidth = 1 AND [WatermarkWidth] IS NULL) OR ([WatermarkWidth] " +
-                "= @Original_WatermarkWidth)) AND ((@IsNull_WatermarkHeight = 1 AND [WatermarkHei" +
-                "ght] IS NULL) OR ([WatermarkHeight] = @Original_WatermarkHeight)));\r\nSELECT Id, " +
-                "ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, EncryptionPsnr, " +
-                "DecryptionPsnr, CreatedOn, Brightness, Contrast, AverageRedColor, AverageGreenCo" +
-                "lor, AverageBlueColor, Mode, ContainerWidth, ContainerHeight, WatermarkWidth, Wa" +
-                "termarkHeight FROM WatermarkingResults WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [WatermarkingResults] SET [ContainerFileName] = @ContainerFileName, [KeyFi" +
+                "leName] = @KeyFileName, [EncryptionTime] = @EncryptionTime, [DecryptionTime] = @" +
+                "DecryptionTime, [EncryptionPsnr] = @EncryptionPsnr, [DecryptionPsnr] = @Decrypti" +
+                "onPsnr, [CreatedOn] = @CreatedOn, [Brightness] = @Brightness, [Contrast] = @Cont" +
+                "rast, [AverageRedColor] = @AverageRedColor, [AverageGreenColor] = @AverageGreenC" +
+                "olor, [AverageBlueColor] = @AverageBlueColor, [Mode] = @Mode, [ContainerWidth] =" +
+                " @ContainerWidth, [ContainerHeight] = @ContainerHeight, [WatermarkWidth] = @Wate" +
+                "rmarkWidth, [WatermarkHeight] = @WatermarkHeight, [AverageRedColorWatermark] = @" +
+                "AverageRedColorWatermark, [AverageGreenColorWatermark] = @AverageGreenColorWater" +
+                "mark, [AverageBlueColorWatermark] = @AverageBlueColorWatermark WHERE (([Id] = @O" +
+                "riginal_Id) AND ([ContainerFileName] = @Original_ContainerFileName) AND ([KeyFil" +
+                "eName] = @Original_KeyFileName) AND ([EncryptionTime] = @Original_EncryptionTime" +
+                ") AND ([DecryptionTime] = @Original_DecryptionTime) AND ([EncryptionPsnr] = @Ori" +
+                "ginal_EncryptionPsnr) AND ([DecryptionPsnr] = @Original_DecryptionPsnr) AND ([Cr" +
+                "eatedOn] = @Original_CreatedOn) AND ((@IsNull_Brightness = 1 AND [Brightness] IS" +
+                " NULL) OR ([Brightness] = @Original_Brightness)) AND ((@IsNull_Contrast = 1 AND " +
+                "[Contrast] IS NULL) OR ([Contrast] = @Original_Contrast)) AND ((@IsNull_AverageR" +
+                "edColor = 1 AND [AverageRedColor] IS NULL) OR ([AverageRedColor] = @Original_Ave" +
+                "rageRedColor)) AND ((@IsNull_AverageGreenColor = 1 AND [AverageGreenColor] IS NU" +
+                "LL) OR ([AverageGreenColor] = @Original_AverageGreenColor)) AND ((@IsNull_Averag" +
+                "eBlueColor = 1 AND [AverageBlueColor] IS NULL) OR ([AverageBlueColor] = @Origina" +
+                "l_AverageBlueColor)) AND ((@IsNull_Mode = 1 AND [Mode] IS NULL) OR ([Mode] = @Or" +
+                "iginal_Mode)) AND ((@IsNull_ContainerWidth = 1 AND [ContainerWidth] IS NULL) OR " +
+                "([ContainerWidth] = @Original_ContainerWidth)) AND ((@IsNull_ContainerHeight = 1" +
+                " AND [ContainerHeight] IS NULL) OR ([ContainerHeight] = @Original_ContainerHeigh" +
+                "t)) AND ((@IsNull_WatermarkWidth = 1 AND [WatermarkWidth] IS NULL) OR ([Watermar" +
+                "kWidth] = @Original_WatermarkWidth)) AND ((@IsNull_WatermarkHeight = 1 AND [Wate" +
+                "rmarkHeight] IS NULL) OR ([WatermarkHeight] = @Original_WatermarkHeight)) AND ((" +
+                "@IsNull_AverageRedColorWatermark = 1 AND [AverageRedColorWatermark] IS NULL) OR " +
+                "([AverageRedColorWatermark] = @Original_AverageRedColorWatermark)) AND ((@IsNull" +
+                "_AverageGreenColorWatermark = 1 AND [AverageGreenColorWatermark] IS NULL) OR ([A" +
+                "verageGreenColorWatermark] = @Original_AverageGreenColorWatermark)) AND ((@IsNul" +
+                "l_AverageBlueColorWatermark = 1 AND [AverageBlueColorWatermark] IS NULL) OR ([Av" +
+                "erageBlueColorWatermark] = @Original_AverageBlueColorWatermark)));\r\nSELECT Id, C" +
+                "ontainerFileName, KeyFileName, EncryptionTime, DecryptionTime, EncryptionPsnr, D" +
+                "ecryptionPsnr, CreatedOn, Brightness, Contrast, AverageRedColor, AverageGreenCol" +
+                "or, AverageBlueColor, Mode, ContainerWidth, ContainerHeight, WatermarkWidth, Wat" +
+                "ermarkHeight, AverageRedColorWatermark, AverageGreenColorWatermark, AverageBlueC" +
+                "olorWatermark FROM WatermarkingResults WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContainerFileName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContainerFileName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KeyFileName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KeyFileName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1465,6 +1642,9 @@ SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, Encry
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ContainerHeight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContainerHeight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WatermarkWidth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WatermarkWidth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WatermarkHeight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WatermarkHeight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AverageRedColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageRedColorWatermark", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AverageGreenColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageGreenColorWatermark", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AverageBlueColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageBlueColorWatermark", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ContainerFileName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ContainerFileName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_KeyFileName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KeyFileName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1493,6 +1673,12 @@ SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, Encry
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WatermarkWidth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WatermarkWidth", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WatermarkHeight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WatermarkHeight", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WatermarkHeight", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WatermarkHeight", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AverageRedColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageRedColorWatermark", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AverageRedColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageRedColorWatermark", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AverageGreenColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageGreenColorWatermark", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AverageGreenColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageGreenColorWatermark", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AverageBlueColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageBlueColorWatermark", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AverageBlueColorWatermark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AverageBlueColorWatermark", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1509,7 +1695,9 @@ SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, Encry
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, EncryptionPsnr, DecryptionPsnr, CreatedOn, Brightness, Contrast, AverageRedColor, AverageGreenColor, AverageBlueColor, Mode, ContainerWidth, ContainerHeight, WatermarkWidth, WatermarkHeight FROM dbo.WatermarkingResults";
+            this._commandCollection[0].CommandText = @"SELECT        Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, EncryptionPsnr, DecryptionPsnr, CreatedOn, Brightness, Contrast, AverageRedColor, AverageGreenColor, AverageBlueColor, Mode, ContainerWidth, 
+                         ContainerHeight, WatermarkWidth, WatermarkHeight, AverageRedColorWatermark, AverageGreenColorWatermark, AverageBlueColorWatermark
+FROM            WatermarkingResults";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1588,7 +1776,10 @@ SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, Encry
                     global::System.Nullable<int> Original_ContainerWidth, 
                     global::System.Nullable<int> Original_ContainerHeight, 
                     global::System.Nullable<int> Original_WatermarkWidth, 
-                    global::System.Nullable<int> Original_WatermarkHeight) {
+                    global::System.Nullable<int> Original_WatermarkHeight, 
+                    global::System.Nullable<int> Original_AverageRedColorWatermark, 
+                    global::System.Nullable<int> Original_AverageGreenColorWatermark, 
+                    global::System.Nullable<int> Original_AverageBlueColorWatermark) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
             if ((Original_ContainerFileName == null)) {
                 throw new global::System.ArgumentNullException("Original_ContainerFileName");
@@ -1687,6 +1878,30 @@ SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, Encry
                 this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
+            if ((Original_AverageRedColorWatermark.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((int)(Original_AverageRedColorWatermark.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((Original_AverageGreenColorWatermark.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((int)(Original_AverageGreenColorWatermark.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((Original_AverageBlueColorWatermark.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((int)(Original_AverageBlueColorWatermark.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1724,7 +1939,10 @@ SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, Encry
                     global::System.Nullable<int> ContainerWidth, 
                     global::System.Nullable<int> ContainerHeight, 
                     global::System.Nullable<int> WatermarkWidth, 
-                    global::System.Nullable<int> WatermarkHeight) {
+                    global::System.Nullable<int> WatermarkHeight, 
+                    global::System.Nullable<int> AverageRedColorWatermark, 
+                    global::System.Nullable<int> AverageGreenColorWatermark, 
+                    global::System.Nullable<int> AverageBlueColorWatermark) {
             if ((ContainerFileName == null)) {
                 throw new global::System.ArgumentNullException("ContainerFileName");
             }
@@ -1802,6 +2020,24 @@ SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, Encry
             else {
                 this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
+            if ((AverageRedColorWatermark.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((int)(AverageRedColorWatermark.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((AverageGreenColorWatermark.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((int)(AverageGreenColorWatermark.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((AverageBlueColorWatermark.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((int)(AverageBlueColorWatermark.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1840,6 +2076,9 @@ SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, Encry
                     global::System.Nullable<int> ContainerHeight, 
                     global::System.Nullable<int> WatermarkWidth, 
                     global::System.Nullable<int> WatermarkHeight, 
+                    global::System.Nullable<int> AverageRedColorWatermark, 
+                    global::System.Nullable<int> AverageGreenColorWatermark, 
+                    global::System.Nullable<int> AverageBlueColorWatermark, 
                     int Original_Id, 
                     string Original_ContainerFileName, 
                     string Original_KeyFileName, 
@@ -1858,6 +2097,9 @@ SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, Encry
                     global::System.Nullable<int> Original_ContainerHeight, 
                     global::System.Nullable<int> Original_WatermarkWidth, 
                     global::System.Nullable<int> Original_WatermarkHeight, 
+                    global::System.Nullable<int> Original_AverageRedColorWatermark, 
+                    global::System.Nullable<int> Original_AverageGreenColorWatermark, 
+                    global::System.Nullable<int> Original_AverageBlueColorWatermark, 
                     int Id) {
             if ((ContainerFileName == null)) {
                 throw new global::System.ArgumentNullException("ContainerFileName");
@@ -1936,105 +2178,147 @@ SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, Encry
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_Id));
+            if ((AverageRedColorWatermark.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(AverageRedColorWatermark.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((AverageGreenColorWatermark.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(AverageGreenColorWatermark.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((AverageBlueColorWatermark.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(AverageBlueColorWatermark.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_Id));
             if ((Original_ContainerFileName == null)) {
                 throw new global::System.ArgumentNullException("Original_ContainerFileName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_ContainerFileName));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_ContainerFileName));
             }
             if ((Original_KeyFileName == null)) {
                 throw new global::System.ArgumentNullException("Original_KeyFileName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_KeyFileName));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_KeyFileName));
             }
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((System.TimeSpan)(Original_EncryptionTime));
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((System.TimeSpan)(Original_DecryptionTime));
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((double)(Original_EncryptionPsnr));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((double)(Original_DecryptionPsnr));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_CreatedOn));
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.TimeSpan)(Original_EncryptionTime));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((System.TimeSpan)(Original_DecryptionTime));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((double)(Original_EncryptionPsnr));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((double)(Original_DecryptionPsnr));
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((System.DateTime)(Original_CreatedOn));
             if ((Original_Brightness.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_Brightness.Value));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_Brightness.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             if ((Original_Contrast.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_Contrast.Value));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(Original_Contrast.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             if ((Original_AverageRedColor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_AverageRedColor.Value));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_AverageRedColor.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             if ((Original_AverageGreenColor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_AverageGreenColor.Value));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_AverageGreenColor.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
             if ((Original_AverageBlueColor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_AverageBlueColor.Value));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(Original_AverageBlueColor.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             if ((Original_Mode.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_Mode.Value));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_Mode.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
             if ((Original_ContainerWidth.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(Original_ContainerWidth.Value));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((int)(Original_ContainerWidth.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
             if ((Original_ContainerHeight.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(Original_ContainerHeight.Value));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((int)(Original_ContainerHeight.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
             if ((Original_WatermarkWidth.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((int)(Original_WatermarkWidth.Value));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((int)(Original_WatermarkWidth.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
             }
             if ((Original_WatermarkHeight.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(Original_WatermarkHeight.Value));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((int)(Original_WatermarkHeight.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[45].Value = ((int)(Id));
+            if ((Original_AverageRedColorWatermark.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((int)(Original_AverageRedColorWatermark.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+            }
+            if ((Original_AverageGreenColorWatermark.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((int)(Original_AverageGreenColorWatermark.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
+            if ((Original_AverageBlueColorWatermark.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((int)(Original_AverageBlueColorWatermark.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[54].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2073,6 +2357,9 @@ SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, Encry
                     global::System.Nullable<int> ContainerHeight, 
                     global::System.Nullable<int> WatermarkWidth, 
                     global::System.Nullable<int> WatermarkHeight, 
+                    global::System.Nullable<int> AverageRedColorWatermark, 
+                    global::System.Nullable<int> AverageGreenColorWatermark, 
+                    global::System.Nullable<int> AverageBlueColorWatermark, 
                     int Original_Id, 
                     string Original_ContainerFileName, 
                     string Original_KeyFileName, 
@@ -2090,8 +2377,11 @@ SELECT Id, ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, Encry
                     global::System.Nullable<int> Original_ContainerWidth, 
                     global::System.Nullable<int> Original_ContainerHeight, 
                     global::System.Nullable<int> Original_WatermarkWidth, 
-                    global::System.Nullable<int> Original_WatermarkHeight) {
-            return this.Update(ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, EncryptionPsnr, DecryptionPsnr, CreatedOn, Brightness, Contrast, AverageRedColor, AverageGreenColor, AverageBlueColor, Mode, ContainerWidth, ContainerHeight, WatermarkWidth, WatermarkHeight, Original_Id, Original_ContainerFileName, Original_KeyFileName, Original_EncryptionTime, Original_DecryptionTime, Original_EncryptionPsnr, Original_DecryptionPsnr, Original_CreatedOn, Original_Brightness, Original_Contrast, Original_AverageRedColor, Original_AverageGreenColor, Original_AverageBlueColor, Original_Mode, Original_ContainerWidth, Original_ContainerHeight, Original_WatermarkWidth, Original_WatermarkHeight, Original_Id);
+                    global::System.Nullable<int> Original_WatermarkHeight, 
+                    global::System.Nullable<int> Original_AverageRedColorWatermark, 
+                    global::System.Nullable<int> Original_AverageGreenColorWatermark, 
+                    global::System.Nullable<int> Original_AverageBlueColorWatermark) {
+            return this.Update(ContainerFileName, KeyFileName, EncryptionTime, DecryptionTime, EncryptionPsnr, DecryptionPsnr, CreatedOn, Brightness, Contrast, AverageRedColor, AverageGreenColor, AverageBlueColor, Mode, ContainerWidth, ContainerHeight, WatermarkWidth, WatermarkHeight, AverageRedColorWatermark, AverageGreenColorWatermark, AverageBlueColorWatermark, Original_Id, Original_ContainerFileName, Original_KeyFileName, Original_EncryptionTime, Original_DecryptionTime, Original_EncryptionPsnr, Original_DecryptionPsnr, Original_CreatedOn, Original_Brightness, Original_Contrast, Original_AverageRedColor, Original_AverageGreenColor, Original_AverageBlueColor, Original_Mode, Original_ContainerWidth, Original_ContainerHeight, Original_WatermarkWidth, Original_WatermarkHeight, Original_AverageRedColorWatermark, Original_AverageGreenColorWatermark, Original_AverageBlueColorWatermark, Original_Id);
         }
     }
     
