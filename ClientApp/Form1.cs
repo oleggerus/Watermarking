@@ -100,6 +100,7 @@ namespace ClientApp
             label17.Visible = true;
             label18.Visible = true;
 
+            ExtractBtn.Visible = true;
             NoiseBtn.Visible = true;
             ContrastBtn.Visible = true;
             BrightnessBtn.Visible = true;
@@ -108,8 +109,7 @@ namespace ClientApp
             Noise2UpdDown.Visible = true;
             ContrastUpDown.Visible = true;
             BrightnessUpDown.Visible = true;
-            ResizeUpDown.Visible = true;
-
+            ResizeUpDown.Visible = true;            
         }
 
         private async void tabControl1_SelectedIndexChanged(object sender, EventArgs e)

@@ -131,6 +131,7 @@
             this.BrightnessUpDown = new System.Windows.Forms.NumericUpDown();
             this.ResizeUpDown = new System.Windows.Forms.NumericUpDown();
             this.Noise2UpdDown = new System.Windows.Forms.NumericUpDown();
+            this.ExtractBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EditedWatermarkPictureBox)).BeginInit();
@@ -169,6 +170,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ExtractBtn);
             this.tabPage1.Controls.Add(this.Noise2UpdDown);
             this.tabPage1.Controls.Add(this.ResizeUpDown);
             this.tabPage1.Controls.Add(this.BrightnessUpDown);
@@ -1187,6 +1189,17 @@
             this.Noise2UpdDown.TabIndex = 34;
             this.Noise2UpdDown.Visible = false;
             // 
+            // ExtractBtn
+            // 
+            this.ExtractBtn.Location = new System.Drawing.Point(1681, 409);
+            this.ExtractBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.ExtractBtn.Name = "ExtractBtn";
+            this.ExtractBtn.Size = new System.Drawing.Size(155, 28);
+            this.ExtractBtn.TabIndex = 35;
+            this.ExtractBtn.Text = "Extract watermark";
+            this.ExtractBtn.UseVisualStyleBackColor = true;
+            this.ExtractBtn.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1323,6 +1336,7 @@
         private System.Windows.Forms.NumericUpDown ContrastUpDown;
         private System.Windows.Forms.NumericUpDown NoiseUpDown;
         private System.Windows.Forms.NumericUpDown Noise2UpdDown;
+        private System.Windows.Forms.Button ExtractBtn;
     }
 }
 
