@@ -102,5 +102,24 @@ namespace Algorithm
             };
         }
 
+        public static async Task<ProcessingResult> DecryptFromBitmap(Bitmap encrypptedContainer, string originalFileName, Bitmap originalKeyBitmap)
+        {
+            var decryptionFileName = $"{originalFileName}_Container";            
+
+            var decryptionStopwatch = Stopwatch.StartNew();
+            var decryptionResult = await Svd.Decrypt(encrypptedContainer, decryptionFileName,
+                originalKeyBitmap.Width, originalKeyBitmap.Height);
+            decryptionStopwatch.Stop();
+            var decryptionPsnr = Helpers.CalculatePsnr(originalKeyBitmap, decryptionResult);
+            originalKeyBitmap.Dispose();
+            decryptionResult.Dispose();
+            return new ProcessingResult
+            {
+                Psnr = decryptionPsnr,
+                Time = decryptionStopwatch.Elapsed,
+                ExtractedWatermark = decryptionResult
+            };
+        }
+
     }
 }

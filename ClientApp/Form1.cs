@@ -16,6 +16,8 @@ namespace ClientApp
         public string ContainerFileName { get; set; }
         public string WatermarkFileName { get; set; }
 
+        public Bitmap WatermarkedContainer { get; set; }
+
         public Form1()
         {
             InitializeComponent();
@@ -33,14 +35,20 @@ namespace ClientApp
         {
             openFileDialog1.ShowDialog();
             ContainerFileName = openFileDialog1.FileName;
-            ContainerPictureBox.Image = Image.FromFile(openFileDialog1.FileName);
+            if (!string.IsNullOrWhiteSpace(ContainerFileName))
+            {
+                ContainerPictureBox.Image = Image.FromFile(openFileDialog1.FileName);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             openFileDialog2.ShowDialog();
             WatermarkFileName = openFileDialog2.FileName;
-            WatermarkPictureBox.Image = Image.FromFile(openFileDialog2.FileName);
+            if (!string.IsNullOrWhiteSpace(WatermarkFileName))
+            {
+                WatermarkPictureBox.Image = Image.FromFile(openFileDialog2.FileName);
+            }
         }
 
         private async void button3_Click(object sender, EventArgs e)
@@ -51,6 +59,8 @@ namespace ClientApp
             var encryptionResult = await Executor.HandleEncryption(container, watermark, originalFileName);
 
             EditedContainerPictureBox.Image = encryptionResult.ContainerWithWatermark;
+            WatermarkedContainer = encryptionResult.ContainerWithWatermark;
+
             var decryptionResult = await Executor.Decrypt(originalFileName, watermark);
             EditedWatermarkPictureBox.Image = decryptionResult.ExtractedWatermark;
 
@@ -63,7 +73,7 @@ namespace ClientApp
 
             label10.Text = decryptionResult.Time.TotalMilliseconds.ToString();
             label11.Text = encryptionResult.Time.TotalMilliseconds.ToString();
-            label12.Text = Math.Round(decryptionResult.Psnr,2).ToString();
+            label12.Text = Math.Round(decryptionResult.Psnr, 2).ToString();
             label13.Text = Math.Round(encryptionResult.Psnr, 2).ToString();
             label14.Text = $@"{encryptionResult.WatermarkHeight}x{encryptionResult.WatermarkWidth}";
             label15.Text = $@"{encryptionResult.ContainerHeight}x{encryptionResult.ContainerWidth}";
@@ -89,11 +99,22 @@ namespace ClientApp
             label16.Visible = true;
             label17.Visible = true;
             label18.Visible = true;
+
+            NoiseBtn.Visible = true;
+            ContrastBtn.Visible = true;
+            BrightnessBtn.Visible = true;
+            ResizeBtn.Visible = true;
+            NoiseUpDown.Visible = true;
+            Noise2UpdDown.Visible = true;
+            ContrastUpDown.Visible = true;
+            BrightnessUpDown.Visible = true;
+            ResizeUpDown.Visible = true;
+
         }
 
         private async void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tabControl1.SelectedIndex == 2)
+            if (tabControl1.SelectedIndex == 2)
             {
                 await PopulateGridWithFullData();
             }
@@ -104,7 +125,7 @@ namespace ClientApp
             if (displayOriginalRadionBtn.Checked)
             {
                 GridViewTab3.Rows.Clear();
-                var toDisplay = await DalService.GetAllResultByMode(new List<int> {0, 3, 4, 5});
+                var toDisplay = await DalService.GetAllResultByMode(new List<int> { 0, 3, 4, 5 });
 
                 foreach (var item in toDisplay)
                 {
@@ -214,6 +235,11 @@ namespace ClientApp
         private async void displayBrightnessWatermarkRadionBtn_CheckedChanged(object sender, EventArgs e)
         {
             await PopulateGridWithFullData();
+        }
+
+        private void NoiseBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,10 +1,26 @@
-﻿using System;
+﻿using AForge;
+using AForge.Imaging.Filters;
+using AForge.Math.Random;
+using System;
 using System.Drawing;
 
 namespace SVD
 {
     public static class Helpers
     {
+        [Obsolete]
+        public static Bitmap SetNoise(Bitmap image)
+        {
+            // create random generator
+            IRandomNumberGenerator generator = new UniformGenerator(new Range(-50, 50));
+            // create filter
+            AdditiveNoise filter = new AdditiveNoise(generator);
+            // apply the filter
+            filter.ApplyInPlace(image);
+
+            return image;
+        }
+
         public static Bitmap SetContrast(Bitmap bmp, int threshold)
         {
 
