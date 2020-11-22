@@ -61,6 +61,11 @@ namespace ClientApp
 
         private async void button3_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(WatermarkFileName) || WatermarkFileName == "openFileDialog2" || string.IsNullOrWhiteSpace(ContainerFileName) || ContainerFileName == "openFileDialog1")
+            {
+                return;
+            }
+
             if (!Executed)
             {
                 OriginalFileName = $"{Path.GetFileNameWithoutExtension(ContainerFileName)}_{Path.GetFileNameWithoutExtension(WatermarkFileName)}";
@@ -84,7 +89,7 @@ namespace ClientApp
         private void SetLabelsVisibility(ProcessingResult encryptionResult, ProcessingResult decryptionResult)
         {
 
-          
+
             label12.Text = Math.Round(decryptionResult.Psnr, 2).ToString();
             label13.Text = Math.Round(encryptionResult.Psnr, 2).ToString();
             label14.Text = $@"{encryptionResult.WatermarkHeight}x{encryptionResult.WatermarkWidth}";
@@ -103,10 +108,10 @@ namespace ClientApp
             label26.Text = editedContainer.Item2.ToString();
             label27.Text = editedContainer.Item1.ToString();
 
-            var extractedWatermark = Helpers.CalculateColors(WatermarkedContainer);
+            var extractedWatermark = Helpers.CalculateColors((Bitmap)EditedWatermarkPictureBox.Image);
             label25.Text = extractedWatermark.Item3.ToString();
-            label2.Text = extractedWatermark.Item2.ToString();
-            label10.Text = extractedWatermark.Item1.ToString();
+            label12.Text = extractedWatermark.Item2.ToString();
+            label1.Text = extractedWatermark.Item1.ToString();
 
             label3.Visible = true;
             label4.Visible = true;
@@ -172,11 +177,15 @@ namespace ClientApp
             if (displayOriginalRadionBtn.Checked)
             {
                 GridViewTab3.Rows.Clear();
-                var toDisplay = await DalService.GetAllResultByMode(new List<int> { 0, 3, 4, 5 });
+                var toDisplay = await DalService.GetAllResultByMode(new List<int>
+                {
+                    (int) WatermarkingMode.AllToAll, (int) WatermarkingMode.OneKeyToAllContainers,
+                    (int) WatermarkingMode.OneContainerToAllKeys, (int) WatermarkingMode.Single
+                });
 
                 foreach (var item in toDisplay)
                 {
-                    GridViewTab3.Rows.Add(item.ContainerFileName, item.KeyFileName, "-", "-",
+                    GridViewTab3.Rows.Add(item.ContainerFileName.Substring(0, item.ContainerFileName.IndexOf('_')), item.KeyFileName, "-", "-", "-",
                         $"{item.ContainerHeight}x{item.ContainerWidth}",
                         $"{item.WatermarkHeight}x{item.WatermarkHeight}",
                         $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
@@ -188,11 +197,11 @@ namespace ClientApp
             else if (displayContrastContainerRadionBtn.Checked)
             {
                 GridViewTab3.Rows.Clear();
-                var toDisplay = (await DalService.GetAllResultByMode(1))
+                var toDisplay = (await DalService.GetAllResultByMode((int)WatermarkingMode.OneContainerToAllKeysWithContrast))
                     .Where(x => x.Brightness.GetValueOrDefault() == 0).ToList();
                 foreach (var item in toDisplay)
                 {
-                    GridViewTab3.Rows.Add(item.ContainerFileName, item.KeyFileName, item.Contrast, "-",
+                    GridViewTab3.Rows.Add(item.ContainerFileName.Substring(0, item.ContainerFileName.IndexOf('_')), item.KeyFileName, item.Contrast, "-", "-",
                         $"{item.ContainerHeight}x{item.ContainerWidth}",
                         $"{item.WatermarkHeight}x{item.WatermarkHeight}",
                         $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
@@ -204,11 +213,28 @@ namespace ClientApp
             else if (displayBrightnessContainerRadionBtn.Checked)
             {
                 GridViewTab3.Rows.Clear();
-                var toDisplay = (await DalService.GetAllResultByMode(1))
+                var toDisplay = (await DalService.GetAllResultByMode((int)WatermarkingMode.OneContainerToAllKeysWithBrightness))
                     .Where(x => x.Contrast.GetValueOrDefault() == 0).ToList();
                 foreach (var item in toDisplay)
                 {
-                    GridViewTab3.Rows.Add(item.ContainerFileName, item.KeyFileName, "-", item.Brightness,
+                    GridViewTab3.Rows.Add(item.ContainerFileName.Substring(0, item.ContainerFileName.IndexOf('_')), item.KeyFileName, "-", item.Brightness, "-",
+                        $"{item.ContainerHeight}x{item.ContainerWidth}",
+                        $"{item.WatermarkHeight}x{item.WatermarkHeight}",
+                        $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
+                        $"{item.AverageRedColorWatermark} - {item.AverageGreenColorWatermark} - {item.AverageBlueColorWatermark}",
+                        Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
+                        item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
+                }
+                GridViewTab3.Refresh();
+            }
+            else if (displayBrightnessContainerRadionBtn.Checked)
+            {
+                GridViewTab3.Rows.Clear();
+                var toDisplay = (await DalService.GetAllResultByMode((int)WatermarkingMode.OneContainerToAllKeysWithNoise))
+                    .Where(x => x.Contrast.GetValueOrDefault() == 0).ToList();
+                foreach (var item in toDisplay)
+                {
+                    GridViewTab3.Rows.Add(item.ContainerFileName.Substring(0, item.ContainerFileName.IndexOf('_')), item.KeyFileName, "-", "-", item.Noise,
                         $"{item.ContainerHeight}x{item.ContainerWidth}",
                         $"{item.WatermarkHeight}x{item.WatermarkHeight}",
                         $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
@@ -221,11 +247,11 @@ namespace ClientApp
             else if (displayContrastWatermarkRadionBtn.Checked)
             {
                 GridViewTab3.Rows.Clear();
-                var toDisplay = (await DalService.GetAllResultByMode(2))
+                var toDisplay = (await DalService.GetAllResultByMode((int)WatermarkingMode.OneKeyToAllContainersWithContrast))
                     .Where(x => x.Brightness.GetValueOrDefault() == 0).ToList();
                 foreach (var item in toDisplay)
                 {
-                    GridViewTab3.Rows.Add(item.ContainerFileName, item.KeyFileName, item.Contrast, "-",
+                    GridViewTab3.Rows.Add(item.ContainerFileName.Substring(0, item.ContainerFileName.IndexOf('_')), item.KeyFileName, item.Contrast, "-", "-",
                         $"{item.ContainerHeight}x{item.ContainerWidth}",
                         $"{item.WatermarkHeight}x{item.WatermarkHeight}",
                         $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
@@ -237,11 +263,28 @@ namespace ClientApp
             else if (displayBrightnessWatermarkRadionBtn.Checked)
             {
                 GridViewTab3.Rows.Clear();
-                var toDisplay = (await DalService.GetAllResultByMode(2))
+                var toDisplay = (await DalService.GetAllResultByMode((int)WatermarkingMode.OneKeyToAllContainersWithBrightness))
                     .Where(x => x.Contrast.GetValueOrDefault() == 0).ToList();
                 foreach (var item in toDisplay)
                 {
-                    GridViewTab3.Rows.Add(item.ContainerFileName, item.KeyFileName, "-", item.Brightness,
+                    GridViewTab3.Rows.Add(item.ContainerFileName.Substring(0, item.ContainerFileName.IndexOf('_')), item.KeyFileName, "-", item.Brightness, "-",
+                        $"{item.ContainerHeight}x{item.ContainerWidth}",
+                        $"{item.WatermarkHeight}x{item.WatermarkHeight}",
+                        $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
+                        $"{item.AverageRedColorWatermark} - {item.AverageGreenColorWatermark} - {item.AverageBlueColorWatermark}",
+                        Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
+                        item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
+                }
+                GridViewTab3.Refresh();
+            }
+            else if (displayNoiseWatermarkRadionBtn.Checked)
+            {
+                GridViewTab3.Rows.Clear();
+                var toDisplay = (await DalService.GetAllResultByMode((int)WatermarkingMode.OneKeyToAllContainersWithNoise))
+                    .Where(x => x.Contrast.GetValueOrDefault() == 0).ToList();
+                foreach (var item in toDisplay)
+                {
+                    GridViewTab3.Rows.Add(item.ContainerFileName.Substring(0, item.ContainerFileName.IndexOf('_')), item.KeyFileName, "-", "-", item.Noise,
                         $"{item.ContainerHeight}x{item.ContainerWidth}",
                         $"{item.WatermarkHeight}x{item.WatermarkHeight}",
                         $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
@@ -332,7 +375,7 @@ namespace ClientApp
 
         private void ResizeOriginalBtn_Click(object sender, EventArgs e)
         {
-            OriginalContainer = Helpers.ResizeImage(WatermarkedContainer, OriginalContainer.Width/2, OriginalContainer.Height/2);
+            OriginalContainer = Helpers.ResizeImage(WatermarkedContainer, OriginalContainer.Width / 2, OriginalContainer.Height / 2);
             ContainerPictureBox.Image = OriginalContainer;
         }
 
@@ -340,6 +383,17 @@ namespace ClientApp
         {
             WatermarkedContainer = Helpers.ResizeImage(WatermarkedContainer, WatermarkedContainer.Width / 2, WatermarkedContainer.Height / 2);
             EditedContainerPictureBox.Image = WatermarkedContainer;
+        }
+
+        private async void displayNoiseContainerRadionBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            await PopulateGridWithFullData();
+
+        }
+
+        private async void displayNoiseWatermarkRadionBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            await PopulateGridWithFullData();
         }
     }
 }

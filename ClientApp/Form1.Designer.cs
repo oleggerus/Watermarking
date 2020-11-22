@@ -29,12 +29,37 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.BrightnessOriginalUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ContrastOriginalUpDown = new System.Windows.Forms.NumericUpDown();
+            this.NoiseOriginalUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ResizeOriginalBtn = new System.Windows.Forms.Button();
+            this.BrightnessOriginalBtn = new System.Windows.Forms.Button();
+            this.ContrastOriginalBtn = new System.Windows.Forms.Button();
+            this.NoiseOriginalBtn = new System.Windows.Forms.Button();
             this.ExtractBtn = new System.Windows.Forms.Button();
             this.BrightnessUpDown = new System.Windows.Forms.NumericUpDown();
             this.ContrastUpDown = new System.Windows.Forms.NumericUpDown();
@@ -74,6 +99,7 @@
             this.decryptionPsnrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.brightnessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contrastDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Noise = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.averageRedColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.averageGreenColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.averageBlueColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,24 +113,14 @@
             this.watermarkingResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.watermarkingDataSet = new ClientApp.WatermarkingDataSet();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.displayNoiseWatermarkRadionBtn = new System.Windows.Forms.RadioButton();
+            this.displayNoiseContainerRadionBtn = new System.Windows.Forms.RadioButton();
             this.displayBrightnessWatermarkRadionBtn = new System.Windows.Forms.RadioButton();
             this.displayContrastWatermarkRadionBtn = new System.Windows.Forms.RadioButton();
             this.displayBrightnessContainerRadionBtn = new System.Windows.Forms.RadioButton();
             this.displayContrastContainerRadionBtn = new System.Windows.Forms.RadioButton();
             this.displayOriginalRadionBtn = new System.Windows.Forms.RadioButton();
             this.GridViewTab3 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.modeRadioButton3 = new System.Windows.Forms.RadioButton();
             this.modeRadioButton2 = new System.Windows.Forms.RadioButton();
@@ -126,33 +142,24 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.watermarkingResultsTableAdapter = new ClientApp.WatermarkingDataSetTableAdapters.WatermarkingResultsTableAdapter();
-            this.BrightnessOriginalUpDown = new System.Windows.Forms.NumericUpDown();
-            this.ContrastOriginalUpDown = new System.Windows.Forms.NumericUpDown();
-            this.NoiseOriginalUpDown = new System.Windows.Forms.NumericUpDown();
-            this.ResizeOriginalBtn = new System.Windows.Forms.Button();
-            this.BrightnessOriginalBtn = new System.Windows.Forms.Button();
-            this.ContrastOriginalBtn = new System.Windows.Forms.Button();
-            this.NoiseOriginalBtn = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BrightnessOriginalUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContrastOriginalUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoiseOriginalUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BrightnessUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContrastUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NoiseUpDown)).BeginInit();
@@ -168,9 +175,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridViewTab3)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BrightnessOriginalUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ContrastOriginalUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NoiseOriginalUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -183,7 +187,7 @@
             this.tabControl1.Location = new System.Drawing.Point(1, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1557, 846);
+            this.tabControl1.Size = new System.Drawing.Size(1800, 889);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -246,14 +250,303 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1549, 820);
+            this.tabPage1.Size = new System.Drawing.Size(1792, 863);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Executor";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1688, 385);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 21);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "blue";
+            this.label1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1688, 364);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 21);
+            this.label2.TabIndex = 61;
+            this.label2.Text = "green";
+            this.label2.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(1688, 343);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 21);
+            this.label10.TabIndex = 60;
+            this.label10.Text = "red";
+            this.label10.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(1441, 385);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(219, 21);
+            this.label11.TabIndex = 59;
+            this.label11.Text = "Average amount of Blue color:";
+            this.label11.Visible = false;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(1441, 364);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(231, 21);
+            this.label31.TabIndex = 58;
+            this.label31.Text = "Average amount of Green color:";
+            this.label31.Visible = false;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(1441, 343);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(216, 21);
+            this.label32.TabIndex = 57;
+            this.label32.Text = "Average amount of Red color:";
+            this.label32.Visible = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(1264, 510);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(40, 21);
+            this.label25.TabIndex = 56;
+            this.label25.Text = "blue";
+            this.label25.Visible = false;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(1264, 489);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(50, 21);
+            this.label26.TabIndex = 55;
+            this.label26.Text = "green";
+            this.label26.Visible = false;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(1264, 468);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(33, 21);
+            this.label27.TabIndex = 54;
+            this.label27.Text = "red";
+            this.label27.Visible = false;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(1017, 510);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(219, 21);
+            this.label28.TabIndex = 53;
+            this.label28.Text = "Average amount of Blue color:";
+            this.label28.Visible = false;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(1017, 489);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(231, 21);
+            this.label29.TabIndex = 52;
+            this.label29.Text = "Average amount of Green color:";
+            this.label29.Visible = false;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(1017, 468);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(216, 21);
+            this.label30.TabIndex = 51;
+            this.label30.Text = "Average amount of Red color:";
+            this.label30.Visible = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(672, 385);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(40, 21);
+            this.label19.TabIndex = 50;
+            this.label19.Text = "blue";
+            this.label19.Visible = false;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(672, 364);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(50, 21);
+            this.label20.TabIndex = 49;
+            this.label20.Text = "green";
+            this.label20.Visible = false;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(672, 343);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(33, 21);
+            this.label21.TabIndex = 48;
+            this.label21.Text = "red";
+            this.label21.Visible = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(425, 385);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(219, 21);
+            this.label22.TabIndex = 47;
+            this.label22.Text = "Average amount of Blue color:";
+            this.label22.Visible = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(425, 364);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(231, 21);
+            this.label23.TabIndex = 46;
+            this.label23.Text = "Average amount of Green color:";
+            this.label23.Visible = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(425, 343);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(216, 21);
+            this.label24.TabIndex = 45;
+            this.label24.Text = "Average amount of Red color:";
+            this.label24.Visible = false;
+            // 
+            // BrightnessOriginalUpDown
+            // 
+            this.BrightnessOriginalUpDown.Location = new System.Drawing.Point(145, 604);
+            this.BrightnessOriginalUpDown.Margin = new System.Windows.Forms.Padding(2);
+            this.BrightnessOriginalUpDown.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
+            this.BrightnessOriginalUpDown.Minimum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            -2147483648});
+            this.BrightnessOriginalUpDown.Name = "BrightnessOriginalUpDown";
+            this.BrightnessOriginalUpDown.Size = new System.Drawing.Size(90, 20);
+            this.BrightnessOriginalUpDown.TabIndex = 42;
+            this.BrightnessOriginalUpDown.Visible = false;
+            // 
+            // ContrastOriginalUpDown
+            // 
+            this.ContrastOriginalUpDown.Location = new System.Drawing.Point(145, 574);
+            this.ContrastOriginalUpDown.Margin = new System.Windows.Forms.Padding(2);
+            this.ContrastOriginalUpDown.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
+            this.ContrastOriginalUpDown.Minimum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            -2147483648});
+            this.ContrastOriginalUpDown.Name = "ContrastOriginalUpDown";
+            this.ContrastOriginalUpDown.Size = new System.Drawing.Size(90, 20);
+            this.ContrastOriginalUpDown.TabIndex = 41;
+            this.ContrastOriginalUpDown.Visible = false;
+            // 
+            // NoiseOriginalUpDown
+            // 
+            this.NoiseOriginalUpDown.Location = new System.Drawing.Point(145, 546);
+            this.NoiseOriginalUpDown.Margin = new System.Windows.Forms.Padding(2);
+            this.NoiseOriginalUpDown.Name = "NoiseOriginalUpDown";
+            this.NoiseOriginalUpDown.Size = new System.Drawing.Size(90, 20);
+            this.NoiseOriginalUpDown.TabIndex = 40;
+            this.NoiseOriginalUpDown.Visible = false;
+            // 
+            // ResizeOriginalBtn
+            // 
+            this.ResizeOriginalBtn.Location = new System.Drawing.Point(8, 630);
+            this.ResizeOriginalBtn.Name = "ResizeOriginalBtn";
+            this.ResizeOriginalBtn.Size = new System.Drawing.Size(116, 23);
+            this.ResizeOriginalBtn.TabIndex = 39;
+            this.ResizeOriginalBtn.Text = "Resize picture";
+            this.ResizeOriginalBtn.UseVisualStyleBackColor = true;
+            this.ResizeOriginalBtn.Visible = false;
+            this.ResizeOriginalBtn.Click += new System.EventHandler(this.ResizeOriginalBtn_Click);
+            // 
+            // BrightnessOriginalBtn
+            // 
+            this.BrightnessOriginalBtn.Location = new System.Drawing.Point(8, 600);
+            this.BrightnessOriginalBtn.Name = "BrightnessOriginalBtn";
+            this.BrightnessOriginalBtn.Size = new System.Drawing.Size(116, 23);
+            this.BrightnessOriginalBtn.TabIndex = 38;
+            this.BrightnessOriginalBtn.Text = "Set brightness";
+            this.BrightnessOriginalBtn.UseVisualStyleBackColor = true;
+            this.BrightnessOriginalBtn.Visible = false;
+            this.BrightnessOriginalBtn.Click += new System.EventHandler(this.BrightnessOriginalBtn_Click);
+            // 
+            // ContrastOriginalBtn
+            // 
+            this.ContrastOriginalBtn.Location = new System.Drawing.Point(8, 571);
+            this.ContrastOriginalBtn.Name = "ContrastOriginalBtn";
+            this.ContrastOriginalBtn.Size = new System.Drawing.Size(116, 23);
+            this.ContrastOriginalBtn.TabIndex = 37;
+            this.ContrastOriginalBtn.Text = "Set contrast";
+            this.ContrastOriginalBtn.UseVisualStyleBackColor = true;
+            this.ContrastOriginalBtn.Visible = false;
+            this.ContrastOriginalBtn.Click += new System.EventHandler(this.ContrastOriginalBtn_Click);
+            // 
+            // NoiseOriginalBtn
+            // 
+            this.NoiseOriginalBtn.Location = new System.Drawing.Point(8, 542);
+            this.NoiseOriginalBtn.Name = "NoiseOriginalBtn";
+            this.NoiseOriginalBtn.Size = new System.Drawing.Size(116, 23);
+            this.NoiseOriginalBtn.TabIndex = 36;
+            this.NoiseOriginalBtn.Text = "Add noise";
+            this.NoiseOriginalBtn.UseVisualStyleBackColor = true;
+            this.NoiseOriginalBtn.Visible = false;
+            this.NoiseOriginalBtn.Click += new System.EventHandler(this.NoiseOriginalBtn_Click);
+            // 
             // ExtractBtn
             // 
-            this.ExtractBtn.Location = new System.Drawing.Point(1261, 17);
+            this.ExtractBtn.Location = new System.Drawing.Point(1445, 17);
             this.ExtractBtn.Name = "ExtractBtn";
             this.ExtractBtn.Size = new System.Drawing.Size(116, 23);
             this.ExtractBtn.TabIndex = 35;
@@ -264,7 +557,7 @@
             // 
             // BrightnessUpDown
             // 
-            this.BrightnessUpDown.Location = new System.Drawing.Point(974, 604);
+            this.BrightnessUpDown.Location = new System.Drawing.Point(1158, 604);
             this.BrightnessUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.BrightnessUpDown.Maximum = new decimal(new int[] {
             256,
@@ -283,7 +576,7 @@
             // 
             // ContrastUpDown
             // 
-            this.ContrastUpDown.Location = new System.Drawing.Point(974, 574);
+            this.ContrastUpDown.Location = new System.Drawing.Point(1158, 574);
             this.ContrastUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.ContrastUpDown.Maximum = new decimal(new int[] {
             256,
@@ -302,7 +595,7 @@
             // 
             // NoiseUpDown
             // 
-            this.NoiseUpDown.Location = new System.Drawing.Point(974, 546);
+            this.NoiseUpDown.Location = new System.Drawing.Point(1158, 546);
             this.NoiseUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.NoiseUpDown.Name = "NoiseUpDown";
             this.NoiseUpDown.Size = new System.Drawing.Size(90, 20);
@@ -311,7 +604,7 @@
             // 
             // ResizeBtn
             // 
-            this.ResizeBtn.Location = new System.Drawing.Point(837, 630);
+            this.ResizeBtn.Location = new System.Drawing.Point(1021, 630);
             this.ResizeBtn.Name = "ResizeBtn";
             this.ResizeBtn.Size = new System.Drawing.Size(116, 23);
             this.ResizeBtn.TabIndex = 29;
@@ -322,7 +615,7 @@
             // 
             // BrightnessBtn
             // 
-            this.BrightnessBtn.Location = new System.Drawing.Point(837, 600);
+            this.BrightnessBtn.Location = new System.Drawing.Point(1021, 600);
             this.BrightnessBtn.Name = "BrightnessBtn";
             this.BrightnessBtn.Size = new System.Drawing.Size(116, 23);
             this.BrightnessBtn.TabIndex = 28;
@@ -333,7 +626,7 @@
             // 
             // ContrastBtn
             // 
-            this.ContrastBtn.Location = new System.Drawing.Point(837, 571);
+            this.ContrastBtn.Location = new System.Drawing.Point(1021, 571);
             this.ContrastBtn.Name = "ContrastBtn";
             this.ContrastBtn.Size = new System.Drawing.Size(116, 23);
             this.ContrastBtn.TabIndex = 27;
@@ -344,7 +637,7 @@
             // 
             // NoiseBtn
             // 
-            this.NoiseBtn.Location = new System.Drawing.Point(837, 542);
+            this.NoiseBtn.Location = new System.Drawing.Point(1021, 542);
             this.NoiseBtn.Name = "NoiseBtn";
             this.NoiseBtn.Size = new System.Drawing.Size(116, 23);
             this.NoiseBtn.TabIndex = 25;
@@ -412,7 +705,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1403, 316);
+            this.label12.Location = new System.Drawing.Point(1587, 316);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 21);
             this.label12.TabIndex = 19;
@@ -423,7 +716,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(979, 442);
+            this.label13.Location = new System.Drawing.Point(1163, 442);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(50, 21);
             this.label13.TabIndex = 18;
@@ -489,7 +782,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1257, 316);
+            this.label3.Location = new System.Drawing.Point(1441, 316);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 21);
             this.label3.TabIndex = 10;
@@ -500,7 +793,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(833, 442);
+            this.label4.Location = new System.Drawing.Point(1017, 442);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(131, 21);
             this.label4.TabIndex = 9;
@@ -509,7 +802,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(702, 174);
+            this.button3.Location = new System.Drawing.Point(798, 200);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(116, 42);
             this.button3.TabIndex = 6;
@@ -540,7 +833,7 @@
             // EditedWatermarkPictureBox
             // 
             this.EditedWatermarkPictureBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.EditedWatermarkPictureBox.Location = new System.Drawing.Point(1261, 46);
+            this.EditedWatermarkPictureBox.Location = new System.Drawing.Point(1445, 46);
             this.EditedWatermarkPictureBox.Name = "EditedWatermarkPictureBox";
             this.EditedWatermarkPictureBox.Size = new System.Drawing.Size(256, 256);
             this.EditedWatermarkPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -560,7 +853,7 @@
             // EditedContainerPictureBox
             // 
             this.EditedContainerPictureBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.EditedContainerPictureBox.Location = new System.Drawing.Point(835, 46);
+            this.EditedContainerPictureBox.Location = new System.Drawing.Point(1019, 46);
             this.EditedContainerPictureBox.Name = "EditedContainerPictureBox";
             this.EditedContainerPictureBox.Size = new System.Drawing.Size(384, 384);
             this.EditedContainerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -583,7 +876,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1549, 820);
+            this.tabPage2.Size = new System.Drawing.Size(1792, 863);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Results";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -601,6 +894,7 @@
             this.decryptionPsnrDataGridViewTextBoxColumn,
             this.brightnessDataGridViewTextBoxColumn,
             this.contrastDataGridViewTextBoxColumn,
+            this.Noise,
             this.averageRedColorDataGridViewTextBoxColumn,
             this.averageGreenColorDataGridViewTextBoxColumn,
             this.averageBlueColorDataGridViewTextBoxColumn,
@@ -616,7 +910,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1549, 808);
+            this.dataGridView1.Size = new System.Drawing.Size(1808, 808);
             this.dataGridView1.TabIndex = 0;
             // 
             // containerFileNameDataGridViewTextBoxColumn
@@ -640,9 +934,9 @@
             // encryptionTimeDataGridViewTextBoxColumn
             // 
             this.encryptionTimeDataGridViewTextBoxColumn.DataPropertyName = "EncryptionTime";
-            dataGridViewCellStyle53.Format = "ss\\.fff";
-            dataGridViewCellStyle53.NullValue = null;
-            this.encryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle9.Format = "ss\\.fff";
+            dataGridViewCellStyle9.NullValue = null;
+            this.encryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.encryptionTimeDataGridViewTextBoxColumn.HeaderText = "EncryptionTime";
             this.encryptionTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.encryptionTimeDataGridViewTextBoxColumn.Name = "encryptionTimeDataGridViewTextBoxColumn";
@@ -652,8 +946,8 @@
             // decryptionTimeDataGridViewTextBoxColumn
             // 
             this.decryptionTimeDataGridViewTextBoxColumn.DataPropertyName = "DecryptionTime";
-            dataGridViewCellStyle54.Format = "ss\\.fff";
-            this.decryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle10.Format = "ss\\.fff";
+            this.decryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.decryptionTimeDataGridViewTextBoxColumn.HeaderText = "DecryptionTime";
             this.decryptionTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.decryptionTimeDataGridViewTextBoxColumn.Name = "decryptionTimeDataGridViewTextBoxColumn";
@@ -663,9 +957,9 @@
             // encryptionPsnrDataGridViewTextBoxColumn
             // 
             this.encryptionPsnrDataGridViewTextBoxColumn.DataPropertyName = "EncryptionPsnr";
-            dataGridViewCellStyle55.Format = "N2";
-            dataGridViewCellStyle55.NullValue = null;
-            this.encryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle11.Format = "N2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.encryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
             this.encryptionPsnrDataGridViewTextBoxColumn.HeaderText = "EncryptionPsnr";
             this.encryptionPsnrDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.encryptionPsnrDataGridViewTextBoxColumn.Name = "encryptionPsnrDataGridViewTextBoxColumn";
@@ -675,9 +969,9 @@
             // decryptionPsnrDataGridViewTextBoxColumn
             // 
             this.decryptionPsnrDataGridViewTextBoxColumn.DataPropertyName = "DecryptionPsnr";
-            dataGridViewCellStyle56.Format = "N2";
-            dataGridViewCellStyle56.NullValue = null;
-            this.decryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle12.Format = "N2";
+            dataGridViewCellStyle12.NullValue = null;
+            this.decryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.decryptionPsnrDataGridViewTextBoxColumn.HeaderText = "DecryptionPsnr";
             this.decryptionPsnrDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.decryptionPsnrDataGridViewTextBoxColumn.Name = "decryptionPsnrDataGridViewTextBoxColumn";
@@ -701,6 +995,13 @@
             this.contrastDataGridViewTextBoxColumn.Name = "contrastDataGridViewTextBoxColumn";
             this.contrastDataGridViewTextBoxColumn.ReadOnly = true;
             this.contrastDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Noise
+            // 
+            this.Noise.DataPropertyName = "Noise";
+            this.Noise.HeaderText = "Noise";
+            this.Noise.Name = "Noise";
+            this.Noise.ReadOnly = true;
             // 
             // averageRedColorDataGridViewTextBoxColumn
             // 
@@ -804,6 +1105,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.displayNoiseWatermarkRadionBtn);
+            this.tabPage3.Controls.Add(this.displayNoiseContainerRadionBtn);
             this.tabPage3.Controls.Add(this.displayBrightnessWatermarkRadionBtn);
             this.tabPage3.Controls.Add(this.displayContrastWatermarkRadionBtn);
             this.tabPage3.Controls.Add(this.displayBrightnessContainerRadionBtn);
@@ -813,15 +1116,39 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1549, 820);
+            this.tabPage3.Size = new System.Drawing.Size(1792, 863);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Filtered results";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // displayNoiseWatermarkRadionBtn
+            // 
+            this.displayNoiseWatermarkRadionBtn.AutoSize = true;
+            this.displayNoiseWatermarkRadionBtn.Location = new System.Drawing.Point(549, 52);
+            this.displayNoiseWatermarkRadionBtn.Name = "displayNoiseWatermarkRadionBtn";
+            this.displayNoiseWatermarkRadionBtn.Size = new System.Drawing.Size(250, 17);
+            this.displayNoiseWatermarkRadionBtn.TabIndex = 7;
+            this.displayNoiseWatermarkRadionBtn.TabStop = true;
+            this.displayNoiseWatermarkRadionBtn.Text = "Display result with different noise for watermarks";
+            this.displayNoiseWatermarkRadionBtn.UseVisualStyleBackColor = true;
+            this.displayNoiseWatermarkRadionBtn.CheckedChanged += new System.EventHandler(this.displayNoiseWatermarkRadionBtn_CheckedChanged);
+            // 
+            // displayNoiseContainerRadionBtn
+            // 
+            this.displayNoiseContainerRadionBtn.AutoSize = true;
+            this.displayNoiseContainerRadionBtn.Location = new System.Drawing.Point(243, 52);
+            this.displayNoiseContainerRadionBtn.Name = "displayNoiseContainerRadionBtn";
+            this.displayNoiseContainerRadionBtn.Size = new System.Drawing.Size(250, 17);
+            this.displayNoiseContainerRadionBtn.TabIndex = 6;
+            this.displayNoiseContainerRadionBtn.TabStop = true;
+            this.displayNoiseContainerRadionBtn.Text = "Display results with different noise for containers";
+            this.displayNoiseContainerRadionBtn.UseVisualStyleBackColor = true;
+            this.displayNoiseContainerRadionBtn.CheckedChanged += new System.EventHandler(this.displayNoiseContainerRadionBtn_CheckedChanged);
+            // 
             // displayBrightnessWatermarkRadionBtn
             // 
             this.displayBrightnessWatermarkRadionBtn.AutoSize = true;
-            this.displayBrightnessWatermarkRadionBtn.Location = new System.Drawing.Point(32, 99);
+            this.displayBrightnessWatermarkRadionBtn.Location = new System.Drawing.Point(549, 29);
             this.displayBrightnessWatermarkRadionBtn.Name = "displayBrightnessWatermarkRadionBtn";
             this.displayBrightnessWatermarkRadionBtn.Size = new System.Drawing.Size(273, 17);
             this.displayBrightnessWatermarkRadionBtn.TabIndex = 5;
@@ -833,7 +1160,7 @@
             // displayContrastWatermarkRadionBtn
             // 
             this.displayContrastWatermarkRadionBtn.AutoSize = true;
-            this.displayContrastWatermarkRadionBtn.Location = new System.Drawing.Point(32, 76);
+            this.displayContrastWatermarkRadionBtn.Location = new System.Drawing.Point(549, 6);
             this.displayContrastWatermarkRadionBtn.Name = "displayContrastWatermarkRadionBtn";
             this.displayContrastWatermarkRadionBtn.Size = new System.Drawing.Size(263, 17);
             this.displayContrastWatermarkRadionBtn.TabIndex = 4;
@@ -845,7 +1172,7 @@
             // displayBrightnessContainerRadionBtn
             // 
             this.displayBrightnessContainerRadionBtn.AutoSize = true;
-            this.displayBrightnessContainerRadionBtn.Location = new System.Drawing.Point(32, 53);
+            this.displayBrightnessContainerRadionBtn.Location = new System.Drawing.Point(243, 29);
             this.displayBrightnessContainerRadionBtn.Name = "displayBrightnessContainerRadionBtn";
             this.displayBrightnessContainerRadionBtn.Size = new System.Drawing.Size(276, 17);
             this.displayBrightnessContainerRadionBtn.TabIndex = 3;
@@ -857,7 +1184,7 @@
             // displayContrastContainerRadionBtn
             // 
             this.displayContrastContainerRadionBtn.AutoSize = true;
-            this.displayContrastContainerRadionBtn.Location = new System.Drawing.Point(32, 30);
+            this.displayContrastContainerRadionBtn.Location = new System.Drawing.Point(243, 6);
             this.displayContrastContainerRadionBtn.Name = "displayContrastContainerRadionBtn";
             this.displayContrastContainerRadionBtn.Size = new System.Drawing.Size(263, 17);
             this.displayContrastContainerRadionBtn.TabIndex = 2;
@@ -886,6 +1213,7 @@
             this.Column2,
             this.Column3,
             this.Column4,
+            this.Column13,
             this.Column5,
             this.Column6,
             this.Column7,
@@ -894,95 +1222,11 @@
             this.Column12,
             this.Column9,
             this.Column10});
-            this.GridViewTab3.Location = new System.Drawing.Point(-41, 124);
+            this.GridViewTab3.Location = new System.Drawing.Point(-51, 90);
             this.GridViewTab3.Name = "GridViewTab3";
             this.GridViewTab3.RowHeadersWidth = 51;
-            this.GridViewTab3.Size = new System.Drawing.Size(1242, 547);
+            this.GridViewTab3.Size = new System.Drawing.Size(1652, 725);
             this.GridViewTab3.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Container";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Watermark";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Contrast";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Brightness";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Container size";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Watermark size";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 125;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Container colors amount (RGB)";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 125;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Watermark colors amount (RGB)";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 125;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Encryption PSNR";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            this.Column11.Width = 125;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Decryption PSNR";
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            this.Column12.Width = 125;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Encryption time";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 125;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Decryption time";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.Width = 125;
             // 
             // tabPage4
             // 
@@ -993,7 +1237,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1549, 820);
+            this.tabPage4.Size = new System.Drawing.Size(1792, 863);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1142,7 +1386,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1549, 820);
+            this.tabPage5.Size = new System.Drawing.Size(1792, 863);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1159,300 +1403,101 @@
             // 
             this.watermarkingResultsTableAdapter.ClearBeforeFill = true;
             // 
-            // BrightnessOriginalUpDown
+            // Column1
             // 
-            this.BrightnessOriginalUpDown.Location = new System.Drawing.Point(145, 604);
-            this.BrightnessOriginalUpDown.Margin = new System.Windows.Forms.Padding(2);
-            this.BrightnessOriginalUpDown.Maximum = new decimal(new int[] {
-            256,
-            0,
-            0,
-            0});
-            this.BrightnessOriginalUpDown.Minimum = new decimal(new int[] {
-            256,
-            0,
-            0,
-            -2147483648});
-            this.BrightnessOriginalUpDown.Name = "BrightnessOriginalUpDown";
-            this.BrightnessOriginalUpDown.Size = new System.Drawing.Size(90, 20);
-            this.BrightnessOriginalUpDown.TabIndex = 42;
-            this.BrightnessOriginalUpDown.Visible = false;
+            this.Column1.HeaderText = "Container";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
             // 
-            // ContrastOriginalUpDown
+            // Column2
             // 
-            this.ContrastOriginalUpDown.Location = new System.Drawing.Point(145, 574);
-            this.ContrastOriginalUpDown.Margin = new System.Windows.Forms.Padding(2);
-            this.ContrastOriginalUpDown.Maximum = new decimal(new int[] {
-            256,
-            0,
-            0,
-            0});
-            this.ContrastOriginalUpDown.Minimum = new decimal(new int[] {
-            256,
-            0,
-            0,
-            -2147483648});
-            this.ContrastOriginalUpDown.Name = "ContrastOriginalUpDown";
-            this.ContrastOriginalUpDown.Size = new System.Drawing.Size(90, 20);
-            this.ContrastOriginalUpDown.TabIndex = 41;
-            this.ContrastOriginalUpDown.Visible = false;
+            this.Column2.HeaderText = "Watermark";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
             // 
-            // NoiseOriginalUpDown
+            // Column3
             // 
-            this.NoiseOriginalUpDown.Location = new System.Drawing.Point(145, 546);
-            this.NoiseOriginalUpDown.Margin = new System.Windows.Forms.Padding(2);
-            this.NoiseOriginalUpDown.Name = "NoiseOriginalUpDown";
-            this.NoiseOriginalUpDown.Size = new System.Drawing.Size(90, 20);
-            this.NoiseOriginalUpDown.TabIndex = 40;
-            this.NoiseOriginalUpDown.Visible = false;
+            this.Column3.HeaderText = "Contrast";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
             // 
-            // ResizeOriginalBtn
+            // Column4
             // 
-            this.ResizeOriginalBtn.Location = new System.Drawing.Point(8, 630);
-            this.ResizeOriginalBtn.Name = "ResizeOriginalBtn";
-            this.ResizeOriginalBtn.Size = new System.Drawing.Size(116, 23);
-            this.ResizeOriginalBtn.TabIndex = 39;
-            this.ResizeOriginalBtn.Text = "Resize picture";
-            this.ResizeOriginalBtn.UseVisualStyleBackColor = true;
-            this.ResizeOriginalBtn.Visible = false;
-            this.ResizeOriginalBtn.Click += new System.EventHandler(this.ResizeOriginalBtn_Click);
+            this.Column4.HeaderText = "Brightness";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
             // 
-            // BrightnessOriginalBtn
+            // Column13
             // 
-            this.BrightnessOriginalBtn.Location = new System.Drawing.Point(8, 600);
-            this.BrightnessOriginalBtn.Name = "BrightnessOriginalBtn";
-            this.BrightnessOriginalBtn.Size = new System.Drawing.Size(116, 23);
-            this.BrightnessOriginalBtn.TabIndex = 38;
-            this.BrightnessOriginalBtn.Text = "Set brightness";
-            this.BrightnessOriginalBtn.UseVisualStyleBackColor = true;
-            this.BrightnessOriginalBtn.Visible = false;
-            this.BrightnessOriginalBtn.Click += new System.EventHandler(this.BrightnessOriginalBtn_Click);
+            this.Column13.HeaderText = "Noise";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
             // 
-            // ContrastOriginalBtn
+            // Column5
             // 
-            this.ContrastOriginalBtn.Location = new System.Drawing.Point(8, 571);
-            this.ContrastOriginalBtn.Name = "ContrastOriginalBtn";
-            this.ContrastOriginalBtn.Size = new System.Drawing.Size(116, 23);
-            this.ContrastOriginalBtn.TabIndex = 37;
-            this.ContrastOriginalBtn.Text = "Set contrast";
-            this.ContrastOriginalBtn.UseVisualStyleBackColor = true;
-            this.ContrastOriginalBtn.Visible = false;
-            this.ContrastOriginalBtn.Click += new System.EventHandler(this.ContrastOriginalBtn_Click);
+            this.Column5.HeaderText = "Container size";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
             // 
-            // NoiseOriginalBtn
+            // Column6
             // 
-            this.NoiseOriginalBtn.Location = new System.Drawing.Point(8, 542);
-            this.NoiseOriginalBtn.Name = "NoiseOriginalBtn";
-            this.NoiseOriginalBtn.Size = new System.Drawing.Size(116, 23);
-            this.NoiseOriginalBtn.TabIndex = 36;
-            this.NoiseOriginalBtn.Text = "Add noise";
-            this.NoiseOriginalBtn.UseVisualStyleBackColor = true;
-            this.NoiseOriginalBtn.Visible = false;
-            this.NoiseOriginalBtn.Click += new System.EventHandler(this.NoiseOriginalBtn_Click);
+            this.Column6.HeaderText = "Watermark size";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 125;
             // 
-            // label19
+            // Column7
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(672, 385);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(40, 21);
-            this.label19.TabIndex = 50;
-            this.label19.Text = "blue";
-            this.label19.Visible = false;
+            this.Column7.HeaderText = "Container colors amount (RGB)";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 125;
             // 
-            // label20
+            // Column8
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(672, 364);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(50, 21);
-            this.label20.TabIndex = 49;
-            this.label20.Text = "green";
-            this.label20.Visible = false;
+            this.Column8.HeaderText = "Watermark colors amount (RGB)";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 125;
             // 
-            // label21
+            // Column11
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(672, 343);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(33, 21);
-            this.label21.TabIndex = 48;
-            this.label21.Text = "red";
-            this.label21.Visible = false;
+            this.Column11.HeaderText = "Encryption PSNR";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.Width = 125;
             // 
-            // label22
+            // Column12
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(425, 385);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(219, 21);
-            this.label22.TabIndex = 47;
-            this.label22.Text = "Average amount of Blue color:";
-            this.label22.Visible = false;
+            this.Column12.HeaderText = "Decryption PSNR";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 125;
             // 
-            // label23
+            // Column9
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(425, 364);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(231, 21);
-            this.label23.TabIndex = 46;
-            this.label23.Text = "Average amount of Green color:";
-            this.label23.Visible = false;
+            this.Column9.HeaderText = "Encryption time";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 125;
             // 
-            // label24
+            // Column10
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(425, 343);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(216, 21);
-            this.label24.TabIndex = 45;
-            this.label24.Text = "Average amount of Red color:";
-            this.label24.Visible = false;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(1080, 510);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(40, 21);
-            this.label25.TabIndex = 56;
-            this.label25.Text = "blue";
-            this.label25.Visible = false;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(1080, 489);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(50, 21);
-            this.label26.TabIndex = 55;
-            this.label26.Text = "green";
-            this.label26.Visible = false;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(1080, 468);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(33, 21);
-            this.label27.TabIndex = 54;
-            this.label27.Text = "red";
-            this.label27.Visible = false;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(833, 510);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(219, 21);
-            this.label28.TabIndex = 53;
-            this.label28.Text = "Average amount of Blue color:";
-            this.label28.Visible = false;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(833, 489);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(231, 21);
-            this.label29.TabIndex = 52;
-            this.label29.Text = "Average amount of Green color:";
-            this.label29.Visible = false;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(833, 468);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(216, 21);
-            this.label30.TabIndex = 51;
-            this.label30.Text = "Average amount of Red color:";
-            this.label30.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1504, 385);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 21);
-            this.label1.TabIndex = 62;
-            this.label1.Text = "blue";
-            this.label1.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1504, 364);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 21);
-            this.label2.TabIndex = 61;
-            this.label2.Text = "green";
-            this.label2.Visible = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1504, 343);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(33, 21);
-            this.label10.TabIndex = 60;
-            this.label10.Text = "red";
-            this.label10.Visible = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(1257, 385);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(219, 21);
-            this.label11.TabIndex = 59;
-            this.label11.Text = "Average amount of Blue color:";
-            this.label11.Visible = false;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(1257, 364);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(231, 21);
-            this.label31.TabIndex = 58;
-            this.label31.Text = "Average amount of Green color:";
-            this.label31.Visible = false;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(1257, 343);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(216, 21);
-            this.label32.TabIndex = 57;
-            this.label32.Text = "Average amount of Red color:";
-            this.label32.Visible = false;
+            this.Column10.HeaderText = "Decryption time";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 125;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1560, 850);
+            this.ClientSize = new System.Drawing.Size(1784, 850);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -1460,6 +1505,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BrightnessOriginalUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContrastOriginalUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoiseOriginalUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BrightnessUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContrastUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NoiseUpDown)).EndInit();
@@ -1477,9 +1525,6 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BrightnessOriginalUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ContrastOriginalUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NoiseOriginalUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1516,24 +1561,6 @@
         private WatermarkingDataSet watermarkingDataSet;
         private System.Windows.Forms.BindingSource watermarkingResultsBindingSource;
         private WatermarkingDataSetTableAdapters.WatermarkingResultsTableAdapter watermarkingResultsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn containerFileNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn keyFileNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn encryptionTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn decryptionTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn encryptionPsnrDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn decryptionPsnrDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn brightnessDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contrastDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn averageRedColorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn averageGreenColorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn averageBlueColorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AverageRedColorWatermark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AverageGreenColorWatermark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AverageBlueColorWatermark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn containerWidthDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn containerHeightDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn watermarkWidthDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn watermarkHeightDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView GridViewTab3;
         private System.Windows.Forms.TabPage tabPage4;
@@ -1541,18 +1568,6 @@
         private System.Windows.Forms.RadioButton displayBrightnessContainerRadionBtn;
         private System.Windows.Forms.RadioButton displayContrastContainerRadionBtn;
         private System.Windows.Forms.RadioButton displayOriginalRadionBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.RadioButton modeRadioButton1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -1604,6 +1619,40 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn containerFileNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn keyFileNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn encryptionTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn decryptionTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn encryptionPsnrDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn decryptionPsnrDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brightnessDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contrastDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Noise;
+        private System.Windows.Forms.DataGridViewTextBoxColumn averageRedColorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn averageGreenColorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn averageBlueColorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageRedColorWatermark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageGreenColorWatermark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageBlueColorWatermark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn containerWidthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn containerHeightDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn watermarkWidthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn watermarkHeightDataGridViewTextBoxColumn;
+        private System.Windows.Forms.RadioButton displayNoiseWatermarkRadionBtn;
+        private System.Windows.Forms.RadioButton displayNoiseContainerRadionBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
     }
 }
 
