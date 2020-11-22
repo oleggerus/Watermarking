@@ -387,20 +387,20 @@ namespace SVD
             Bitmap outputContainer
             )
         {
-            var colors = CalculateColors(inputContainer);
-            var colorsForKey = CalculateColors(inputKey);
+            var (i, i1, item4) = Helpers.CalculateColors(inputContainer);
+            var (item1, item2, item3) = Helpers.CalculateColors(inputKey);
 
             return new EncryptionResult
             {
                 InputContainer = inputContainer,
                 InputKey = inputKey,
                 OutputContainer = outputContainer,
-                AverageRedColor = colors.Item1,
-                AverageGreenColor = colors.Item2,
-                AverageBlueColor = colors.Item3,
-                AverageRedColorWatermark = colorsForKey.Item1,
-                AverageGreenColorWatermark = colorsForKey.Item2,
-                AverageBlueColorWatermark = colorsForKey.Item3,
+                AverageRedColor = i,
+                AverageGreenColor = i1,
+                AverageBlueColor = item4,
+                AverageRedColorWatermark = item1,
+                AverageGreenColorWatermark = item2,
+                AverageBlueColorWatermark = item3,
                 ContainerWidth = inputContainer.Width,
                 ContainerHeight= inputContainer.Height,
                 WatermarkHeight = inputKey.Height,
@@ -409,46 +409,6 @@ namespace SVD
         }
 
 
-        private static Tuple<int, int, int> CalculateColors(Bitmap inputContainer)
-        {
-            var srcData = inputContainer.LockBits(
-                new Rectangle(0, 0, inputContainer.Width, inputContainer.Height),
-                ImageLockMode.ReadWrite,
-                PixelFormat.Format32bppArgb);
-
-            var stride = srcData.Stride;
-
-            var Scan0 = srcData.Scan0;
-
-            var totals = new long[] { 0, 0, 0 };
-
-            var width = inputContainer.Width;
-            var height = inputContainer.Height;
-
-            unsafe
-            {
-                var p = (byte*)(void*)Scan0;
-
-                for (var y = 0; y < height; y++)
-                {
-                    for (var x = 0; x < width; x++)
-                    {
-                        for (var color = 0; color < 3; color++)
-                        {
-                            var idx = (y * stride) + x * 4 + color;
-
-                            totals[color] += p[idx];
-                        }
-                    }
-                }
-            }
-
-            var avgB = (int)totals[0] / (width * height);
-            var avgG = (int)totals[1] / (width * height);
-            var avgR = (int)totals[2] / (width * height);
-
-            inputContainer.UnlockBits(srcData);
-            return new Tuple<int, int, int>(avgR, avgG, avgB);
-        }
+       
     }
 }

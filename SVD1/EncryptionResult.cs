@@ -21,6 +21,5 @@ namespace SVD
 
         public int WatermarkHeight { get; set; }
         public int WatermarkWidth{ get; set; }
-        //public Bitmap OutputKey { get; set; }
     }
 }
