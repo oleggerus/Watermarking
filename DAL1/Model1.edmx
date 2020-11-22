@@ -30,6 +30,7 @@
           <Property Name="ContainerHeight" Type="int" />
           <Property Name="WatermarkWidth" Type="int" />
           <Property Name="WatermarkHeight" Type="int" />
+          <Property Name="Noise" Type="int" />
         </EntityType>
         <EntityContainer Name="WatermarkingModelStoreContainer">
           <EntitySet Name="WatermarkingResults" EntityType="Self.WatermarkingResults" Schema="dbo" store:Type="Tables" />
@@ -63,6 +64,7 @@
           <Property Name="AverageRedColorWatermark" Type="Int32" />
           <Property Name="AverageGreenColorWatermark" Type="Int32" />
           <Property Name="AverageBlueColorWatermark" Type="Int32" />
+          <Property Name="Noise" Type="Int32" />
         </EntityType>
         <EntityContainer Name="WatermarkingEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="WatermarkingResults" EntityType="Self.WatermarkingResults" />
@@ -76,6 +78,7 @@
           <EntitySetMapping Name="WatermarkingResults">
             <EntityTypeMapping TypeName="WatermarkingModel.WatermarkingResults">
               <MappingFragment StoreEntitySet="WatermarkingResults">
+                <ScalarProperty Name="Noise" ColumnName="Noise" />
                 <ScalarProperty Name="AverageBlueColorWatermark" ColumnName="AverageBlueColorWatermark" />
                 <ScalarProperty Name="AverageGreenColorWatermark" ColumnName="AverageGreenColorWatermark" />
                 <ScalarProperty Name="AverageRedColorWatermark" ColumnName="AverageRedColorWatermark" />

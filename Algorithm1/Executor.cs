@@ -10,12 +10,12 @@ namespace Algorithm
 {
     public static class Executor
     {
-        public static async Task<WatermarkingResults> ProcessData(string originalFilePath, string originalKeyFileName, string fileNameToCreate, int brightness, int contrast, int mode)
+        public static async Task<WatermarkingResults> ProcessData(string originalFilePath, string originalKeyFileName, string fileNameToCreate, int brightness, int contrast, int noise, int mode)
         {
-            fileNameToCreate = $"{fileNameToCreate}_{contrast}_{brightness}_{mode}";
+            fileNameToCreate = $"{fileNameToCreate}_{contrast}_{brightness}_{noise}_{mode}";
 
             var originalPathKey =
-                Path.Combine(mode == 5 || mode == 0 ? MainConstants.KeysDiffFolderPath : MainConstants.KeysFolderPath,
+                Path.Combine(mode == 5 || mode == (int)WatermarkingMode.AllToAll ? MainConstants.KeysDiffFolderPath : MainConstants.KeysFolderPath,
                     originalKeyFileName);
 
             var originalKeyBitmap = new Bitmap(originalPathKey);
@@ -24,7 +24,7 @@ namespace Algorithm
             var decryptionResult = await Decrypt(fileNameToCreate, originalKeyBitmap);
 
             var insertModel = Factory.PrepareResultModel(fileNameToCreate, originalKeyFileName, encryptionResult.Time,
-                decryptionResult.Time, encryptionResult.Psnr, decryptionResult.Psnr, brightness, contrast,
+                decryptionResult.Time, encryptionResult.Psnr, decryptionResult.Psnr, brightness, contrast, noise,
                 encryptionResult.AverageRedColor, encryptionResult.AverageGreenColor, encryptionResult.AverageBlueColor,
                 encryptionResult.AverageRedColorWatermark, encryptionResult.AverageGreenColorWatermark, encryptionResult.AverageBlueColorWatermark,
                 encryptionResult.ContainerWidth, encryptionResult.ContainerHeight,
