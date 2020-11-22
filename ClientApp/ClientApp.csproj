@@ -115,6 +115,10 @@
       <Project>{82B29359-C5DE-471F-A0F4-D89A1233F2EA}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SVD1\SVD.csproj">
+      <Project>{D966AD47-CF3C-4694-994D-BAE381EB9738}</Project>
+      <Name>SVD</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

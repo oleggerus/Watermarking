@@ -93,7 +93,6 @@ namespace Algorithm
             decryptionStopwatch.Stop();
             var decryptionPsnr = Helpers.CalculatePsnr(originalKeyBitmap, decryptionResult);
             originalKeyBitmap.Dispose();
-            decryptionResult.Dispose();
             return new ProcessingResult
             {
                 Psnr = decryptionPsnr,
@@ -112,7 +111,6 @@ namespace Algorithm
             decryptionStopwatch.Stop();
             var decryptionPsnr = Helpers.CalculatePsnr(originalKeyBitmap, decryptionResult);
             originalKeyBitmap.Dispose();
-            decryptionResult.Dispose();
             return new ProcessingResult
             {
                 Psnr = decryptionPsnr,

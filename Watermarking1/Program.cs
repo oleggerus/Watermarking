@@ -48,7 +48,7 @@ namespace Watermarking
                 {
                     case 0:
                         Mode = 0;
-                        RunAllNoContrastAndBrightness();
+                        await RunAllNoContrastAndBrightness();
                         break;
                     case 1:
                         Mode = 1;

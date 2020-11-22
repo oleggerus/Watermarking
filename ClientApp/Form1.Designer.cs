@@ -29,12 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ExtractBtn = new System.Windows.Forms.Button();
+            this.BrightnessUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ContrastUpDown = new System.Windows.Forms.NumericUpDown();
+            this.NoiseUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ResizeBtn = new System.Windows.Forms.Button();
+            this.BrightnessBtn = new System.Windows.Forms.Button();
+            this.ContrastBtn = new System.Windows.Forms.Button();
+            this.NoiseBtn = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -42,8 +50,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,8 +57,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -122,18 +126,36 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.watermarkingResultsTableAdapter = new ClientApp.WatermarkingDataSetTableAdapters.WatermarkingResultsTableAdapter();
-            this.NoiseBtn = new System.Windows.Forms.Button();
-            this.ContrastBtn = new System.Windows.Forms.Button();
-            this.BrightnessBtn = new System.Windows.Forms.Button();
-            this.ResizeBtn = new System.Windows.Forms.Button();
-            this.NoiseUpDown = new System.Windows.Forms.NumericUpDown();
-            this.ContrastUpDown = new System.Windows.Forms.NumericUpDown();
-            this.BrightnessUpDown = new System.Windows.Forms.NumericUpDown();
-            this.ResizeUpDown = new System.Windows.Forms.NumericUpDown();
-            this.Noise2UpdDown = new System.Windows.Forms.NumericUpDown();
-            this.ExtractBtn = new System.Windows.Forms.Button();
+            this.BrightnessOriginalUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ContrastOriginalUpDown = new System.Windows.Forms.NumericUpDown();
+            this.NoiseOriginalUpDown = new System.Windows.Forms.NumericUpDown();
+            this.ResizeOriginalBtn = new System.Windows.Forms.Button();
+            this.BrightnessOriginalBtn = new System.Windows.Forms.Button();
+            this.ContrastOriginalBtn = new System.Windows.Forms.Button();
+            this.NoiseOriginalBtn = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BrightnessUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContrastUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoiseUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditedWatermarkPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WatermarkPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditedContainerPictureBox)).BeginInit();
@@ -146,11 +168,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridViewTab3)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NoiseUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ContrastUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BrightnessUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ResizeUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Noise2UpdDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BrightnessOriginalUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContrastOriginalUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoiseOriginalUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -161,18 +181,40 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(1, 1);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(2076, 1041);
+            this.tabControl1.Size = new System.Drawing.Size(1557, 846);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.label31);
+            this.tabPage1.Controls.Add(this.label32);
+            this.tabPage1.Controls.Add(this.label25);
+            this.tabPage1.Controls.Add(this.label26);
+            this.tabPage1.Controls.Add(this.label27);
+            this.tabPage1.Controls.Add(this.label28);
+            this.tabPage1.Controls.Add(this.label29);
+            this.tabPage1.Controls.Add(this.label30);
+            this.tabPage1.Controls.Add(this.label19);
+            this.tabPage1.Controls.Add(this.label20);
+            this.tabPage1.Controls.Add(this.label21);
+            this.tabPage1.Controls.Add(this.label22);
+            this.tabPage1.Controls.Add(this.label23);
+            this.tabPage1.Controls.Add(this.label24);
+            this.tabPage1.Controls.Add(this.BrightnessOriginalUpDown);
+            this.tabPage1.Controls.Add(this.ContrastOriginalUpDown);
+            this.tabPage1.Controls.Add(this.NoiseOriginalUpDown);
+            this.tabPage1.Controls.Add(this.ResizeOriginalBtn);
+            this.tabPage1.Controls.Add(this.BrightnessOriginalBtn);
+            this.tabPage1.Controls.Add(this.ContrastOriginalBtn);
+            this.tabPage1.Controls.Add(this.NoiseOriginalBtn);
             this.tabPage1.Controls.Add(this.ExtractBtn);
-            this.tabPage1.Controls.Add(this.Noise2UpdDown);
-            this.tabPage1.Controls.Add(this.ResizeUpDown);
             this.tabPage1.Controls.Add(this.BrightnessUpDown);
             this.tabPage1.Controls.Add(this.ContrastUpDown);
             this.tabPage1.Controls.Add(this.NoiseUpDown);
@@ -187,8 +229,6 @@
             this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label7);
@@ -196,8 +236,6 @@
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button1);
@@ -205,23 +243,123 @@
             this.tabPage1.Controls.Add(this.WatermarkPictureBox);
             this.tabPage1.Controls.Add(this.EditedContainerPictureBox);
             this.tabPage1.Controls.Add(this.ContainerPictureBox);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(2068, 1012);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1549, 820);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Executor";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ExtractBtn
+            // 
+            this.ExtractBtn.Location = new System.Drawing.Point(1261, 17);
+            this.ExtractBtn.Name = "ExtractBtn";
+            this.ExtractBtn.Size = new System.Drawing.Size(116, 23);
+            this.ExtractBtn.TabIndex = 35;
+            this.ExtractBtn.Text = "Extract watermark";
+            this.ExtractBtn.UseVisualStyleBackColor = true;
+            this.ExtractBtn.Visible = false;
+            this.ExtractBtn.Click += new System.EventHandler(this.ExtractBtn_Click);
+            // 
+            // BrightnessUpDown
+            // 
+            this.BrightnessUpDown.Location = new System.Drawing.Point(974, 604);
+            this.BrightnessUpDown.Margin = new System.Windows.Forms.Padding(2);
+            this.BrightnessUpDown.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
+            this.BrightnessUpDown.Minimum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            -2147483648});
+            this.BrightnessUpDown.Name = "BrightnessUpDown";
+            this.BrightnessUpDown.Size = new System.Drawing.Size(90, 20);
+            this.BrightnessUpDown.TabIndex = 32;
+            this.BrightnessUpDown.Visible = false;
+            // 
+            // ContrastUpDown
+            // 
+            this.ContrastUpDown.Location = new System.Drawing.Point(974, 574);
+            this.ContrastUpDown.Margin = new System.Windows.Forms.Padding(2);
+            this.ContrastUpDown.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
+            this.ContrastUpDown.Minimum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            -2147483648});
+            this.ContrastUpDown.Name = "ContrastUpDown";
+            this.ContrastUpDown.Size = new System.Drawing.Size(90, 20);
+            this.ContrastUpDown.TabIndex = 31;
+            this.ContrastUpDown.Visible = false;
+            // 
+            // NoiseUpDown
+            // 
+            this.NoiseUpDown.Location = new System.Drawing.Point(974, 546);
+            this.NoiseUpDown.Margin = new System.Windows.Forms.Padding(2);
+            this.NoiseUpDown.Name = "NoiseUpDown";
+            this.NoiseUpDown.Size = new System.Drawing.Size(90, 20);
+            this.NoiseUpDown.TabIndex = 30;
+            this.NoiseUpDown.Visible = false;
+            // 
+            // ResizeBtn
+            // 
+            this.ResizeBtn.Location = new System.Drawing.Point(837, 630);
+            this.ResizeBtn.Name = "ResizeBtn";
+            this.ResizeBtn.Size = new System.Drawing.Size(116, 23);
+            this.ResizeBtn.TabIndex = 29;
+            this.ResizeBtn.Text = "Resize picture";
+            this.ResizeBtn.UseVisualStyleBackColor = true;
+            this.ResizeBtn.Visible = false;
+            this.ResizeBtn.Click += new System.EventHandler(this.ResizeBtn_Click);
+            // 
+            // BrightnessBtn
+            // 
+            this.BrightnessBtn.Location = new System.Drawing.Point(837, 600);
+            this.BrightnessBtn.Name = "BrightnessBtn";
+            this.BrightnessBtn.Size = new System.Drawing.Size(116, 23);
+            this.BrightnessBtn.TabIndex = 28;
+            this.BrightnessBtn.Text = "Set brightness";
+            this.BrightnessBtn.UseVisualStyleBackColor = true;
+            this.BrightnessBtn.Visible = false;
+            this.BrightnessBtn.Click += new System.EventHandler(this.BrightnessBtn_Click);
+            // 
+            // ContrastBtn
+            // 
+            this.ContrastBtn.Location = new System.Drawing.Point(837, 571);
+            this.ContrastBtn.Name = "ContrastBtn";
+            this.ContrastBtn.Size = new System.Drawing.Size(116, 23);
+            this.ContrastBtn.TabIndex = 27;
+            this.ContrastBtn.Text = "Set contrast";
+            this.ContrastBtn.UseVisualStyleBackColor = true;
+            this.ContrastBtn.Visible = false;
+            this.ContrastBtn.Click += new System.EventHandler(this.ContrastBtn_Click);
+            // 
+            // NoiseBtn
+            // 
+            this.NoiseBtn.Location = new System.Drawing.Point(837, 542);
+            this.NoiseBtn.Name = "NoiseBtn";
+            this.NoiseBtn.Size = new System.Drawing.Size(116, 23);
+            this.NoiseBtn.TabIndex = 25;
+            this.NoiseBtn.Text = "Add noise";
+            this.NoiseBtn.UseVisualStyleBackColor = true;
+            this.NoiseBtn.Visible = false;
+            this.NoiseBtn.Click += new System.EventHandler(this.NoiseBtn_Click);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(340, 816);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(254, 510);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(50, 28);
+            this.label16.Size = new System.Drawing.Size(40, 21);
             this.label16.TabIndex = 24;
             this.label16.Text = "blue";
             this.label16.Visible = false;
@@ -230,10 +368,9 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(340, 790);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(254, 489);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(62, 28);
+            this.label17.Size = new System.Drawing.Size(50, 21);
             this.label17.TabIndex = 23;
             this.label17.Text = "green";
             this.label17.Visible = false;
@@ -242,10 +379,9 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(340, 764);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Location = new System.Drawing.Point(254, 468);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 28);
+            this.label18.Size = new System.Drawing.Size(33, 21);
             this.label18.TabIndex = 22;
             this.label18.Text = "red";
             this.label18.Visible = false;
@@ -254,10 +390,9 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(208, 725);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(573, 316);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 28);
+            this.label14.Size = new System.Drawing.Size(45, 21);
             this.label14.TabIndex = 21;
             this.label14.Text = "size2";
             this.label14.Visible = false;
@@ -266,10 +401,9 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(208, 699);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(155, 442);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 28);
+            this.label15.Size = new System.Drawing.Size(45, 21);
             this.label15.TabIndex = 20;
             this.label15.Text = "size1";
             this.label15.Visible = false;
@@ -278,10 +412,9 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(205, 658);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(1403, 316);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 28);
+            this.label12.Size = new System.Drawing.Size(50, 21);
             this.label12.TabIndex = 19;
             this.label12.Text = "psnr2";
             this.label12.Visible = false;
@@ -290,46 +423,20 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(205, 633);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(979, 442);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 28);
+            this.label13.Size = new System.Drawing.Size(50, 21);
             this.label13.TabIndex = 18;
             this.label13.Text = "psnr1";
             this.label13.Visible = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(205, 597);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 28);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "time2";
-            this.label10.Visible = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(205, 571);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(62, 28);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "time1";
-            this.label11.Visible = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(11, 725);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(425, 316);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(150, 28);
+            this.label8.Size = new System.Drawing.Size(121, 21);
             this.label8.TabIndex = 15;
             this.label8.Text = "Watermark size:";
             this.label8.Visible = false;
@@ -338,10 +445,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(11, 699);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(7, 442);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(138, 28);
+            this.label9.Size = new System.Drawing.Size(111, 21);
             this.label9.TabIndex = 14;
             this.label9.Text = "Container size:";
             this.label9.Visible = false;
@@ -350,10 +456,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(11, 816);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(7, 510);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(276, 28);
+            this.label7.Size = new System.Drawing.Size(219, 21);
             this.label7.TabIndex = 13;
             this.label7.Text = "Average amount of Blue color:";
             this.label7.Visible = false;
@@ -362,10 +467,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(11, 790);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(7, 489);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(291, 28);
+            this.label5.Size = new System.Drawing.Size(231, 21);
             this.label5.TabIndex = 12;
             this.label5.Text = "Average amount of Green color:";
             this.label5.Visible = false;
@@ -374,10 +478,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(11, 764);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(7, 468);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(273, 28);
+            this.label6.Size = new System.Drawing.Size(216, 21);
             this.label6.TabIndex = 11;
             this.label6.Text = "Average amount of Red color:";
             this.label6.Visible = false;
@@ -386,10 +489,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 658);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(1257, 316);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 28);
+            this.label3.Size = new System.Drawing.Size(133, 21);
             this.label3.TabIndex = 10;
             this.label3.Text = "Decryption PSNR:";
             this.label3.Visible = false;
@@ -398,44 +500,18 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(11, 633);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(833, 442);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(164, 28);
+            this.label4.Size = new System.Drawing.Size(131, 21);
             this.label4.TabIndex = 9;
             this.label4.Text = "Encryption PSNR:";
             this.label4.Visible = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 597);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 28);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Decryption time:";
-            this.label2.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 571);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 28);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Encryption time:";
-            this.label1.Visible = false;
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(936, 214);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Location = new System.Drawing.Point(702, 174);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 52);
+            this.button3.Size = new System.Drawing.Size(116, 42);
             this.button3.TabIndex = 6;
             this.button3.Text = "Execute watermarking";
             this.button3.UseVisualStyleBackColor = true;
@@ -443,10 +519,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(572, 21);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Location = new System.Drawing.Point(429, 17);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(173, 28);
+            this.button2.Size = new System.Drawing.Size(130, 23);
             this.button2.TabIndex = 5;
             this.button2.Text = "Choose the watermark";
             this.button2.UseVisualStyleBackColor = true;
@@ -454,10 +529,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(11, 21);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(8, 17);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(173, 28);
+            this.button1.Size = new System.Drawing.Size(130, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "Choose the container";
             this.button1.UseVisualStyleBackColor = true;
@@ -466,10 +540,9 @@
             // EditedWatermarkPictureBox
             // 
             this.EditedWatermarkPictureBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.EditedWatermarkPictureBox.Location = new System.Drawing.Point(1681, 57);
-            this.EditedWatermarkPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EditedWatermarkPictureBox.Location = new System.Drawing.Point(1261, 46);
             this.EditedWatermarkPictureBox.Name = "EditedWatermarkPictureBox";
-            this.EditedWatermarkPictureBox.Size = new System.Drawing.Size(341, 315);
+            this.EditedWatermarkPictureBox.Size = new System.Drawing.Size(256, 256);
             this.EditedWatermarkPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EditedWatermarkPictureBox.TabIndex = 3;
             this.EditedWatermarkPictureBox.TabStop = false;
@@ -477,10 +550,9 @@
             // WatermarkPictureBox
             // 
             this.WatermarkPictureBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.WatermarkPictureBox.Location = new System.Drawing.Point(572, 57);
-            this.WatermarkPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WatermarkPictureBox.Location = new System.Drawing.Point(429, 46);
             this.WatermarkPictureBox.Name = "WatermarkPictureBox";
-            this.WatermarkPictureBox.Size = new System.Drawing.Size(341, 315);
+            this.WatermarkPictureBox.Size = new System.Drawing.Size(256, 256);
             this.WatermarkPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.WatermarkPictureBox.TabIndex = 2;
             this.WatermarkPictureBox.TabStop = false;
@@ -488,10 +560,9 @@
             // EditedContainerPictureBox
             // 
             this.EditedContainerPictureBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.EditedContainerPictureBox.Location = new System.Drawing.Point(1113, 57);
-            this.EditedContainerPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EditedContainerPictureBox.Location = new System.Drawing.Point(835, 46);
             this.EditedContainerPictureBox.Name = "EditedContainerPictureBox";
-            this.EditedContainerPictureBox.Size = new System.Drawing.Size(512, 473);
+            this.EditedContainerPictureBox.Size = new System.Drawing.Size(384, 384);
             this.EditedContainerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EditedContainerPictureBox.TabIndex = 1;
             this.EditedContainerPictureBox.TabStop = false;
@@ -499,10 +570,9 @@
             // ContainerPictureBox
             // 
             this.ContainerPictureBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ContainerPictureBox.Location = new System.Drawing.Point(11, 57);
-            this.ContainerPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ContainerPictureBox.Location = new System.Drawing.Point(8, 46);
             this.ContainerPictureBox.Name = "ContainerPictureBox";
-            this.ContainerPictureBox.Size = new System.Drawing.Size(512, 473);
+            this.ContainerPictureBox.Size = new System.Drawing.Size(384, 384);
             this.ContainerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ContainerPictureBox.TabIndex = 0;
             this.ContainerPictureBox.TabStop = false;
@@ -510,11 +580,10 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage2.Size = new System.Drawing.Size(2068, 1012);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1549, 820);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Results";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -543,12 +612,11 @@
             this.watermarkWidthDataGridViewTextBoxColumn,
             this.watermarkHeightDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.watermarkingResultsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(-55, 11);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(-41, 9);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(2065, 994);
+            this.dataGridView1.Size = new System.Drawing.Size(1549, 808);
             this.dataGridView1.TabIndex = 0;
             // 
             // containerFileNameDataGridViewTextBoxColumn
@@ -572,9 +640,9 @@
             // encryptionTimeDataGridViewTextBoxColumn
             // 
             this.encryptionTimeDataGridViewTextBoxColumn.DataPropertyName = "EncryptionTime";
-            dataGridViewCellStyle1.Format = "ss\\.fff";
-            dataGridViewCellStyle1.NullValue = null;
-            this.encryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle53.Format = "ss\\.fff";
+            dataGridViewCellStyle53.NullValue = null;
+            this.encryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle53;
             this.encryptionTimeDataGridViewTextBoxColumn.HeaderText = "EncryptionTime";
             this.encryptionTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.encryptionTimeDataGridViewTextBoxColumn.Name = "encryptionTimeDataGridViewTextBoxColumn";
@@ -584,8 +652,8 @@
             // decryptionTimeDataGridViewTextBoxColumn
             // 
             this.decryptionTimeDataGridViewTextBoxColumn.DataPropertyName = "DecryptionTime";
-            dataGridViewCellStyle2.Format = "ss\\.fff";
-            this.decryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle54.Format = "ss\\.fff";
+            this.decryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle54;
             this.decryptionTimeDataGridViewTextBoxColumn.HeaderText = "DecryptionTime";
             this.decryptionTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.decryptionTimeDataGridViewTextBoxColumn.Name = "decryptionTimeDataGridViewTextBoxColumn";
@@ -595,9 +663,9 @@
             // encryptionPsnrDataGridViewTextBoxColumn
             // 
             this.encryptionPsnrDataGridViewTextBoxColumn.DataPropertyName = "EncryptionPsnr";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.encryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle55.Format = "N2";
+            dataGridViewCellStyle55.NullValue = null;
+            this.encryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle55;
             this.encryptionPsnrDataGridViewTextBoxColumn.HeaderText = "EncryptionPsnr";
             this.encryptionPsnrDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.encryptionPsnrDataGridViewTextBoxColumn.Name = "encryptionPsnrDataGridViewTextBoxColumn";
@@ -607,9 +675,9 @@
             // decryptionPsnrDataGridViewTextBoxColumn
             // 
             this.decryptionPsnrDataGridViewTextBoxColumn.DataPropertyName = "DecryptionPsnr";
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.decryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle56.Format = "N2";
+            dataGridViewCellStyle56.NullValue = null;
+            this.decryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle56;
             this.decryptionPsnrDataGridViewTextBoxColumn.HeaderText = "DecryptionPsnr";
             this.decryptionPsnrDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.decryptionPsnrDataGridViewTextBoxColumn.Name = "decryptionPsnrDataGridViewTextBoxColumn";
@@ -742,11 +810,10 @@
             this.tabPage3.Controls.Add(this.displayContrastContainerRadionBtn);
             this.tabPage3.Controls.Add(this.displayOriginalRadionBtn);
             this.tabPage3.Controls.Add(this.GridViewTab3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage3.Size = new System.Drawing.Size(2068, 1012);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1549, 820);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Filtered results";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -754,10 +821,9 @@
             // displayBrightnessWatermarkRadionBtn
             // 
             this.displayBrightnessWatermarkRadionBtn.AutoSize = true;
-            this.displayBrightnessWatermarkRadionBtn.Location = new System.Drawing.Point(43, 122);
-            this.displayBrightnessWatermarkRadionBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.displayBrightnessWatermarkRadionBtn.Location = new System.Drawing.Point(32, 99);
             this.displayBrightnessWatermarkRadionBtn.Name = "displayBrightnessWatermarkRadionBtn";
-            this.displayBrightnessWatermarkRadionBtn.Size = new System.Drawing.Size(365, 21);
+            this.displayBrightnessWatermarkRadionBtn.Size = new System.Drawing.Size(273, 17);
             this.displayBrightnessWatermarkRadionBtn.TabIndex = 5;
             this.displayBrightnessWatermarkRadionBtn.TabStop = true;
             this.displayBrightnessWatermarkRadionBtn.Text = "Display result with different brightness for watermarks";
@@ -767,10 +833,9 @@
             // displayContrastWatermarkRadionBtn
             // 
             this.displayContrastWatermarkRadionBtn.AutoSize = true;
-            this.displayContrastWatermarkRadionBtn.Location = new System.Drawing.Point(43, 94);
-            this.displayContrastWatermarkRadionBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.displayContrastWatermarkRadionBtn.Location = new System.Drawing.Point(32, 76);
             this.displayContrastWatermarkRadionBtn.Name = "displayContrastWatermarkRadionBtn";
-            this.displayContrastWatermarkRadionBtn.Size = new System.Drawing.Size(350, 21);
+            this.displayContrastWatermarkRadionBtn.Size = new System.Drawing.Size(263, 17);
             this.displayContrastWatermarkRadionBtn.TabIndex = 4;
             this.displayContrastWatermarkRadionBtn.TabStop = true;
             this.displayContrastWatermarkRadionBtn.Text = "Display results with different contrast for watermark";
@@ -780,10 +845,9 @@
             // displayBrightnessContainerRadionBtn
             // 
             this.displayBrightnessContainerRadionBtn.AutoSize = true;
-            this.displayBrightnessContainerRadionBtn.Location = new System.Drawing.Point(43, 65);
-            this.displayBrightnessContainerRadionBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.displayBrightnessContainerRadionBtn.Location = new System.Drawing.Point(32, 53);
             this.displayBrightnessContainerRadionBtn.Name = "displayBrightnessContainerRadionBtn";
-            this.displayBrightnessContainerRadionBtn.Size = new System.Drawing.Size(370, 21);
+            this.displayBrightnessContainerRadionBtn.Size = new System.Drawing.Size(276, 17);
             this.displayBrightnessContainerRadionBtn.TabIndex = 3;
             this.displayBrightnessContainerRadionBtn.TabStop = true;
             this.displayBrightnessContainerRadionBtn.Text = "Display results with different brightness  for containers";
@@ -793,10 +857,9 @@
             // displayContrastContainerRadionBtn
             // 
             this.displayContrastContainerRadionBtn.AutoSize = true;
-            this.displayContrastContainerRadionBtn.Location = new System.Drawing.Point(43, 37);
-            this.displayContrastContainerRadionBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.displayContrastContainerRadionBtn.Location = new System.Drawing.Point(32, 30);
             this.displayContrastContainerRadionBtn.Name = "displayContrastContainerRadionBtn";
-            this.displayContrastContainerRadionBtn.Size = new System.Drawing.Size(351, 21);
+            this.displayContrastContainerRadionBtn.Size = new System.Drawing.Size(263, 17);
             this.displayContrastContainerRadionBtn.TabIndex = 2;
             this.displayContrastContainerRadionBtn.TabStop = true;
             this.displayContrastContainerRadionBtn.Text = "Display results with different contrast for containers";
@@ -806,10 +869,9 @@
             // displayOriginalRadionBtn
             // 
             this.displayOriginalRadionBtn.AutoSize = true;
-            this.displayOriginalRadionBtn.Location = new System.Drawing.Point(43, 9);
-            this.displayOriginalRadionBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.displayOriginalRadionBtn.Location = new System.Drawing.Point(32, 7);
             this.displayOriginalRadionBtn.Name = "displayOriginalRadionBtn";
-            this.displayOriginalRadionBtn.Size = new System.Drawing.Size(241, 21);
+            this.displayOriginalRadionBtn.Size = new System.Drawing.Size(179, 17);
             this.displayOriginalRadionBtn.TabIndex = 1;
             this.displayOriginalRadionBtn.TabStop = true;
             this.displayOriginalRadionBtn.Text = "Display results for original images";
@@ -832,11 +894,10 @@
             this.Column12,
             this.Column9,
             this.Column10});
-            this.GridViewTab3.Location = new System.Drawing.Point(-55, 153);
-            this.GridViewTab3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GridViewTab3.Location = new System.Drawing.Point(-41, 124);
             this.GridViewTab3.Name = "GridViewTab3";
             this.GridViewTab3.RowHeadersWidth = 51;
-            this.GridViewTab3.Size = new System.Drawing.Size(1656, 673);
+            this.GridViewTab3.Size = new System.Drawing.Size(1242, 547);
             this.GridViewTab3.TabIndex = 0;
             // 
             // Column1
@@ -929,11 +990,10 @@
             this.tabPage4.Controls.Add(this.modeRadioButton2);
             this.tabPage4.Controls.Add(this.modeRadioButton1);
             this.tabPage4.Controls.Add(this.dataGridView2);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage4.Size = new System.Drawing.Size(2068, 1012);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1549, 820);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -941,10 +1001,9 @@
             // modeRadioButton3
             // 
             this.modeRadioButton3.AutoSize = true;
-            this.modeRadioButton3.Location = new System.Drawing.Point(65, 64);
-            this.modeRadioButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.modeRadioButton3.Location = new System.Drawing.Point(49, 52);
             this.modeRadioButton3.Name = "modeRadioButton3";
-            this.modeRadioButton3.Size = new System.Drawing.Size(110, 21);
+            this.modeRadioButton3.Size = new System.Drawing.Size(85, 17);
             this.modeRadioButton3.TabIndex = 4;
             this.modeRadioButton3.TabStop = true;
             this.modeRadioButton3.Text = "radioButton1";
@@ -953,10 +1012,9 @@
             // modeRadioButton2
             // 
             this.modeRadioButton2.AutoSize = true;
-            this.modeRadioButton2.Location = new System.Drawing.Point(65, 36);
-            this.modeRadioButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.modeRadioButton2.Location = new System.Drawing.Point(49, 29);
             this.modeRadioButton2.Name = "modeRadioButton2";
-            this.modeRadioButton2.Size = new System.Drawing.Size(110, 21);
+            this.modeRadioButton2.Size = new System.Drawing.Size(85, 17);
             this.modeRadioButton2.TabIndex = 3;
             this.modeRadioButton2.TabStop = true;
             this.modeRadioButton2.Text = "radioButton1";
@@ -965,10 +1023,9 @@
             // modeRadioButton1
             // 
             this.modeRadioButton1.AutoSize = true;
-            this.modeRadioButton1.Location = new System.Drawing.Point(65, 7);
-            this.modeRadioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.modeRadioButton1.Location = new System.Drawing.Point(49, 6);
             this.modeRadioButton1.Name = "modeRadioButton1";
-            this.modeRadioButton1.Size = new System.Drawing.Size(110, 21);
+            this.modeRadioButton1.Size = new System.Drawing.Size(85, 17);
             this.modeRadioButton1.TabIndex = 2;
             this.modeRadioButton1.TabStop = true;
             this.modeRadioButton1.Text = "radioButton1";
@@ -990,11 +1047,10 @@
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
-            this.dataGridView2.Location = new System.Drawing.Point(-55, 153);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Location = new System.Drawing.Point(-41, 124);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(1656, 673);
+            this.dataGridView2.Size = new System.Drawing.Size(1242, 547);
             this.dataGridView2.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -1083,11 +1139,10 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 25);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage5.Size = new System.Drawing.Size(2068, 1012);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1549, 820);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1104,115 +1159,310 @@
             // 
             this.watermarkingResultsTableAdapter.ClearBeforeFill = true;
             // 
-            // NoiseBtn
+            // BrightnessOriginalUpDown
             // 
-            this.NoiseBtn.Location = new System.Drawing.Point(1113, 571);
-            this.NoiseBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.NoiseBtn.Name = "NoiseBtn";
-            this.NoiseBtn.Size = new System.Drawing.Size(155, 28);
-            this.NoiseBtn.TabIndex = 25;
-            this.NoiseBtn.Text = "Add noise";
-            this.NoiseBtn.UseVisualStyleBackColor = true;
-            this.NoiseBtn.Visible = false;
-            this.NoiseBtn.Click += new System.EventHandler(this.NoiseBtn_Click);
+            this.BrightnessOriginalUpDown.Location = new System.Drawing.Point(145, 604);
+            this.BrightnessOriginalUpDown.Margin = new System.Windows.Forms.Padding(2);
+            this.BrightnessOriginalUpDown.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
+            this.BrightnessOriginalUpDown.Minimum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            -2147483648});
+            this.BrightnessOriginalUpDown.Name = "BrightnessOriginalUpDown";
+            this.BrightnessOriginalUpDown.Size = new System.Drawing.Size(90, 20);
+            this.BrightnessOriginalUpDown.TabIndex = 42;
+            this.BrightnessOriginalUpDown.Visible = false;
             // 
-            // ContrastBtn
+            // ContrastOriginalUpDown
             // 
-            this.ContrastBtn.Location = new System.Drawing.Point(1113, 607);
-            this.ContrastBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.ContrastBtn.Name = "ContrastBtn";
-            this.ContrastBtn.Size = new System.Drawing.Size(155, 28);
-            this.ContrastBtn.TabIndex = 27;
-            this.ContrastBtn.Text = "Set contrast";
-            this.ContrastBtn.UseVisualStyleBackColor = true;
-            this.ContrastBtn.Visible = false;
+            this.ContrastOriginalUpDown.Location = new System.Drawing.Point(145, 574);
+            this.ContrastOriginalUpDown.Margin = new System.Windows.Forms.Padding(2);
+            this.ContrastOriginalUpDown.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
+            this.ContrastOriginalUpDown.Minimum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            -2147483648});
+            this.ContrastOriginalUpDown.Name = "ContrastOriginalUpDown";
+            this.ContrastOriginalUpDown.Size = new System.Drawing.Size(90, 20);
+            this.ContrastOriginalUpDown.TabIndex = 41;
+            this.ContrastOriginalUpDown.Visible = false;
             // 
-            // BrightnessBtn
+            // NoiseOriginalUpDown
             // 
-            this.BrightnessBtn.Location = new System.Drawing.Point(1113, 643);
-            this.BrightnessBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.BrightnessBtn.Name = "BrightnessBtn";
-            this.BrightnessBtn.Size = new System.Drawing.Size(155, 28);
-            this.BrightnessBtn.TabIndex = 28;
-            this.BrightnessBtn.Text = "Set brightness";
-            this.BrightnessBtn.UseVisualStyleBackColor = true;
-            this.BrightnessBtn.Visible = false;
+            this.NoiseOriginalUpDown.Location = new System.Drawing.Point(145, 546);
+            this.NoiseOriginalUpDown.Margin = new System.Windows.Forms.Padding(2);
+            this.NoiseOriginalUpDown.Name = "NoiseOriginalUpDown";
+            this.NoiseOriginalUpDown.Size = new System.Drawing.Size(90, 20);
+            this.NoiseOriginalUpDown.TabIndex = 40;
+            this.NoiseOriginalUpDown.Visible = false;
             // 
-            // ResizeBtn
+            // ResizeOriginalBtn
             // 
-            this.ResizeBtn.Location = new System.Drawing.Point(1113, 679);
-            this.ResizeBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.ResizeBtn.Name = "ResizeBtn";
-            this.ResizeBtn.Size = new System.Drawing.Size(155, 28);
-            this.ResizeBtn.TabIndex = 29;
-            this.ResizeBtn.Text = "Resize picture";
-            this.ResizeBtn.UseVisualStyleBackColor = true;
-            this.ResizeBtn.Visible = false;
+            this.ResizeOriginalBtn.Location = new System.Drawing.Point(8, 630);
+            this.ResizeOriginalBtn.Name = "ResizeOriginalBtn";
+            this.ResizeOriginalBtn.Size = new System.Drawing.Size(116, 23);
+            this.ResizeOriginalBtn.TabIndex = 39;
+            this.ResizeOriginalBtn.Text = "Resize picture";
+            this.ResizeOriginalBtn.UseVisualStyleBackColor = true;
+            this.ResizeOriginalBtn.Visible = false;
+            this.ResizeOriginalBtn.Click += new System.EventHandler(this.ResizeOriginalBtn_Click);
             // 
-            // NoiseUpDown
+            // BrightnessOriginalBtn
             // 
-            this.NoiseUpDown.Location = new System.Drawing.Point(1296, 576);
-            this.NoiseUpDown.Name = "NoiseUpDown";
-            this.NoiseUpDown.Size = new System.Drawing.Size(120, 22);
-            this.NoiseUpDown.TabIndex = 30;
-            this.NoiseUpDown.Visible = false;
+            this.BrightnessOriginalBtn.Location = new System.Drawing.Point(8, 600);
+            this.BrightnessOriginalBtn.Name = "BrightnessOriginalBtn";
+            this.BrightnessOriginalBtn.Size = new System.Drawing.Size(116, 23);
+            this.BrightnessOriginalBtn.TabIndex = 38;
+            this.BrightnessOriginalBtn.Text = "Set brightness";
+            this.BrightnessOriginalBtn.UseVisualStyleBackColor = true;
+            this.BrightnessOriginalBtn.Visible = false;
+            this.BrightnessOriginalBtn.Click += new System.EventHandler(this.BrightnessOriginalBtn_Click);
             // 
-            // ContrastUpDown
+            // ContrastOriginalBtn
             // 
-            this.ContrastUpDown.Location = new System.Drawing.Point(1296, 611);
-            this.ContrastUpDown.Name = "ContrastUpDown";
-            this.ContrastUpDown.Size = new System.Drawing.Size(120, 22);
-            this.ContrastUpDown.TabIndex = 31;
-            this.ContrastUpDown.Visible = false;
+            this.ContrastOriginalBtn.Location = new System.Drawing.Point(8, 571);
+            this.ContrastOriginalBtn.Name = "ContrastOriginalBtn";
+            this.ContrastOriginalBtn.Size = new System.Drawing.Size(116, 23);
+            this.ContrastOriginalBtn.TabIndex = 37;
+            this.ContrastOriginalBtn.Text = "Set contrast";
+            this.ContrastOriginalBtn.UseVisualStyleBackColor = true;
+            this.ContrastOriginalBtn.Visible = false;
+            this.ContrastOriginalBtn.Click += new System.EventHandler(this.ContrastOriginalBtn_Click);
             // 
-            // BrightnessUpDown
+            // NoiseOriginalBtn
             // 
-            this.BrightnessUpDown.Location = new System.Drawing.Point(1296, 647);
-            this.BrightnessUpDown.Name = "BrightnessUpDown";
-            this.BrightnessUpDown.Size = new System.Drawing.Size(120, 22);
-            this.BrightnessUpDown.TabIndex = 32;
-            this.BrightnessUpDown.Visible = false;
+            this.NoiseOriginalBtn.Location = new System.Drawing.Point(8, 542);
+            this.NoiseOriginalBtn.Name = "NoiseOriginalBtn";
+            this.NoiseOriginalBtn.Size = new System.Drawing.Size(116, 23);
+            this.NoiseOriginalBtn.TabIndex = 36;
+            this.NoiseOriginalBtn.Text = "Add noise";
+            this.NoiseOriginalBtn.UseVisualStyleBackColor = true;
+            this.NoiseOriginalBtn.Visible = false;
+            this.NoiseOriginalBtn.Click += new System.EventHandler(this.NoiseOriginalBtn_Click);
             // 
-            // ResizeUpDown
+            // label19
             // 
-            this.ResizeUpDown.Location = new System.Drawing.Point(1296, 683);
-            this.ResizeUpDown.Name = "ResizeUpDown";
-            this.ResizeUpDown.Size = new System.Drawing.Size(120, 22);
-            this.ResizeUpDown.TabIndex = 33;
-            this.ResizeUpDown.Visible = false;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(672, 385);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(40, 21);
+            this.label19.TabIndex = 50;
+            this.label19.Text = "blue";
+            this.label19.Visible = false;
             // 
-            // Noise2UpdDown
+            // label20
             // 
-            this.Noise2UpdDown.Location = new System.Drawing.Point(1431, 576);
-            this.Noise2UpdDown.Name = "Noise2UpdDown";
-            this.Noise2UpdDown.Size = new System.Drawing.Size(120, 22);
-            this.Noise2UpdDown.TabIndex = 34;
-            this.Noise2UpdDown.Visible = false;
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(672, 364);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(50, 21);
+            this.label20.TabIndex = 49;
+            this.label20.Text = "green";
+            this.label20.Visible = false;
             // 
-            // ExtractBtn
+            // label21
             // 
-            this.ExtractBtn.Location = new System.Drawing.Point(1681, 409);
-            this.ExtractBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.ExtractBtn.Name = "ExtractBtn";
-            this.ExtractBtn.Size = new System.Drawing.Size(155, 28);
-            this.ExtractBtn.TabIndex = 35;
-            this.ExtractBtn.Text = "Extract watermark";
-            this.ExtractBtn.UseVisualStyleBackColor = true;
-            this.ExtractBtn.Visible = false;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(672, 343);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(33, 21);
+            this.label21.TabIndex = 48;
+            this.label21.Text = "red";
+            this.label21.Visible = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(425, 385);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(219, 21);
+            this.label22.TabIndex = 47;
+            this.label22.Text = "Average amount of Blue color:";
+            this.label22.Visible = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(425, 364);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(231, 21);
+            this.label23.TabIndex = 46;
+            this.label23.Text = "Average amount of Green color:";
+            this.label23.Visible = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(425, 343);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(216, 21);
+            this.label24.TabIndex = 45;
+            this.label24.Text = "Average amount of Red color:";
+            this.label24.Visible = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(1080, 510);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(40, 21);
+            this.label25.TabIndex = 56;
+            this.label25.Text = "blue";
+            this.label25.Visible = false;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(1080, 489);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(50, 21);
+            this.label26.TabIndex = 55;
+            this.label26.Text = "green";
+            this.label26.Visible = false;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(1080, 468);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(33, 21);
+            this.label27.TabIndex = 54;
+            this.label27.Text = "red";
+            this.label27.Visible = false;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(833, 510);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(219, 21);
+            this.label28.TabIndex = 53;
+            this.label28.Text = "Average amount of Blue color:";
+            this.label28.Visible = false;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(833, 489);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(231, 21);
+            this.label29.TabIndex = 52;
+            this.label29.Text = "Average amount of Green color:";
+            this.label29.Visible = false;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(833, 468);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(216, 21);
+            this.label30.TabIndex = 51;
+            this.label30.Text = "Average amount of Red color:";
+            this.label30.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1504, 385);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 21);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "blue";
+            this.label1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1504, 364);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 21);
+            this.label2.TabIndex = 61;
+            this.label2.Text = "green";
+            this.label2.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(1504, 343);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 21);
+            this.label10.TabIndex = 60;
+            this.label10.Text = "red";
+            this.label10.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(1257, 385);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(219, 21);
+            this.label11.TabIndex = 59;
+            this.label11.Text = "Average amount of Blue color:";
+            this.label11.Visible = false;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(1257, 364);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(231, 21);
+            this.label31.TabIndex = 58;
+            this.label31.Text = "Average amount of Green color:";
+            this.label31.Visible = false;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(1257, 343);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(216, 21);
+            this.label32.TabIndex = 57;
+            this.label32.Text = "Average amount of Red color:";
+            this.label32.Visible = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1046);
+            this.ClientSize = new System.Drawing.Size(1560, 850);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BrightnessUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContrastUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoiseUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditedWatermarkPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WatermarkPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditedContainerPictureBox)).EndInit();
@@ -1227,11 +1477,9 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NoiseUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ContrastUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BrightnessUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ResizeUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Noise2UpdDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BrightnessOriginalUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContrastOriginalUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoiseOriginalUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1257,8 +1505,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
@@ -1266,8 +1512,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private WatermarkingDataSet watermarkingDataSet;
         private System.Windows.Forms.BindingSource watermarkingResultsBindingSource;
@@ -1331,12 +1575,35 @@
         private System.Windows.Forms.Button BrightnessBtn;
         private System.Windows.Forms.Button ContrastBtn;
         private System.Windows.Forms.Button NoiseBtn;
-        private System.Windows.Forms.NumericUpDown ResizeUpDown;
         private System.Windows.Forms.NumericUpDown BrightnessUpDown;
         private System.Windows.Forms.NumericUpDown ContrastUpDown;
         private System.Windows.Forms.NumericUpDown NoiseUpDown;
-        private System.Windows.Forms.NumericUpDown Noise2UpdDown;
         private System.Windows.Forms.Button ExtractBtn;
+        private System.Windows.Forms.NumericUpDown BrightnessOriginalUpDown;
+        private System.Windows.Forms.NumericUpDown ContrastOriginalUpDown;
+        private System.Windows.Forms.NumericUpDown NoiseOriginalUpDown;
+        private System.Windows.Forms.Button ResizeOriginalBtn;
+        private System.Windows.Forms.Button BrightnessOriginalBtn;
+        private System.Windows.Forms.Button ContrastOriginalBtn;
+        private System.Windows.Forms.Button NoiseOriginalBtn;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
     }
 }
 

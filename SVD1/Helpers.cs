@@ -1,21 +1,16 @@
-﻿using AForge;
-using AForge.Imaging.Filters;
-using AForge.Math.Random;
+﻿using AForge.Imaging.Filters;
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 namespace SVD
 {
     public static class Helpers
     {
-        [Obsolete]
-        public static Bitmap SetNoise(Bitmap image)
-        {
-            // create random generator
-            IRandomNumberGenerator generator = new UniformGenerator(new Range(-50, 50));
-            // create filter
-            AdditiveNoise filter = new AdditiveNoise(generator);
-            // apply the filter
+        public static Bitmap SetNoise(Bitmap image, int percent)
+        {    
+            var filter = new SaltAndPepperNoise(percent);    
             filter.ApplyInPlace(image);
 
             return image;
@@ -126,6 +121,69 @@ namespace SVD
             var psnr = 10 * Math.Log10(256 * 256 / mse);
             //}
             return psnr;
+        }
+
+        public static Tuple<int, int, int> CalculateColors(Bitmap inputContainer)
+        {
+            var srcData = inputContainer.LockBits(
+                new Rectangle(0, 0, inputContainer.Width, inputContainer.Height),
+                ImageLockMode.ReadWrite,
+                PixelFormat.Format32bppArgb);
+
+            var stride = srcData.Stride;
+
+            var Scan0 = srcData.Scan0;
+
+            var totals = new long[] { 0, 0, 0 };
+
+            var width = inputContainer.Width;
+            var height = inputContainer.Height;
+
+            unsafe
+            {
+                var p = (byte*)(void*)Scan0;
+
+                for (var y = 0; y < height; y++)
+                {
+                    for (var x = 0; x < width; x++)
+                    {
+                        for (var color = 0; color < 3; color++)
+                        {
+                            var idx = (y * stride) + x * 4 + color;
+
+                            totals[color] += p[idx];
+                        }
+                    }
+                }
+            }
+
+            var avgB = (int)totals[0] / (width * height);
+            var avgG = (int)totals[1] / (width * height);
+            var avgR = (int)totals[2] / (width * height);
+
+            inputContainer.UnlockBits(srcData);
+            return new Tuple<int, int, int>(avgR, avgG, avgB);
+        }
+
+        public static Bitmap ResizeImage(Image image, int width, int height)
+        {
+            var destRect = new Rectangle(0, 0, width, height);
+            var destImage = new Bitmap(width, height);
+
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            using var graphics = Graphics.FromImage(destImage);
+            graphics.CompositingMode = CompositingMode.SourceCopy;
+            graphics.CompositingQuality = CompositingQuality.HighQuality;
+            graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            graphics.SmoothingMode = SmoothingMode.HighQuality;
+            graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+            using var wrapMode = new ImageAttributes();
+            wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+            graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+
+            return destImage;
         }
     }
 }
