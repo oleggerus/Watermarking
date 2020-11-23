@@ -161,7 +161,7 @@ namespace SVD
 
         private static async Task SaveAllDataToFiles(Image containerProcessed, string fileName, double[,] outputKey1, IEnumerable<double> outputKey2)
         {
-            var newFileName = $"{fileName}_Container";
+            var newFileName = $"{fileName}_Container";          
             containerProcessed.Save(Path.Combine(MainConstants.ContainersProcessedPath, $"{newFileName}.bmp"));
 
             using (var key1Writer = new StreamWriter(Path.Combine(MainConstants.DecryptKeysPath, $"{newFileName}_EigenVectors.txt")))

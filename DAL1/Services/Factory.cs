@@ -1,7 +1,5 @@
 ﻿using System;
-using DAL;
-
-namespace Algorithm
+namespace DAL.Services
 {
     public static class Factory
     {

@@ -46,7 +46,10 @@ namespace ClientApp
             if (!string.IsNullOrWhiteSpace(ContainerFileName) && ContainerFileName != "openFileDialog1")
             {
                 ContainerPictureBox.Image = Image.FromFile(openFileDialog1.FileName);
+                OriginalFileName = $"{Path.GetFileNameWithoutExtension(ContainerFileName)}_{Path.GetFileNameWithoutExtension(WatermarkFileName)}";
+                OriginalContainer = new Bitmap(ContainerFileName ?? string.Empty);
             }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -56,6 +59,8 @@ namespace ClientApp
             if (!string.IsNullOrWhiteSpace(WatermarkFileName) && WatermarkFileName != "openFileDialog2")
             {
                 WatermarkPictureBox.Image = Image.FromFile(openFileDialog2.FileName);
+                OriginalFileName = $"{Path.GetFileNameWithoutExtension(ContainerFileName)}_{Path.GetFileNameWithoutExtension(WatermarkFileName)}";
+                OriginalContainer = new Bitmap(ContainerFileName ?? string.Empty);
             }
         }
 
@@ -71,7 +76,7 @@ namespace ClientApp
                 OriginalFileName = $"{Path.GetFileNameWithoutExtension(ContainerFileName)}_{Path.GetFileNameWithoutExtension(WatermarkFileName)}";
                 OriginalContainer = new Bitmap(ContainerFileName ?? string.Empty);
             }
-
+            
             var watermark = new Bitmap(WatermarkFileName ?? string.Empty);
             CurrentEncryptionResult = await Executor.HandleEncryption(OriginalContainer, watermark, OriginalFileName);
 
@@ -83,6 +88,15 @@ namespace ClientApp
 
             SetLabelsVisibility(CurrentEncryptionResult, decryptionResult);
             Executed = true;
+
+            var insertModel = Factory.PrepareResultModel(Path.GetFileNameWithoutExtension(ContainerFileName), Path.GetFileNameWithoutExtension(WatermarkFileName), CurrentEncryptionResult.Time,
+             decryptionResult.Time, CurrentEncryptionResult.Psnr, decryptionResult.Psnr, (int)BrightnessOriginalUpDown.Value, (int)ContrastOriginalUpDown.Value, (int)NoiseOriginalUpDown.Value,
+             CurrentEncryptionResult.AverageRedColor, CurrentEncryptionResult.AverageGreenColor, CurrentEncryptionResult.AverageBlueColor,
+             CurrentEncryptionResult.AverageRedColorWatermark, CurrentEncryptionResult.AverageGreenColorWatermark, CurrentEncryptionResult.AverageBlueColorWatermark,
+             CurrentEncryptionResult.ContainerWidth, CurrentEncryptionResult.ContainerHeight,
+             CurrentEncryptionResult.WatermarkWidth, CurrentEncryptionResult.WatermarkHeight);
+            insertModel.Mode = (int)WatermarkingMode.Single;
+            await DalService.InsertResult(insertModel);
         }
 
 
@@ -109,9 +123,9 @@ namespace ClientApp
             label27.Text = editedContainer.Item1.ToString();
 
             var extractedWatermark = Helpers.CalculateColors((Bitmap)EditedWatermarkPictureBox.Image);
-            label25.Text = extractedWatermark.Item3.ToString();
-            label12.Text = extractedWatermark.Item2.ToString();
-            label1.Text = extractedWatermark.Item1.ToString();
+            label1.Text = extractedWatermark.Item3.ToString();
+            label2.Text = extractedWatermark.Item2.ToString();
+            label10.Text = extractedWatermark.Item1.ToString();
 
             label3.Visible = true;
             label4.Visible = true;
@@ -180,7 +194,8 @@ namespace ClientApp
                 var toDisplay = await DalService.GetAllResultByMode(new List<int>
                 {
                     (int) WatermarkingMode.AllToAll, (int) WatermarkingMode.OneKeyToAllContainers,
-                    (int) WatermarkingMode.OneContainerToAllKeys, (int) WatermarkingMode.Single
+                    (int) WatermarkingMode.OneContainerToAllKeys
+                    //, (int) WatermarkingMode.Single
                 });
 
                 foreach (var item in toDisplay)
