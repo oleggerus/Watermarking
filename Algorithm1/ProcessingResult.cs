@@ -20,6 +20,6 @@ namespace Algorithm
         public int WatermarkWidth { get; set; }
 
         public Bitmap ContainerWithWatermark { get; set; }
-        public Bitmap ExtractedWatermark{ get; set; }
+        public Bitmap ExtractedWatermark { get; set; }
     }
 }

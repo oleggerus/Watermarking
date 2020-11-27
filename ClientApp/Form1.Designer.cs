@@ -29,10 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
@@ -121,27 +130,6 @@
             this.displayContrastContainerRadionBtn = new System.Windows.Forms.RadioButton();
             this.displayOriginalRadionBtn = new System.Windows.Forms.RadioButton();
             this.GridViewTab3 = new System.Windows.Forms.DataGridView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.modeRadioButton3 = new System.Windows.Forms.RadioButton();
-            this.modeRadioButton2 = new System.Windows.Forms.RadioButton();
-            this.modeRadioButton1 = new System.Windows.Forms.RadioButton();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.watermarkingResultsTableAdapter = new ClientApp.WatermarkingDataSetTableAdapters.WatermarkingResultsTableAdapter();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -155,6 +143,14 @@
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.watermarkingResultsTableAdapter = new ClientApp.WatermarkingDataSetTableAdapters.WatermarkingResultsTableAdapter();
+            this.size128Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.size256Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.size64Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BrightnessOriginalUpDown)).BeginInit();
@@ -174,7 +170,9 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewTab3)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.size128Chart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.size256Chart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.size64Chart)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -934,9 +932,9 @@
             // encryptionTimeDataGridViewTextBoxColumn
             // 
             this.encryptionTimeDataGridViewTextBoxColumn.DataPropertyName = "EncryptionTime";
-            dataGridViewCellStyle9.Format = "ss\\.fff";
-            dataGridViewCellStyle9.NullValue = null;
-            this.encryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Format = "ss\\.fff";
+            dataGridViewCellStyle1.NullValue = null;
+            this.encryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.encryptionTimeDataGridViewTextBoxColumn.HeaderText = "EncryptionTime";
             this.encryptionTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.encryptionTimeDataGridViewTextBoxColumn.Name = "encryptionTimeDataGridViewTextBoxColumn";
@@ -946,8 +944,8 @@
             // decryptionTimeDataGridViewTextBoxColumn
             // 
             this.decryptionTimeDataGridViewTextBoxColumn.DataPropertyName = "DecryptionTime";
-            dataGridViewCellStyle10.Format = "ss\\.fff";
-            this.decryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Format = "ss\\.fff";
+            this.decryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.decryptionTimeDataGridViewTextBoxColumn.HeaderText = "DecryptionTime";
             this.decryptionTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.decryptionTimeDataGridViewTextBoxColumn.Name = "decryptionTimeDataGridViewTextBoxColumn";
@@ -957,9 +955,9 @@
             // encryptionPsnrDataGridViewTextBoxColumn
             // 
             this.encryptionPsnrDataGridViewTextBoxColumn.DataPropertyName = "EncryptionPsnr";
-            dataGridViewCellStyle11.Format = "N2";
-            dataGridViewCellStyle11.NullValue = null;
-            this.encryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.encryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.encryptionPsnrDataGridViewTextBoxColumn.HeaderText = "EncryptionPsnr";
             this.encryptionPsnrDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.encryptionPsnrDataGridViewTextBoxColumn.Name = "encryptionPsnrDataGridViewTextBoxColumn";
@@ -969,9 +967,9 @@
             // decryptionPsnrDataGridViewTextBoxColumn
             // 
             this.decryptionPsnrDataGridViewTextBoxColumn.DataPropertyName = "DecryptionPsnr";
-            dataGridViewCellStyle12.Format = "N2";
-            dataGridViewCellStyle12.NullValue = null;
-            this.decryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.decryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.decryptionPsnrDataGridViewTextBoxColumn.HeaderText = "DecryptionPsnr";
             this.decryptionPsnrDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.decryptionPsnrDataGridViewTextBoxColumn.Name = "decryptionPsnrDataGridViewTextBoxColumn";
@@ -1228,181 +1226,6 @@
             this.GridViewTab3.Size = new System.Drawing.Size(1652, 725);
             this.GridViewTab3.TabIndex = 0;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.modeRadioButton3);
-            this.tabPage4.Controls.Add(this.modeRadioButton2);
-            this.tabPage4.Controls.Add(this.modeRadioButton1);
-            this.tabPage4.Controls.Add(this.dataGridView2);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1792, 863);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // modeRadioButton3
-            // 
-            this.modeRadioButton3.AutoSize = true;
-            this.modeRadioButton3.Location = new System.Drawing.Point(49, 52);
-            this.modeRadioButton3.Name = "modeRadioButton3";
-            this.modeRadioButton3.Size = new System.Drawing.Size(85, 17);
-            this.modeRadioButton3.TabIndex = 4;
-            this.modeRadioButton3.TabStop = true;
-            this.modeRadioButton3.Text = "radioButton1";
-            this.modeRadioButton3.UseVisualStyleBackColor = true;
-            // 
-            // modeRadioButton2
-            // 
-            this.modeRadioButton2.AutoSize = true;
-            this.modeRadioButton2.Location = new System.Drawing.Point(49, 29);
-            this.modeRadioButton2.Name = "modeRadioButton2";
-            this.modeRadioButton2.Size = new System.Drawing.Size(85, 17);
-            this.modeRadioButton2.TabIndex = 3;
-            this.modeRadioButton2.TabStop = true;
-            this.modeRadioButton2.Text = "radioButton1";
-            this.modeRadioButton2.UseVisualStyleBackColor = true;
-            // 
-            // modeRadioButton1
-            // 
-            this.modeRadioButton1.AutoSize = true;
-            this.modeRadioButton1.Location = new System.Drawing.Point(49, 6);
-            this.modeRadioButton1.Name = "modeRadioButton1";
-            this.modeRadioButton1.Size = new System.Drawing.Size(85, 17);
-            this.modeRadioButton1.TabIndex = 2;
-            this.modeRadioButton1.TabStop = true;
-            this.modeRadioButton1.Text = "radioButton1";
-            this.modeRadioButton1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12});
-            this.dataGridView2.Location = new System.Drawing.Point(-41, 124);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(1242, 547);
-            this.dataGridView2.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Container";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Watermark";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Contrast";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Brightness";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Container size";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Watermark size";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Container colors amount (RGB)";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Watermark colors amount (RGB)";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Encryption PSNR";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Decryption PSNR";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "Encryption time";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "Decryption time";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 125;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1792, 863);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // openFileDialog2
-            // 
-            this.openFileDialog2.FileName = "openFileDialog2";
-            // 
-            // watermarkingResultsTableAdapter
-            // 
-            this.watermarkingResultsTableAdapter.ClearBeforeFill = true;
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "Container";
@@ -1493,6 +1316,89 @@
             this.Column10.Name = "Column10";
             this.Column10.Width = 125;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.size64Chart);
+            this.tabPage4.Controls.Add(this.size256Chart);
+            this.tabPage4.Controls.Add(this.size128Chart);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1792, 863);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Size charts";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1792, 863);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.FileName = "openFileDialog2";
+            // 
+            // watermarkingResultsTableAdapter
+            // 
+            this.watermarkingResultsTableAdapter.ClearBeforeFill = true;
+            // 
+            // size128Chart
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.size128Chart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.size128Chart.Legends.Add(legend3);
+            this.size128Chart.Location = new System.Drawing.Point(582, 41);
+            this.size128Chart.Name = "size128Chart";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.size128Chart.Series.Add(series3);
+            this.size128Chart.Size = new System.Drawing.Size(541, 416);
+            this.size128Chart.TabIndex = 0;
+            this.size128Chart.Text = "chart1";
+            // 
+            // size256Chart
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.size256Chart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.size256Chart.Legends.Add(legend2);
+            this.size256Chart.Location = new System.Drawing.Point(1181, 41);
+            this.size256Chart.Name = "size256Chart";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.size256Chart.Series.Add(series2);
+            this.size256Chart.Size = new System.Drawing.Size(567, 427);
+            this.size256Chart.TabIndex = 2;
+            this.size256Chart.Text = "chart1";
+            // 
+            // size64Chart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.size64Chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.size64Chart.Legends.Add(legend1);
+            this.size64Chart.Location = new System.Drawing.Point(7, 52);
+            this.size64Chart.Name = "size64Chart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.size64Chart.Series.Add(series1);
+            this.size64Chart.Size = new System.Drawing.Size(541, 416);
+            this.size64Chart.TabIndex = 3;
+            this.size64Chart.Text = "chart1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1523,8 +1429,9 @@
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewTab3)).EndInit();
             this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.size128Chart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.size256Chart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.size64Chart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1568,24 +1475,8 @@
         private System.Windows.Forms.RadioButton displayBrightnessContainerRadionBtn;
         private System.Windows.Forms.RadioButton displayContrastContainerRadionBtn;
         private System.Windows.Forms.RadioButton displayOriginalRadionBtn;
-        private System.Windows.Forms.RadioButton modeRadioButton1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.RadioButton displayBrightnessWatermarkRadionBtn;
         private System.Windows.Forms.RadioButton displayContrastWatermarkRadionBtn;
-        private System.Windows.Forms.RadioButton modeRadioButton3;
-        private System.Windows.Forms.RadioButton modeRadioButton2;
         private System.Windows.Forms.Button ResizeBtn;
         private System.Windows.Forms.Button BrightnessBtn;
         private System.Windows.Forms.Button ContrastBtn;
@@ -1653,6 +1544,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataVisualization.Charting.Chart size128Chart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart size256Chart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart size64Chart;
     }
 }
 

@@ -9,8 +9,8 @@ namespace SVD
     public static class Helpers
     {
         public static Bitmap SetNoise(Bitmap image, int percent)
-        {    
-            var filter = new SaltAndPepperNoise(percent);    
+        {
+            var filter = new SaltAndPepperNoise(percent);
             filter.ApplyInPlace(image);
 
             return image;
@@ -74,18 +74,16 @@ namespace SVD
             return newBitmap;
         }
 
-        public static double CalculatePsnr(Bitmap originalBitmap, Bitmap processedBitmap)
+        public static double CalculateMse(Bitmap originalBitmap, Bitmap processedBitmap)
         {
 
             //cmode = radioButtonGrayscale.Checked;
-            var col2 = originalBitmap.Width;
             //ComparePSNR(Container, Container_Reconstructed);
             //if (cmode == true)
             //    rows2 = originalBitmap.Height;
             //else
-            var rows2 = originalBitmap.Height * 3;
 
-            double mse = 0;
+
 
             //grey mode
             //if (cmode == true)
@@ -102,6 +100,10 @@ namespace SVD
             //}
             //else
             //{
+
+            var col2 = originalBitmap.Width;
+            var rows2 = originalBitmap.Height * 3;
+            double mse = 0;
             for (var i = 0; i < rows2 / 3; i++)
                 for (var j = 0; j < col2; j++)
                 {
@@ -117,10 +119,31 @@ namespace SVD
                     mse += Math.Pow(Math.Abs(processedPixelG - originalPixelG), 2);
                     mse += Math.Pow(Math.Abs(processedPixelB - originalPixelB), 2);
                 }
-            mse /= rows2 * col2;
-            var psnr = 10 * Math.Log10(256 * 256 / mse);
-            //}
-            return psnr;
+            return mse;
+        }
+
+        public static double CalculatePsnr(Bitmap originalBitmap, Bitmap processedBitmap)
+        {
+
+            var col2 = originalBitmap.Width;
+            var rows2 = originalBitmap.Height * 3;
+            double mse = 0;
+            for (var i = 0; i < rows2 / 3; i++)
+                for (var j = 0; j < col2; j++)
+                {
+                    var processedPixelR = processedBitmap.GetPixel(i, j).R;
+                    var processedPixelG = processedBitmap.GetPixel(i, j).G;
+                    var processedPixelB = processedBitmap.GetPixel(i, j).B;
+
+                    var originalPixelR = originalBitmap.GetPixel(i, j).R;
+                    var originalPixelG = originalBitmap.GetPixel(i, j).G;
+                    var originalPixelB = originalBitmap.GetPixel(i, j).B;
+
+                    mse += Math.Pow(Math.Abs(processedPixelR - originalPixelR), 2);
+                    mse += Math.Pow(Math.Abs(processedPixelG - originalPixelG), 2);
+                    mse += Math.Pow(Math.Abs(processedPixelB - originalPixelB), 2);
+                }
+            return mse;
         }
 
         public static Tuple<int, int, int> CalculateColors(Bitmap inputContainer)

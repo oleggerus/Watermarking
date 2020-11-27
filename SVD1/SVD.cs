@@ -4,7 +4,6 @@ using Accord.Statistics;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -156,12 +155,12 @@ namespace SVD
 
             await SaveAllDataToFiles(containerReconstructed, fileName, _eigenVectors, _singularValues);
 
-            return PrepareEncryptionResult(container,  watermark, containerReconstructed);
+            return PrepareEncryptionResult(container, watermark, containerReconstructed);
         }
 
         private static async Task SaveAllDataToFiles(Image containerProcessed, string fileName, double[,] outputKey1, IEnumerable<double> outputKey2)
         {
-            var newFileName = $"{fileName}_Container";          
+            var newFileName = $"{fileName}_Container";
             containerProcessed.Save(Path.Combine(MainConstants.ContainersProcessedPath, $"{newFileName}.bmp"));
 
             using (var key1Writer = new StreamWriter(Path.Combine(MainConstants.DecryptKeysPath, $"{newFileName}_EigenVectors.txt")))
@@ -336,7 +335,7 @@ namespace SVD
             var matrixMainComponents = matrixMainConvertedCentered.MultiplyByTranspose(eigenVectors.Transpose());
             for (var i = 0; i < matrixMainComponents.GetLength(0); i++)
             {
-                arrayWithWatermarkPixelsColorful[i] = matrixMainComponents[i, principalComponentsNumber-1];
+                arrayWithWatermarkPixelsColorful[i] = matrixMainComponents[i, principalComponentsNumber - 1];
                 //Matrix_Main_Components[i, 15] = 0;
             }
 
@@ -402,13 +401,13 @@ namespace SVD
                 AverageGreenColorWatermark = item2,
                 AverageBlueColorWatermark = item3,
                 ContainerWidth = inputContainer.Width,
-                ContainerHeight= inputContainer.Height,
+                ContainerHeight = inputContainer.Height,
                 WatermarkHeight = inputKey.Height,
                 WatermarkWidth = inputKey.Width
             };
         }
 
 
-       
+
     }
 }

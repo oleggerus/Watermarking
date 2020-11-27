@@ -1,10 +1,10 @@
-﻿using System.Diagnostics;
+﻿using DAL;
+using DAL.Services;
+using SVD;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
-using DAL;
-using DAL.Services;
-using SVD;
 using MainConstants = Constants.Constants;
 
 namespace Algorithm
@@ -104,7 +104,7 @@ namespace Algorithm
 
         public static async Task<ProcessingResult> DecryptFromBitmap(Bitmap encrypptedContainer, string originalFileName, Bitmap originalKeyBitmap)
         {
-            var decryptionFileName = $"{originalFileName}_Container";            
+            var decryptionFileName = $"{originalFileName}_Container";
 
             var decryptionStopwatch = Stopwatch.StartNew();
             var decryptionResult = await Svd.Decrypt(encrypptedContainer, decryptionFileName,
