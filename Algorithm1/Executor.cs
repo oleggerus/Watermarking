@@ -25,7 +25,9 @@ namespace Algorithm
             var decryptionResult = await Decrypt(fileNameToCreate, originalKeyBitmap);
 
             var insertModel = Factory.PrepareResultModel(fileNameToCreate, originalKeyFileName, encryptionResult.Time,
-                decryptionResult.Time, encryptionResult.Psnr, decryptionResult.Psnr, brightness, contrast, noise,
+                decryptionResult.Time, encryptionResult.Psnr, decryptionResult.Psnr, 
+                encryptionResult.Mse, decryptionResult.Mse,
+                brightness, contrast, noise,
                 encryptionResult.AverageRedColor, encryptionResult.AverageGreenColor, encryptionResult.AverageBlueColor,
                 encryptionResult.AverageRedColorWatermark, encryptionResult.AverageGreenColorWatermark, encryptionResult.AverageBlueColorWatermark,
                 encryptionResult.ContainerWidth, encryptionResult.ContainerHeight,
@@ -70,6 +72,7 @@ namespace Algorithm
             return new ProcessingResult
             {
                 Psnr = encryptionPsnr,
+                Mse = encryptionMse,
                 Time = encryptionStopwatch.Elapsed,
                 AverageBlueColor = result.AverageBlueColor,
                 AverageGreenColor = result.AverageGreenColor,
@@ -101,6 +104,7 @@ namespace Algorithm
             return new ProcessingResult
             {
                 Psnr = decryptionPsnr,
+                Mse = decryptionMse,
                 Time = decryptionStopwatch.Elapsed,
                 ExtractedWatermark = decryptionResult
             };
@@ -120,6 +124,7 @@ namespace Algorithm
             return new ProcessingResult
             {
                 Psnr = decryptionPsnr,
+                Mse = decryptionMse,
                 Time = decryptionStopwatch.Elapsed,
                 ExtractedWatermark = decryptionResult
             };

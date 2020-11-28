@@ -48,7 +48,8 @@ namespace ClientApp
             {
                 ContainerPictureBox.Image = Image.FromFile(openFileDialog1.FileName);
                 OriginalFileName = $"{Path.GetFileNameWithoutExtension(ContainerFileName)}_{Path.GetFileNameWithoutExtension(WatermarkFileName)}";
-                OriginalContainer = new Bitmap(ContainerFileName ?? string.Empty);
+                if (!string.IsNullOrWhiteSpace(WatermarkFileName) && WatermarkFileName != "openFileDialog2")
+                    OriginalContainer = new Bitmap(ContainerFileName ?? string.Empty);
             }
 
         }
@@ -60,8 +61,8 @@ namespace ClientApp
             if (!string.IsNullOrWhiteSpace(WatermarkFileName) && WatermarkFileName != "openFileDialog2")
             {
                 WatermarkPictureBox.Image = Image.FromFile(openFileDialog2.FileName);
-                OriginalFileName = $"{Path.GetFileNameWithoutExtension(ContainerFileName)}_{Path.GetFileNameWithoutExtension(WatermarkFileName)}";
-                OriginalContainer = new Bitmap(ContainerFileName ?? string.Empty);
+                if (!string.IsNullOrWhiteSpace(ContainerFileName) && ContainerFileName != "openFileDialog1")
+                    OriginalFileName = $"{Path.GetFileNameWithoutExtension(ContainerFileName)}_{Path.GetFileNameWithoutExtension(WatermarkFileName)}";
             }
         }
 
@@ -97,7 +98,7 @@ namespace ClientApp
             //var mse2 = Helpers.CalculateMse(watermark, decryptionResult.ExtractedWatermark);
 
             var insertModel = Factory.PrepareResultModel(Path.GetFileNameWithoutExtension(ContainerFileName), Path.GetFileNameWithoutExtension(WatermarkFileName), CurrentEncryptionResult.Time,
-             decryptionResult.Time, CurrentEncryptionResult.Psnr, decryptionResult.Psnr, (int)BrightnessOriginalUpDown.Value, (int)ContrastOriginalUpDown.Value, (int)NoiseOriginalUpDown.Value,
+             decryptionResult.Time, CurrentEncryptionResult.Psnr, decryptionResult.Psnr, CurrentEncryptionResult.Mse, decryptionResult.Mse, (int)BrightnessOriginalUpDown.Value, (int)ContrastOriginalUpDown.Value, (int)NoiseOriginalUpDown.Value,
              CurrentEncryptionResult.AverageRedColor, CurrentEncryptionResult.AverageGreenColor, CurrentEncryptionResult.AverageBlueColor,
              CurrentEncryptionResult.AverageRedColorWatermark, CurrentEncryptionResult.AverageGreenColorWatermark, CurrentEncryptionResult.AverageBlueColorWatermark,
              CurrentEncryptionResult.ContainerWidth, CurrentEncryptionResult.ContainerHeight,
@@ -110,9 +111,12 @@ namespace ClientApp
         private void SetLabelsVisibility(ProcessingResult encryptionResult, ProcessingResult decryptionResult)
         {
 
+            label35.Text = Math.Round(encryptionResult.Mse, 2).ToString();
+            label36.Text = Math.Round(decryptionResult.Mse, 2).ToString();
 
             label12.Text = Math.Round(decryptionResult.Psnr, 2).ToString();
             label13.Text = Math.Round(encryptionResult.Psnr, 2).ToString();
+
             label14.Text = $@"{encryptionResult.WatermarkHeight}x{encryptionResult.WatermarkWidth}";
             label15.Text = $@"{encryptionResult.ContainerHeight}x{encryptionResult.ContainerWidth}";
             label16.Text = encryptionResult.AverageBlueColor.ToString();
@@ -167,6 +171,11 @@ namespace ClientApp
             label2.Visible = true;
             label1.Visible = true;
 
+            label33.Visible = true;
+            label34.Visible = true;
+            label35.Visible = true;
+            label36.Visible = true;
+
             ExtractBtn.Visible = true;
             NoiseBtn.Visible = true;
             ContrastBtn.Visible = true;
@@ -217,7 +226,7 @@ namespace ClientApp
                         $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
                         $"{item.AverageRedColorWatermark} - {item.AverageGreenColorWatermark} - {item.AverageBlueColorWatermark}",
                         Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
-                        //Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
+                        Math.Round(item.EncryptionMse.GetValueOrDefault(), 2), Math.Round(item.DecryptionMse.GetValueOrDefault(), 2),
                         item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
                 }
             }
@@ -234,6 +243,7 @@ namespace ClientApp
                         $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
                         $"{item.AverageRedColorWatermark} - {item.AverageGreenColorWatermark} - {item.AverageBlueColorWatermark}",
                         Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
+                        Math.Round(item.EncryptionMse.GetValueOrDefault(), 2), Math.Round(item.DecryptionMse.GetValueOrDefault(), 2),
                         item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
                 }
             }
@@ -250,6 +260,7 @@ namespace ClientApp
                         $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
                         $"{item.AverageRedColorWatermark} - {item.AverageGreenColorWatermark} - {item.AverageBlueColorWatermark}",
                         Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
+                        Math.Round(item.EncryptionMse.GetValueOrDefault(), 2), Math.Round(item.DecryptionMse.GetValueOrDefault(), 2),
                         item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
                 }
                 GridViewTab3.Refresh();
@@ -267,6 +278,7 @@ namespace ClientApp
                         $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
                         $"{item.AverageRedColorWatermark} - {item.AverageGreenColorWatermark} - {item.AverageBlueColorWatermark}",
                         Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
+                        Math.Round(item.EncryptionMse.GetValueOrDefault(), 2), Math.Round(item.DecryptionMse.GetValueOrDefault(), 2),
                         item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
                 }
                 GridViewTab3.Refresh();
@@ -284,6 +296,7 @@ namespace ClientApp
                         $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
                         $"{item.AverageRedColorWatermark} - {item.AverageGreenColorWatermark} - {item.AverageBlueColorWatermark}",
                         Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
+                        Math.Round(item.EncryptionMse.GetValueOrDefault(), 2), Math.Round(item.DecryptionMse.GetValueOrDefault(), 2),
                         item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
                 }
             }
@@ -300,6 +313,7 @@ namespace ClientApp
                         $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
                         $"{item.AverageRedColorWatermark} - {item.AverageGreenColorWatermark} - {item.AverageBlueColorWatermark}",
                         Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
+                        Math.Round(item.EncryptionMse.GetValueOrDefault(), 2), Math.Round(item.DecryptionMse.GetValueOrDefault(), 2),
                         item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
                 }
                 GridViewTab3.Refresh();
@@ -317,6 +331,7 @@ namespace ClientApp
                         $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
                         $"{item.AverageRedColorWatermark} - {item.AverageGreenColorWatermark} - {item.AverageBlueColorWatermark}",
                         Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
+                        Math.Round(item.EncryptionMse.GetValueOrDefault(), 2), Math.Round(item.DecryptionMse.GetValueOrDefault(), 2),
                         item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
                 }
                 GridViewTab3.Refresh();
@@ -579,6 +594,11 @@ namespace ClientApp
             //size256Chart.DataBindCrossTable(dt256.Rows, "Container Name", "Size", "Encryption PSNR", "");
             //size256Chart.Palette = ChartColorPalette.SeaGreen;
             //size256Chart.Titles.Add("256x256 watermark results");
+        }
+
+        private void label33_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
