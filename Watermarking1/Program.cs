@@ -14,6 +14,8 @@ namespace Watermarking
 {
     internal static class Program
     {
+        private static int ParallelThreadsAmount = 20;
+
         public static int Mode;
         public static int[] ValuesForBrightness = {
             -200,  -150, -100, -50, 0, 50, 100, 150, 200
@@ -216,7 +218,7 @@ namespace Watermarking
 
         private static async Task RunDifferentBrightness(List<WatermarkingResults> resultSet, string originalFilePath, string originalKeyFileName, string fileNameToCreate)
         {
-            await ForEachAsync(ValuesForBrightness, 20, async brightness =>
+            await ForEachAsync(ValuesForBrightness, ParallelThreadsAmount, async brightness =>
             {
                 var model = await Executor.ProcessData(originalFilePath, originalKeyFileName, fileNameToCreate, brightness, 0, 0, Mode);
                 AddToResultSet(resultSet, model);
@@ -225,7 +227,7 @@ namespace Watermarking
 
         private static async Task RunDifferentContrast(List<WatermarkingResults> resultSet, string originalFilePath, string originalKeyFileName, string fileNameToCreate)
         {
-            await ForEachAsync(ValuesForContrast, 20, async contrast =>
+            await ForEachAsync(ValuesForContrast, ParallelThreadsAmount, async contrast =>
             {
                 var model = await Executor.ProcessData(originalFilePath, originalKeyFileName, fileNameToCreate, 0, contrast, 0, Mode);
                 AddToResultSet(resultSet, model);
@@ -234,7 +236,7 @@ namespace Watermarking
 
         private static async Task RunDifferentNoise(List<WatermarkingResults> resultSet, string originalFilePath, string originalKeyFileName, string fileNameToCreate)
         {
-            await ForEachAsync(ValuesForNoise, 20, async noise =>
+            await ForEachAsync(ValuesForNoise, ParallelThreadsAmount, async noise =>
             {
                 var model = await Executor.ProcessData(originalFilePath, originalKeyFileName, fileNameToCreate, 0, 0, noise, Mode);
                 AddToResultSet(resultSet, model);

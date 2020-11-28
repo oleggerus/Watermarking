@@ -215,7 +215,6 @@ namespace ClientApp
                 {
                     (int) WatermarkingMode.AllToAll, (int) WatermarkingMode.OneKeyToAllContainers,
                     (int) WatermarkingMode.OneContainerToAllKeys
-                    //, (int) WatermarkingMode.Single
                 });
 
                 foreach (var item in toDisplay)
@@ -448,7 +447,18 @@ namespace ClientApp
                 row.ContainerFileName = row.ContainerFileName.Replace("_", "").Replace("64", "").Replace("128", "")
                     .Replace("256", "").Replace("512", "").Replace("1024", "");
             }
-            // Setup the data
+
+            SetPSNRCharts(rows);
+            SetMseCharts(rows);
+        }
+
+        private void label33_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SetPSNRCharts(List<WatermarkingResults> rows)
+        {
             var dt64 = new DataTable();
             dt64.Columns.Add("Container Name", typeof(string));
             dt64.Columns.Add("Encryption PSNR", typeof(decimal));
@@ -459,58 +469,18 @@ namespace ClientApp
                 foreach (var groupBySize in group.GroupBy(x => x.ContainerWidth))
                 {
                     var max = groupBySize.Select(row => row.EncryptionPsnr).Concat(new[] { 0.0 }).Max();
-                    //dt64.Rows.Add(group.Key, Math.Round(max), $"{groupBySize.Key}x{groupBySize.Key}");
                     dt64.Rows.Add(group.Key, Math.Round(max, 2),
-                        groupBySize.Key == 128 ? 0 : groupBySize.Key == 256 ? 1 : groupBySize.Key == 512 ? 2 : 3);
+                                                                                                groupBySize.Key == 128 ? 0 : groupBySize.Key == 256 ? 1 : groupBySize.Key == 512 ? 2 : 3);
                 }
             }
-
 
             size64Chart.Series.Clear();
             size64Chart.DataBindCrossTable(dt64.Rows, "Container Name", "Size", "Encryption PSNR", "");
             size64Chart.Palette = ChartColorPalette.Berry;
+            size64Chart.Titles.Clear();
             size64Chart.Titles.Add("64x64 watermark results");
-            //size64Chart.ChartAreas[0].AxisX.IsMarginVisible = false;
+            UpdateChart(size64Chart, "PSNR");
 
-
-            var series = size64Chart.Series[0]; //series object
-            var chartArea = size64Chart.ChartAreas[series.ChartArea];
-            chartArea.AxisX.StripLines.Add(new StripLine
-            {
-                BorderDashStyle = ChartDashStyle.Solid,
-                BorderWidth = 3,
-                BorderColor = Color.Red,
-                Interval = 0, // to show only one vertical line
-                IntervalOffset = -0.5, // for showing Vertical line between 2 series 
-                IntervalType = DateTimeIntervalType.Years // for me years
-            });
-            chartArea.AxisX.StripLines.Add(new StripLine
-            {
-                BorderDashStyle = ChartDashStyle.Solid,
-                BorderWidth = 3,
-                BorderColor = Color.Red,
-                Interval = 0, // to show only one vertical line
-                IntervalOffset = 0.5, // for showing Vertical line between 2 series 
-                IntervalType = DateTimeIntervalType.Years // for me years
-            });
-            chartArea.AxisX.StripLines.Add(new StripLine
-            {
-                BorderDashStyle = ChartDashStyle.Solid,
-                BorderWidth = 3,
-                BorderColor = Color.Red,
-                Interval = 0, // to show only one vertical line
-                IntervalOffset = 1.5, // for showing Vertical line between 2 series 
-                IntervalType = DateTimeIntervalType.Years // for me years
-            });
-            chartArea.AxisX.StripLines.Add(new StripLine
-            {
-                BorderDashStyle = ChartDashStyle.Solid,
-                BorderWidth = 3,
-                BorderColor = Color.Red,
-                Interval = 0, // to show only one vertical line
-                IntervalOffset = 2.5, // for showing Vertical line between 2 series 
-                IntervalType = DateTimeIntervalType.Years // for me years
-            });
 
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             var dt128 = new DataTable();
@@ -524,21 +494,124 @@ namespace ClientApp
                 foreach (var groupBySize in group.GroupBy(x => x.ContainerWidth))
                 {
                     var max = groupBySize.Select(row => row.EncryptionPsnr).Concat(new[] { 0.0 }).Max();
-                    //dt128.Rows.Add(group.Key, Math.Round(max), $"{groupBySize.Key}x{groupBySize.Key}");
                     dt128.Rows.Add(group.Key, Math.Round(max, 2),
-                        groupBySize.Key == 256 ? 0 : groupBySize.Key == 512 ? 1 : groupBySize.Key == 1024 ? 2 : 3);
+                    groupBySize.Key == 256 ? 0 : groupBySize.Key == 512 ? 1 : groupBySize.Key == 1024 ? 2 : 3);
                 }
             }
 
             size128Chart.Series.Clear();
             size128Chart.DataBindCrossTable(dt128.Rows, "Container Name", "Size", "Encryption PSNR", "");
             size128Chart.Palette = ChartColorPalette.SeaGreen;
+            size128Chart.Titles.Clear();
             size128Chart.Titles.Add("128x128 watermark results");
 
+            UpdateChart(size128Chart, "PSNR");
 
-            var series1 = size128Chart.Series[0]; //series object
-            var chartArea1 = size128Chart.ChartAreas[series1.ChartArea];
-            chartArea1.AxisX.StripLines.Add(new StripLine
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            var dt256 = new DataTable();
+            dt256.Columns.Add("Container Name", typeof(string));
+            dt256.Columns.Add("Encryption PSNR", typeof(decimal));
+            dt256.Columns.Add("Size", typeof(int));
+            size256Chart.Titles.Clear();
+            size256Chart.Titles.Add("256x256 watermark results");
+
+            UpdateChart(size256Chart, "PSNR");
+
+            foreach (var group in rows.Where(x => x.WatermarkHeight.GetValueOrDefault() == 256)
+                                                                 .GroupBy(x => x.ContainerFileName))
+            {
+                foreach (var groupBySize in group.GroupBy(x => x.ContainerWidth))
+                {
+                    var max = groupBySize.Select(row => row.EncryptionPsnr).Concat(new[] { 0.0 }).Max();
+                    dt256.Rows.Add(group.Key, Math.Round(max), groupBySize.Key == 256 ? 0 : groupBySize.Key == 512 ? 1 : groupBySize.Key == 1024 ? 2 : 3);
+                }
+            }
+            size256Chart.DataBindCrossTable(dt256.Rows, "Container Name", "Size", "Encryption PSNR", "");
+
+        }
+
+        private void SetMseCharts(List<WatermarkingResults> rows)
+        {
+            var mse64 = new DataTable();
+            mse64.Columns.Add("Container Name", typeof(string));
+            mse64.Columns.Add("Encryption MSE", typeof(decimal));
+            mse64.Columns.Add("Size", typeof(int));
+
+            foreach (var group in rows.Where(x => x.WatermarkHeight.GetValueOrDefault() == 64).GroupBy(x => x.ContainerFileName))
+            {
+                foreach (var groupBySize in group.GroupBy(x => x.ContainerWidth))
+                {
+                    var max = groupBySize.Select(row => row.EncryptionMse.GetValueOrDefault()).Concat(new[] { 0.0 }).Max();
+                    mse64.Rows.Add(group.Key, Math.Round(max, 2),
+                           groupBySize.Key == 128 ? 0 : groupBySize.Key == 256 ? 1 : groupBySize.Key == 512 ? 2 : 3);
+                }
+            }
+
+            mseChart1.Series.Clear();
+            mseChart1.DataBindCrossTable(mse64.Rows, "Container Name", "Size", "Encryption MSE", "");
+            mseChart1.Palette = ChartColorPalette.Berry;
+            mseChart1.Titles.Clear();
+            mseChart1.Titles.Add("64x64 watermark results");
+            UpdateChart(mseChart1, "MSE");
+
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            var mse128 = new DataTable();
+            mse128.Columns.Add("Container Name", typeof(string));
+            mse128.Columns.Add("Encryption MSE", typeof(decimal));
+            mse128.Columns.Add("Size", typeof(int));
+
+            foreach (var group in rows.Where(x => x.WatermarkHeight.GetValueOrDefault() == 128)
+                .GroupBy(x => x.ContainerFileName))
+            {
+                foreach (var groupBySize in group.GroupBy(x => x.ContainerWidth))
+                {
+                    var max = groupBySize.Select(row => row.EncryptionPsnr).Concat(new[] { 0.0 }).Max();
+                    mse128.Rows.Add(group.Key, Math.Round(max, 2),
+                    groupBySize.Key == 256 ? 0 : groupBySize.Key == 512 ? 1 : groupBySize.Key == 1024 ? 2 : 3);
+                }
+            }
+
+            mseChart2.Series.Clear();
+            mseChart2.DataBindCrossTable(mse128.Rows, "Container Name", "Size", "Encryption MSE", "");
+            mseChart2.Palette = ChartColorPalette.SeaGreen;
+            mseChart2.Titles.Clear();
+            mseChart2.Titles.Add("128x128 watermark results");
+            UpdateChart(mseChart2, "MSE");
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            var mse256 = new DataTable();
+            mse256.Columns.Add("Container Name", typeof(string));
+            mse256.Columns.Add("Encryption MSE", typeof(decimal));
+            mse256.Columns.Add("Size", typeof(int));
+            mseChart3.Titles.Clear();
+            mseChart3.Titles.Add("256x256 watermark results");
+
+
+            foreach (var group in rows.Where(x => x.WatermarkHeight.GetValueOrDefault() == 256)
+                                                                 .GroupBy(x => x.ContainerFileName))
+            {
+                foreach (var groupBySize in group.GroupBy(x => x.ContainerWidth))
+                {
+                    var max = groupBySize.Select(row => row.EncryptionPsnr).Concat(new[] { 0.0 }).Max();
+                    mse256.Rows.Add(group.Key, Math.Round(max), groupBySize.Key == 256 ? 0 : groupBySize.Key == 512 ? 1 : groupBySize.Key == 1024 ? 2 : 3);
+                }
+            }
+            mseChart3.DataBindCrossTable(mse256.Rows, "Container Name", "Size", "Encryption MSE", "");
+            UpdateChart(mseChart3, "MSE");
+
+        }
+
+        private void UpdateChart(Chart chart, string text)
+        {
+
+            chart.Palette = ChartColorPalette.SeaGreen;
+
+            var series = chart.Series[0]; //series object
+            var chartArea = chart.ChartAreas[series.ChartArea];
+
+            chartArea.AxisX.StripLines.Add(new StripLine
             {
                 BorderDashStyle = ChartDashStyle.Solid,
                 BorderWidth = 3,
@@ -547,7 +620,7 @@ namespace ClientApp
                 IntervalOffset = -0.5, // for showing Vertical line between 2 series 
                 IntervalType = DateTimeIntervalType.Years // for me years
             });
-            chartArea1.AxisX.StripLines.Add(new StripLine
+            chartArea.AxisX.StripLines.Add(new StripLine
             {
                 BorderDashStyle = ChartDashStyle.Solid,
                 BorderWidth = 3,
@@ -556,7 +629,7 @@ namespace ClientApp
                 IntervalOffset = 0.5, // for showing Vertical line between 2 series 
                 IntervalType = DateTimeIntervalType.Years // for me years
             });
-            chartArea1.AxisX.StripLines.Add(new StripLine
+            chartArea.AxisX.StripLines.Add(new StripLine
             {
                 BorderDashStyle = ChartDashStyle.Solid,
                 BorderWidth = 3,
@@ -565,7 +638,7 @@ namespace ClientApp
                 IntervalOffset = 1.5, // for showing Vertical line between 2 series 
                 IntervalType = DateTimeIntervalType.Years // for me years
             });
-            chartArea1.AxisX.StripLines.Add(new StripLine
+            chartArea.AxisX.StripLines.Add(new StripLine
             {
                 BorderDashStyle = ChartDashStyle.Solid,
                 BorderWidth = 3,
@@ -574,29 +647,11 @@ namespace ClientApp
                 IntervalOffset = 2.5, // for showing Vertical line between 2 series 
                 IntervalType = DateTimeIntervalType.Years // for me years
             });
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //var dt256 = new DataTable();
-            //dt256.Columns.Add("Container Name", typeof(string));
-            //dt256.Columns.Add("Encryption PSNR", typeof(decimal));
-            //dt256.Columns.Add("Size", typeof(string));
-
-            //foreach (var group in rows.Where(x => x.WatermarkHeight.GetValueOrDefault() == 256)
-            //                                                     .GroupBy(x => x.ContainerFileName))
-            //{
-            //    foreach (var groupBySize in group.GroupBy(x => x.ContainerWidth))
-            //    {
-            //        var max = groupBySize.Select(row => row.EncryptionPsnr).Concat(new[] { 0.0 }).Max();
-            //        dt256.Rows.Add(group.Key, Math.Round(max), $"{groupBySize.Key}x{groupBySize.Key}");
-            //    }
-            //}
-
-            //size256Chart.Series.Clear();
-            //size256Chart.DataBindCrossTable(dt256.Rows, "Container Name", "Size", "Encryption PSNR", "");
-            //size256Chart.Palette = ChartColorPalette.SeaGreen;
-            //size256Chart.Titles.Add("256x256 watermark results");
+            chartArea.AxisX.Title = "Container size (squad)";
+            chartArea.AxisY.Title = text;
         }
 
-        private void label33_Click(object sender, EventArgs e)
+        private void size64Chart_Click(object sender, EventArgs e)
         {
 
         }
