@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Constants
+﻿namespace Constants
 {
     public static class Constants
     {

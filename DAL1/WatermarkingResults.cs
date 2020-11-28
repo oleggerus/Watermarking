@@ -36,5 +36,7 @@ namespace DAL
         public Nullable<int> AverageGreenColorWatermark { get; set; }
         public Nullable<int> AverageBlueColorWatermark { get; set; }
         public Nullable<int> Noise { get; set; }
+        public Nullable<double> EncryptionMse { get; set; }
+        public Nullable<double> DecryptionMse { get; set; }
     }
 }

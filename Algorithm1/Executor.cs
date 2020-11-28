@@ -63,7 +63,9 @@ namespace Algorithm
             var result = await Svd.Encrypt(originalContainerBitmap, originalKeyBitmap, originalFileName);
 
             encryptionStopwatch.Stop();
-            var encryptionPsnr = Helpers.CalculatePsnr(result.InputContainer, result.OutputContainer);
+
+            var encryptionMse = Helpers.CalculateMse(result.InputContainer, result.OutputContainer);
+            var encryptionPsnr = Helpers.CalculatePsnr(encryptionMse);
 
             return new ProcessingResult
             {
@@ -92,7 +94,9 @@ namespace Algorithm
             var decryptionResult = await Svd.Decrypt(new Bitmap(decryptionFilePath), decryptionFileName,
                 originalKeyBitmap.Width, originalKeyBitmap.Height);
             decryptionStopwatch.Stop();
-            var decryptionPsnr = Helpers.CalculatePsnr(originalKeyBitmap, decryptionResult);
+            var decryptionMse = Helpers.CalculateMse(originalKeyBitmap, decryptionResult);
+            var decryptionPsnr = Helpers.CalculatePsnr(decryptionMse);
+            
             originalKeyBitmap.Dispose();
             return new ProcessingResult
             {
@@ -109,8 +113,9 @@ namespace Algorithm
             var decryptionStopwatch = Stopwatch.StartNew();
             var decryptionResult = await Svd.Decrypt(encrypptedContainer, decryptionFileName,
                 originalKeyBitmap.Width, originalKeyBitmap.Height);
-            decryptionStopwatch.Stop();
-            var decryptionPsnr = Helpers.CalculatePsnr(originalKeyBitmap, decryptionResult);
+            decryptionStopwatch.Stop();            
+            var decryptionMse = Helpers.CalculateMse(originalKeyBitmap, decryptionResult);
+            var decryptionPsnr = Helpers.CalculatePsnr(decryptionMse);
             originalKeyBitmap.Dispose();
             return new ProcessingResult
             {

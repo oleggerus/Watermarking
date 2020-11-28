@@ -1,12 +1,12 @@
 ﻿using Algorithm;
+using DAL;
+using DAL.Services;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using DAL;
-using DAL.Services;
 using MainConstants = Constants.Constants;
 
 

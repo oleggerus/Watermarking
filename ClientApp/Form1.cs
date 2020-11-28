@@ -217,6 +217,7 @@ namespace ClientApp
                         $"{item.AverageRedColor} - {item.AverageGreenColor} - {item.AverageBlueColor}",
                         $"{item.AverageRedColorWatermark} - {item.AverageGreenColorWatermark} - {item.AverageBlueColorWatermark}",
                         Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
+                        //Math.Round(item.EncryptionPsnr, 2), Math.Round(item.DecryptionPsnr, 2),
                         item.EncryptionTime.TotalMilliseconds, item.DecryptionTime.TotalMilliseconds);
                 }
             }
