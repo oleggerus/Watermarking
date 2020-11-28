@@ -43,9 +43,9 @@ public static class SSIM
     /// <returns></returns>                                                                                                                     
     internal static double Index(string filename1, string filename2)
     {
-        using (var b1 = new Bitmap(filename1))
-        using (var b2 = new Bitmap(filename2))
-            return SsimIndex(b1, b2);
+        using var b1 = new Bitmap(filename1);
+        using var b2 = new Bitmap(filename2);
+        return SsimIndex(b1, b2);
     }
 
     #region Implementation                                                                                                                      
@@ -54,7 +54,7 @@ public static class SSIM
     // default settings, names from paper                                                                                                       
     internal static double K1 = 0.01, K2 = 0.03;
     internal static double L = 255;
-    static Grid window = Gaussian(11, 1.5);
+    static readonly Grid window = Gaussian(11, 1.5);
     #endregion
 
     /// <summary>                                                                                                                               
@@ -134,7 +134,7 @@ public static class SSIM
     /// </summary>                                                                                                                              
     class Grid
     {
-        double[,] data;
+        readonly double[,] data;
         internal int width, height;
         internal Grid(int w, int h)
         {

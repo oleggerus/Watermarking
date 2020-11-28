@@ -53,6 +53,24 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.watermarkingResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -173,6 +191,12 @@
             this.mseChart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.mseChart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.decPsnrChart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.decPsnrChart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.decPsnrChart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.decMseChart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.decMseChart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.decMseChart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.watermarkingResultsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.watermarkingDataSet)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -198,6 +222,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.mseChart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mseChart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mseChart3)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.decPsnrChart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decPsnrChart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decPsnrChart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decMseChart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decMseChart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decMseChart3)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -235,7 +266,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(1792, 863);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Encryptuion Analytic";
+            this.tabPage4.Text = "Encryption Analytics";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // size128Chart
@@ -244,7 +275,7 @@
             this.size128Chart.ChartAreas.Add(chartArea6);
             legend6.Name = "Legend1";
             this.size128Chart.Legends.Add(legend6);
-            this.size128Chart.Location = new System.Drawing.Point(582, 41);
+            this.size128Chart.Location = new System.Drawing.Point(516, 41);
             this.size128Chart.Name = "size128Chart";
             series6.ChartArea = "ChartArea1";
             series6.Legend = "Legend1";
@@ -260,7 +291,7 @@
             this.size256Chart.ChartAreas.Add(chartArea5);
             legend5.Name = "Legend1";
             this.size256Chart.Legends.Add(legend5);
-            this.size256Chart.Location = new System.Drawing.Point(1208, 41);
+            this.size256Chart.Location = new System.Drawing.Point(1049, 41);
             this.size256Chart.Name = "size256Chart";
             series5.ChartArea = "ChartArea1";
             series5.Legend = "Legend1";
@@ -327,7 +358,7 @@
             this.GridViewTab3.Location = new System.Drawing.Point(-51, 90);
             this.GridViewTab3.Name = "GridViewTab3";
             this.GridViewTab3.RowHeadersWidth = 51;
-            this.GridViewTab3.Size = new System.Drawing.Size(1652, 725);
+            this.GridViewTab3.Size = new System.Drawing.Size(1818, 725);
             this.GridViewTab3.TabIndex = 0;
             // 
             // Column10
@@ -1523,7 +1554,7 @@
             this.mseChart2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.mseChart2.Legends.Add(legend2);
-            this.mseChart2.Location = new System.Drawing.Point(585, 450);
+            this.mseChart2.Location = new System.Drawing.Point(519, 450);
             this.mseChart2.Name = "mseChart2";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
@@ -1539,7 +1570,7 @@
             this.mseChart3.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.mseChart3.Legends.Add(legend1);
-            this.mseChart3.Location = new System.Drawing.Point(1208, 450);
+            this.mseChart3.Location = new System.Drawing.Point(1049, 450);
             this.mseChart3.Name = "mseChart3";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -1551,13 +1582,115 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.decMseChart3);
+            this.tabPage5.Controls.Add(this.decMseChart2);
+            this.tabPage5.Controls.Add(this.decMseChart1);
+            this.tabPage5.Controls.Add(this.decPsnrChart3);
+            this.tabPage5.Controls.Add(this.decPsnrChart2);
+            this.tabPage5.Controls.Add(this.decPsnrChart1);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(1792, 863);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Decryptuion Analytic";
+            this.tabPage5.Text = "Decryption Analytics";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // decPsnrChart1
+            // 
+            chartArea12.Name = "ChartArea1";
+            this.decPsnrChart1.ChartAreas.Add(chartArea12);
+            legend12.Name = "Legend1";
+            this.decPsnrChart1.Legends.Add(legend12);
+            this.decPsnrChart1.Location = new System.Drawing.Point(7, 52);
+            this.decPsnrChart1.Name = "decPsnrChart1";
+            series12.ChartArea = "ChartArea1";
+            series12.Legend = "Legend1";
+            series12.Name = "Series1";
+            this.decPsnrChart1.Series.Add(series12);
+            this.decPsnrChart1.Size = new System.Drawing.Size(503, 365);
+            this.decPsnrChart1.TabIndex = 0;
+            this.decPsnrChart1.Text = "chart1";
+            // 
+            // decPsnrChart2
+            // 
+            chartArea11.Name = "ChartArea1";
+            this.decPsnrChart2.ChartAreas.Add(chartArea11);
+            legend11.Name = "Legend1";
+            this.decPsnrChart2.Legends.Add(legend11);
+            this.decPsnrChart2.Location = new System.Drawing.Point(582, 41);
+            this.decPsnrChart2.Name = "decPsnrChart2";
+            series11.ChartArea = "ChartArea1";
+            series11.Legend = "Legend1";
+            series11.Name = "Series1";
+            this.decPsnrChart2.Series.Add(series11);
+            this.decPsnrChart2.Size = new System.Drawing.Size(503, 365);
+            this.decPsnrChart2.TabIndex = 1;
+            this.decPsnrChart2.Text = "chart2";
+            // 
+            // decPsnrChart3
+            // 
+            chartArea10.Name = "ChartArea1";
+            this.decPsnrChart3.ChartAreas.Add(chartArea10);
+            legend10.Name = "Legend1";
+            this.decPsnrChart3.Legends.Add(legend10);
+            this.decPsnrChart3.Location = new System.Drawing.Point(1208, 41);
+            this.decPsnrChart3.Name = "decPsnrChart3";
+            series10.ChartArea = "ChartArea1";
+            series10.Legend = "Legend1";
+            series10.Name = "Series1";
+            this.decPsnrChart3.Series.Add(series10);
+            this.decPsnrChart3.Size = new System.Drawing.Size(503, 365);
+            this.decPsnrChart3.TabIndex = 2;
+            this.decPsnrChart3.Text = "chart3";
+            // 
+            // decMseChart1
+            // 
+            chartArea9.Name = "ChartArea1";
+            this.decMseChart1.ChartAreas.Add(chartArea9);
+            legend9.Name = "Legend1";
+            this.decMseChart1.Legends.Add(legend9);
+            this.decMseChart1.Location = new System.Drawing.Point(7, 450);
+            this.decMseChart1.Name = "decMseChart1";
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.decMseChart1.Series.Add(series9);
+            this.decMseChart1.Size = new System.Drawing.Size(503, 365);
+            this.decMseChart1.TabIndex = 3;
+            this.decMseChart1.Text = "chart4";
+            // 
+            // decMseChart2
+            // 
+            chartArea8.Name = "ChartArea1";
+            this.decMseChart2.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.decMseChart2.Legends.Add(legend8);
+            this.decMseChart2.Location = new System.Drawing.Point(582, 450);
+            this.decMseChart2.Name = "decMseChart2";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.decMseChart2.Series.Add(series8);
+            this.decMseChart2.Size = new System.Drawing.Size(503, 365);
+            this.decMseChart2.TabIndex = 4;
+            this.decMseChart2.Text = "chart5";
+            // 
+            // decMseChart3
+            // 
+            chartArea7.Name = "ChartArea1";
+            this.decMseChart3.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.decMseChart3.Legends.Add(legend7);
+            this.decMseChart3.Location = new System.Drawing.Point(1208, 450);
+            this.decMseChart3.Name = "decMseChart3";
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.decMseChart3.Series.Add(series7);
+            this.decMseChart3.Size = new System.Drawing.Size(503, 365);
+            this.decMseChart3.TabIndex = 5;
+            this.decMseChart3.Text = "chart6";
             // 
             // Form1
             // 
@@ -1595,6 +1728,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.mseChart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mseChart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mseChart3)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.decPsnrChart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decPsnrChart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decPsnrChart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decMseChart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decMseChart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decMseChart3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1720,6 +1860,12 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart mseChart2;
         private System.Windows.Forms.DataVisualization.Charting.Chart mseChart1;
         private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decMseChart3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decMseChart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decMseChart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decPsnrChart3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decPsnrChart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decPsnrChart1;
     }
 }
 
