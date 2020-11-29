@@ -1,7 +1,6 @@
 ﻿
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Threading.Tasks;
 namespace DAL.Services
@@ -9,7 +8,7 @@ namespace DAL.Services
     public static class DalService
     {
         public static async Task InsertResult(WatermarkingResults result)
-        {         
+        {
             using (WatermarkingEntities context = new WatermarkingEntities())
             {
                 context.WatermarkingResults.Add(result);
@@ -32,7 +31,7 @@ namespace DAL.Services
             using (WatermarkingEntities context = new WatermarkingEntities())
             {
                 return await context.WatermarkingResults.AsNoTracking().ToListAsync();
-            }            
+            }
         }
 
         public static async Task<List<WatermarkingResults>> GetAllResultByMode(int mode)

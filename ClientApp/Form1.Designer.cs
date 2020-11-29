@@ -29,12 +29,130 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea18 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend18 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea17 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend17 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.watermarkingResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.watermarkingDataSet = new ClientApp.WatermarkingDataSet();
+            this.watermarkingResultsTableAdapter = new ClientApp.WatermarkingDataSetTableAdapters.WatermarkingResultsTableAdapter();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.mseChart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.mseChart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.mseChart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.size64Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.size256Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.size128Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.displayNoiseWatermarkRadionBtn = new System.Windows.Forms.RadioButton();
+            this.displayNoiseContainerRadionBtn = new System.Windows.Forms.RadioButton();
+            this.displayBrightnessWatermarkRadionBtn = new System.Windows.Forms.RadioButton();
+            this.displayContrastWatermarkRadionBtn = new System.Windows.Forms.RadioButton();
+            this.displayBrightnessContainerRadionBtn = new System.Windows.Forms.RadioButton();
+            this.displayContrastContainerRadionBtn = new System.Windows.Forms.RadioButton();
+            this.displayOriginalRadionBtn = new System.Windows.Forms.RadioButton();
+            this.GridViewTab3 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.containerFileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.keyFileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.encryptionTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.decryptionTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.encryptionPsnrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.decryptionPsnrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EncryptionMse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DecryptionMse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brightnessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contrastDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Noise = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.averageRedColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.averageGreenColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.averageBlueColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageRedColorWatermark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageGreenColorWatermark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageBlueColorWatermark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.containerWidthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.containerHeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.watermarkWidthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.watermarkHeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -89,73 +207,34 @@
             this.WatermarkPictureBox = new System.Windows.Forms.PictureBox();
             this.EditedContainerPictureBox = new System.Windows.Forms.PictureBox();
             this.ContainerPictureBox = new System.Windows.Forms.PictureBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.containerFileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.keyFileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.encryptionTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decryptionTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.encryptionPsnrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.decryptionPsnrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brightnessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contrastDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Noise = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.averageRedColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.averageGreenColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.averageBlueColorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AverageRedColorWatermark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AverageGreenColorWatermark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AverageBlueColorWatermark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.containerWidthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.containerHeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.watermarkWidthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.watermarkHeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.watermarkingResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.watermarkingDataSet = new ClientApp.WatermarkingDataSet();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.displayNoiseWatermarkRadionBtn = new System.Windows.Forms.RadioButton();
-            this.displayNoiseContainerRadionBtn = new System.Windows.Forms.RadioButton();
-            this.displayBrightnessWatermarkRadionBtn = new System.Windows.Forms.RadioButton();
-            this.displayContrastWatermarkRadionBtn = new System.Windows.Forms.RadioButton();
-            this.displayBrightnessContainerRadionBtn = new System.Windows.Forms.RadioButton();
-            this.displayContrastContainerRadionBtn = new System.Windows.Forms.RadioButton();
-            this.displayOriginalRadionBtn = new System.Windows.Forms.RadioButton();
-            this.GridViewTab3 = new System.Windows.Forms.DataGridView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.modeRadioButton3 = new System.Windows.Forms.RadioButton();
-            this.modeRadioButton2 = new System.Windows.Forms.RadioButton();
-            this.modeRadioButton1 = new System.Windows.Forms.RadioButton();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.watermarkingResultsTableAdapter = new ClientApp.WatermarkingDataSetTableAdapters.WatermarkingResultsTableAdapter();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl1.SuspendLayout();
+            this.decMseChart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.decMseChart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.decMseChart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.decPsnrChart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.decPsnrChart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.decPsnrChart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.encNoiseChart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.encContrastChart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.encBrightnessChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.decNoiseChart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.decContrastChart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.decBrightnessChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.watermarkingResultsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.watermarkingDataSet)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mseChart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mseChart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mseChart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.size64Chart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.size256Chart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.size128Chart)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewTab3)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BrightnessOriginalUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContrastOriginalUpDown)).BeginInit();
@@ -167,32 +246,636 @@
             ((System.ComponentModel.ISupportInitialize)(this.WatermarkPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditedContainerPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContainerPictureBox)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.watermarkingResultsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.watermarkingDataSet)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewTab3)).BeginInit();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.decMseChart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decMseChart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decMseChart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decPsnrChart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decPsnrChart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decPsnrChart1)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.encNoiseChart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.encContrastChart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.encBrightnessChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decNoiseChart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decContrastChart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decBrightnessChart)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // openFileDialog1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(1, 1);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1800, 889);
-            this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.FileName = "openFileDialog2";
+            // 
+            // watermarkingResultsBindingSource
+            // 
+            this.watermarkingResultsBindingSource.DataMember = "WatermarkingResults";
+            this.watermarkingResultsBindingSource.DataSource = this.watermarkingDataSet;
+            // 
+            // watermarkingDataSet
+            // 
+            this.watermarkingDataSet.DataSetName = "WatermarkingDataSet";
+            this.watermarkingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // watermarkingResultsTableAdapter
+            // 
+            this.watermarkingResultsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.mseChart3);
+            this.tabPage4.Controls.Add(this.mseChart2);
+            this.tabPage4.Controls.Add(this.mseChart1);
+            this.tabPage4.Controls.Add(this.size64Chart);
+            this.tabPage4.Controls.Add(this.size256Chart);
+            this.tabPage4.Controls.Add(this.size128Chart);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1792, 863);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Encryption Analytics";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // mseChart3
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.mseChart3.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.mseChart3.Legends.Add(legend1);
+            this.mseChart3.Location = new System.Drawing.Point(1049, 450);
+            this.mseChart3.Name = "mseChart3";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.mseChart3.Series.Add(series1);
+            this.mseChart3.Size = new System.Drawing.Size(503, 365);
+            this.mseChart3.TabIndex = 6;
+            this.mseChart3.Text = "chart3";
+            // 
+            // mseChart2
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.mseChart2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.mseChart2.Legends.Add(legend2);
+            this.mseChart2.Location = new System.Drawing.Point(519, 450);
+            this.mseChart2.Name = "mseChart2";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.mseChart2.Series.Add(series2);
+            this.mseChart2.Size = new System.Drawing.Size(503, 365);
+            this.mseChart2.TabIndex = 5;
+            this.mseChart2.Text = "chart2";
+            // 
+            // mseChart1
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.mseChart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.mseChart1.Legends.Add(legend3);
+            this.mseChart1.Location = new System.Drawing.Point(7, 450);
+            this.mseChart1.Name = "mseChart1";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.mseChart1.Series.Add(series3);
+            this.mseChart1.Size = new System.Drawing.Size(503, 365);
+            this.mseChart1.TabIndex = 4;
+            this.mseChart1.Text = "chart1";
+            // 
+            // size64Chart
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.size64Chart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.size64Chart.Legends.Add(legend4);
+            this.size64Chart.Location = new System.Drawing.Point(7, 52);
+            this.size64Chart.Name = "size64Chart";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.size64Chart.Series.Add(series4);
+            this.size64Chart.Size = new System.Drawing.Size(503, 365);
+            this.size64Chart.TabIndex = 3;
+            this.size64Chart.Text = "chart1";
+            this.size64Chart.Click += new System.EventHandler(this.size64Chart_Click);
+            // 
+            // size256Chart
+            // 
+            chartArea5.Name = "ChartArea1";
+            this.size256Chart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.size256Chart.Legends.Add(legend5);
+            this.size256Chart.Location = new System.Drawing.Point(1049, 41);
+            this.size256Chart.Name = "size256Chart";
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.size256Chart.Series.Add(series5);
+            this.size256Chart.Size = new System.Drawing.Size(540, 376);
+            this.size256Chart.TabIndex = 2;
+            this.size256Chart.Text = "chart1";
+            // 
+            // size128Chart
+            // 
+            chartArea6.Name = "ChartArea1";
+            this.size128Chart.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.size128Chart.Legends.Add(legend6);
+            this.size128Chart.Location = new System.Drawing.Point(516, 41);
+            this.size128Chart.Name = "size128Chart";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.size128Chart.Series.Add(series6);
+            this.size128Chart.Size = new System.Drawing.Size(506, 376);
+            this.size128Chart.TabIndex = 0;
+            this.size128Chart.Text = "chart1";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.displayNoiseWatermarkRadionBtn);
+            this.tabPage3.Controls.Add(this.displayNoiseContainerRadionBtn);
+            this.tabPage3.Controls.Add(this.displayBrightnessWatermarkRadionBtn);
+            this.tabPage3.Controls.Add(this.displayContrastWatermarkRadionBtn);
+            this.tabPage3.Controls.Add(this.displayBrightnessContainerRadionBtn);
+            this.tabPage3.Controls.Add(this.displayContrastContainerRadionBtn);
+            this.tabPage3.Controls.Add(this.displayOriginalRadionBtn);
+            this.tabPage3.Controls.Add(this.GridViewTab3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1792, 863);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Filtered results";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // displayNoiseWatermarkRadionBtn
+            // 
+            this.displayNoiseWatermarkRadionBtn.AutoSize = true;
+            this.displayNoiseWatermarkRadionBtn.Location = new System.Drawing.Point(549, 52);
+            this.displayNoiseWatermarkRadionBtn.Name = "displayNoiseWatermarkRadionBtn";
+            this.displayNoiseWatermarkRadionBtn.Size = new System.Drawing.Size(250, 17);
+            this.displayNoiseWatermarkRadionBtn.TabIndex = 7;
+            this.displayNoiseWatermarkRadionBtn.TabStop = true;
+            this.displayNoiseWatermarkRadionBtn.Text = "Display result with different noise for watermarks";
+            this.displayNoiseWatermarkRadionBtn.UseVisualStyleBackColor = true;
+            this.displayNoiseWatermarkRadionBtn.CheckedChanged += new System.EventHandler(this.displayNoiseWatermarkRadionBtn_CheckedChanged);
+            // 
+            // displayNoiseContainerRadionBtn
+            // 
+            this.displayNoiseContainerRadionBtn.AutoSize = true;
+            this.displayNoiseContainerRadionBtn.Location = new System.Drawing.Point(243, 52);
+            this.displayNoiseContainerRadionBtn.Name = "displayNoiseContainerRadionBtn";
+            this.displayNoiseContainerRadionBtn.Size = new System.Drawing.Size(250, 17);
+            this.displayNoiseContainerRadionBtn.TabIndex = 6;
+            this.displayNoiseContainerRadionBtn.TabStop = true;
+            this.displayNoiseContainerRadionBtn.Text = "Display results with different noise for containers";
+            this.displayNoiseContainerRadionBtn.UseVisualStyleBackColor = true;
+            this.displayNoiseContainerRadionBtn.CheckedChanged += new System.EventHandler(this.displayNoiseContainerRadionBtn_CheckedChanged);
+            // 
+            // displayBrightnessWatermarkRadionBtn
+            // 
+            this.displayBrightnessWatermarkRadionBtn.AutoSize = true;
+            this.displayBrightnessWatermarkRadionBtn.Location = new System.Drawing.Point(549, 29);
+            this.displayBrightnessWatermarkRadionBtn.Name = "displayBrightnessWatermarkRadionBtn";
+            this.displayBrightnessWatermarkRadionBtn.Size = new System.Drawing.Size(273, 17);
+            this.displayBrightnessWatermarkRadionBtn.TabIndex = 5;
+            this.displayBrightnessWatermarkRadionBtn.TabStop = true;
+            this.displayBrightnessWatermarkRadionBtn.Text = "Display result with different brightness for watermarks";
+            this.displayBrightnessWatermarkRadionBtn.UseVisualStyleBackColor = true;
+            this.displayBrightnessWatermarkRadionBtn.CheckedChanged += new System.EventHandler(this.displayBrightnessWatermarkRadionBtn_CheckedChanged);
+            // 
+            // displayContrastWatermarkRadionBtn
+            // 
+            this.displayContrastWatermarkRadionBtn.AutoSize = true;
+            this.displayContrastWatermarkRadionBtn.Location = new System.Drawing.Point(549, 6);
+            this.displayContrastWatermarkRadionBtn.Name = "displayContrastWatermarkRadionBtn";
+            this.displayContrastWatermarkRadionBtn.Size = new System.Drawing.Size(263, 17);
+            this.displayContrastWatermarkRadionBtn.TabIndex = 4;
+            this.displayContrastWatermarkRadionBtn.TabStop = true;
+            this.displayContrastWatermarkRadionBtn.Text = "Display results with different contrast for watermark";
+            this.displayContrastWatermarkRadionBtn.UseVisualStyleBackColor = true;
+            this.displayContrastWatermarkRadionBtn.CheckedChanged += new System.EventHandler(this.displayContrastWatermarkRadionBtn_CheckedChanged);
+            // 
+            // displayBrightnessContainerRadionBtn
+            // 
+            this.displayBrightnessContainerRadionBtn.AutoSize = true;
+            this.displayBrightnessContainerRadionBtn.Location = new System.Drawing.Point(243, 29);
+            this.displayBrightnessContainerRadionBtn.Name = "displayBrightnessContainerRadionBtn";
+            this.displayBrightnessContainerRadionBtn.Size = new System.Drawing.Size(276, 17);
+            this.displayBrightnessContainerRadionBtn.TabIndex = 3;
+            this.displayBrightnessContainerRadionBtn.TabStop = true;
+            this.displayBrightnessContainerRadionBtn.Text = "Display results with different brightness  for containers";
+            this.displayBrightnessContainerRadionBtn.UseVisualStyleBackColor = true;
+            this.displayBrightnessContainerRadionBtn.CheckedChanged += new System.EventHandler(this.displayBrightnessRadionBtn_CheckedChanged);
+            // 
+            // displayContrastContainerRadionBtn
+            // 
+            this.displayContrastContainerRadionBtn.AutoSize = true;
+            this.displayContrastContainerRadionBtn.Location = new System.Drawing.Point(243, 6);
+            this.displayContrastContainerRadionBtn.Name = "displayContrastContainerRadionBtn";
+            this.displayContrastContainerRadionBtn.Size = new System.Drawing.Size(263, 17);
+            this.displayContrastContainerRadionBtn.TabIndex = 2;
+            this.displayContrastContainerRadionBtn.TabStop = true;
+            this.displayContrastContainerRadionBtn.Text = "Display results with different contrast for containers";
+            this.displayContrastContainerRadionBtn.UseVisualStyleBackColor = true;
+            this.displayContrastContainerRadionBtn.CheckedChanged += new System.EventHandler(this.displayContrastRadionBtn_CheckedChanged);
+            // 
+            // displayOriginalRadionBtn
+            // 
+            this.displayOriginalRadionBtn.AutoSize = true;
+            this.displayOriginalRadionBtn.Location = new System.Drawing.Point(32, 7);
+            this.displayOriginalRadionBtn.Name = "displayOriginalRadionBtn";
+            this.displayOriginalRadionBtn.Size = new System.Drawing.Size(179, 17);
+            this.displayOriginalRadionBtn.TabIndex = 1;
+            this.displayOriginalRadionBtn.TabStop = true;
+            this.displayOriginalRadionBtn.Text = "Display results for original images";
+            this.displayOriginalRadionBtn.UseVisualStyleBackColor = true;
+            this.displayOriginalRadionBtn.CheckedChanged += new System.EventHandler(this.displayOriginalRadionBtn_CheckedChanged);
+            // 
+            // GridViewTab3
+            // 
+            this.GridViewTab3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridViewTab3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column13,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column11,
+            this.Column12,
+            this.Column14,
+            this.Column15,
+            this.Column9,
+            this.Column10});
+            this.GridViewTab3.Location = new System.Drawing.Point(-51, 90);
+            this.GridViewTab3.Name = "GridViewTab3";
+            this.GridViewTab3.RowHeadersWidth = 51;
+            this.GridViewTab3.Size = new System.Drawing.Size(1818, 725);
+            this.GridViewTab3.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Container";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Watermark";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Contrast";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Brightness";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Noise";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Container size";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Watermark size";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Container colors amount (RGB)";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 125;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Watermark colors amount (RGB)";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 125;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Encryption PSNR";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.Width = 125;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Decryption PSNR";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 125;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Encryption MSE";
+            this.Column14.Name = "Column14";
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Decryption MSE";
+            this.Column15.Name = "Column15";
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Encryption time";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 125;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Decryption time";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 125;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1792, 863);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Results";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.containerFileNameDataGridViewTextBoxColumn,
+            this.keyFileNameDataGridViewTextBoxColumn,
+            this.encryptionTimeDataGridViewTextBoxColumn,
+            this.decryptionTimeDataGridViewTextBoxColumn,
+            this.encryptionPsnrDataGridViewTextBoxColumn,
+            this.decryptionPsnrDataGridViewTextBoxColumn,
+            this.EncryptionMse,
+            this.DecryptionMse,
+            this.brightnessDataGridViewTextBoxColumn,
+            this.contrastDataGridViewTextBoxColumn,
+            this.Noise,
+            this.averageRedColorDataGridViewTextBoxColumn,
+            this.averageGreenColorDataGridViewTextBoxColumn,
+            this.averageBlueColorDataGridViewTextBoxColumn,
+            this.AverageRedColorWatermark,
+            this.AverageGreenColorWatermark,
+            this.AverageBlueColorWatermark,
+            this.containerWidthDataGridViewTextBoxColumn,
+            this.containerHeightDataGridViewTextBoxColumn,
+            this.watermarkWidthDataGridViewTextBoxColumn,
+            this.watermarkHeightDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.watermarkingResultsBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(-41, 9);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(1808, 808);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // containerFileNameDataGridViewTextBoxColumn
+            // 
+            this.containerFileNameDataGridViewTextBoxColumn.DataPropertyName = "ContainerFileName";
+            this.containerFileNameDataGridViewTextBoxColumn.HeaderText = "Container File Name";
+            this.containerFileNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.containerFileNameDataGridViewTextBoxColumn.Name = "containerFileNameDataGridViewTextBoxColumn";
+            this.containerFileNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.containerFileNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // keyFileNameDataGridViewTextBoxColumn
+            // 
+            this.keyFileNameDataGridViewTextBoxColumn.DataPropertyName = "KeyFileName";
+            this.keyFileNameDataGridViewTextBoxColumn.HeaderText = "Key File Name";
+            this.keyFileNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.keyFileNameDataGridViewTextBoxColumn.Name = "keyFileNameDataGridViewTextBoxColumn";
+            this.keyFileNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.keyFileNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // encryptionTimeDataGridViewTextBoxColumn
+            // 
+            this.encryptionTimeDataGridViewTextBoxColumn.DataPropertyName = "EncryptionTime";
+            dataGridViewCellStyle1.Format = "ss\\.fff";
+            dataGridViewCellStyle1.NullValue = null;
+            this.encryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.encryptionTimeDataGridViewTextBoxColumn.HeaderText = "Encryption Time";
+            this.encryptionTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.encryptionTimeDataGridViewTextBoxColumn.Name = "encryptionTimeDataGridViewTextBoxColumn";
+            this.encryptionTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.encryptionTimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // decryptionTimeDataGridViewTextBoxColumn
+            // 
+            this.decryptionTimeDataGridViewTextBoxColumn.DataPropertyName = "DecryptionTime";
+            dataGridViewCellStyle2.Format = "ss\\.fff";
+            this.decryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.decryptionTimeDataGridViewTextBoxColumn.HeaderText = "Decryption Time";
+            this.decryptionTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.decryptionTimeDataGridViewTextBoxColumn.Name = "decryptionTimeDataGridViewTextBoxColumn";
+            this.decryptionTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.decryptionTimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // encryptionPsnrDataGridViewTextBoxColumn
+            // 
+            this.encryptionPsnrDataGridViewTextBoxColumn.DataPropertyName = "EncryptionPsnr";
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.encryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.encryptionPsnrDataGridViewTextBoxColumn.HeaderText = "Encryption Psnr";
+            this.encryptionPsnrDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.encryptionPsnrDataGridViewTextBoxColumn.Name = "encryptionPsnrDataGridViewTextBoxColumn";
+            this.encryptionPsnrDataGridViewTextBoxColumn.ReadOnly = true;
+            this.encryptionPsnrDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // decryptionPsnrDataGridViewTextBoxColumn
+            // 
+            this.decryptionPsnrDataGridViewTextBoxColumn.DataPropertyName = "DecryptionPsnr";
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.decryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.decryptionPsnrDataGridViewTextBoxColumn.HeaderText = "Decryption Psnr";
+            this.decryptionPsnrDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.decryptionPsnrDataGridViewTextBoxColumn.Name = "decryptionPsnrDataGridViewTextBoxColumn";
+            this.decryptionPsnrDataGridViewTextBoxColumn.ReadOnly = true;
+            this.decryptionPsnrDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // EncryptionMse
+            // 
+            this.EncryptionMse.DataPropertyName = "EncryptionMse";
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.EncryptionMse.DefaultCellStyle = dataGridViewCellStyle5;
+            this.EncryptionMse.HeaderText = "EncryptionMse";
+            this.EncryptionMse.Name = "EncryptionMse";
+            this.EncryptionMse.ReadOnly = true;
+            // 
+            // DecryptionMse
+            // 
+            this.DecryptionMse.DataPropertyName = "DecryptionMse";
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.DecryptionMse.DefaultCellStyle = dataGridViewCellStyle6;
+            this.DecryptionMse.HeaderText = "DecryptionMse";
+            this.DecryptionMse.Name = "DecryptionMse";
+            this.DecryptionMse.ReadOnly = true;
+            // 
+            // brightnessDataGridViewTextBoxColumn
+            // 
+            this.brightnessDataGridViewTextBoxColumn.DataPropertyName = "Brightness";
+            this.brightnessDataGridViewTextBoxColumn.HeaderText = "Brightness";
+            this.brightnessDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.brightnessDataGridViewTextBoxColumn.Name = "brightnessDataGridViewTextBoxColumn";
+            this.brightnessDataGridViewTextBoxColumn.ReadOnly = true;
+            this.brightnessDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // contrastDataGridViewTextBoxColumn
+            // 
+            this.contrastDataGridViewTextBoxColumn.DataPropertyName = "Contrast";
+            this.contrastDataGridViewTextBoxColumn.HeaderText = "Contrast";
+            this.contrastDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.contrastDataGridViewTextBoxColumn.Name = "contrastDataGridViewTextBoxColumn";
+            this.contrastDataGridViewTextBoxColumn.ReadOnly = true;
+            this.contrastDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Noise
+            // 
+            this.Noise.DataPropertyName = "Noise";
+            this.Noise.HeaderText = "Noise";
+            this.Noise.Name = "Noise";
+            this.Noise.ReadOnly = true;
+            // 
+            // averageRedColorDataGridViewTextBoxColumn
+            // 
+            this.averageRedColorDataGridViewTextBoxColumn.DataPropertyName = "AverageRedColor";
+            this.averageRedColorDataGridViewTextBoxColumn.HeaderText = "Average Red Color";
+            this.averageRedColorDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.averageRedColorDataGridViewTextBoxColumn.Name = "averageRedColorDataGridViewTextBoxColumn";
+            this.averageRedColorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.averageRedColorDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // averageGreenColorDataGridViewTextBoxColumn
+            // 
+            this.averageGreenColorDataGridViewTextBoxColumn.DataPropertyName = "AverageGreenColor";
+            this.averageGreenColorDataGridViewTextBoxColumn.HeaderText = "Average Green Color";
+            this.averageGreenColorDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.averageGreenColorDataGridViewTextBoxColumn.Name = "averageGreenColorDataGridViewTextBoxColumn";
+            this.averageGreenColorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.averageGreenColorDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // averageBlueColorDataGridViewTextBoxColumn
+            // 
+            this.averageBlueColorDataGridViewTextBoxColumn.DataPropertyName = "AverageBlueColor";
+            this.averageBlueColorDataGridViewTextBoxColumn.HeaderText = "Average Blue Color";
+            this.averageBlueColorDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.averageBlueColorDataGridViewTextBoxColumn.Name = "averageBlueColorDataGridViewTextBoxColumn";
+            this.averageBlueColorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.averageBlueColorDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // AverageRedColorWatermark
+            // 
+            this.AverageRedColorWatermark.DataPropertyName = "AverageRedColorWatermark";
+            this.AverageRedColorWatermark.HeaderText = "Average Red Color Watermark";
+            this.AverageRedColorWatermark.MinimumWidth = 6;
+            this.AverageRedColorWatermark.Name = "AverageRedColorWatermark";
+            this.AverageRedColorWatermark.ReadOnly = true;
+            this.AverageRedColorWatermark.Width = 125;
+            // 
+            // AverageGreenColorWatermark
+            // 
+            this.AverageGreenColorWatermark.DataPropertyName = "AverageGreenColorWatermark";
+            this.AverageGreenColorWatermark.HeaderText = "Average Green Color Watermark";
+            this.AverageGreenColorWatermark.MinimumWidth = 6;
+            this.AverageGreenColorWatermark.Name = "AverageGreenColorWatermark";
+            this.AverageGreenColorWatermark.ReadOnly = true;
+            this.AverageGreenColorWatermark.Width = 125;
+            // 
+            // AverageBlueColorWatermark
+            // 
+            this.AverageBlueColorWatermark.DataPropertyName = "AverageBlueColorWatermark";
+            this.AverageBlueColorWatermark.HeaderText = "Average Blue Color Watermark";
+            this.AverageBlueColorWatermark.MinimumWidth = 6;
+            this.AverageBlueColorWatermark.Name = "AverageBlueColorWatermark";
+            this.AverageBlueColorWatermark.ReadOnly = true;
+            this.AverageBlueColorWatermark.Width = 125;
+            // 
+            // containerWidthDataGridViewTextBoxColumn
+            // 
+            this.containerWidthDataGridViewTextBoxColumn.DataPropertyName = "ContainerWidth";
+            this.containerWidthDataGridViewTextBoxColumn.HeaderText = "Container Width";
+            this.containerWidthDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.containerWidthDataGridViewTextBoxColumn.Name = "containerWidthDataGridViewTextBoxColumn";
+            this.containerWidthDataGridViewTextBoxColumn.ReadOnly = true;
+            this.containerWidthDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // containerHeightDataGridViewTextBoxColumn
+            // 
+            this.containerHeightDataGridViewTextBoxColumn.DataPropertyName = "ContainerHeight";
+            this.containerHeightDataGridViewTextBoxColumn.HeaderText = "Container Height";
+            this.containerHeightDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.containerHeightDataGridViewTextBoxColumn.Name = "containerHeightDataGridViewTextBoxColumn";
+            this.containerHeightDataGridViewTextBoxColumn.ReadOnly = true;
+            this.containerHeightDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // watermarkWidthDataGridViewTextBoxColumn
+            // 
+            this.watermarkWidthDataGridViewTextBoxColumn.DataPropertyName = "WatermarkWidth";
+            this.watermarkWidthDataGridViewTextBoxColumn.HeaderText = "Watermark Width";
+            this.watermarkWidthDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.watermarkWidthDataGridViewTextBoxColumn.Name = "watermarkWidthDataGridViewTextBoxColumn";
+            this.watermarkWidthDataGridViewTextBoxColumn.ReadOnly = true;
+            this.watermarkWidthDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // watermarkHeightDataGridViewTextBoxColumn
+            // 
+            this.watermarkHeightDataGridViewTextBoxColumn.DataPropertyName = "WatermarkHeight";
+            this.watermarkHeightDataGridViewTextBoxColumn.HeaderText = "Watermark Height";
+            this.watermarkHeightDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.watermarkHeightDataGridViewTextBoxColumn.Name = "watermarkHeightDataGridViewTextBoxColumn";
+            this.watermarkHeightDataGridViewTextBoxColumn.ReadOnly = true;
+            this.watermarkHeightDataGridViewTextBoxColumn.Width = 125;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label36);
+            this.tabPage1.Controls.Add(this.label35);
+            this.tabPage1.Controls.Add(this.label34);
+            this.tabPage1.Controls.Add(this.label33);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label10);
@@ -255,11 +938,56 @@
             this.tabPage1.Text = "Executor";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(1587, 316);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(48, 21);
+            this.label36.TabIndex = 66;
+            this.label36.Text = "mse2";
+            this.label36.Visible = false;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(1164, 442);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(48, 21);
+            this.label35.TabIndex = 65;
+            this.label35.Text = "mse1";
+            this.label35.Visible = false;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(1441, 316);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(124, 21);
+            this.label34.TabIndex = 64;
+            this.label34.Text = "Decryption MSE:";
+            this.label34.Visible = false;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(1018, 442);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(122, 21);
+            this.label33.TabIndex = 63;
+            this.label33.Text = "Encryption MSE:";
+            this.label33.Visible = false;
+            this.label33.Click += new System.EventHandler(this.label33_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1688, 385);
+            this.label1.Location = new System.Drawing.Point(1688, 409);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 21);
             this.label1.TabIndex = 62;
@@ -270,7 +998,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1688, 364);
+            this.label2.Location = new System.Drawing.Point(1688, 388);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 21);
             this.label2.TabIndex = 61;
@@ -281,7 +1009,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1688, 343);
+            this.label10.Location = new System.Drawing.Point(1688, 367);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(33, 21);
             this.label10.TabIndex = 60;
@@ -292,7 +1020,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(1441, 385);
+            this.label11.Location = new System.Drawing.Point(1441, 409);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(219, 21);
             this.label11.TabIndex = 59;
@@ -303,7 +1031,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(1441, 364);
+            this.label31.Location = new System.Drawing.Point(1441, 388);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(231, 21);
             this.label31.TabIndex = 58;
@@ -314,7 +1042,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(1441, 343);
+            this.label32.Location = new System.Drawing.Point(1441, 367);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(216, 21);
             this.label32.TabIndex = 57;
@@ -325,7 +1053,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(1264, 510);
+            this.label25.Location = new System.Drawing.Point(1264, 546);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(40, 21);
             this.label25.TabIndex = 56;
@@ -336,7 +1064,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(1264, 489);
+            this.label26.Location = new System.Drawing.Point(1264, 525);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(50, 21);
             this.label26.TabIndex = 55;
@@ -347,7 +1075,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(1264, 468);
+            this.label27.Location = new System.Drawing.Point(1264, 504);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(33, 21);
             this.label27.TabIndex = 54;
@@ -358,7 +1086,7 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(1017, 510);
+            this.label28.Location = new System.Drawing.Point(1017, 546);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(219, 21);
             this.label28.TabIndex = 53;
@@ -369,7 +1097,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(1017, 489);
+            this.label29.Location = new System.Drawing.Point(1017, 525);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(231, 21);
             this.label29.TabIndex = 52;
@@ -380,7 +1108,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(1017, 468);
+            this.label30.Location = new System.Drawing.Point(1017, 504);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(216, 21);
             this.label30.TabIndex = 51;
@@ -557,7 +1285,7 @@
             // 
             // BrightnessUpDown
             // 
-            this.BrightnessUpDown.Location = new System.Drawing.Point(1158, 604);
+            this.BrightnessUpDown.Location = new System.Drawing.Point(1158, 640);
             this.BrightnessUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.BrightnessUpDown.Maximum = new decimal(new int[] {
             256,
@@ -576,7 +1304,7 @@
             // 
             // ContrastUpDown
             // 
-            this.ContrastUpDown.Location = new System.Drawing.Point(1158, 574);
+            this.ContrastUpDown.Location = new System.Drawing.Point(1158, 610);
             this.ContrastUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.ContrastUpDown.Maximum = new decimal(new int[] {
             256,
@@ -595,7 +1323,7 @@
             // 
             // NoiseUpDown
             // 
-            this.NoiseUpDown.Location = new System.Drawing.Point(1158, 546);
+            this.NoiseUpDown.Location = new System.Drawing.Point(1158, 582);
             this.NoiseUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.NoiseUpDown.Name = "NoiseUpDown";
             this.NoiseUpDown.Size = new System.Drawing.Size(90, 20);
@@ -604,7 +1332,7 @@
             // 
             // ResizeBtn
             // 
-            this.ResizeBtn.Location = new System.Drawing.Point(1021, 630);
+            this.ResizeBtn.Location = new System.Drawing.Point(1021, 666);
             this.ResizeBtn.Name = "ResizeBtn";
             this.ResizeBtn.Size = new System.Drawing.Size(116, 23);
             this.ResizeBtn.TabIndex = 29;
@@ -615,7 +1343,7 @@
             // 
             // BrightnessBtn
             // 
-            this.BrightnessBtn.Location = new System.Drawing.Point(1021, 600);
+            this.BrightnessBtn.Location = new System.Drawing.Point(1021, 636);
             this.BrightnessBtn.Name = "BrightnessBtn";
             this.BrightnessBtn.Size = new System.Drawing.Size(116, 23);
             this.BrightnessBtn.TabIndex = 28;
@@ -626,7 +1354,7 @@
             // 
             // ContrastBtn
             // 
-            this.ContrastBtn.Location = new System.Drawing.Point(1021, 571);
+            this.ContrastBtn.Location = new System.Drawing.Point(1021, 607);
             this.ContrastBtn.Name = "ContrastBtn";
             this.ContrastBtn.Size = new System.Drawing.Size(116, 23);
             this.ContrastBtn.TabIndex = 27;
@@ -637,7 +1365,7 @@
             // 
             // NoiseBtn
             // 
-            this.NoiseBtn.Location = new System.Drawing.Point(1021, 542);
+            this.NoiseBtn.Location = new System.Drawing.Point(1021, 578);
             this.NoiseBtn.Name = "NoiseBtn";
             this.NoiseBtn.Size = new System.Drawing.Size(116, 23);
             this.NoiseBtn.TabIndex = 25;
@@ -705,7 +1433,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1587, 316);
+            this.label12.Location = new System.Drawing.Point(1587, 340);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 21);
             this.label12.TabIndex = 19;
@@ -716,7 +1444,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(1163, 442);
+            this.label13.Location = new System.Drawing.Point(1164, 468);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(50, 21);
             this.label13.TabIndex = 18;
@@ -782,7 +1510,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1441, 316);
+            this.label3.Location = new System.Drawing.Point(1441, 340);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 21);
             this.label3.TabIndex = 10;
@@ -793,7 +1521,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Historic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1017, 442);
+            this.label4.Location = new System.Drawing.Point(1018, 468);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(131, 21);
             this.label4.TabIndex = 9;
@@ -870,628 +1598,246 @@
             this.ContainerPictureBox.TabIndex = 0;
             this.ContainerPictureBox.TabStop = false;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1792, 863);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Results";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.containerFileNameDataGridViewTextBoxColumn,
-            this.keyFileNameDataGridViewTextBoxColumn,
-            this.encryptionTimeDataGridViewTextBoxColumn,
-            this.decryptionTimeDataGridViewTextBoxColumn,
-            this.encryptionPsnrDataGridViewTextBoxColumn,
-            this.decryptionPsnrDataGridViewTextBoxColumn,
-            this.brightnessDataGridViewTextBoxColumn,
-            this.contrastDataGridViewTextBoxColumn,
-            this.Noise,
-            this.averageRedColorDataGridViewTextBoxColumn,
-            this.averageGreenColorDataGridViewTextBoxColumn,
-            this.averageBlueColorDataGridViewTextBoxColumn,
-            this.AverageRedColorWatermark,
-            this.AverageGreenColorWatermark,
-            this.AverageBlueColorWatermark,
-            this.containerWidthDataGridViewTextBoxColumn,
-            this.containerHeightDataGridViewTextBoxColumn,
-            this.watermarkWidthDataGridViewTextBoxColumn,
-            this.watermarkHeightDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.watermarkingResultsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(-41, 9);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1808, 808);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // containerFileNameDataGridViewTextBoxColumn
-            // 
-            this.containerFileNameDataGridViewTextBoxColumn.DataPropertyName = "ContainerFileName";
-            this.containerFileNameDataGridViewTextBoxColumn.HeaderText = "ContainerFileName";
-            this.containerFileNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.containerFileNameDataGridViewTextBoxColumn.Name = "containerFileNameDataGridViewTextBoxColumn";
-            this.containerFileNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.containerFileNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // keyFileNameDataGridViewTextBoxColumn
-            // 
-            this.keyFileNameDataGridViewTextBoxColumn.DataPropertyName = "KeyFileName";
-            this.keyFileNameDataGridViewTextBoxColumn.HeaderText = "KeyFileName";
-            this.keyFileNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.keyFileNameDataGridViewTextBoxColumn.Name = "keyFileNameDataGridViewTextBoxColumn";
-            this.keyFileNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.keyFileNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // encryptionTimeDataGridViewTextBoxColumn
-            // 
-            this.encryptionTimeDataGridViewTextBoxColumn.DataPropertyName = "EncryptionTime";
-            dataGridViewCellStyle9.Format = "ss\\.fff";
-            dataGridViewCellStyle9.NullValue = null;
-            this.encryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
-            this.encryptionTimeDataGridViewTextBoxColumn.HeaderText = "EncryptionTime";
-            this.encryptionTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.encryptionTimeDataGridViewTextBoxColumn.Name = "encryptionTimeDataGridViewTextBoxColumn";
-            this.encryptionTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.encryptionTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // decryptionTimeDataGridViewTextBoxColumn
-            // 
-            this.decryptionTimeDataGridViewTextBoxColumn.DataPropertyName = "DecryptionTime";
-            dataGridViewCellStyle10.Format = "ss\\.fff";
-            this.decryptionTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
-            this.decryptionTimeDataGridViewTextBoxColumn.HeaderText = "DecryptionTime";
-            this.decryptionTimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.decryptionTimeDataGridViewTextBoxColumn.Name = "decryptionTimeDataGridViewTextBoxColumn";
-            this.decryptionTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.decryptionTimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // encryptionPsnrDataGridViewTextBoxColumn
-            // 
-            this.encryptionPsnrDataGridViewTextBoxColumn.DataPropertyName = "EncryptionPsnr";
-            dataGridViewCellStyle11.Format = "N2";
-            dataGridViewCellStyle11.NullValue = null;
-            this.encryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
-            this.encryptionPsnrDataGridViewTextBoxColumn.HeaderText = "EncryptionPsnr";
-            this.encryptionPsnrDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.encryptionPsnrDataGridViewTextBoxColumn.Name = "encryptionPsnrDataGridViewTextBoxColumn";
-            this.encryptionPsnrDataGridViewTextBoxColumn.ReadOnly = true;
-            this.encryptionPsnrDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // decryptionPsnrDataGridViewTextBoxColumn
-            // 
-            this.decryptionPsnrDataGridViewTextBoxColumn.DataPropertyName = "DecryptionPsnr";
-            dataGridViewCellStyle12.Format = "N2";
-            dataGridViewCellStyle12.NullValue = null;
-            this.decryptionPsnrDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
-            this.decryptionPsnrDataGridViewTextBoxColumn.HeaderText = "DecryptionPsnr";
-            this.decryptionPsnrDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.decryptionPsnrDataGridViewTextBoxColumn.Name = "decryptionPsnrDataGridViewTextBoxColumn";
-            this.decryptionPsnrDataGridViewTextBoxColumn.ReadOnly = true;
-            this.decryptionPsnrDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // brightnessDataGridViewTextBoxColumn
-            // 
-            this.brightnessDataGridViewTextBoxColumn.DataPropertyName = "Brightness";
-            this.brightnessDataGridViewTextBoxColumn.HeaderText = "Brightness";
-            this.brightnessDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.brightnessDataGridViewTextBoxColumn.Name = "brightnessDataGridViewTextBoxColumn";
-            this.brightnessDataGridViewTextBoxColumn.ReadOnly = true;
-            this.brightnessDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // contrastDataGridViewTextBoxColumn
-            // 
-            this.contrastDataGridViewTextBoxColumn.DataPropertyName = "Contrast";
-            this.contrastDataGridViewTextBoxColumn.HeaderText = "Contrast";
-            this.contrastDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.contrastDataGridViewTextBoxColumn.Name = "contrastDataGridViewTextBoxColumn";
-            this.contrastDataGridViewTextBoxColumn.ReadOnly = true;
-            this.contrastDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // Noise
-            // 
-            this.Noise.DataPropertyName = "Noise";
-            this.Noise.HeaderText = "Noise";
-            this.Noise.Name = "Noise";
-            this.Noise.ReadOnly = true;
-            // 
-            // averageRedColorDataGridViewTextBoxColumn
-            // 
-            this.averageRedColorDataGridViewTextBoxColumn.DataPropertyName = "AverageRedColor";
-            this.averageRedColorDataGridViewTextBoxColumn.HeaderText = "AverageRedColor";
-            this.averageRedColorDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.averageRedColorDataGridViewTextBoxColumn.Name = "averageRedColorDataGridViewTextBoxColumn";
-            this.averageRedColorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.averageRedColorDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // averageGreenColorDataGridViewTextBoxColumn
-            // 
-            this.averageGreenColorDataGridViewTextBoxColumn.DataPropertyName = "AverageGreenColor";
-            this.averageGreenColorDataGridViewTextBoxColumn.HeaderText = "AverageGreenColor";
-            this.averageGreenColorDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.averageGreenColorDataGridViewTextBoxColumn.Name = "averageGreenColorDataGridViewTextBoxColumn";
-            this.averageGreenColorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.averageGreenColorDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // averageBlueColorDataGridViewTextBoxColumn
-            // 
-            this.averageBlueColorDataGridViewTextBoxColumn.DataPropertyName = "AverageBlueColor";
-            this.averageBlueColorDataGridViewTextBoxColumn.HeaderText = "AverageBlueColor";
-            this.averageBlueColorDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.averageBlueColorDataGridViewTextBoxColumn.Name = "averageBlueColorDataGridViewTextBoxColumn";
-            this.averageBlueColorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.averageBlueColorDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // AverageRedColorWatermark
-            // 
-            this.AverageRedColorWatermark.DataPropertyName = "AverageRedColorWatermark";
-            this.AverageRedColorWatermark.HeaderText = "AverageRedColorWatermark";
-            this.AverageRedColorWatermark.MinimumWidth = 6;
-            this.AverageRedColorWatermark.Name = "AverageRedColorWatermark";
-            this.AverageRedColorWatermark.ReadOnly = true;
-            this.AverageRedColorWatermark.Width = 125;
-            // 
-            // AverageGreenColorWatermark
-            // 
-            this.AverageGreenColorWatermark.DataPropertyName = "AverageGreenColorWatermark";
-            this.AverageGreenColorWatermark.HeaderText = "AverageGreenColorWatermark";
-            this.AverageGreenColorWatermark.MinimumWidth = 6;
-            this.AverageGreenColorWatermark.Name = "AverageGreenColorWatermark";
-            this.AverageGreenColorWatermark.ReadOnly = true;
-            this.AverageGreenColorWatermark.Width = 125;
-            // 
-            // AverageBlueColorWatermark
-            // 
-            this.AverageBlueColorWatermark.DataPropertyName = "AverageBlueColorWatermark";
-            this.AverageBlueColorWatermark.HeaderText = "AverageBlueColorWatermark";
-            this.AverageBlueColorWatermark.MinimumWidth = 6;
-            this.AverageBlueColorWatermark.Name = "AverageBlueColorWatermark";
-            this.AverageBlueColorWatermark.ReadOnly = true;
-            this.AverageBlueColorWatermark.Width = 125;
-            // 
-            // containerWidthDataGridViewTextBoxColumn
-            // 
-            this.containerWidthDataGridViewTextBoxColumn.DataPropertyName = "ContainerWidth";
-            this.containerWidthDataGridViewTextBoxColumn.HeaderText = "ContainerWidth";
-            this.containerWidthDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.containerWidthDataGridViewTextBoxColumn.Name = "containerWidthDataGridViewTextBoxColumn";
-            this.containerWidthDataGridViewTextBoxColumn.ReadOnly = true;
-            this.containerWidthDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // containerHeightDataGridViewTextBoxColumn
-            // 
-            this.containerHeightDataGridViewTextBoxColumn.DataPropertyName = "ContainerHeight";
-            this.containerHeightDataGridViewTextBoxColumn.HeaderText = "ContainerHeight";
-            this.containerHeightDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.containerHeightDataGridViewTextBoxColumn.Name = "containerHeightDataGridViewTextBoxColumn";
-            this.containerHeightDataGridViewTextBoxColumn.ReadOnly = true;
-            this.containerHeightDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // watermarkWidthDataGridViewTextBoxColumn
-            // 
-            this.watermarkWidthDataGridViewTextBoxColumn.DataPropertyName = "WatermarkWidth";
-            this.watermarkWidthDataGridViewTextBoxColumn.HeaderText = "WatermarkWidth";
-            this.watermarkWidthDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.watermarkWidthDataGridViewTextBoxColumn.Name = "watermarkWidthDataGridViewTextBoxColumn";
-            this.watermarkWidthDataGridViewTextBoxColumn.ReadOnly = true;
-            this.watermarkWidthDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // watermarkHeightDataGridViewTextBoxColumn
-            // 
-            this.watermarkHeightDataGridViewTextBoxColumn.DataPropertyName = "WatermarkHeight";
-            this.watermarkHeightDataGridViewTextBoxColumn.HeaderText = "WatermarkHeight";
-            this.watermarkHeightDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.watermarkHeightDataGridViewTextBoxColumn.Name = "watermarkHeightDataGridViewTextBoxColumn";
-            this.watermarkHeightDataGridViewTextBoxColumn.ReadOnly = true;
-            this.watermarkHeightDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // watermarkingResultsBindingSource
-            // 
-            this.watermarkingResultsBindingSource.DataMember = "WatermarkingResults";
-            this.watermarkingResultsBindingSource.DataSource = this.watermarkingDataSet;
-            // 
-            // watermarkingDataSet
-            // 
-            this.watermarkingDataSet.DataSetName = "WatermarkingDataSet";
-            this.watermarkingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.displayNoiseWatermarkRadionBtn);
-            this.tabPage3.Controls.Add(this.displayNoiseContainerRadionBtn);
-            this.tabPage3.Controls.Add(this.displayBrightnessWatermarkRadionBtn);
-            this.tabPage3.Controls.Add(this.displayContrastWatermarkRadionBtn);
-            this.tabPage3.Controls.Add(this.displayBrightnessContainerRadionBtn);
-            this.tabPage3.Controls.Add(this.displayContrastContainerRadionBtn);
-            this.tabPage3.Controls.Add(this.displayOriginalRadionBtn);
-            this.tabPage3.Controls.Add(this.GridViewTab3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1792, 863);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Filtered results";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // displayNoiseWatermarkRadionBtn
-            // 
-            this.displayNoiseWatermarkRadionBtn.AutoSize = true;
-            this.displayNoiseWatermarkRadionBtn.Location = new System.Drawing.Point(549, 52);
-            this.displayNoiseWatermarkRadionBtn.Name = "displayNoiseWatermarkRadionBtn";
-            this.displayNoiseWatermarkRadionBtn.Size = new System.Drawing.Size(250, 17);
-            this.displayNoiseWatermarkRadionBtn.TabIndex = 7;
-            this.displayNoiseWatermarkRadionBtn.TabStop = true;
-            this.displayNoiseWatermarkRadionBtn.Text = "Display result with different noise for watermarks";
-            this.displayNoiseWatermarkRadionBtn.UseVisualStyleBackColor = true;
-            this.displayNoiseWatermarkRadionBtn.CheckedChanged += new System.EventHandler(this.displayNoiseWatermarkRadionBtn_CheckedChanged);
-            // 
-            // displayNoiseContainerRadionBtn
-            // 
-            this.displayNoiseContainerRadionBtn.AutoSize = true;
-            this.displayNoiseContainerRadionBtn.Location = new System.Drawing.Point(243, 52);
-            this.displayNoiseContainerRadionBtn.Name = "displayNoiseContainerRadionBtn";
-            this.displayNoiseContainerRadionBtn.Size = new System.Drawing.Size(250, 17);
-            this.displayNoiseContainerRadionBtn.TabIndex = 6;
-            this.displayNoiseContainerRadionBtn.TabStop = true;
-            this.displayNoiseContainerRadionBtn.Text = "Display results with different noise for containers";
-            this.displayNoiseContainerRadionBtn.UseVisualStyleBackColor = true;
-            this.displayNoiseContainerRadionBtn.CheckedChanged += new System.EventHandler(this.displayNoiseContainerRadionBtn_CheckedChanged);
-            // 
-            // displayBrightnessWatermarkRadionBtn
-            // 
-            this.displayBrightnessWatermarkRadionBtn.AutoSize = true;
-            this.displayBrightnessWatermarkRadionBtn.Location = new System.Drawing.Point(549, 29);
-            this.displayBrightnessWatermarkRadionBtn.Name = "displayBrightnessWatermarkRadionBtn";
-            this.displayBrightnessWatermarkRadionBtn.Size = new System.Drawing.Size(273, 17);
-            this.displayBrightnessWatermarkRadionBtn.TabIndex = 5;
-            this.displayBrightnessWatermarkRadionBtn.TabStop = true;
-            this.displayBrightnessWatermarkRadionBtn.Text = "Display result with different brightness for watermarks";
-            this.displayBrightnessWatermarkRadionBtn.UseVisualStyleBackColor = true;
-            this.displayBrightnessWatermarkRadionBtn.CheckedChanged += new System.EventHandler(this.displayBrightnessWatermarkRadionBtn_CheckedChanged);
-            // 
-            // displayContrastWatermarkRadionBtn
-            // 
-            this.displayContrastWatermarkRadionBtn.AutoSize = true;
-            this.displayContrastWatermarkRadionBtn.Location = new System.Drawing.Point(549, 6);
-            this.displayContrastWatermarkRadionBtn.Name = "displayContrastWatermarkRadionBtn";
-            this.displayContrastWatermarkRadionBtn.Size = new System.Drawing.Size(263, 17);
-            this.displayContrastWatermarkRadionBtn.TabIndex = 4;
-            this.displayContrastWatermarkRadionBtn.TabStop = true;
-            this.displayContrastWatermarkRadionBtn.Text = "Display results with different contrast for watermark";
-            this.displayContrastWatermarkRadionBtn.UseVisualStyleBackColor = true;
-            this.displayContrastWatermarkRadionBtn.CheckedChanged += new System.EventHandler(this.displayContrastWatermarkRadionBtn_CheckedChanged);
-            // 
-            // displayBrightnessContainerRadionBtn
-            // 
-            this.displayBrightnessContainerRadionBtn.AutoSize = true;
-            this.displayBrightnessContainerRadionBtn.Location = new System.Drawing.Point(243, 29);
-            this.displayBrightnessContainerRadionBtn.Name = "displayBrightnessContainerRadionBtn";
-            this.displayBrightnessContainerRadionBtn.Size = new System.Drawing.Size(276, 17);
-            this.displayBrightnessContainerRadionBtn.TabIndex = 3;
-            this.displayBrightnessContainerRadionBtn.TabStop = true;
-            this.displayBrightnessContainerRadionBtn.Text = "Display results with different brightness  for containers";
-            this.displayBrightnessContainerRadionBtn.UseVisualStyleBackColor = true;
-            this.displayBrightnessContainerRadionBtn.CheckedChanged += new System.EventHandler(this.displayBrightnessRadionBtn_CheckedChanged);
-            // 
-            // displayContrastContainerRadionBtn
-            // 
-            this.displayContrastContainerRadionBtn.AutoSize = true;
-            this.displayContrastContainerRadionBtn.Location = new System.Drawing.Point(243, 6);
-            this.displayContrastContainerRadionBtn.Name = "displayContrastContainerRadionBtn";
-            this.displayContrastContainerRadionBtn.Size = new System.Drawing.Size(263, 17);
-            this.displayContrastContainerRadionBtn.TabIndex = 2;
-            this.displayContrastContainerRadionBtn.TabStop = true;
-            this.displayContrastContainerRadionBtn.Text = "Display results with different contrast for containers";
-            this.displayContrastContainerRadionBtn.UseVisualStyleBackColor = true;
-            this.displayContrastContainerRadionBtn.CheckedChanged += new System.EventHandler(this.displayContrastRadionBtn_CheckedChanged);
-            // 
-            // displayOriginalRadionBtn
-            // 
-            this.displayOriginalRadionBtn.AutoSize = true;
-            this.displayOriginalRadionBtn.Location = new System.Drawing.Point(32, 7);
-            this.displayOriginalRadionBtn.Name = "displayOriginalRadionBtn";
-            this.displayOriginalRadionBtn.Size = new System.Drawing.Size(179, 17);
-            this.displayOriginalRadionBtn.TabIndex = 1;
-            this.displayOriginalRadionBtn.TabStop = true;
-            this.displayOriginalRadionBtn.Text = "Display results for original images";
-            this.displayOriginalRadionBtn.UseVisualStyleBackColor = true;
-            this.displayOriginalRadionBtn.CheckedChanged += new System.EventHandler(this.displayOriginalRadionBtn_CheckedChanged);
-            // 
-            // GridViewTab3
-            // 
-            this.GridViewTab3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewTab3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column13,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column11,
-            this.Column12,
-            this.Column9,
-            this.Column10});
-            this.GridViewTab3.Location = new System.Drawing.Point(-51, 90);
-            this.GridViewTab3.Name = "GridViewTab3";
-            this.GridViewTab3.RowHeadersWidth = 51;
-            this.GridViewTab3.Size = new System.Drawing.Size(1652, 725);
-            this.GridViewTab3.TabIndex = 0;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.modeRadioButton3);
-            this.tabPage4.Controls.Add(this.modeRadioButton2);
-            this.tabPage4.Controls.Add(this.modeRadioButton1);
-            this.tabPage4.Controls.Add(this.dataGridView2);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1792, 863);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // modeRadioButton3
-            // 
-            this.modeRadioButton3.AutoSize = true;
-            this.modeRadioButton3.Location = new System.Drawing.Point(49, 52);
-            this.modeRadioButton3.Name = "modeRadioButton3";
-            this.modeRadioButton3.Size = new System.Drawing.Size(85, 17);
-            this.modeRadioButton3.TabIndex = 4;
-            this.modeRadioButton3.TabStop = true;
-            this.modeRadioButton3.Text = "radioButton1";
-            this.modeRadioButton3.UseVisualStyleBackColor = true;
-            // 
-            // modeRadioButton2
-            // 
-            this.modeRadioButton2.AutoSize = true;
-            this.modeRadioButton2.Location = new System.Drawing.Point(49, 29);
-            this.modeRadioButton2.Name = "modeRadioButton2";
-            this.modeRadioButton2.Size = new System.Drawing.Size(85, 17);
-            this.modeRadioButton2.TabIndex = 3;
-            this.modeRadioButton2.TabStop = true;
-            this.modeRadioButton2.Text = "radioButton1";
-            this.modeRadioButton2.UseVisualStyleBackColor = true;
-            // 
-            // modeRadioButton1
-            // 
-            this.modeRadioButton1.AutoSize = true;
-            this.modeRadioButton1.Location = new System.Drawing.Point(49, 6);
-            this.modeRadioButton1.Name = "modeRadioButton1";
-            this.modeRadioButton1.Size = new System.Drawing.Size(85, 17);
-            this.modeRadioButton1.TabIndex = 2;
-            this.modeRadioButton1.TabStop = true;
-            this.modeRadioButton1.Text = "radioButton1";
-            this.modeRadioButton1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12});
-            this.dataGridView2.Location = new System.Drawing.Point(-41, 124);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(1242, 547);
-            this.dataGridView2.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Container";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Watermark";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Contrast";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Brightness";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Container size";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Watermark size";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Container colors amount (RGB)";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Watermark colors amount (RGB)";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Encryption PSNR";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Decryption PSNR";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "Encryption time";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "Decryption time";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 125;
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Location = new System.Drawing.Point(1, 1);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1800, 889);
+            this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.decMseChart3);
+            this.tabPage5.Controls.Add(this.decMseChart2);
+            this.tabPage5.Controls.Add(this.decMseChart1);
+            this.tabPage5.Controls.Add(this.decPsnrChart3);
+            this.tabPage5.Controls.Add(this.decPsnrChart2);
+            this.tabPage5.Controls.Add(this.decPsnrChart1);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(1792, 863);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.Text = "Decryption Analytics";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // openFileDialog1
+            // decMseChart3
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            chartArea7.Name = "ChartArea1";
+            this.decMseChart3.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.decMseChart3.Legends.Add(legend7);
+            this.decMseChart3.Location = new System.Drawing.Point(1208, 450);
+            this.decMseChart3.Name = "decMseChart3";
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.decMseChart3.Series.Add(series7);
+            this.decMseChart3.Size = new System.Drawing.Size(503, 365);
+            this.decMseChart3.TabIndex = 5;
+            this.decMseChart3.Text = "chart6";
             // 
-            // openFileDialog2
+            // decMseChart2
             // 
-            this.openFileDialog2.FileName = "openFileDialog2";
+            chartArea8.Name = "ChartArea1";
+            this.decMseChart2.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.decMseChart2.Legends.Add(legend8);
+            this.decMseChart2.Location = new System.Drawing.Point(582, 450);
+            this.decMseChart2.Name = "decMseChart2";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.decMseChart2.Series.Add(series8);
+            this.decMseChart2.Size = new System.Drawing.Size(503, 365);
+            this.decMseChart2.TabIndex = 4;
+            this.decMseChart2.Text = "chart5";
             // 
-            // watermarkingResultsTableAdapter
+            // decMseChart1
             // 
-            this.watermarkingResultsTableAdapter.ClearBeforeFill = true;
+            chartArea9.Name = "ChartArea1";
+            this.decMseChart1.ChartAreas.Add(chartArea9);
+            legend9.Name = "Legend1";
+            this.decMseChart1.Legends.Add(legend9);
+            this.decMseChart1.Location = new System.Drawing.Point(7, 450);
+            this.decMseChart1.Name = "decMseChart1";
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.decMseChart1.Series.Add(series9);
+            this.decMseChart1.Size = new System.Drawing.Size(503, 365);
+            this.decMseChart1.TabIndex = 3;
+            this.decMseChart1.Text = "chart4";
             // 
-            // Column1
+            // decPsnrChart3
             // 
-            this.Column1.HeaderText = "Container";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
+            chartArea10.Name = "ChartArea1";
+            this.decPsnrChart3.ChartAreas.Add(chartArea10);
+            legend10.Name = "Legend1";
+            this.decPsnrChart3.Legends.Add(legend10);
+            this.decPsnrChart3.Location = new System.Drawing.Point(1208, 41);
+            this.decPsnrChart3.Name = "decPsnrChart3";
+            series10.ChartArea = "ChartArea1";
+            series10.Legend = "Legend1";
+            series10.Name = "Series1";
+            this.decPsnrChart3.Series.Add(series10);
+            this.decPsnrChart3.Size = new System.Drawing.Size(503, 365);
+            this.decPsnrChart3.TabIndex = 2;
+            this.decPsnrChart3.Text = "chart3";
             // 
-            // Column2
+            // decPsnrChart2
             // 
-            this.Column2.HeaderText = "Watermark";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
+            chartArea11.Name = "ChartArea1";
+            this.decPsnrChart2.ChartAreas.Add(chartArea11);
+            legend11.Name = "Legend1";
+            this.decPsnrChart2.Legends.Add(legend11);
+            this.decPsnrChart2.Location = new System.Drawing.Point(582, 41);
+            this.decPsnrChart2.Name = "decPsnrChart2";
+            series11.ChartArea = "ChartArea1";
+            series11.Legend = "Legend1";
+            series11.Name = "Series1";
+            this.decPsnrChart2.Series.Add(series11);
+            this.decPsnrChart2.Size = new System.Drawing.Size(503, 365);
+            this.decPsnrChart2.TabIndex = 1;
+            this.decPsnrChart2.Text = "chart2";
             // 
-            // Column3
+            // decPsnrChart1
             // 
-            this.Column3.HeaderText = "Contrast";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
+            chartArea12.Name = "ChartArea1";
+            this.decPsnrChart1.ChartAreas.Add(chartArea12);
+            legend12.Name = "Legend1";
+            this.decPsnrChart1.Legends.Add(legend12);
+            this.decPsnrChart1.Location = new System.Drawing.Point(7, 52);
+            this.decPsnrChart1.Name = "decPsnrChart1";
+            series12.ChartArea = "ChartArea1";
+            series12.Legend = "Legend1";
+            series12.Name = "Series1";
+            this.decPsnrChart1.Series.Add(series12);
+            this.decPsnrChart1.Size = new System.Drawing.Size(503, 365);
+            this.decPsnrChart1.TabIndex = 0;
+            this.decPsnrChart1.Text = "chart1";
             // 
-            // Column4
+            // tabPage6
             // 
-            this.Column4.HeaderText = "Brightness";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
+            this.tabPage6.Controls.Add(this.decBrightnessChart);
+            this.tabPage6.Controls.Add(this.decContrastChart1);
+            this.tabPage6.Controls.Add(this.decNoiseChart1);
+            this.tabPage6.Controls.Add(this.encBrightnessChart);
+            this.tabPage6.Controls.Add(this.encContrastChart1);
+            this.tabPage6.Controls.Add(this.encNoiseChart1);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1792, 863);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Effects analytics";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // Column13
+            // encNoiseChart1
             // 
-            this.Column13.HeaderText = "Noise";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
+            chartArea18.Name = "ChartArea1";
+            this.encNoiseChart1.ChartAreas.Add(chartArea18);
+            legend18.Name = "Legend1";
+            this.encNoiseChart1.Legends.Add(legend18);
+            this.encNoiseChart1.Location = new System.Drawing.Point(7, 52);
+            this.encNoiseChart1.Name = "encNoiseChart1";
+            series18.ChartArea = "ChartArea1";
+            series18.Legend = "Legend1";
+            series18.Name = "Series1";
+            this.encNoiseChart1.Series.Add(series18);
+            this.encNoiseChart1.Size = new System.Drawing.Size(503, 365);
+            this.encNoiseChart1.TabIndex = 1;
+            this.encNoiseChart1.Text = "chart1";
             // 
-            // Column5
+            // encContrastChart1
             // 
-            this.Column5.HeaderText = "Container size";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
+            chartArea17.Name = "ChartArea1";
+            this.encContrastChart1.ChartAreas.Add(chartArea17);
+            legend17.Name = "Legend1";
+            this.encContrastChart1.Legends.Add(legend17);
+            this.encContrastChart1.Location = new System.Drawing.Point(582, 41);
+            this.encContrastChart1.Name = "encContrastChart1";
+            series17.ChartArea = "ChartArea1";
+            series17.Legend = "Legend1";
+            series17.Name = "Series1";
+            this.encContrastChart1.Series.Add(series17);
+            this.encContrastChart1.Size = new System.Drawing.Size(503, 365);
+            this.encContrastChart1.TabIndex = 2;
+            this.encContrastChart1.Text = "chart2";
+            this.encContrastChart1.Click += new System.EventHandler(this.chart2_Click);
             // 
-            // Column6
+            // encBrightnessChart
             // 
-            this.Column6.HeaderText = "Watermark size";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 125;
+            chartArea16.Name = "ChartArea1";
+            this.encBrightnessChart.ChartAreas.Add(chartArea16);
+            legend16.Name = "Legend1";
+            this.encBrightnessChart.Legends.Add(legend16);
+            this.encBrightnessChart.Location = new System.Drawing.Point(1208, 41);
+            this.encBrightnessChart.Name = "encBrightnessChart";
+            series16.ChartArea = "ChartArea1";
+            series16.Legend = "Legend1";
+            series16.Name = "Series1";
+            this.encBrightnessChart.Series.Add(series16);
+            this.encBrightnessChart.Size = new System.Drawing.Size(503, 365);
+            this.encBrightnessChart.TabIndex = 3;
+            this.encBrightnessChart.Text = "chart3";
             // 
-            // Column7
+            // decNoiseChart1
             // 
-            this.Column7.HeaderText = "Container colors amount (RGB)";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 125;
+            chartArea15.Name = "ChartArea1";
+            this.decNoiseChart1.ChartAreas.Add(chartArea15);
+            legend15.Name = "Legend1";
+            this.decNoiseChart1.Legends.Add(legend15);
+            this.decNoiseChart1.Location = new System.Drawing.Point(7, 450);
+            this.decNoiseChart1.Name = "decNoiseChart1";
+            series15.ChartArea = "ChartArea1";
+            series15.Legend = "Legend1";
+            series15.Name = "Series1";
+            this.decNoiseChart1.Series.Add(series15);
+            this.decNoiseChart1.Size = new System.Drawing.Size(503, 365);
+            this.decNoiseChart1.TabIndex = 4;
+            this.decNoiseChart1.Text = "chart4";
             // 
-            // Column8
+            // decContrastChart1
             // 
-            this.Column8.HeaderText = "Watermark colors amount (RGB)";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 125;
+            chartArea14.Name = "ChartArea1";
+            this.decContrastChart1.ChartAreas.Add(chartArea14);
+            legend14.Name = "Legend1";
+            this.decContrastChart1.Legends.Add(legend14);
+            this.decContrastChart1.Location = new System.Drawing.Point(582, 450);
+            this.decContrastChart1.Name = "decContrastChart1";
+            series14.ChartArea = "ChartArea1";
+            series14.Legend = "Legend1";
+            series14.Name = "Series1";
+            this.decContrastChart1.Series.Add(series14);
+            this.decContrastChart1.Size = new System.Drawing.Size(503, 365);
+            this.decContrastChart1.TabIndex = 5;
+            this.decContrastChart1.Text = "chart5";
+            this.decContrastChart1.Click += new System.EventHandler(this.chart5_Click);
             // 
-            // Column11
+            // decBrightnessChart
             // 
-            this.Column11.HeaderText = "Encryption PSNR";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            this.Column11.Width = 125;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Decryption PSNR";
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            this.Column12.Width = 125;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Encryption time";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 125;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Decryption time";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.Width = 125;
+            chartArea13.Name = "ChartArea1";
+            this.decBrightnessChart.ChartAreas.Add(chartArea13);
+            legend13.Name = "Legend1";
+            this.decBrightnessChart.Legends.Add(legend13);
+            this.decBrightnessChart.Location = new System.Drawing.Point(1208, 450);
+            this.decBrightnessChart.Name = "decBrightnessChart";
+            series13.ChartArea = "ChartArea1";
+            series13.Legend = "Legend1";
+            series13.Name = "Series1";
+            this.decBrightnessChart.Series.Add(series13);
+            this.decBrightnessChart.Size = new System.Drawing.Size(503, 365);
+            this.decBrightnessChart.TabIndex = 6;
+            this.decBrightnessChart.Text = "chart6";
             // 
             // Form1
             // 
@@ -1500,9 +1846,22 @@
             this.ClientSize = new System.Drawing.Size(1784, 850);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Gerus App";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.watermarkingResultsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.watermarkingDataSet)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mseChart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mseChart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mseChart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.size64Chart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.size256Chart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.size128Chart)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewTab3)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BrightnessOriginalUpDown)).EndInit();
@@ -1515,34 +1874,120 @@
             ((System.ComponentModel.ISupportInitialize)(this.WatermarkPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditedContainerPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContainerPictureBox)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.watermarkingResultsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.watermarkingDataSet)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewTab3)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.decMseChart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decMseChart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decMseChart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decPsnrChart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decPsnrChart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decPsnrChart1)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.encNoiseChart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.encContrastChart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.encBrightnessChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decNoiseChart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decContrastChart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decBrightnessChart)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.PictureBox EditedWatermarkPictureBox;
-        private System.Windows.Forms.PictureBox WatermarkPictureBox;
-        private System.Windows.Forms.PictureBox EditedContainerPictureBox;
-        private System.Windows.Forms.PictureBox ContainerPictureBox;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private WatermarkingDataSet watermarkingDataSet;
+        private System.Windows.Forms.BindingSource watermarkingResultsBindingSource;
+        private WatermarkingDataSetTableAdapters.WatermarkingResultsTableAdapter watermarkingResultsTableAdapter;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart size64Chart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart size256Chart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart size128Chart;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.RadioButton displayNoiseWatermarkRadionBtn;
+        private System.Windows.Forms.RadioButton displayNoiseContainerRadionBtn;
+        private System.Windows.Forms.RadioButton displayBrightnessWatermarkRadionBtn;
+        private System.Windows.Forms.RadioButton displayContrastWatermarkRadionBtn;
+        private System.Windows.Forms.RadioButton displayBrightnessContainerRadionBtn;
+        private System.Windows.Forms.RadioButton displayContrastContainerRadionBtn;
+        private System.Windows.Forms.RadioButton displayOriginalRadionBtn;
+        private System.Windows.Forms.DataGridView GridViewTab3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn containerFileNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn keyFileNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn encryptionTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn decryptionTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn encryptionPsnrDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn decryptionPsnrDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EncryptionMse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DecryptionMse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brightnessDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contrastDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Noise;
+        private System.Windows.Forms.DataGridViewTextBoxColumn averageRedColorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn averageGreenColorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn averageBlueColorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageRedColorWatermark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageGreenColorWatermark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AverageBlueColorWatermark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn containerWidthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn containerHeightDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn watermarkWidthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn watermarkHeightDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.NumericUpDown BrightnessOriginalUpDown;
+        private System.Windows.Forms.NumericUpDown ContrastOriginalUpDown;
+        private System.Windows.Forms.NumericUpDown NoiseOriginalUpDown;
+        private System.Windows.Forms.Button ResizeOriginalBtn;
+        private System.Windows.Forms.Button BrightnessOriginalBtn;
+        private System.Windows.Forms.Button ContrastOriginalBtn;
+        private System.Windows.Forms.Button NoiseOriginalBtn;
+        private System.Windows.Forms.Button ExtractBtn;
+        private System.Windows.Forms.NumericUpDown BrightnessUpDown;
+        private System.Windows.Forms.NumericUpDown ContrastUpDown;
+        private System.Windows.Forms.NumericUpDown NoiseUpDown;
+        private System.Windows.Forms.Button ResizeBtn;
+        private System.Windows.Forms.Button BrightnessBtn;
+        private System.Windows.Forms.Button ContrastBtn;
+        private System.Windows.Forms.Button NoiseBtn;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
@@ -1557,102 +2002,31 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private WatermarkingDataSet watermarkingDataSet;
-        private System.Windows.Forms.BindingSource watermarkingResultsBindingSource;
-        private WatermarkingDataSetTableAdapters.WatermarkingResultsTableAdapter watermarkingResultsTableAdapter;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.DataGridView GridViewTab3;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox EditedWatermarkPictureBox;
+        private System.Windows.Forms.PictureBox WatermarkPictureBox;
+        private System.Windows.Forms.PictureBox EditedContainerPictureBox;
+        private System.Windows.Forms.PictureBox ContainerPictureBox;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart mseChart3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart mseChart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart mseChart1;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.RadioButton displayBrightnessContainerRadionBtn;
-        private System.Windows.Forms.RadioButton displayContrastContainerRadionBtn;
-        private System.Windows.Forms.RadioButton displayOriginalRadionBtn;
-        private System.Windows.Forms.RadioButton modeRadioButton1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.RadioButton displayBrightnessWatermarkRadionBtn;
-        private System.Windows.Forms.RadioButton displayContrastWatermarkRadionBtn;
-        private System.Windows.Forms.RadioButton modeRadioButton3;
-        private System.Windows.Forms.RadioButton modeRadioButton2;
-        private System.Windows.Forms.Button ResizeBtn;
-        private System.Windows.Forms.Button BrightnessBtn;
-        private System.Windows.Forms.Button ContrastBtn;
-        private System.Windows.Forms.Button NoiseBtn;
-        private System.Windows.Forms.NumericUpDown BrightnessUpDown;
-        private System.Windows.Forms.NumericUpDown ContrastUpDown;
-        private System.Windows.Forms.NumericUpDown NoiseUpDown;
-        private System.Windows.Forms.Button ExtractBtn;
-        private System.Windows.Forms.NumericUpDown BrightnessOriginalUpDown;
-        private System.Windows.Forms.NumericUpDown ContrastOriginalUpDown;
-        private System.Windows.Forms.NumericUpDown NoiseOriginalUpDown;
-        private System.Windows.Forms.Button ResizeOriginalBtn;
-        private System.Windows.Forms.Button BrightnessOriginalBtn;
-        private System.Windows.Forms.Button ContrastOriginalBtn;
-        private System.Windows.Forms.Button NoiseOriginalBtn;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.DataGridViewTextBoxColumn containerFileNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn keyFileNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn encryptionTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn decryptionTimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn encryptionPsnrDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn decryptionPsnrDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn brightnessDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contrastDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Noise;
-        private System.Windows.Forms.DataGridViewTextBoxColumn averageRedColorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn averageGreenColorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn averageBlueColorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AverageRedColorWatermark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AverageGreenColorWatermark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AverageBlueColorWatermark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn containerWidthDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn containerHeightDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn watermarkWidthDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn watermarkHeightDataGridViewTextBoxColumn;
-        private System.Windows.Forms.RadioButton displayNoiseWatermarkRadionBtn;
-        private System.Windows.Forms.RadioButton displayNoiseContainerRadionBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decMseChart3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decMseChart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decMseChart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decPsnrChart3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decPsnrChart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decPsnrChart1;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decBrightnessChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decContrastChart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart decNoiseChart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart encBrightnessChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart encContrastChart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart encNoiseChart1;
     }
 }
 
