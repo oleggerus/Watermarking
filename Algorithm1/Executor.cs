@@ -1,9 +1,10 @@
-﻿using System.Diagnostics;
+﻿using DAL;
+using DAL.Services;
+using SVD;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
-using DAL;
-using SVD;
 using MainConstants = Constants.Constants;
 
 namespace Algorithm
@@ -20,11 +21,13 @@ namespace Algorithm
 
             var originalKeyBitmap = new Bitmap(originalPathKey);
 
-            var encryptionResult = await Encrypt(originalFilePath, fileNameToCreate, originalPathKey, brightness, contrast, mode);
+            var encryptionResult = await Encrypt(originalFilePath, fileNameToCreate, originalPathKey, brightness, contrast, noise, mode);
             var decryptionResult = await Decrypt(fileNameToCreate, originalKeyBitmap);
 
             var insertModel = Factory.PrepareResultModel(fileNameToCreate, originalKeyFileName, encryptionResult.Time,
-                decryptionResult.Time, encryptionResult.Psnr, decryptionResult.Psnr, brightness, contrast, noise,
+                decryptionResult.Time, encryptionResult.Psnr, decryptionResult.Psnr, 
+                encryptionResult.Mse, decryptionResult.Mse,
+                brightness, contrast, noise,
                 encryptionResult.AverageRedColor, encryptionResult.AverageGreenColor, encryptionResult.AverageBlueColor,
                 encryptionResult.AverageRedColorWatermark, encryptionResult.AverageGreenColorWatermark, encryptionResult.AverageBlueColorWatermark,
                 encryptionResult.ContainerWidth, encryptionResult.ContainerHeight,
@@ -35,7 +38,7 @@ namespace Algorithm
         }
 
 
-        public static async Task<ProcessingResult> Encrypt(string originalFilePath, string originalFileName, string originalKeyPath, int brightness, int contrast, int mode)
+        public static async Task<ProcessingResult> Encrypt(string originalFilePath, string originalFileName, string originalKeyPath, int brightness, int contrast, int noise, int mode)
         {
             var originalContainerBitmap = new Bitmap(originalFilePath);
             var originalKeyBitmap = new Bitmap(originalKeyPath);
@@ -43,14 +46,25 @@ namespace Algorithm
 
             switch (mode)
             {
-                case 1:
-                    originalContainerBitmap =
-                        Helpers.SetContrast(Helpers.SetBrightness(originalContainerBitmap, brightness), contrast);
+                case (int)WatermarkingMode.OneKeyToAllContainersWithNoise:
+                    originalKeyBitmap = Helpers.SetNoise(originalKeyBitmap, noise);
                     break;
-                case 2:
-                    originalKeyBitmap =
-                        Helpers.SetContrast(Helpers.SetBrightness(originalKeyBitmap, brightness), contrast);
+                case (int)WatermarkingMode.OneKeyToAllContainersWithBrightness:
+                    originalKeyBitmap = Helpers.SetBrightness(originalKeyBitmap, brightness);
                     break;
+                case (int)WatermarkingMode.OneKeyToAllContainersWithContrast:
+                    originalKeyBitmap =Helpers.SetContrast(originalKeyBitmap, contrast);
+                    break;
+                case (int)WatermarkingMode.OneContainerToAllKeysWithNoise:
+                    originalContainerBitmap = Helpers.SetNoise(originalContainerBitmap, noise);
+                    break;
+                case (int)WatermarkingMode.OneContainerToAllKeysWithBrightness:
+                    originalContainerBitmap = Helpers.SetBrightness(originalContainerBitmap, brightness);
+                    break;
+                case (int)WatermarkingMode.OneContainerToAllKeysWithContrast:
+                    originalContainerBitmap = Helpers.SetContrast(originalContainerBitmap, contrast);
+                    break;
+
             }
 
             return await HandleEncryption(originalContainerBitmap, originalKeyBitmap, originalFileName);
@@ -62,11 +76,14 @@ namespace Algorithm
             var result = await Svd.Encrypt(originalContainerBitmap, originalKeyBitmap, originalFileName);
 
             encryptionStopwatch.Stop();
-            var encryptionPsnr = Helpers.CalculatePsnr(result.InputContainer, result.OutputContainer);
+
+            var encryptionMse = Helpers.CalculateMse(result.InputContainer, result.OutputContainer);
+            var encryptionPsnr = Helpers.CalculatePsnr(encryptionMse);
 
             return new ProcessingResult
             {
                 Psnr = encryptionPsnr,
+                Mse = encryptionMse,
                 Time = encryptionStopwatch.Elapsed,
                 AverageBlueColor = result.AverageBlueColor,
                 AverageGreenColor = result.AverageGreenColor,
@@ -91,11 +108,14 @@ namespace Algorithm
             var decryptionResult = await Svd.Decrypt(new Bitmap(decryptionFilePath), decryptionFileName,
                 originalKeyBitmap.Width, originalKeyBitmap.Height);
             decryptionStopwatch.Stop();
-            var decryptionPsnr = Helpers.CalculatePsnr(originalKeyBitmap, decryptionResult);
+            var decryptionMse = Helpers.CalculateMse(originalKeyBitmap, decryptionResult);
+            var decryptionPsnr = Helpers.CalculatePsnr(decryptionMse);
+            
             originalKeyBitmap.Dispose();
             return new ProcessingResult
             {
                 Psnr = decryptionPsnr,
+                Mse = decryptionMse,
                 Time = decryptionStopwatch.Elapsed,
                 ExtractedWatermark = decryptionResult
             };
@@ -103,17 +123,19 @@ namespace Algorithm
 
         public static async Task<ProcessingResult> DecryptFromBitmap(Bitmap encrypptedContainer, string originalFileName, Bitmap originalKeyBitmap)
         {
-            var decryptionFileName = $"{originalFileName}_Container";            
+            var decryptionFileName = $"{originalFileName}_Container";
 
             var decryptionStopwatch = Stopwatch.StartNew();
             var decryptionResult = await Svd.Decrypt(encrypptedContainer, decryptionFileName,
                 originalKeyBitmap.Width, originalKeyBitmap.Height);
-            decryptionStopwatch.Stop();
-            var decryptionPsnr = Helpers.CalculatePsnr(originalKeyBitmap, decryptionResult);
+            decryptionStopwatch.Stop();            
+            var decryptionMse = Helpers.CalculateMse(originalKeyBitmap, decryptionResult);
+            var decryptionPsnr = Helpers.CalculatePsnr(decryptionMse);
             originalKeyBitmap.Dispose();
             return new ProcessingResult
             {
                 Psnr = decryptionPsnr,
+                Mse = decryptionMse,
                 Time = decryptionStopwatch.Elapsed,
                 ExtractedWatermark = decryptionResult
             };

@@ -4,7 +4,6 @@ using Accord.Statistics;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +14,6 @@ namespace SVD
 
     public static class Svd
     {
-
-
         public static async Task<EncryptionResult> Encrypt(Bitmap container, Bitmap watermark, string fileName)
         {
             var frameDimension = container.Width / watermark.Width;
@@ -70,7 +67,6 @@ namespace SVD
             for (var i = 0; i < rows; i++)
                 for (var j = 0; j < columns; j++)
                 {
-                    //Matrix_Main[i, j] = (double)((byte)container.GetPixel(((i * frame) / (int)(Math.Sqrt(rows * col))) * frame + j / frame, (i % ((int)(Math.Sqrt(rows * col)) / frame)) * frame + j % frame).ToArgb() & 0x000000ff);
                     var k1 = j / frameDimension + i / numberOfSquares * frameDimension;
                     var l1 = j % frameDimension + i % numberOfSquares * frameDimension;
                     matrixMainConverted[i, j] = matrixMain[k1, l1];
@@ -90,13 +86,13 @@ namespace SVD
             var eigenvalues = singularValues.Pow(2);
             eigenvalues.Divide(matrixMainConverted.GetLength(0) - 1);
 
-            // пошук середнього для пікселів бабуїна
+            // пошук середнього для пікселів ЦВЗ
             var tmpSum = 0;
             for (var i = 0; i < stringWithOriginalWatermarkPixels.Length; i++)
                 tmpSum += (int)stringWithOriginalWatermarkPixels[i];
             var tmpAvg = tmpSum / stringWithOriginalWatermarkPixels.Length;
 
-            // заміна principalComponentsNumber-ої компоненти на центровані значення(пікселів) бабуїна
+            // заміна останньої компоненти на центровані значення(пікселів) ЦВЗ
             var matrixMainComponents = matrixMainConvertedCentered.DotWithTransposed(eigenVectors.Transpose());
             for (var i = 0; i < matrixMainComponents.GetLength(0); i++)
             {
@@ -118,9 +114,8 @@ namespace SVD
                     var l2 = j % frameDimension + i % numberOfSquares * frameDimension;
                     matrixMainReconstructedFully[k2, l2] = matrixReconstructed[i, j];
                 }
-            }
-
-            // вивід кольорового зображення після певних перетворень
+            } 
+            
             int tmpR1 = 0, tmpG1 = 1, tmpB1 = 2;
             for (var i = 0; i < container.Width * 3; i += 3)
                 for (var j = 0; j < container.Height; j++)
@@ -156,7 +151,7 @@ namespace SVD
 
             await SaveAllDataToFiles(containerReconstructed, fileName, _eigenVectors, _singularValues);
 
-            return PrepareEncryptionResult(container,  watermark, containerReconstructed);
+            return PrepareEncryptionResult(container, watermark, containerReconstructed);
         }
 
         private static async Task SaveAllDataToFiles(Image containerProcessed, string fileName, double[,] outputKey1, IEnumerable<double> outputKey2)
@@ -196,15 +191,10 @@ namespace SVD
             var principalComponentsNumber = frameDimension * frameDimension;
             var watermarkPixelsColoredArraySize = watermarkWidth * watermarkHeight * 3;
 
-
-
-
             var _eigenVectors = Path.Combine(MainConstants.DecryptKeysPath, $"{fileName}_EigenVectors.txt");
             var _singularValues = Path.Combine(MainConstants.DecryptKeysPath, $"{fileName}_SingularValues.txt");
 
-
-
-            // зчитування пікселів лени та бабуїна
+            // зчитування пікселів контейнеру та цифрового водяного знаку
             var stringWithOriginalContainerPixels = new StringBuilder();
             for (var x = 0; x < encryptedContainer.Width; x++)
                 for (var y = 0; y < encryptedContainer.Height; y++)
@@ -230,7 +220,7 @@ namespace SVD
                     tmpB += 3;
                 }
 
-            // конвертація основної матриці 1536х512 16-ти стовпцеву
+            // конвертація основної матриці
 
             var columns = frameDimension * frameDimension;
 
@@ -244,8 +234,6 @@ namespace SVD
             for (var i = 0; i < rows; i++)
                 for (var j = 0; j < columns; j++)
                 {
-                    //Matrix_Main[i, j] = (double)((byte)encryptedContainer.GetPixel(((i * frame) / (int)(Math.Sqrt(rows * col))) * frame + j / frame, (i % ((int)(Math.Sqrt(rows * col)) / frame)) * frame + j % frame).ToArgb() & 0x000000ff);
-
                     var k1 = j / frameDimension + i / numberOfSquares * frameDimension;
                     var l1 = j % frameDimension + i % numberOfSquares * frameDimension;
                     matrixMainConverted[i, j] = matrixMain[k1, l1];
@@ -255,7 +243,6 @@ namespace SVD
             var columnMean = matrixMainConverted.Mean(0);
             var matrixMainConvertedCentered = matrixMainConverted.Subtract(columnMean, 0);
 
-            // дешифрування
             // зчитування ключів
 
             var eigenVectors = new double[principalComponentsNumber, principalComponentsNumber];
@@ -332,19 +319,17 @@ namespace SVD
             var eigenvalues = singularValues.Pow(2);
             eigenvalues.Divide(matrixMainConverted.GetLength(0) - 1);
 
-            // заміна principalComponentsNumber-ої компоненти на центровані значення(пікселів) бабуїна
+            // заміна останньої компоненти на центровані значення(пікселів) цифрового водяного знаку
             var matrixMainComponents = matrixMainConvertedCentered.MultiplyByTranspose(eigenVectors.Transpose());
             for (var i = 0; i < matrixMainComponents.GetLength(0); i++)
             {
-                arrayWithWatermarkPixelsColorful[i] = matrixMainComponents[i, principalComponentsNumber-1];
-                //Matrix_Main_Components[i, 15] = 0;
+                arrayWithWatermarkPixelsColorful[i] = matrixMainComponents[i, principalComponentsNumber - 1];
             }
 
-            // пошук середнього для пікселів бабуїна
+            // пошук середнього для пікселів цифрового водяного знаку
             for (var i = 0; i < watermarkPixelsColoredArraySize; i++)
                 arrayWithWatermarkPixelsColorful[i] = arrayWithWatermarkPixelsColorful[i] + 126;
 
-            // збереження кольорового зображення після певних перетворень
             int tmpR1 = 0, tmpG1 = 1, tmpB1 = 2;
             for (var i = 0; i < watermarkPixelsColoredArraySize; i += 3)
             {
@@ -373,7 +358,8 @@ namespace SVD
                     if (processedPixelB < 0) processedPixelB = 0;
                     if (processedPixelB > 255) processedPixelB = 255;
                     p++;
-                    decryptedWatermark.SetPixel(i, j, Color.FromArgb(Convert.ToByte(processedPixelR), Convert.ToByte(processedPixelG), Convert.ToByte(processedPixelB)));
+                    decryptedWatermark.SetPixel(i, j, Color.FromArgb(Convert.ToByte(processedPixelR), 
+                        Convert.ToByte(processedPixelG), Convert.ToByte(processedPixelB)));
                 }
 
             decryptedWatermark.Save(Path.Combine(MainConstants.DecryptedWatermarksPath, $"{fileName}_decrypted.bmp"));
@@ -402,13 +388,13 @@ namespace SVD
                 AverageGreenColorWatermark = item2,
                 AverageBlueColorWatermark = item3,
                 ContainerWidth = inputContainer.Width,
-                ContainerHeight= inputContainer.Height,
+                ContainerHeight = inputContainer.Height,
                 WatermarkHeight = inputKey.Height,
                 WatermarkWidth = inputKey.Width
             };
         }
 
 
-       
+
     }
 }

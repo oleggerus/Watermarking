@@ -1,12 +1,12 @@
 ﻿using Algorithm;
+using DAL;
+using DAL.Services;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using DAL;
-using DAL.Services;
 using MainConstants = Constants.Constants;
 
 
@@ -14,6 +14,8 @@ namespace Watermarking
 {
     internal static class Program
     {
+        private static readonly int ParallelThreadsAmount = 20;
+
         public static int Mode;
         public static int[] ValuesForBrightness = {
             -200,  -150, -100, -50, 0, 50, 100, 150, 200
@@ -27,6 +29,11 @@ namespace Watermarking
 
         public static async Task Main(string[] args)
         {
+            if (args is null)
+            {
+                throw new ArgumentNullException(nameof(args));
+            }
+
             while (true)
             {
                 Console.WriteLine("Choose your mode");
@@ -89,11 +96,11 @@ namespace Watermarking
                                 await RunOneContainerForAllKeysNoContrastAndBrightness();
                                 break;
                             case 2:
-                                Mode = (int)WatermarkingMode.OneContainerToAllKeysWithBrightness;
+                                Mode = (int)WatermarkingMode.OneContainerToAllKeysWithContrast;
                                 await RunOneContainerForAllKeys();
                                 break;
                             case 3:
-                                Mode = (int)WatermarkingMode.OneContainerToAllKeysWithContrast;
+                                Mode = (int)WatermarkingMode.OneContainerToAllKeysWithBrightness;
                                 await RunOneContainerForAllKeys();
                                 break;
                             case 4:
@@ -175,13 +182,13 @@ namespace Watermarking
             {
                 result.Mode = Mode;
             }
-            await DalService.InsertResults(results);
+            //await DalService.InsertResults(results);
         }
 
         private static async Task RunOneContainerForAllKeys()
         {
 
-            var originalFilePath = Path.Combine(MainConstants.ContainerFolderPath, "LenaOriginal512color.bmp");
+            var originalFilePath = Path.Combine(MainConstants.ContainerFolderPath, "macaw.bmp");
             var originalKeysPaths = Directory.GetFiles(MainConstants.KeysFolderPath, "*.bmp",
                 SearchOption.TopDirectoryOnly);
 
@@ -192,17 +199,17 @@ namespace Watermarking
                 if (Mode == (int)WatermarkingMode.OneContainerToAllKeysWithBrightness)
                 {
                     await RunDifferentBrightness(results, originalFilePath, originalKeyName,
-                    Path.GetFileNameWithoutExtension(originalKeyPath));
+                        $"{Path.GetFileNameWithoutExtension(originalFilePath)}_{Guid.NewGuid()}");
                 }
                 if (Mode == (int)WatermarkingMode.OneContainerToAllKeysWithContrast)
                 {
                     await RunDifferentContrast(results, originalFilePath, originalKeyName,
-                        Path.GetFileNameWithoutExtension(originalKeyPath));
+                        $"{Path.GetFileNameWithoutExtension(originalFilePath)}_{Guid.NewGuid()}");
                 }
                 if (Mode == (int)WatermarkingMode.OneContainerToAllKeysWithNoise)
                 {
                     await RunDifferentNoise(results, originalFilePath, originalKeyName,
-                        Path.GetFileNameWithoutExtension(originalKeyPath));
+                        $"{Path.GetFileNameWithoutExtension(originalFilePath)}_{Guid.NewGuid()}");
                 }
 
             });
@@ -211,33 +218,39 @@ namespace Watermarking
             {
                 result.Mode = Mode;
             }
-            await DalService.InsertResults(results);
+            //await DalService.InsertResults(results);
         }
 
         private static async Task RunDifferentBrightness(List<WatermarkingResults> resultSet, string originalFilePath, string originalKeyFileName, string fileNameToCreate)
         {
-            await ForEachAsync(ValuesForBrightness, 20, async brightness =>
+            await ForEachAsync(ValuesForBrightness, ParallelThreadsAmount, async brightness =>
             {
                 var model = await Executor.ProcessData(originalFilePath, originalKeyFileName, fileNameToCreate, brightness, 0, 0, Mode);
                 AddToResultSet(resultSet, model);
+                model.Mode = Mode;
+                await DalService.InsertResult(model);
             });
         }
 
         private static async Task RunDifferentContrast(List<WatermarkingResults> resultSet, string originalFilePath, string originalKeyFileName, string fileNameToCreate)
         {
-            await ForEachAsync(ValuesForContrast, 20, async contrast =>
+            await ForEachAsync(ValuesForContrast, ParallelThreadsAmount, async contrast =>
             {
                 var model = await Executor.ProcessData(originalFilePath, originalKeyFileName, fileNameToCreate, 0, contrast, 0, Mode);
                 AddToResultSet(resultSet, model);
+                model.Mode = Mode;
+                await DalService.InsertResult(model);
             });
         }
 
         private static async Task RunDifferentNoise(List<WatermarkingResults> resultSet, string originalFilePath, string originalKeyFileName, string fileNameToCreate)
         {
-            await ForEachAsync(ValuesForNoise, 20, async noise =>
+            await ForEachAsync(ValuesForNoise, ParallelThreadsAmount, async noise =>
             {
                 var model = await Executor.ProcessData(originalFilePath, originalKeyFileName, fileNameToCreate, 0, 0, noise, Mode);
                 AddToResultSet(resultSet, model);
+                model.Mode = Mode;
+                await DalService.InsertResult(model);
             });
         }
 
@@ -398,9 +411,11 @@ namespace Watermarking
                     Path.GetFileNameWithoutExtension(originalFilePath), 0, 0, 0, Mode);
                 model.Mode = Mode;
                 AddToResultSet(results, model);
+                await DalService.InsertResult(model);
+
             });
 
-            await DalService.InsertResults(results);
+            //await DalService.InsertResults(results);
         }
 
         private static async Task RunOneContainerForAllKeysNoContrastAndBrightness()
@@ -418,10 +433,11 @@ namespace Watermarking
                 var model = await Executor.ProcessData(originalFilePath, Path.GetFileName(originalKeyPath),
                     Path.GetFileNameWithoutExtension(originalKeyPath), 0, 0, 0, Mode);
                 model.Mode = Mode;
+                await DalService.InsertResult(model);
                 AddToResultSet(results, model);
             });
 
-            await DalService.InsertResults(results);
+//await DalService.InsertResults(results);
         }
 
         public static Task ForEachAsync<T>(

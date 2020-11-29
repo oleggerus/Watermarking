@@ -1,7 +1,5 @@
 ﻿using System;
-using DAL;
-
-namespace Algorithm
+namespace DAL.Services
 {
     public static class Factory
     {
@@ -12,6 +10,8 @@ namespace Algorithm
             TimeSpan decryptionTime,
             double encryptionPsnr,
             double decryptionPsnr,
+            double encryptionMse,
+            double decryptionMse,
             int brightness,
             int contrast,
             int noise,
@@ -33,6 +33,8 @@ namespace Algorithm
                 KeyFileName = keyFileName,
                 DecryptionPsnr = decryptionPsnr,
                 EncryptionPsnr = encryptionPsnr,
+                EncryptionMse = encryptionMse,
+                DecryptionMse = decryptionMse,
                 EncryptionTime = encryptionTime,
                 DecryptionTime = decryptionTime,
                 CreatedOn = DateTime.Now,

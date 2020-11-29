@@ -7,6 +7,7 @@ namespace Algorithm
     {
         public TimeSpan Time { get; set; }
         public double Psnr { get; set; }
+        public double Mse { get; set; }
         public int AverageRedColor { get; set; }
         public int AverageGreenColor { get; set; }
         public int AverageBlueColor { get; set; }
@@ -20,6 +21,6 @@ namespace Algorithm
         public int WatermarkWidth { get; set; }
 
         public Bitmap ContainerWithWatermark { get; set; }
-        public Bitmap ExtractedWatermark{ get; set; }
+        public Bitmap ExtractedWatermark { get; set; }
     }
 }
