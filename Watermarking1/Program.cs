@@ -96,11 +96,11 @@ namespace Watermarking
                                 await RunOneContainerForAllKeysNoContrastAndBrightness();
                                 break;
                             case 2:
-                                Mode = (int)WatermarkingMode.OneContainerToAllKeysWithBrightness;
+                                Mode = (int)WatermarkingMode.OneContainerToAllKeysWithContrast;
                                 await RunOneContainerForAllKeys();
                                 break;
                             case 3:
-                                Mode = (int)WatermarkingMode.OneContainerToAllKeysWithContrast;
+                                Mode = (int)WatermarkingMode.OneContainerToAllKeysWithBrightness;
                                 await RunOneContainerForAllKeys();
                                 break;
                             case 4:
@@ -188,7 +188,7 @@ namespace Watermarking
         private static async Task RunOneContainerForAllKeys()
         {
 
-            var originalFilePath = Path.Combine(MainConstants.ContainerFolderPath, "LenaOriginal512color.bmp");
+            var originalFilePath = Path.Combine(MainConstants.ContainerFolderPath, "macaw.bmp");
             var originalKeysPaths = Directory.GetFiles(MainConstants.KeysFolderPath, "*.bmp",
                 SearchOption.TopDirectoryOnly);
 
@@ -199,17 +199,17 @@ namespace Watermarking
                 if (Mode == (int)WatermarkingMode.OneContainerToAllKeysWithBrightness)
                 {
                     await RunDifferentBrightness(results, originalFilePath, originalKeyName,
-                    Path.GetFileNameWithoutExtension(originalKeyPath));
+                        $"{Path.GetFileNameWithoutExtension(originalFilePath)}_{Guid.NewGuid()}");
                 }
                 if (Mode == (int)WatermarkingMode.OneContainerToAllKeysWithContrast)
                 {
                     await RunDifferentContrast(results, originalFilePath, originalKeyName,
-                        Path.GetFileNameWithoutExtension(originalKeyPath));
+                        $"{Path.GetFileNameWithoutExtension(originalFilePath)}_{Guid.NewGuid()}");
                 }
                 if (Mode == (int)WatermarkingMode.OneContainerToAllKeysWithNoise)
                 {
                     await RunDifferentNoise(results, originalFilePath, originalKeyName,
-                        Path.GetFileNameWithoutExtension(originalKeyPath));
+                        $"{Path.GetFileNameWithoutExtension(originalFilePath)}_{Guid.NewGuid()}");
                 }
 
             });

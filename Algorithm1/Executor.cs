@@ -21,7 +21,7 @@ namespace Algorithm
 
             var originalKeyBitmap = new Bitmap(originalPathKey);
 
-            var encryptionResult = await Encrypt(originalFilePath, fileNameToCreate, originalPathKey, brightness, contrast, mode);
+            var encryptionResult = await Encrypt(originalFilePath, fileNameToCreate, originalPathKey, brightness, contrast, noise, mode);
             var decryptionResult = await Decrypt(fileNameToCreate, originalKeyBitmap);
 
             var insertModel = Factory.PrepareResultModel(fileNameToCreate, originalKeyFileName, encryptionResult.Time,
@@ -38,7 +38,7 @@ namespace Algorithm
         }
 
 
-        public static async Task<ProcessingResult> Encrypt(string originalFilePath, string originalFileName, string originalKeyPath, int brightness, int contrast, int mode)
+        public static async Task<ProcessingResult> Encrypt(string originalFilePath, string originalFileName, string originalKeyPath, int brightness, int contrast, int noise, int mode)
         {
             var originalContainerBitmap = new Bitmap(originalFilePath);
             var originalKeyBitmap = new Bitmap(originalKeyPath);
@@ -46,14 +46,25 @@ namespace Algorithm
 
             switch (mode)
             {
-                case 1:
-                    originalContainerBitmap =
-                        Helpers.SetContrast(Helpers.SetBrightness(originalContainerBitmap, brightness), contrast);
+                case (int)WatermarkingMode.OneKeyToAllContainersWithNoise:
+                    originalKeyBitmap = Helpers.SetNoise(originalKeyBitmap, noise);
                     break;
-                case 2:
-                    originalKeyBitmap =
-                        Helpers.SetContrast(Helpers.SetBrightness(originalKeyBitmap, brightness), contrast);
+                case (int)WatermarkingMode.OneKeyToAllContainersWithBrightness:
+                    originalKeyBitmap = Helpers.SetBrightness(originalKeyBitmap, brightness);
                     break;
+                case (int)WatermarkingMode.OneKeyToAllContainersWithContrast:
+                    originalKeyBitmap =Helpers.SetContrast(originalKeyBitmap, contrast);
+                    break;
+                case (int)WatermarkingMode.OneContainerToAllKeysWithNoise:
+                    originalContainerBitmap = Helpers.SetNoise(originalContainerBitmap, noise);
+                    break;
+                case (int)WatermarkingMode.OneContainerToAllKeysWithBrightness:
+                    originalContainerBitmap = Helpers.SetBrightness(originalContainerBitmap, brightness);
+                    break;
+                case (int)WatermarkingMode.OneContainerToAllKeysWithContrast:
+                    originalContainerBitmap = Helpers.SetContrast(originalContainerBitmap, contrast);
+                    break;
+
             }
 
             return await HandleEncryption(originalContainerBitmap, originalKeyBitmap, originalFileName);

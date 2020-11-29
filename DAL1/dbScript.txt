@@ -1,7 +1,7 @@
 ﻿USE [Watermarking]
 GO
 
-/****** Object:  Table [dbo].[WatermarkingResults]    Script Date: 09.11.2020 23:46:27 ******/
+/****** Object:  Table [dbo].[WatermarkingResults]    Script Date: 29.11.2020 19:07:20 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -30,7 +30,9 @@ CREATE TABLE [dbo].[WatermarkingResults](
 	[ContainerHeight] [int] NULL,
 	[WatermarkWidth] [int] NULL,
 	[WatermarkHeight] [int] NULL,
-	
+	[Noise] [int] NULL,
+	[EncryptionMse] [float] NULL,
+	[DecryptionMse] [float] NULL,
  CONSTRAINT [PK_WatermarkingResults] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -43,5 +45,3 @@ GO
 
 ALTER TABLE [dbo].[WatermarkingResults] ADD  CONSTRAINT [DF_WatermarkingResults_Contrast]  DEFAULT ((0)) FOR [Contrast]
 GO
-
-

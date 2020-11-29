@@ -208,6 +208,10 @@ namespace ClientApp
             {
                 await DisplayDecryptionSizeChart();
             }
+            if (tabControl1.SelectedIndex == 5)
+            {
+                await DisplayEffectsChart();
+            }
         }
 
         private async Task PopulateGridWithFullData()
@@ -268,7 +272,7 @@ namespace ClientApp
                 }
                 GridViewTab3.Refresh();
             }
-            else if (displayBrightnessContainerRadionBtn.Checked)
+            else if (displayNoiseContainerRadionBtn.Checked)
             {
                 GridViewTab3.Rows.Clear();
                 var toDisplay = (await DalService.GetAllResultByMode((int)WatermarkingMode.OneContainerToAllKeysWithNoise))
@@ -469,6 +473,160 @@ namespace ClientApp
             SetPSNRCharts(rows);
             SetMseCharts(rows);
         }
+
+        private async Task DisplayEffectsChart()
+        {
+
+            var rows = await DalService.GetAllResultByMode(new List<int> { (int)WatermarkingMode.OneContainerToAllKeysWithNoise, (int)WatermarkingMode.OneContainerToAllKeysWithBrightness, (int)WatermarkingMode.OneContainerToAllKeysWithContrast });
+            foreach (var row in rows)
+            {
+                row.ContainerFileName = row.ContainerFileName.Substring(0, row.ContainerFileName.IndexOf('_'));
+
+                row.ContainerFileName = row.ContainerFileName.Replace("_", "").Replace("64", "").Replace("128", "")
+                    .Replace("256", "").Replace("512", "").Replace("1024", "");
+            }
+
+            #region noise
+            var dtNoise = new DataTable();
+            dtNoise.Columns.Add("Container Name", typeof(string));
+            dtNoise.Columns.Add("Encryption PSNR", typeof(decimal));
+            dtNoise.Columns.Add("Noise level", typeof(string));
+
+            foreach (var group in rows.Where(x => x.Mode == (int)WatermarkingMode.OneContainerToAllKeysWithNoise
+            && x.WatermarkHeight.GetValueOrDefault() == 128).OrderBy(x => x.Noise).GroupBy(x => x.ContainerFileName))
+            {
+                foreach (var groupBySize in group.GroupBy(x => x.Noise))
+                {
+                    var max = groupBySize.Select(row => row.EncryptionPsnr).Concat(new[] { 0.0 }).Max();
+                    dtNoise.Rows.Add(group.Key, Math.Round(max, 2), groupBySize.Key);
+                }
+            }
+
+            encNoiseChart1.Series.Clear();
+            encNoiseChart1.DataBindCrossTable(dtNoise.Rows, "Container Name", "Noise level", "Encryption PSNR", "");
+            encNoiseChart1.Palette = ChartColorPalette.Berry;
+            encNoiseChart1.Titles.Clear();
+            encNoiseChart1.Titles.Add("Noise level effect");
+            UpdateChart(encNoiseChart1, "PSNR", "Noise level");
+
+            var dtNoiseDec = new DataTable();
+            dtNoiseDec.Columns.Add("Container Name", typeof(string));
+            dtNoiseDec.Columns.Add("Encryption PSNR", typeof(decimal));
+            dtNoiseDec.Columns.Add("Noise level", typeof(string));
+
+            foreach (var group in rows.Where(x => x.Mode == (int)WatermarkingMode.OneContainerToAllKeysWithNoise
+            && x.WatermarkHeight.GetValueOrDefault() == 128).OrderBy(x => x.Noise).GroupBy(x => x.ContainerFileName))
+            {
+                foreach (var groupBySize in group.GroupBy(x => x.Noise))
+                {
+                    var max = groupBySize.Select(row => row.DecryptionPsnr).Concat(new[] { 0.0 }).Max();
+                    dtNoiseDec.Rows.Add(group.Key, Math.Round(max, 2), groupBySize.Key);
+                }
+            }
+
+            decNoiseChart1.Series.Clear();
+            decNoiseChart1.DataBindCrossTable(dtNoiseDec.Rows, "Container Name", "Noise level", "Encryption PSNR", "");
+            decNoiseChart1.Palette = ChartColorPalette.Berry;
+            decNoiseChart1.Titles.Clear();
+            decNoiseChart1.Titles.Add("Noise level effect");
+            UpdateChart(decNoiseChart1, "PSNR", "Noise level");
+            #endregion
+
+            #region brightness
+            var dtBrightness = new DataTable();
+            dtBrightness.Columns.Add("Container Name", typeof(string));
+            dtBrightness.Columns.Add("Encryption PSNR", typeof(decimal));
+            dtBrightness.Columns.Add("Brightness level", typeof(string));
+
+            foreach (var group in rows.Where(x => x.Mode == (int)WatermarkingMode.OneContainerToAllKeysWithBrightness
+            && x.WatermarkHeight.GetValueOrDefault() == 128).OrderBy(x => x.Brightness).GroupBy(x => x.ContainerFileName))
+            {
+                foreach (var groupBySize in group.GroupBy(x => x.Brightness))
+                {
+                    var max = groupBySize.Select(row => row.EncryptionPsnr).Concat(new[] { 0.0 }).Max();
+                    dtBrightness.Rows.Add(group.Key, Math.Round(max, 2), groupBySize.Key);
+                }
+            }
+
+            encBrightnessChart.Series.Clear();
+            encBrightnessChart.DataBindCrossTable(dtBrightness.Rows, "Container Name", "Brightness level", "Encryption PSNR", "");
+            encBrightnessChart.Palette = ChartColorPalette.Berry;
+            encBrightnessChart.Titles.Clear();
+            encBrightnessChart.Titles.Add("Brightness level effect");
+            UpdateChart(encBrightnessChart, "PSNR", "Brightness level");
+
+            var dtBrightnessDec = new DataTable();
+            dtBrightnessDec.Columns.Add("Container Name", typeof(string));
+            dtBrightnessDec.Columns.Add("Encryption PSNR", typeof(decimal));
+            dtBrightnessDec.Columns.Add("Brightness level", typeof(string));
+
+            foreach (var group in rows.Where(x => x.Mode == (int)WatermarkingMode.OneContainerToAllKeysWithBrightness
+            && x.WatermarkHeight.GetValueOrDefault() == 128).OrderBy(x => x.Brightness).GroupBy(x => x.ContainerFileName))
+            {
+                foreach (var groupBySize in group.GroupBy(x => x.Brightness))
+                {
+                    var max = groupBySize.Select(row => row.DecryptionPsnr).Concat(new[] { 0.0 }).Max();
+                    dtBrightnessDec.Rows.Add(group.Key, Math.Round(max, 2), groupBySize.Key);
+                }
+            }
+
+            decBrightnessChart.Series.Clear();
+            decBrightnessChart.DataBindCrossTable(dtBrightnessDec.Rows, "Container Name", "Brightness level", "Encryption PSNR", "");
+            decBrightnessChart.Palette = ChartColorPalette.Berry;
+            decBrightnessChart.Titles.Clear();
+            decBrightnessChart.Titles.Add("Brightness level effect");
+            UpdateChart(decBrightnessChart, "PSNR", "Brightness level");
+            #endregion
+
+            #region contrast
+
+            var dtContrast = new DataTable();
+            dtContrast.Columns.Add("Container Name", typeof(string));
+            dtContrast.Columns.Add("Encryption PSNR", typeof(decimal));
+            dtContrast.Columns.Add("Contrast level", typeof(string));
+
+            foreach (var group in rows.Where(x => x.Mode == (int)WatermarkingMode.OneContainerToAllKeysWithContrast
+            && x.WatermarkHeight.GetValueOrDefault() == 128).OrderBy(x => x.Contrast).GroupBy(x => x.ContainerFileName))
+            {
+                foreach (var groupBySize in group.GroupBy(x => x.Contrast))
+                {
+                    var max = groupBySize.Select(row => row.EncryptionPsnr).Concat(new[] { 0.0 }).Max();
+                    dtContrast.Rows.Add(group.Key, Math.Round(max, 2), groupBySize.Key);
+                }
+            }
+
+            encContrastChart1.Series.Clear();
+            encContrastChart1.DataBindCrossTable(dtContrast.Rows, "Container Name", "Contrast level", "Encryption PSNR", "");
+            encContrastChart1.Palette = ChartColorPalette.Berry;
+            encContrastChart1.Titles.Clear();
+            encContrastChart1.Titles.Add("Contrast level effect");
+            UpdateChart(encContrastChart1, "PSNR", "Contrast level");
+
+            var dtContrastDec = new DataTable();
+            dtContrastDec.Columns.Add("Container Name", typeof(string));
+            dtContrastDec.Columns.Add("Encryption PSNR", typeof(decimal));
+            dtContrastDec.Columns.Add("Contrast level", typeof(string));
+
+            foreach (var group in rows.Where(x => x.Mode == (int)WatermarkingMode.OneContainerToAllKeysWithContrast
+            && x.WatermarkHeight.GetValueOrDefault() == 128).OrderBy(x => x.Contrast).GroupBy(x => x.ContainerFileName))
+            {
+                foreach (var groupBySize in group.GroupBy(x => x.Contrast))
+                {
+                    var max = groupBySize.Select(row => row.DecryptionPsnr).Concat(new[] { 0.0 }).Max();
+                    dtContrastDec.Rows.Add(group.Key, Math.Round(max, 2), groupBySize.Key);
+                }
+            }
+
+            decContrastChart1.Series.Clear();
+            decContrastChart1.DataBindCrossTable(dtContrastDec.Rows, "Container Name", "Contrast level", "Encryption PSNR", "");
+            decContrastChart1.Palette = ChartColorPalette.Berry;
+            decContrastChart1.Titles.Clear();
+            decContrastChart1.Titles.Add("Contrast level effect");
+            UpdateChart(decContrastChart1, "PSNR", "Contrast level");
+
+            #endregion
+        }
+
 
         private void label33_Click(object sender, EventArgs e)
         {
@@ -770,7 +928,7 @@ namespace ClientApp
 
         }
 
-        private void UpdateChart(Chart chart, string text)
+        private void UpdateChart(Chart chart, string text, string oxisLabel="")
         {
 
             chart.Palette = ChartColorPalette.SeaGreen;
@@ -782,7 +940,7 @@ namespace ClientApp
             {
                 BorderDashStyle = ChartDashStyle.Solid,
                 BorderWidth = 3,
-                BorderColor = Color.Red,
+                BorderColor = Color.BlueViolet,
                 Interval = 0, // to show only one vertical line
                 IntervalOffset = -0.5, // for showing Vertical line between 2 series 
                 IntervalType = DateTimeIntervalType.Years // for me years
@@ -791,7 +949,7 @@ namespace ClientApp
             {
                 BorderDashStyle = ChartDashStyle.Solid,
                 BorderWidth = 3,
-                BorderColor = Color.Red,
+                BorderColor = Color.BlueViolet,
                 Interval = 0, // to show only one vertical line
                 IntervalOffset = 0.5, // for showing Vertical line between 2 series 
                 IntervalType = DateTimeIntervalType.Years // for me years
@@ -800,7 +958,7 @@ namespace ClientApp
             {
                 BorderDashStyle = ChartDashStyle.Solid,
                 BorderWidth = 3,
-                BorderColor = Color.Red,
+                BorderColor = Color.BlueViolet,
                 Interval = 0, // to show only one vertical line
                 IntervalOffset = 1.5, // for showing Vertical line between 2 series 
                 IntervalType = DateTimeIntervalType.Years // for me years
@@ -809,16 +967,80 @@ namespace ClientApp
             {
                 BorderDashStyle = ChartDashStyle.Solid,
                 BorderWidth = 3,
-                BorderColor = Color.Red,
+                BorderColor = Color.BlueViolet,
                 Interval = 0, // to show only one vertical line
                 IntervalOffset = 2.5, // for showing Vertical line between 2 series 
                 IntervalType = DateTimeIntervalType.Years // for me years
             });
-            chartArea.AxisX.Title = "Container size (squad)";
+            chartArea.AxisX.StripLines.Add(new StripLine
+            {
+                BorderDashStyle = ChartDashStyle.Solid,
+                BorderWidth = 3,
+                BorderColor = Color.BlueViolet,
+                Interval = 0, // to show only one vertical line
+                IntervalOffset = 3.5, // for showing Vertical line between 2 series 
+                IntervalType = DateTimeIntervalType.Years // for me years
+            });
+            chartArea.AxisX.StripLines.Add(new StripLine
+            {
+                BorderDashStyle = ChartDashStyle.Solid,
+                BorderWidth = 3,
+                BorderColor = Color.BlueViolet,
+                Interval = 0, // to show only one vertical line
+                IntervalOffset = 4.5, // for showing Vertical line between 2 series 
+                IntervalType = DateTimeIntervalType.Years // for me years
+            });
+            chartArea.AxisX.StripLines.Add(new StripLine
+            {
+                BorderDashStyle = ChartDashStyle.Solid,
+                BorderWidth = 3,
+                BorderColor = Color.BlueViolet,
+                Interval = 0, // to show only one vertical line
+                IntervalOffset = 5.5, // for showing Vertical line between 2 series 
+                IntervalType = DateTimeIntervalType.Years // for me years
+            });
+            chartArea.AxisX.StripLines.Add(new StripLine
+            {
+                BorderDashStyle = ChartDashStyle.Solid,
+                BorderWidth = 3,
+                BorderColor = Color.BlueViolet,
+                Interval = 0, // to show only one vertical line
+                IntervalOffset = 6.5, // for showing Vertical line between 2 series 
+                IntervalType = DateTimeIntervalType.Years // for me years
+            });
+            chartArea.AxisX.StripLines.Add(new StripLine
+            {
+                BorderDashStyle = ChartDashStyle.Solid,
+                BorderWidth = 3,
+                BorderColor = Color.BlueViolet,
+                Interval = 0, // to show only one vertical line
+                IntervalOffset = 7.5, // for showing Vertical line between 2 series 
+                IntervalType = DateTimeIntervalType.Years // for me years
+            });
+            chartArea.AxisX.StripLines.Add(new StripLine
+            {
+                BorderDashStyle = ChartDashStyle.Solid,
+                BorderWidth = 3,
+                BorderColor = Color.BlueViolet,
+                Interval = 0, // to show only one vertical line
+                IntervalOffset = 8.5, // for showing Vertical line between 2 series 
+                IntervalType = DateTimeIntervalType.Years // for me years
+            });
+            chartArea.AxisX.Title = string.IsNullOrWhiteSpace(oxisLabel) ? "Container size (squad)" : oxisLabel;
             chartArea.AxisY.Title = text;
         }
 
         private void size64Chart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
         {
 
         }
